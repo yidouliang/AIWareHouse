@@ -1,0 +1,33 @@
+package com.boot.security.server.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
+import com.boot.security.server.model.AiOperator;
+
+@Mapper
+public interface AiOperatorDao {
+
+    @Select("select * from ai_operator t where t.id = #{id}")
+    AiOperator getById(Long id);
+
+    @Delete("delete from ai_operator where id = #{id}")
+    int delete(Long id);
+
+    int update(AiOperator aiOperator);
+    
+    @Options(useGeneratedKeys = true, keyProperty = "id")
+    @Insert("insert into ai_operator(name, description, level, EXT4, EXT5, EXT6, EXT1, EXT2, owernum) values(#{name}, #{description}, #{level}, #{EXT4}, #{EXT5}, #{EXT6}, #{EXT1}, #{EXT2}, #{owernum})")
+    int save(AiOperator aiOperator);
+    
+    int count(@Param("params") Map<String, Object> params);
+
+    List<AiOperator> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+}

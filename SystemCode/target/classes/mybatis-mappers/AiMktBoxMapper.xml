@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.AiMktBoxDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.boxName != null and params.boxName != ''">
+				and boxName = #{params.boxName} 
+			</if>
+			<if test="params.boxCode != null and params.boxCode != ''">
+				and boxCode = #{params.boxCode} 
+			</if>
+			<if test="params.boxType != null and params.boxType != ''">
+				and boxType = #{params.boxType} 
+			</if>
+			<if test="params.boxPerson != null and params.boxPerson != ''">
+				and boxPerson = #{params.boxPerson} 
+			</if>
+			<if test="params.address != null and params.address != ''">
+				and address = #{params.address} 
+			</if>
+			<if test="params.status != null and params.status != ''">
+				and status = #{params.status} 
+			</if>
+			<if test="params.FACTORY_DATE != null and params.FACTORY_DATE != ''">
+				and FACTORY_DATE = #{params.FACTORYDATE} 
+			</if>
+			<if test="params.PAY_STATE != null and params.PAY_STATE != ''">
+				and PAY_STATE = #{params.PAYSTATE} 
+			</if>
+			<if test="params.BOX_WAREHOUSE_ID != null and params.BOX_WAREHOUSE_ID != ''">
+				and BOX_WAREHOUSE_ID = #{params.BOXWAREHOUSEID} 
+			</if>
+			<if test="params.END_DATE != null and params.END_DATE != ''">
+				and END_DATE = #{params.ENDDATE} 
+			</if>
+			<if test="params.personTelphone != null and params.personTelphone != ''">
+				and personTelphone = #{params.personTelphone} 
+			</if>
+			<if test="params.longitude != null and params.longitude != ''">
+				and longitude = #{params.longitude} 
+			</if>
+			<if test="params.latitude != null and params.latitude != ''">
+				and latitude = #{params.latitude} 
+			</if>
+			<if test="params.EXT1 != null and params.EXT1 != ''">
+				and EXT1 = #{params.EXT1} 
+			</if>
+			<if test="params.EXT2 != null and params.EXT2 != ''">
+				and EXT2 = #{params.EXT2} 
+			</if>
+			<if test="params.EXT3 != null and params.EXT3 != ''">
+				and EXT3 = #{params.EXT3} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from ai_mkt_box t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="AiMktBox">
+		select * from ai_mkt_box t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update ai_mkt_box t
+		<set>
+			<if test="boxName != null">
+				boxName = #{boxName}, 
+			</if>
+			<if test="boxCode != null">
+				boxCode = #{boxCode}, 
+			</if>
+			<if test="boxType != null">
+				boxType = #{boxType}, 
+			</if>
+			<if test="boxPerson != null">
+				boxPerson = #{boxPerson}, 
+			</if>
+			<if test="address != null">
+				address = #{address}, 
+			</if>
+			<if test="status != null">
+				status = #{status}, 
+			</if>
+			<if test="FACTORY_DATE != null">
+				FACTORY_DATE = #{FACTORYDATE}, 
+			</if>
+			<if test="PAY_STATE != null">
+				PAY_STATE = #{PAYSTATE}, 
+			</if>
+			<if test="BOX_WAREHOUSE_ID != null">
+				BOX_WAREHOUSE_ID = #{BOXWAREHOUSEID}, 
+			</if>
+			<if test="END_DATE != null">
+				END_DATE = #{ENDDATE}, 
+			</if>
+			<if test="personTelphone != null">
+				personTelphone = #{personTelphone}, 
+			</if>
+			<if test="longitude != null">
+				longitude = #{longitude}, 
+			</if>
+			<if test="latitude != null">
+				latitude = #{latitude}, 
+			</if>
+			<if test="EXT1 != null">
+				EXT1 = #{EXT1}, 
+			</if>
+			<if test="EXT2 != null">
+				EXT2 = #{EXT2}, 
+			</if>
+			<if test="EXT3 != null">
+				EXT3 = #{EXT3}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

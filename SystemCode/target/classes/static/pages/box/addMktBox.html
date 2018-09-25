@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../layui/css/layui.css">
+</head>
+<body>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document" style="width:800px">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">绑定管理人</h4>
+			</div>
+			<div class="modal-body">
+
+				<div>
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<header style="height: 100%">
+							<div align="left">
+								<table style="width: 100%" id="personManagertable">
+									<tr>
+										<td>
+											<form class="form-inline" onsubmit="return false">
+												<div class="form-group">
+													用户名：
+													<input id="username" type="text" class="form-control" placeholder="用户名">
+													昵称：
+													<input id="nickname" type="text" class="form-control" placeholder="昵称">
+
+													<button id="searchBt" class="layui-btn layui-btn-sm" permission="sys:user:query"><i class="layui-icon">&#xe615;</i>搜索</button>
+												</div>
+											</form>
+										</td>
+
+									</tr>
+								</table>
+							</div>
+						</header>
+
+						<div>
+							<div class="widget-body no-padding">
+								<table id="dt-table" class="table table-striped table-bordered table-hover " style="width:100%">
+									<thead>
+									<tr>
+									</tr>
+									<tr>
+										<th>check</th>
+										<th>username</th>
+										<th>昵称</th>
+										<th>手机号</th>
+										<th>邮箱</th>
+										<th>状态</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" onclick="addmanager()" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>确定</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>盒子名称</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='boxName' type='text' name='boxName' id='boxName' data-bv-notempty='true' data-bv-notempty-message='boxName 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>盒子编码</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='boxCode' type='text' name='boxCode' id='boxCode' data-bv-notempty='true' data-bv-notempty-message='boxCode 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>盒子类型</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='boxType' type='text' name='boxType' id='boxType' data-bv-notempty='true' data-bv-notempty-message='boxType 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>管理人</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='boxPerson' type='text' name='boxPerson' id='boxPerson' data-bv-notempty='true' data-bv-notempty-message='boxPerson 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>地址</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='address' type='text' name='address' id='address' data-bv-notempty='false' data-bv-notempty-message='address 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>状态</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='status' type='text' name='status' id='status' data-bv-notempty='false' data-bv-notempty-message='status 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>管理者电话</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='personTelphone' type='text' name='personTelphone' id='personTelphone' data-bv-notempty='true' data-bv-notempty-message='personTelphone 不能为空'>
+				</div>
+			</div>
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='mktBoxList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../js/bootstrap/bootstrap.min.js"></script>
+
+
+<script type="text/javascript" src="../../js/plugin/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/my/permission.js"></script>
+<script type="text/javascript" src="../../js/dict.js"></script>
+
+	<script type="text/javascript">
+
+        $("#boxPerson").click(function () {
+                 $("#myModalLabel").text("新增");
+                 $('#myModal').modal();
+             });
+
+
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/mktBoxs',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "mktBoxList.html";
+                    });
+				}
+			});
+		}
+
+
+
+
+        layui.use([ 'layer' ], function() {
+            var layer = layui.layer;
+        });
+        var userStatus = showDictSelect("status", "userStatus", true);
+
+        var pers = checkPermission();
+
+        var example;
+        function init(){
+            example =
+                $('#dt-table').DataTable({
+                    "searching": false,
+                    "processing": false,
+                    "serverSide" : true,
+                    "language": {
+                        "url": "/js/plugin/datatables/Chinese.lang"
+                    },
+                    "ajax": {
+                        "url" : "/users",
+                        "type":"get",
+                        "data":function(d){
+                            d.username = $('#username').val();
+                            d.nickname = $('#nickname').val();
+
+                        },
+                        "error":function(xhr, textStatus, errorThrown){
+                            var msg = xhr.responseText;
+                            console.log(msg)
+                        }
+                    },
+                    "dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",
+                    "columns": [
+                        {
+                         "data":"",
+							"render": function (settings, rowIdx, rec, type) {
+                             var btnBind = "<label><input type='checkbox'   id='childclick'   onclick = childclick(this) name='ckb-jobid'  /><span class='lbl'>"+rec.id+"</span></label>";
+                             return btnBind;
+                            }
+                        },
+                        { "data": "username", "defaultContent": ""},
+                        { "data": "nickname", "defaultContent": ""},
+                        { "data": "phone", "defaultContent": ""},
+                        { "data": "email", "defaultContent": ""},
+                        {
+
+                            "data": "status",
+                            "defaultContent": "",
+                            "render": function (data, type, row) {
+                                return userStatus[data];
+                            }
+                        },
+
+                    ],
+                    "order": [[ 0, "desc" ],[1, "asc"]]
+                } );
+
+
+            var trs = document.getElementById('dt-table').getElementsByTagName('tr');
+            window.onload = function(){
+                for( var i=0; i<trs.length; i++ ){
+                    trs[i].onmousedown = function(){
+                        tronmousedown(this);
+                    }
+                }
+            }
+
+
+        }
+
+        function tronmousedown(obj){
+            var trs = document.getElementById('dt-table').getElementsByTagName('tr');
+            for( var o=0; o<trs.length; o++ ){
+                if( trs[o] == obj ){
+                    trs[o].style.backgroundColor = '#DDDDDDD';
+                }
+                else{
+                    trs[o].style.backgroundColor = '';
+                }
+            }
+        }
+
+        $("#searchBt").click(function(){
+            example.ajax.reload();
+        });
+
+        init();
+
+        var checkID = 0;
+        function childclick(data){
+            $("input[name='ckb-jobid']").each(function ()
+			{
+                this.checked = false;
+            });
+            data.checked = true;
+            checkID = data.labels[0].innerText;
+
+        }
+
+
+        var table=$("#dt-table").DataTable();
+
+        //给table添加单击事件
+
+        $("#dt-table").on("click","tr",function(){//给tr或者td添加click事件
+            var data=table.row(this).data();//获取值的对象数据
+           // alert(data.phone);//某一行中要是用的表头值
+        });
+
+        function  addmanager() {
+
+
+            if(checkID == 0){
+
+                alert("您还没有选择管理人员")
+			}else{
+
+                $("#boxPerson").val(checkID);
+			}
+
+        }
+
+	</script>
+
+
+
+</body>
+</html>

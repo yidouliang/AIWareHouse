@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>id</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='id' type='text' name='consumerid' id='consumerid'data-bv-notempty='false' data-bv-notempty-message='consumerid 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 客户昵称 name</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='客户昵称' type='text' name='name' id='name'data-bv-notempty='true' data-bv-notempty-message='name 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 电话 telphone</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='电话' type='text' name='telphone' id='telphone'data-bv-notempty='true' data-bv-notempty-message='telphone 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 类型 type</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='类型' type='text' name='type' id='type'data-bv-notempty='false' data-bv-notempty-message='type 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 星级 starcode</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='星级' type='text' name='starcode' id='starcode'data-bv-notempty='false' data-bv-notempty-message='starcode 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 来源 source</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='来源' type='text' name='source' id='source'data-bv-notempty='false' data-bv-notempty-message='source 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 备注 descinfo</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='备注' type='text' name='descinfo' id='descinfo'data-bv-notempty='false' data-bv-notempty-message='descinfo 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 状态 state</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='状态' type='text' name='state' id='state'data-bv-notempty='false' data-bv-notempty-message='state 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 注册盒子 boxidreg</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='注册盒子' type='text' name='boxidreg' id='boxidreg'data-bv-notempty='false' data-bv-notempty-message='boxidreg 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 扩展字段1 ext1</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='扩展字段1' type='text' name='ext1' id='ext1'data-bv-notempty='false' data-bv-notempty-message='ext1 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 扩展字段2 ext2</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='扩展字段2' type='text' name='ext2' id='ext2'data-bv-notempty='false' data-bv-notempty-message='ext2 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 扩展字段3 ext3</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='扩展字段3' type='text' name='ext3' id='ext3'data-bv-notempty='false' data-bv-notempty-message='ext3 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'> 扩展字段4 Column13</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='扩展字段4' type='text' name='Column13' id='Column13'data-bv-notempty='false' data-bv-notempty-message='Column13 不能为空'>
+				</div>
+			</div>
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='consumerList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/consumers',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "consumerList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

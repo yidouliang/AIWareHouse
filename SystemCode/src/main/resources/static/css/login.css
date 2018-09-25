@@ -1,0 +1,110 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+body{
+
+    margin: 0px;
+    padding: 0px;
+    background: url(../img/login/bg.png) no-repeat center;
+    background-size: cover;
+    min-width: 1220px;
+    overflow: auto;
+}
+
+/*设置顶部logo*/
+.top-header{
+    font-size: 16px;
+    padding: 10px  0px 10px  30px ;
+    background-color: white;
+
+}
+.menban{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    background:linear-gradient(to bottom,#F0FFFF,#fff);
+    opacity:0.4;
+
+
+}
+.top-header img{
+    margin:auto 10px 3px;
+    border-radius: 40%;
+    vertical-align: center;
+}
+.top-header span{
+    font-size: 28px;
+    font-weight: bold;
+
+}
+/*设置页面主体 右侧登录模块*/
+.body-right{
+    position: relative;
+    float: right;
+    border:1px solid  #E8E8E8;
+    width: 400px;
+    height: 350px;
+    margin-top: 100px;
+    margin-right: 150px;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    text-align: center;
+
+}
+.user-name label, .user-password label{
+    display: inline-block;
+    margin-right: 6px;
+    border-radius: 5px;
+}
+
+input{
+    outline: none;
+}
+
+.login-name input{
+    background-color: #ffffcc;
+    text-align: left;
+    width: 180px;
+    height: 30px;
+    border: 1px solid #ffffcc;
+    border-radius: 5px;
+    padding-left: 15px;
+
+}
+
+
+.login-submit input{
+    width: 250px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: #FF9900;
+}
+
+.login-wrap p{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.user-password label{
+    margin-left: 15px;
+}
+
+.login-wrap{
+    position: relative;
+    margin-top: 35px;
+}
+
+/*页面底部模块*/
+.footer-{
+    clear: both;
+    text-align: center;
+    width: 100%;
+    height: 8%;
+    background-color: white;
+    position: absolute;
+    bottom: 0px;
+    padding-top: 70px;
+}
+

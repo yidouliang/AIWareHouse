@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.AiWarehouseDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.ID != null and params.ID != ''">
+				and ID = #{params.ID} 
+			</if>
+			<if test="params.NAME != null and params.NAME != ''">
+				and NAME = #{params.NAME} 
+			</if>
+			<if test="params.ADDESS != null and params.ADDESS != ''">
+				and ADDESS = #{params.ADDESS} 
+			</if>
+			<if test="params.LONGITUDE != null and params.LONGITUDE != ''">
+				and LONGITUDE = #{params.LONGITUDE} 
+			</if>
+			<if test="params.LATITUDE != null and params.LATITUDE != ''">
+				and LATITUDE = #{params.LATITUDE} 
+			</if>
+			<if test="params.TYPE != null and params.TYPE != ''">
+				and TYPE = #{params.TYPE} 
+			</if>
+			<if test="params.USER_ID != null and params.USER_ID != ''">
+				and USER_ID = #{params.USERID} 
+			</if>
+			<if test="params.WAREHOUSE_STATE != null and params.WAREHOUSE_STATE != ''">
+				and WAREHOUSE_STATE = #{params.WAREHOUSESTATE} 
+			</if>
+			<if test="params.EXT1 != null and params.EXT1 != ''">
+				and EXT1 = #{params.EXT1} 
+			</if>
+			<if test="params.EXT2 != null and params.EXT2 != ''">
+				and EXT2 = #{params.EXT2} 
+			</if>
+			<if test="params.EXT3 != null and params.EXT3 != ''">
+				and EXT3 = #{params.EXT3} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from ai_warehouse t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="AiWarehouse">
+		select * from ai_warehouse t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update ai_warehouse t
+		<set>
+			<if test="ID != null">
+				ID = #{ID}, 
+			</if>
+			<if test="NAME != null">
+				NAME = #{NAME}, 
+			</if>
+			<if test="ADDESS != null">
+				ADDESS = #{ADDESS}, 
+			</if>
+			<if test="LONGITUDE != null">
+				LONGITUDE = #{LONGITUDE}, 
+			</if>
+			<if test="LATITUDE != null">
+				LATITUDE = #{LATITUDE}, 
+			</if>
+			<if test="TYPE != null">
+				TYPE = #{TYPE}, 
+			</if>
+			<if test="USER_ID != null">
+				USER_ID = #{USERID}, 
+			</if>
+			<if test="WAREHOUSE_STATE != null">
+				WAREHOUSE_STATE = #{WAREHOUSESTATE}, 
+			</if>
+			<if test="EXT1 != null">
+				EXT1 = #{EXT1}, 
+			</if>
+			<if test="EXT2 != null">
+				EXT2 = #{EXT2}, 
+			</if>
+			<if test="EXT3 != null">
+				EXT3 = #{EXT3}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

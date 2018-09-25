@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.AiWarehouseStockDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.ID != null and params.ID != ''">
+				and ID = #{params.ID} 
+			</if>
+			<if test="params.PROD_INST_ID != null and params.PROD_INST_ID != ''">
+				and PROD_INST_ID = #{params.PRODINSTID} 
+			</if>
+			<if test="params.PRODUCT_NAME != null and params.PRODUCT_NAME != ''">
+				and PRODUCT_NAME = #{params.PRODUCTNAME} 
+			</if>
+			<if test="params.SERIAL_NO != null and params.SERIAL_NO != ''">
+				and SERIAL_NO = #{params.SERIALNO} 
+			</if>
+			<if test="params.ALL_NUM != null and params.ALL_NUM != ''">
+				and ALL_NUM = #{params.ALLNUM} 
+			</if>
+			<if test="params.REMAIND_NUM != null and params.REMAIND_NUM != ''">
+				and REMAIND_NUM = #{params.REMAINDNUM} 
+			</if>
+			<if test="params.AI_CODE != null and params.AI_CODE != ''">
+				and AI_CODE = #{params.AICODE} 
+			</if>
+			<if test="params.USER_ID != null and params.USER_ID != ''">
+				and USER_ID = #{params.USERID} 
+			</if>
+			<if test="params.OLD_PRICE != null and params.OLD_PRICE != ''">
+				and OLD_PRICE = #{params.OLDPRICE} 
+			</if>
+			<if test="params.NOW_PRICE != null and params.NOW_PRICE != ''">
+				and NOW_PRICE = #{params.NOWPRICE} 
+			</if>
+			<if test="params.WAREHOUSE_ID != null and params.WAREHOUSE_ID != ''">
+				and WAREHOUSE_ID = #{params.WAREHOUSEID} 
+			</if>
+			<if test="params.DISCOUNT != null and params.DISCOUNT != ''">
+				and DISCOUNT = #{params.DISCOUNT} 
+			</if>
+			<if test="params.BATCH_ID != null and params.BATCH_ID != ''">
+				and BATCH_ID = #{params.BATCHID} 
+			</if>
+			<if test="params.SUPPLIER != null and params.SUPPLIER != ''">
+				and SUPPLIER = #{params.SUPPLIER} 
+			</if>
+			<if test="params.FACTORY_DATE != null and params.FACTORY_DATE != ''">
+				and FACTORY_DATE = #{params.FACTORYDATE} 
+			</if>
+			<if test="params.VALID_MONTHS != null and params.VALID_MONTHS != ''">
+				and VALID_MONTHS = #{params.VALIDMONTHS} 
+			</if>
+			<if test="params.STORE_STATUS != null and params.STORE_STATUS != ''">
+				and STORE_STATUS = #{params.STORESTATUS} 
+			</if>
+			<if test="params.STATUS_STATE_REASON != null and params.STATUS_STATE_REASON != ''">
+				and STATUS_STATE_REASON = #{params.STATUSSTATEREASON} 
+			</if>
+			<if test="params.CREATE_OPER_ID != null and params.CREATE_OPER_ID != ''">
+				and CREATE_OPER_ID = #{params.CREATEOPERID} 
+			</if>
+			<if test="params.CREATE_ORG_ID != null and params.CREATE_ORG_ID != ''">
+				and CREATE_ORG_ID = #{params.CREATEORGID} 
+			</if>
+			<if test="params.CREATE_DATE != null and params.CREATE_DATE != ''">
+				and CREATE_DATE = #{params.CREATEDATE} 
+			</if>
+			<if test="params.MODIFY_DATE != null and params.MODIFY_DATE != ''">
+				and MODIFY_DATE = #{params.MODIFYDATE} 
+			</if>
+			<if test="params.DATA_STATE != null and params.DATA_STATE != ''">
+				and DATA_STATE = #{params.DATASTATE} 
+			</if>
+			<if test="params.EXT1 != null and params.EXT1 != ''">
+				and EXT1 = #{params.EXT1} 
+			</if>
+			<if test="params.EXT2 != null and params.EXT2 != ''">
+				and EXT2 = #{params.EXT2} 
+			</if>
+			<if test="params.EXT3 != null and params.EXT3 != ''">
+				and EXT3 = #{params.EXT3} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from ai_warehouse_stock t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="AiWarehouseStock">
+		select * from ai_warehouse_stock t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update ai_warehouse_stock t
+		<set>
+			<if test="ID != null">
+				ID = #{ID}, 
+			</if>
+			<if test="PROD_INST_ID != null">
+				PROD_INST_ID = #{PRODINSTID}, 
+			</if>
+			<if test="PRODUCT_NAME != null">
+				PRODUCT_NAME = #{PRODUCTNAME}, 
+			</if>
+			<if test="SERIAL_NO != null">
+				SERIAL_NO = #{SERIALNO}, 
+			</if>
+			<if test="ALL_NUM != null">
+				ALL_NUM = #{ALLNUM}, 
+			</if>
+			<if test="REMAIND_NUM != null">
+				REMAIND_NUM = #{REMAINDNUM}, 
+			</if>
+			<if test="AI_CODE != null">
+				AI_CODE = #{AICODE}, 
+			</if>
+			<if test="USER_ID != null">
+				USER_ID = #{USERID}, 
+			</if>
+			<if test="OLD_PRICE != null">
+				OLD_PRICE = #{OLDPRICE}, 
+			</if>
+			<if test="NOW_PRICE != null">
+				NOW_PRICE = #{NOWPRICE}, 
+			</if>
+			<if test="WAREHOUSE_ID != null">
+				WAREHOUSE_ID = #{WAREHOUSEID}, 
+			</if>
+			<if test="DISCOUNT != null">
+				DISCOUNT = #{DISCOUNT}, 
+			</if>
+			<if test="BATCH_ID != null">
+				BATCH_ID = #{BATCHID}, 
+			</if>
+			<if test="SUPPLIER != null">
+				SUPPLIER = #{SUPPLIER}, 
+			</if>
+			<if test="FACTORY_DATE != null">
+				FACTORY_DATE = #{FACTORYDATE}, 
+			</if>
+			<if test="VALID_MONTHS != null">
+				VALID_MONTHS = #{VALIDMONTHS}, 
+			</if>
+			<if test="STORE_STATUS != null">
+				STORE_STATUS = #{STORESTATUS}, 
+			</if>
+			<if test="STATUS_STATE_REASON != null">
+				STATUS_STATE_REASON = #{STATUSSTATEREASON}, 
+			</if>
+			<if test="CREATE_OPER_ID != null">
+				CREATE_OPER_ID = #{CREATEOPERID}, 
+			</if>
+			<if test="CREATE_ORG_ID != null">
+				CREATE_ORG_ID = #{CREATEORGID}, 
+			</if>
+			<if test="CREATE_DATE != null">
+				CREATE_DATE = #{CREATEDATE}, 
+			</if>
+			<if test="MODIFY_DATE != null">
+				MODIFY_DATE = #{MODIFYDATE}, 
+			</if>
+			<if test="DATA_STATE != null">
+				DATA_STATE = #{DATASTATE}, 
+			</if>
+			<if test="EXT1 != null">
+				EXT1 = #{EXT1}, 
+			</if>
+			<if test="EXT2 != null">
+				EXT2 = #{EXT2}, 
+			</if>
+			<if test="EXT3 != null">
+				EXT3 = #{EXT3}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

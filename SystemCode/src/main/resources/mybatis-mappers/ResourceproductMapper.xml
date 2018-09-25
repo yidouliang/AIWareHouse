@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.ResourceproductDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.productname != null and params.productname != ''">
+				and productname = #{params.productname} 
+			</if>
+			<if test="params.totalnum != null and params.totalnum != ''">
+				and totalnum = #{params.totalnum} 
+			</if>
+			<if test="params.remainnum != null and params.remainnum != ''">
+				and remainnum = #{params.remainnum} 
+			</if>
+			<if test="params.creator != null and params.creator != ''">
+				and creator = #{params.creator} 
+			</if>
+			<if test="params.creattime != null and params.creattime != ''">
+				and creattime = #{params.creattime} 
+			</if>
+			<if test="params.updatetime != null and params.updatetime != ''">
+				and updatetime = #{params.updatetime} 
+			</if>
+			<if test="params.price != null and params.price != ''">
+				and price = #{params.price} 
+			</if>
+			<if test="params.originprice != null and params.originprice != ''">
+				and originprice = #{params.originprice} 
+			</if>
+			<if test="params.discount != null and params.discount != ''">
+				and discount = #{params.discount} 
+			</if>
+			<if test="params.region != null and params.region != ''">
+				and region = #{params.region} 
+			</if>
+			<if test="params.remark != null and params.remark != ''">
+				and remark = #{params.remark} 
+			</if>
+			<if test="params.userid != null and params.userid != ''">
+				and userid = #{params.userid} 
+			</if>
+			<if test="params.ext1 != null and params.ext1 != ''">
+				and ext1 = #{params.ext1} 
+			</if>
+			<if test="params.ext2 != null and params.ext2 != ''">
+				and ext2 = #{params.ext2} 
+			</if>
+			<if test="params.ext3 != null and params.ext3 != ''">
+				and ext3 = #{params.ext3} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from resourceproduct t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="Resourceproduct">
+		select * from resourceproduct t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update resourceproduct t
+		<set>
+			<if test="productname != null">
+				productname = #{productname}, 
+			</if>
+			<if test="totalnum != null">
+				totalnum = #{totalnum}, 
+			</if>
+			<if test="remainnum != null">
+				remainnum = #{remainnum}, 
+			</if>
+			<if test="creator != null">
+				creator = #{creator}, 
+			</if>
+			<if test="creattime != null">
+				creattime = #{creattime}, 
+			</if>
+			<if test="updatetime != null">
+				updatetime = #{updatetime}, 
+			</if>
+			<if test="price != null">
+				price = #{price}, 
+			</if>
+			<if test="originprice != null">
+				originprice = #{originprice}, 
+			</if>
+			<if test="discount != null">
+				discount = #{discount}, 
+			</if>
+			<if test="region != null">
+				region = #{region}, 
+			</if>
+			<if test="remark != null">
+				remark = #{remark}, 
+			</if>
+			<if test="userid != null">
+				userid = #{userid}, 
+			</if>
+			<if test="ext1 != null">
+				ext1 = #{ext1}, 
+			</if>
+			<if test="ext2 != null">
+				ext2 = #{ext2}, 
+			</if>
+			<if test="ext3 != null">
+				ext3 = #{ext3}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

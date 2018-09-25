@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.OrderFirstLevelDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.serialnumber != null and params.serialnumber != ''">
+				and serialnumber = #{params.serialnumber} 
+			</if>
+			<if test="params.usercode != null and params.usercode != ''">
+				and usercode = #{params.usercode} 
+			</if>
+			<if test="params.createtime != null and params.createtime != ''">
+				and createtime = #{params.createtime} 
+			</if>
+			<if test="params.telephone != null and params.telephone != ''">
+				and telephone = #{params.telephone} 
+			</if>
+			<if test="params.paytime1 != null and params.paytime1 != ''">
+				and paytime &gt;= #{params.paytime1}
+			</if>
+			<if test="params.paytime2 != null and params.paytime2 != ''">
+				and DATE(paytime) &lt;= #{params.paytime2}
+			</if>
+			<if test="params.sendtime != null and params.sendtime != ''">
+				and sendtime = #{params.sendtime} 
+			</if>
+			<if test="params.replytime != null and params.replytime != ''">
+				and replytime = #{params.replytime} 
+			</if>
+			<if test="params.orderpreprice != null and params.orderpreprice != ''">
+				and orderpreprice = #{params.orderpreprice} 
+			</if>
+			<if test="params.orderrealprice != null and params.orderrealprice != ''">
+				and orderrealprice = #{params.orderrealprice} 
+			</if>
+			<if test="params.orderno != null and params.orderno != ''">
+				and orderno = #{params.orderno} 
+			</if>
+			<if test="params.paystatus != null and params.paystatus != ''">
+				and paystatus = #{params.paystatus} 
+			</if>
+			<if test="params.failreason != null and params.failreason != ''">
+				and failreason = #{params.failreason} 
+			</if>
+			<if test="params.paytype != null and params.paytype != ''">
+				and paytype = #{params.paytype} 
+			</if>
+			<if test="params.payurl != null and params.payurl != ''">
+				and payurl = #{params.payurl} 
+			</if>
+			<if test="params.ordercomment != null and params.ordercomment != ''">
+				and ordercomment = #{params.ordercomment} 
+			</if>
+			<if test="params.datastate != null and params.datastate != ''">
+				and datastate = #{params.datastate} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from order_first_level t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="OrderFirstLevel">
+		select * from order_first_level t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update order_first_level t
+		<set>
+			<if test="serialnumber != null">
+				serialnumber = #{serialnumber}, 
+			</if>
+			<if test="usercode != null">
+				usercode = #{usercode}, 
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime}, 
+			</if>
+			<if test="telephone != null">
+				telephone = #{telephone}, 
+			</if>
+			<if test="paytime != null">
+				paytime = #{paytime}, 
+			</if>
+			<if test="sendtime != null">
+				sendtime = #{sendtime}, 
+			</if>
+			<if test="replytime != null">
+				replytime = #{replytime}, 
+			</if>
+			<if test="orderpreprice != null">
+				orderpreprice = #{orderpreprice}, 
+			</if>
+			<if test="orderrealprice != null">
+				orderrealprice = #{orderrealprice}, 
+			</if>
+			<if test="orderno != null">
+				orderno = #{orderno}, 
+			</if>
+			<if test="paystatus != null">
+				paystatus = #{paystatus}, 
+			</if>
+			<if test="failreason != null">
+				failreason = #{failreason}, 
+			</if>
+			<if test="paytype != null">
+				paytype = #{paytype}, 
+			</if>
+			<if test="payurl != null">
+				payurl = #{payurl}, 
+			</if>
+			<if test="ordercomment != null">
+				ordercomment = #{ordercomment}, 
+			</if>
+			<if test="datastate != null">
+				datastate = #{datastate}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

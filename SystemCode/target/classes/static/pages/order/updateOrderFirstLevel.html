@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<input type="hidden" id="id" name="id">
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>订单编码</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='serialnumber' type='text' name='serialnumber' id='serialnumber' data-bv-notempty='true' data-bv-notempty-message='serialnumber 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>用户code</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='usercode' type='text' name='usercode' id='usercode' data-bv-notempty='true' data-bv-notempty-message='usercode 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>创建时间</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='createtime' type='text' name='createtime' id='createtime' data-bv-notempty='true' data-bv-notempty-message='createtime 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>telephone</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='telephone' type='text' name='telephone' id='telephone' data-bv-notempty='true' data-bv-notempty-message='telephone 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>支付时间</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='paytime' type='text' name='paytime' id='paytime' data-bv-notempty='true' data-bv-notempty-message='paytime 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>发送时间</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='sendtime' type='text' name='sendtime' id='sendtime' data-bv-notempty='true' data-bv-notempty-message='sendtime 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>replytime</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='replytime' type='text' name='replytime' id='replytime' data-bv-notempty='true' data-bv-notempty-message='replytime 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>原价</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='orderpreprice' type='text' name='orderpreprice' id='orderpreprice' data-bv-notempty='true' data-bv-notempty-message='orderpreprice 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>订单支付价格</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='orderrealprice' type='text' name='orderrealprice' id='orderrealprice' data-bv-notempty='true' data-bv-notempty-message='orderrealprice 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>订单no</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='orderno' type='text' name='orderno' id='orderno' data-bv-notempty='true' data-bv-notempty-message='orderno 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>支付状态</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='paystatus' type='text' name='paystatus' id='paystatus' data-bv-notempty='true' data-bv-notempty-message='paystatus 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>失败原因</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='failreason' type='text' name='failreason' id='failreason' data-bv-notempty='true' data-bv-notempty-message='failreason 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>支付类型</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='paytype' type='text' name='paytype' id='paytype' data-bv-notempty='true' data-bv-notempty-message='paytype 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>支付url</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='payurl' type='text' name='payurl' id='payurl' data-bv-notempty='true' data-bv-notempty-message='payurl 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ordercomment</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ordercomment' type='text' name='ordercomment' id='ordercomment' data-bv-notempty='true' data-bv-notempty-message='ordercomment 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>datastate</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='datastate' type='text' name='datastate' id='datastate' data-bv-notempty='true' data-bv-notempty-message='datastate 不能为空'>
+				</div>
+			</div>
+
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='orderFirstLevelList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="update()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		initData();
+		
+		function initData(){
+			var id = getUrlParam("id");
+			if(id != ""){
+				$.ajax({
+					type : 'get',
+					url : '/orderFirstLevels/'+id,
+					async : false,
+					success : function(data) {
+						$('#id').val(data.id);
+						$('#serialnumber').val(data.serialnumber);
+						$('#usercode').val(data.usercode);
+						$('#createtime').val(data.createtime);
+						$('#telephone').val(data.telephone);
+						$('#paytime').val(data.paytime);
+						$('#sendtime').val(data.sendtime);
+						$('#replytime').val(data.replytime);
+						$('#orderpreprice').val(data.orderpreprice);
+						$('#orderrealprice').val(data.orderrealprice);
+						$('#orderno').val(data.orderno);
+						$('#paystatus').val(data.paystatus);
+						$('#failreason').val(data.failreason);
+						$('#paytype').val(data.paytype);
+						$('#payurl').val(data.payurl);
+						$('#ordercomment').val(data.ordercomment);
+						$('#datastate').val(data.datastate);
+
+					}
+				});
+			}
+		}
+
+		function update() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'put',
+				url : '/orderFirstLevels',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("修改成功", {shift: -1, time: 1000}, function(){
+                        location.href = "orderFirstLevelList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>产品名称</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='productname' type='text' name='productname' id='productname' data-bv-notempty='true' data-bv-notempty-message='productname 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>入库总量</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='totalnum' type='text' name='totalnum' id='totalnum' data-bv-notempty='true' data-bv-notempty-message='totalnum 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>剩余库存</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='remainnum' type='text' name='remainnum' id='remainnum' data-bv-notempty='true' data-bv-notempty-message='remainnum 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>创建者</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='creator' type='text' name='creator' id='creator' data-bv-notempty='false' data-bv-notempty-message='creator 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>创建时间</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='creattime' type='text' name='creattime' id='creattime' data-bv-notempty='false' data-bv-notempty-message='creattime 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>更新时间</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='updatetime' type='text' name='updatetime' id='updatetime' data-bv-notempty='false' data-bv-notempty-message='updatetime 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>价格</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='price' type='text' name='price' id='price' data-bv-notempty='true' data-bv-notempty-message='price 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>原价</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='originprice' type='text' name='originprice' id='originprice' data-bv-notempty='false' data-bv-notempty-message='originprice 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>折扣</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='discount' type='text' name='discount' id='discount' data-bv-notempty='false' data-bv-notempty-message='discount 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>区域</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='region' type='text' name='region' id='region' data-bv-notempty='false' data-bv-notempty-message='region 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>备注</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='remark' type='text' name='remark' id='remark' data-bv-notempty='false' data-bv-notempty-message='remark 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>商户管理者</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='userid' type='text' name='userid' id='userid' data-bv-notempty='true' data-bv-notempty-message='userid 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>扩展1</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ext1' type='text' name='ext1' id='ext1' data-bv-notempty='false' data-bv-notempty-message='ext1 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>扩展2</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ext2' type='text' name='ext2' id='ext2' data-bv-notempty='false' data-bv-notempty-message='ext2 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>扩展3</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ext3' type='text' name='ext3' id='ext3' data-bv-notempty='false' data-bv-notempty-message='ext3 不能为空'>
+				</div>
+			</div>
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='resourceproductList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/resourceproducts',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "resourceproductList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<form class="form-horizontal" onsubmit="return false" id="form">
+		<fieldset>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ID</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ID' type='text' name='ID' id='ID' data-bv-notempty='true' data-bv-notempty-message='ID 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>NAME</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='NAME' type='text' name='NAME' id='NAME' data-bv-notempty='true' data-bv-notempty-message='NAME 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>ADDESS</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='ADDESS' type='text' name='ADDESS' id='ADDESS' data-bv-notempty='true' data-bv-notempty-message='ADDESS 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>LONGITUDE</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='LONGITUDE' type='text' name='LONGITUDE' id='LONGITUDE' data-bv-notempty='true' data-bv-notempty-message='LONGITUDE 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>LATITUDE</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='LATITUDE' type='text' name='LATITUDE' id='LATITUDE' data-bv-notempty='true' data-bv-notempty-message='LATITUDE 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>TYPE</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='TYPE' type='text' name='TYPE' id='TYPE' data-bv-notempty='true' data-bv-notempty-message='TYPE 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>USERID</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='USERID' type='text' name='USERID' id='USERID' data-bv-notempty='true' data-bv-notempty-message='USERID 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>WAREHOUSESTATE</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='WAREHOUSESTATE' type='text' name='WAREHOUSESTATE' id='WAREHOUSESTATE' data-bv-notempty='true' data-bv-notempty-message='WAREHOUSESTATE 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>EXT1</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='EXT1' type='text' name='EXT1' id='EXT1' data-bv-notempty='true' data-bv-notempty-message='EXT1 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>EXT2</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='EXT2' type='text' name='EXT2' id='EXT2' data-bv-notempty='true' data-bv-notempty-message='EXT2 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>EXT3</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='EXT3' type='text' name='EXT3' id='EXT3' data-bv-notempty='true' data-bv-notempty-message='EXT3 不能为空'>
+				</div>
+			</div>
+
+
+			<div class="form-actions">
+				<div class="row" align="center">
+					<div class="col-md-12">
+					    <button class="btn btn-primary" onclick="location.href='aiWarehouseList.html'">返回</button>
+						<button class="btn btn-primary" type="submit" onclick="add()">
+							<i class="fa fa-save"></i> 保存
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+</div>
+	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="../../js/jq.js"></script>
+	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript">
+		layui.use(['layer','laydate'], function(){
+		    var layer = layui.layer;
+		});
+		
+		function add() {
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+			bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
+		    
+		    var formdata = $("#form").serializeObject();
+
+			$.ajax({
+				type : 'post',
+				url : '/aiWarehouses',
+				contentType: "application/json; charset=utf-8",  
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "aiWarehouseList.html";
+                    });
+				}
+			});
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.AiOrderThirdLevelDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.ID != null and params.ID != ''">
+				and ID = #{params.ID} 
+			</if>
+			<if test="params.FIRST_LEVEL_ID != null and params.FIRST_LEVEL_ID != ''">
+				and FIRST_LEVEL_ID = #{params.FIRSTLEVELID} 
+			</if>
+			<if test="params.MKT_INV_ID != null and params.MKT_INV_ID != ''">
+				and MKT_INV_ID = #{params.MKTINVID} 
+			</if>
+			<if test="params.USER_CODE != null and params.USER_CODE != ''">
+				and USER_CODE = #{params.USERCODE} 
+			</if>
+			<if test="params.TELEPHONE != null and params.TELEPHONE != ''">
+				and TELEPHONE = #{params.TELEPHONE} 
+			</if>
+			<if test="params.SERIAL_NUMBER != null and params.SERIAL_NUMBER != ''">
+				and SERIAL_NUMBER = #{params.SERIALNUMBER} 
+			</if>
+			<if test="params.boxName != null and params.boxName != ''">
+				and boxName = #{params.boxName} 
+			</if>
+			<if test="params.boxType != null and params.boxType != ''">
+				and boxType = #{params.boxType} 
+			</if>
+			<if test="params.P_SERIAL_NUMBER != null and params.P_SERIAL_NUMBER != ''">
+				and P_SERIAL_NUMBER = #{params.PSERIALNUMBER} 
+			</if>
+			<if test="params.PRODUCT_PRICE != null and params.PRODUCT_PRICE != ''">
+				and PRODUCT_PRICE = #{params.PRODUCTPRICE} 
+			</if>
+			<if test="params.PRODUCT_TYPE_ID != null and params.PRODUCT_TYPE_ID != ''">
+				and PRODUCT_TYPE_ID = #{params.PRODUCTTYPEID} 
+			</if>
+			<if test="params.PRODUCT_NAME != null and params.PRODUCT_NAME != ''">
+				and PRODUCT_NAME = #{params.PRODUCTNAME} 
+			</if>
+			<if test="params.PRODUCT_CODE != null and params.PRODUCT_CODE != ''">
+				and PRODUCT_CODE = #{params.PRODUCTCODE} 
+			</if>
+			<if test="params.PRODUCT_IMG_URL != null and params.PRODUCT_IMG_URL != ''">
+				and PRODUCT_IMG_URL = #{params.PRODUCTIMGURL} 
+			</if>
+			<if test="params.PRODUCT_DESC != null and params.PRODUCT_DESC != ''">
+				and PRODUCT_DESC = #{params.PRODUCTDESC} 
+			</if>
+			<if test="params.BUY_NUM != null and params.BUY_NUM != ''">
+				and BUY_NUM = #{params.BUYNUM} 
+			</if>
+			<if test="params.activity_ID != null and params.activity_ID != ''">
+				and activity_ID = #{params.activityID} 
+			</if>
+			<if test="params.ACTIVITY_NAME != null and params.ACTIVITY_NAME != ''">
+				and ACTIVITY_NAME = #{params.ACTIVITYNAME} 
+			</if>
+			<if test="params.DATA_STATE != null and params.DATA_STATE != ''">
+				and DATA_STATE = #{params.DATASTATE} 
+			</if>
+			<if test="params.EXT_1 != null and params.EXT_1 != ''">
+				and EXT_1 = #{params.EXT1} 
+			</if>
+			<if test="params.EXT_2 != null and params.EXT_2 != ''">
+				and EXT_2 = #{params.EXT2} 
+			</if>
+			<if test="params.EXT_3 != null and params.EXT_3 != ''">
+				and EXT_3 = #{params.EXT3} 
+			</if>
+			<if test="params.EXT_4 != null and params.EXT_4 != ''">
+				and EXT_4 = #{params.EXT4} 
+			</if>
+			<if test="params.ID != null and params.ID != ''">
+				and ID = #{params.ID} 
+			</if>
+			<if test="params.FIRST_LEVEL_ID != null and params.FIRST_LEVEL_ID != ''">
+				and FIRST_LEVEL_ID = #{params.FIRSTLEVELID} 
+			</if>
+			<if test="params.MKT_INV_ID != null and params.MKT_INV_ID != ''">
+				and MKT_INV_ID = #{params.MKTINVID} 
+			</if>
+			<if test="params.USER_CODE != null and params.USER_CODE != ''">
+				and USER_CODE = #{params.USERCODE} 
+			</if>
+			<if test="params.TELEPHONE != null and params.TELEPHONE != ''">
+				and TELEPHONE = #{params.TELEPHONE} 
+			</if>
+			<if test="params.SERIAL_NUMBER != null and params.SERIAL_NUMBER != ''">
+				and SERIAL_NUMBER = #{params.SERIALNUMBER} 
+			</if>
+			<if test="params.boxName != null and params.boxName != ''">
+				and boxName = #{params.boxName} 
+			</if>
+			<if test="params.boxType != null and params.boxType != ''">
+				and boxType = #{params.boxType} 
+			</if>
+			<if test="params.P_SERIAL_NUMBER != null and params.P_SERIAL_NUMBER != ''">
+				and P_SERIAL_NUMBER = #{params.PSERIALNUMBER} 
+			</if>
+			<if test="params.PRODUCT_PRICE != null and params.PRODUCT_PRICE != ''">
+				and PRODUCT_PRICE = #{params.PRODUCTPRICE} 
+			</if>
+			<if test="params.PRODUCT_TYPE_ID != null and params.PRODUCT_TYPE_ID != ''">
+				and PRODUCT_TYPE_ID = #{params.PRODUCTTYPEID} 
+			</if>
+			<if test="params.PRODUCT_NAME != null and params.PRODUCT_NAME != ''">
+				and PRODUCT_NAME = #{params.PRODUCTNAME} 
+			</if>
+			<if test="params.PRODUCT_CODE != null and params.PRODUCT_CODE != ''">
+				and PRODUCT_CODE = #{params.PRODUCTCODE} 
+			</if>
+			<if test="params.PRODUCT_IMG_URL != null and params.PRODUCT_IMG_URL != ''">
+				and PRODUCT_IMG_URL = #{params.PRODUCTIMGURL} 
+			</if>
+			<if test="params.PRODUCT_DESC != null and params.PRODUCT_DESC != ''">
+				and PRODUCT_DESC = #{params.PRODUCTDESC} 
+			</if>
+			<if test="params.BUY_NUM != null and params.BUY_NUM != ''">
+				and BUY_NUM = #{params.BUYNUM} 
+			</if>
+			<if test="params.activity_ID != null and params.activity_ID != ''">
+				and activity_ID = #{params.activityID} 
+			</if>
+			<if test="params.ACTIVITY_NAME != null and params.ACTIVITY_NAME != ''">
+				and ACTIVITY_NAME = #{params.ACTIVITYNAME} 
+			</if>
+			<if test="params.DATA_STATE != null and params.DATA_STATE != ''">
+				and DATA_STATE = #{params.DATASTATE} 
+			</if>
+			<if test="params.EXT_1 != null and params.EXT_1 != ''">
+				and EXT_1 = #{params.EXT1} 
+			</if>
+			<if test="params.EXT_2 != null and params.EXT_2 != ''">
+				and EXT_2 = #{params.EXT2} 
+			</if>
+			<if test="params.EXT_3 != null and params.EXT_3 != ''">
+				and EXT_3 = #{params.EXT3} 
+			</if>
+			<if test="params.EXT_4 != null and params.EXT_4 != ''">
+				and EXT_4 = #{params.EXT4} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from ai_order_third_level t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="AiOrderThirdLevel">
+		select * from ai_order_third_level t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update ai_order_third_level t
+		<set>
+			<if test="ID != null">
+				ID = #{ID}, 
+			</if>
+			<if test="FIRST_LEVEL_ID != null">
+				FIRST_LEVEL_ID = #{FIRSTLEVELID}, 
+			</if>
+			<if test="MKT_INV_ID != null">
+				MKT_INV_ID = #{MKTINVID}, 
+			</if>
+			<if test="USER_CODE != null">
+				USER_CODE = #{USERCODE}, 
+			</if>
+			<if test="TELEPHONE != null">
+				TELEPHONE = #{TELEPHONE}, 
+			</if>
+			<if test="SERIAL_NUMBER != null">
+				SERIAL_NUMBER = #{SERIALNUMBER}, 
+			</if>
+			<if test="boxName != null">
+				boxName = #{boxName}, 
+			</if>
+			<if test="boxType != null">
+				boxType = #{boxType}, 
+			</if>
+			<if test="P_SERIAL_NUMBER != null">
+				P_SERIAL_NUMBER = #{PSERIALNUMBER}, 
+			</if>
+			<if test="PRODUCT_PRICE != null">
+				PRODUCT_PRICE = #{PRODUCTPRICE}, 
+			</if>
+			<if test="PRODUCT_TYPE_ID != null">
+				PRODUCT_TYPE_ID = #{PRODUCTTYPEID}, 
+			</if>
+			<if test="PRODUCT_NAME != null">
+				PRODUCT_NAME = #{PRODUCTNAME}, 
+			</if>
+			<if test="PRODUCT_CODE != null">
+				PRODUCT_CODE = #{PRODUCTCODE}, 
+			</if>
+			<if test="PRODUCT_IMG_URL != null">
+				PRODUCT_IMG_URL = #{PRODUCTIMGURL}, 
+			</if>
+			<if test="PRODUCT_DESC != null">
+				PRODUCT_DESC = #{PRODUCTDESC}, 
+			</if>
+			<if test="BUY_NUM != null">
+				BUY_NUM = #{BUYNUM}, 
+			</if>
+			<if test="activity_ID != null">
+				activity_ID = #{activityID}, 
+			</if>
+			<if test="ACTIVITY_NAME != null">
+				ACTIVITY_NAME = #{ACTIVITYNAME}, 
+			</if>
+			<if test="DATA_STATE != null">
+				DATA_STATE = #{DATASTATE}, 
+			</if>
+			<if test="EXT_1 != null">
+				EXT_1 = #{EXT1}, 
+			</if>
+			<if test="EXT_2 != null">
+				EXT_2 = #{EXT2}, 
+			</if>
+			<if test="EXT_3 != null">
+				EXT_3 = #{EXT3}, 
+			</if>
+			<if test="EXT_4 != null">
+				EXT_4 = #{EXT4}, 
+			</if>
+			<if test="ID != null">
+				ID = #{ID}, 
+			</if>
+			<if test="FIRST_LEVEL_ID != null">
+				FIRST_LEVEL_ID = #{FIRSTLEVELID}, 
+			</if>
+			<if test="MKT_INV_ID != null">
+				MKT_INV_ID = #{MKTINVID}, 
+			</if>
+			<if test="USER_CODE != null">
+				USER_CODE = #{USERCODE}, 
+			</if>
+			<if test="TELEPHONE != null">
+				TELEPHONE = #{TELEPHONE}, 
+			</if>
+			<if test="SERIAL_NUMBER != null">
+				SERIAL_NUMBER = #{SERIALNUMBER}, 
+			</if>
+			<if test="boxName != null">
+				boxName = #{boxName}, 
+			</if>
+			<if test="boxType != null">
+				boxType = #{boxType}, 
+			</if>
+			<if test="P_SERIAL_NUMBER != null">
+				P_SERIAL_NUMBER = #{PSERIALNUMBER}, 
+			</if>
+			<if test="PRODUCT_PRICE != null">
+				PRODUCT_PRICE = #{PRODUCTPRICE}, 
+			</if>
+			<if test="PRODUCT_TYPE_ID != null">
+				PRODUCT_TYPE_ID = #{PRODUCTTYPEID}, 
+			</if>
+			<if test="PRODUCT_NAME != null">
+				PRODUCT_NAME = #{PRODUCTNAME}, 
+			</if>
+			<if test="PRODUCT_CODE != null">
+				PRODUCT_CODE = #{PRODUCTCODE}, 
+			</if>
+			<if test="PRODUCT_IMG_URL != null">
+				PRODUCT_IMG_URL = #{PRODUCTIMGURL}, 
+			</if>
+			<if test="PRODUCT_DESC != null">
+				PRODUCT_DESC = #{PRODUCTDESC}, 
+			</if>
+			<if test="BUY_NUM != null">
+				BUY_NUM = #{BUYNUM}, 
+			</if>
+			<if test="activity_ID != null">
+				activity_ID = #{activityID}, 
+			</if>
+			<if test="ACTIVITY_NAME != null">
+				ACTIVITY_NAME = #{ACTIVITYNAME}, 
+			</if>
+			<if test="DATA_STATE != null">
+				DATA_STATE = #{DATASTATE}, 
+			</if>
+			<if test="EXT_1 != null">
+				EXT_1 = #{EXT1}, 
+			</if>
+			<if test="EXT_2 != null">
+				EXT_2 = #{EXT2}, 
+			</if>
+			<if test="EXT_3 != null">
+				EXT_3 = #{EXT3}, 
+			</if>
+			<if test="EXT_4 != null">
+				EXT_4 = #{EXT4}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.AiMktInventoryInstDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.ID != null and params.ID != ''">
+				and ID = #{params.ID} 
+			</if>
+			<if test="params.PROD_INST_ID != null and params.PROD_INST_ID != ''">
+				and PROD_INST_ID = #{params.PRODINSTID} 
+			</if>
+			<if test="params.PRODUCT_CODE != null and params.PRODUCT_CODE != ''">
+				and PRODUCT_CODE = #{params.PRODUCTCODE} 
+			</if>
+			<if test="params.PRODUCT_NAME != null and params.PRODUCT_NAME != ''">
+				and PRODUCT_NAME = #{params.PRODUCTNAME} 
+			</if>
+			<if test="params.SERIAL_NO != null and params.SERIAL_NO != ''">
+				and SERIAL_NO = #{params.SERIALNO} 
+			</if>
+			<if test="params.USER_ID != null and params.USER_ID != ''">
+				and USER_ID = #{params.USERID} 
+			</if>
+			<if test="params.原价格 != null and params.原价格 != ''">
+				and 原价格 = #{params.原价格} 
+			</if>
+			<if test="params.现在价格 != null and params.现在价格 != ''">
+				and 现在价格 = #{params.现在价格} 
+			</if>
+			<if test="params.BOX_ID != null and params.BOX_ID != ''">
+				and BOX_ID = #{params.BOXID} 
+			</if>
+			<if test="params.折扣率 != null and params.折扣率 != ''">
+				and 折扣率 = #{params.折扣率} 
+			</if>
+			<if test="params.BATCH_ID != null and params.BATCH_ID != ''">
+				and BATCH_ID = #{params.BATCHID} 
+			</if>
+			<if test="params.SUPPLIER != null and params.SUPPLIER != ''">
+				and SUPPLIER = #{params.SUPPLIER} 
+			</if>
+			<if test="params.FACTORY_DATE != null and params.FACTORY_DATE != ''">
+				and FACTORY_DATE = #{params.FACTORYDATE} 
+			</if>
+			<if test="params.VALID_MONTHS != null and params.VALID_MONTHS != ''">
+				and VALID_MONTHS = #{params.VALIDMONTHS} 
+			</if>
+			<if test="params.STORE_STATUS != null and params.STORE_STATUS != ''">
+				and STORE_STATUS = #{params.STORESTATUS} 
+			</if>
+			<if test="params.STATUS_STATE_REASON != null and params.STATUS_STATE_REASON != ''">
+				and STATUS_STATE_REASON = #{params.STATUSSTATEREASON} 
+			</if>
+			<if test="params.CREATE_OPER_ID != null and params.CREATE_OPER_ID != ''">
+				and CREATE_OPER_ID = #{params.CREATEOPERID} 
+			</if>
+			<if test="params.CREATE_ORG_ID != null and params.CREATE_ORG_ID != ''">
+				and CREATE_ORG_ID = #{params.CREATEORGID} 
+			</if>
+			<if test="params.CREATE_DATE != null and params.CREATE_DATE != ''">
+				and CREATE_DATE = #{params.CREATEDATE} 
+			</if>
+			<if test="params.MODIFY_DATE != null and params.MODIFY_DATE != ''">
+				and MODIFY_DATE = #{params.MODIFYDATE} 
+			</if>
+			<if test="params.DATA_STATE != null and params.DATA_STATE != ''">
+				and DATA_STATE = #{params.DATASTATE} 
+			</if>
+			<if test="params.EXT1 != null and params.EXT1 != ''">
+				and EXT1 = #{params.EXT1} 
+			</if>
+			<if test="params.EXT2 != null and params.EXT2 != ''">
+				and EXT2 = #{params.EXT2} 
+			</if>
+			<if test="params.EXT3 != null and params.EXT3 != ''">
+				and EXT3 = #{params.EXT3} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from ai_mkt_inventory_inst t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="AiMktInventoryInst">
+		select * from ai_mkt_inventory_inst t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update ai_mkt_inventory_inst t
+		<set>
+			<if test="ID != null">
+				ID = #{ID}, 
+			</if>
+			<if test="PROD_INST_ID != null">
+				PROD_INST_ID = #{PRODINSTID}, 
+			</if>
+			<if test="PRODUCT_CODE != null">
+				PRODUCT_CODE = #{PRODUCTCODE}, 
+			</if>
+			<if test="PRODUCT_NAME != null">
+				PRODUCT_NAME = #{PRODUCTNAME}, 
+			</if>
+			<if test="SERIAL_NO != null">
+				SERIAL_NO = #{SERIALNO}, 
+			</if>
+			<if test="USER_ID != null">
+				USER_ID = #{USERID}, 
+			</if>
+			<if test="原价格 != null">
+				原价格 = #{原价格}, 
+			</if>
+			<if test="现在价格 != null">
+				现在价格 = #{现在价格}, 
+			</if>
+			<if test="BOX_ID != null">
+				BOX_ID = #{BOXID}, 
+			</if>
+			<if test="折扣率 != null">
+				折扣率 = #{折扣率}, 
+			</if>
+			<if test="BATCH_ID != null">
+				BATCH_ID = #{BATCHID}, 
+			</if>
+			<if test="SUPPLIER != null">
+				SUPPLIER = #{SUPPLIER}, 
+			</if>
+			<if test="FACTORY_DATE != null">
+				FACTORY_DATE = #{FACTORYDATE}, 
+			</if>
+			<if test="VALID_MONTHS != null">
+				VALID_MONTHS = #{VALIDMONTHS}, 
+			</if>
+			<if test="STORE_STATUS != null">
+				STORE_STATUS = #{STORESTATUS}, 
+			</if>
+			<if test="STATUS_STATE_REASON != null">
+				STATUS_STATE_REASON = #{STATUSSTATEREASON}, 
+			</if>
+			<if test="CREATE_OPER_ID != null">
+				CREATE_OPER_ID = #{CREATEOPERID}, 
+			</if>
+			<if test="CREATE_ORG_ID != null">
+				CREATE_ORG_ID = #{CREATEORGID}, 
+			</if>
+			<if test="CREATE_DATE != null">
+				CREATE_DATE = #{CREATEDATE}, 
+			</if>
+			<if test="MODIFY_DATE != null">
+				MODIFY_DATE = #{MODIFYDATE}, 
+			</if>
+			<if test="DATA_STATE != null">
+				DATA_STATE = #{DATASTATE}, 
+			</if>
+			<if test="EXT1 != null">
+				EXT1 = #{EXT1}, 
+			</if>
+			<if test="EXT2 != null">
+				EXT2 = #{EXT2}, 
+			</if>
+			<if test="EXT3 != null">
+				EXT3 = #{EXT3}, 
+			</if>
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.boot.security.server.dao.ExecProductDao">
+
+	<sql id="where">
+		<where>
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
+			</if>
+			<if test="params.productCode != null and params.productCode != ''">
+				and productCode     like concat('%', #{params.productCode}, '%')
+			</if>
+			<if test="params.productName != null and params.productName != ''">
+				and productName   like concat('%', #{params.productName}, '%')
+			</if>
+			<if test="params.productDesc != null and params.productDesc != ''">
+				and productDesc = #{params.productDesc} 
+			</if>
+			<if test="params.productTypeId != null and params.productTypeId != ''">
+				and productTypeId = #{params.productTypeId} 
+			</if>
+			<if test="params.productStartTime != null and params.productStartTime != ''">
+				and productStartTime = #{params.productStartTime} 
+			</if>
+			<if test="params.productEndTime != null and params.productEndTime != ''">
+				and productEndTime = #{params.productEndTime} 
+			</if>
+			<if test="params.productPrice != null and params.productPrice != ''">
+				and productPrice = #{params.productPrice} 
+			</if>
+			<if test="params.productOriPrice != null and params.productOriPrice != ''">
+				and productOriPrice = #{params.productOriPrice} 
+			</if>
+			<if test="params.productStatus != null and params.productStatus != ''">
+				and productStatus = #{params.productStatus} 
+			</if>
+			<if test="params.productPicPath != null and params.productPicPath != ''">
+				and productPicPath = #{params.productPicPath} 
+			</if>
+			<if test="params.kindCode != null and params.kindCode != ''">
+				and kindCode = #{params.kindCode} 
+			</if>
+			<if test="params.rootKindCode != null and params.rootKindCode != ''">
+				and rootKindCode = #{params.rootKindCode} 
+			</if>
+			<if test="params.productUrl != null and params.productUrl != ''">
+				and productUrl = #{params.productUrl} 
+			</if>
+			<if test="params.creator != null and params.creator != ''">
+				and creator = #{params.creator} 
+			</if>
+			<if test="params.creatDate != null and params.creatDate != ''">
+				and creatDate = #{params.creatDate} 
+			</if>
+			<if test="params.modeifier != null and params.modeifier != ''">
+				and modeifier = #{params.modeifier} 
+			</if>
+			<if test="params.modifyDate != null and params.modifyDate != ''">
+				and modifyDate = #{params.modifyDate} 
+			</if>
+			<if test="params.dataState != null and params.dataState != ''">
+				and dataState = #{params.dataState} 
+			</if>
+			<if test="params.isLock != null and params.isLock != ''">
+				and isLock = #{params.isLock} 
+			</if>
+			<if test="params.srcCode != null and params.srcCode != ''">
+				and srcCode = #{params.srcCode} 
+			</if>
+			<if test="params.productSource != null and params.productSource != ''">
+				and productSource = #{params.productSource} 
+			</if>
+			<if test="params.company != null and params.company != ''">
+				and company = #{params.company} 
+			</if>
+			<if test="params.limitNum != null and params.limitNum != ''">
+				and limitNum = #{params.limitNum} 
+			</if>
+			<if test="params.productSaleTime != null and params.productSaleTime != ''">
+				and productSaleTime = #{params.productSaleTime} 
+			</if>
+			<if test="params.belongAlbum != null and params.belongAlbum != ''">
+				and belongAlbum = #{params.belongAlbum} 
+			</if>
+			<if test="params.ext1 != null and params.ext1 != ''">
+				and ext1 = #{params.ext1} 
+			</if>
+			<if test="params.ext2 != null and params.ext2 != ''">
+				and ext2 = #{params.ext2} 
+			</if>
+			<if test="params.EXT3 != null and params.EXT3 != ''">
+				and EXT3 = #{params.EXT3} 
+			</if>
+			<if test="params.IS_NEED_INV_INST != null and params.IS_NEED_INV_INST != ''">
+				and IS_NEED_INV_INST = #{params.ISNEEDINVINST} 
+			</if>
+		
+		</where>
+	</sql>
+
+	<select id="count" resultType="int">
+		select count(1) from exec_product t
+		<include refid="where" />
+	</select>
+
+	<select id="list" resultType="ExecProduct">
+		select * from exec_product t
+		<include refid="where" />
+		${params.orderBy}
+		limit #{offset}, #{limit}
+	</select>
+
+	<update id="update">
+		update exec_product t
+		<set>
+			<if test="productCode != null">
+				productCode = #{productCode}, 
+			</if>
+			<if test="productName != null">
+				productName = #{productName}, 
+			</if>
+			<if test="productDesc != null">
+				productDesc = #{productDesc}, 
+			</if>
+			<if test="productTypeId != null">
+				productTypeId = #{productTypeId}, 
+			</if>
+			<if test="productStartTime != null">
+				productStartTime = #{productStartTime}, 
+			</if>
+			<if test="productEndTime != null">
+				productEndTime = #{productEndTime}, 
+			</if>
+			<if test="productPrice != null">
+				productPrice = #{productPrice}, 
+			</if>
+			<if test="productOriPrice != null">
+				productOriPrice = #{productOriPrice}, 
+			</if>
+			<if test="productStatus != null">
+				productStatus = #{productStatus}, 
+			</if>
+			<if test="productPicPath != null">
+				productPicPath = #{productPicPath}, 
+			</if>
+			<if test="kindCode != null">
+				kindCode = #{kindCode}, 
+			</if>
+			<if test="rootKindCode != null">
+				rootKindCode = #{rootKindCode}, 
+			</if>
+			<if test="productUrl != null">
+				productUrl = #{productUrl}, 
+			</if>
+			<if test="creator != null">
+				creator = #{creator}, 
+			</if>
+			<if test="creatDate != null">
+				creatDate = #{creatDate}, 
+			</if>
+			<if test="modeifier != null">
+				modeifier = #{modeifier}, 
+			</if>
+			<if test="modifyDate != null">
+				modifyDate = #{modifyDate}, 
+			</if>
+			<if test="dataState != null">
+				dataState = #{dataState}, 
+			</if>
+			<if test="isLock != null">
+				isLock = #{isLock}, 
+			</if>
+			<if test="srcCode != null">
+				srcCode = #{srcCode}, 
+			</if>
+			<if test="productSource != null">
+				productSource = #{productSource}, 
+			</if>
+			<if test="company != null">
+				company = #{company}, 
+			</if>
+			<if test="limitNum != null">
+				limitNum = #{limitNum}, 
+			</if>
+			<if test="productSaleTime != null">
+				productSaleTime = #{productSaleTime}, 
+			</if>
+			<if test="belongAlbum != null">
+				belongAlbum = #{belongAlbum}, 
+			</if>
+			<if test="ext1 != null">
+				ext1 = #{ext1}, 
+			</if>
+			<if test="ext2 != null">
+				ext2 = #{ext2}, 
+			</if>
+			<if test="EXT3 != null">
+				EXT3 = #{EXT3}, 
+			</if>
+			<!--<if test="IS_NEED_INV_INST != null">-->
+				<!--IS_NEED_INV_INST = #{ISNEEDINVINST}, -->
+			<!--</if>-->
+
+		</set>
+
+		where t.id = #{id}
+	</update>
+
+</mapper>

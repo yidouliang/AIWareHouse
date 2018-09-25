@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <form class="form-horizontal layui-form" onsubmit="return false" id="form">
+        <fieldset>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品编码 Product Code</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productCode' type='text' name='productCode'
+                           id='productCode' data-bv-notempty='true' data-bv-notempty-message='productCode 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品名称 Product Name</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productName' type='text' name='productName'
+                           id='productName' data-bv-notempty='true' data-bv-notempty-message='productName 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品描述 Product Desc</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productDesc' type='text' name='productDesc'
+                           id='productDesc' data-bv-notempty='false' data-bv-notempty-message='productDesc 不能为空'>
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品类型 Product Type</label>
+                <div class='col-md-10 layui-input-block'>
+                    <select name='productTypeId' id='productTypeId' data-bv-notempty='false' data-bv-notempty-message='productTypeId 不能为空'>
+                        <option value="">请选择商品类型</option>
+                        <option value="0">饮品</option>
+                        <option value="1">食品</option>
+                        <option value="2">保健品</option>
+                    </select>
+                    <!--<input class='form-control' placeholder='productTypeId' type='text' name='productTypeId' id='productTypeId' data-bv-notempty='false' data-bv-notempty-message='productTypeId 不能为空'>-->
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品上市时间 Product Start Time</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productStartTime' type='text' name='productStartTime'
+                           id='productStartTime' data-bv-notempty='false'
+                           data-bv-notempty-message='productStartTime 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品过期时间 Product End Time</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productEndTime' type='text' name='productEndTime'
+                           id='productEndTime' data-bv-notempty='false' data-bv-notempty-message='productEndTime 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品价格 Product Price</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productPrice' type='text' name='productPrice'
+                           id='productPrice' data-bv-notempty='false' data-bv-notempty-message='productPrice 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>原价 Product Original Price</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productOriPrice' type='text' name='productOriPrice'
+                           id='productOriPrice' data-bv-notempty='false'
+                           data-bv-notempty-message='productOriPrice 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品状态 Product Status</label>
+                <div class='col-md-10'>
+                    <!--<input class='form-control' placeholder='productStatus' type='text' name='productStatus'-->
+                           <!--id='productStatus' data-bv-notempty='false' data-bv-notempty-message='productStatus 不能为空'>-->
+                    <select name='productStatus' id='productStatus' data-bv-notempty='false' data-bv-notempty-message='productStatus 不能为空'>
+                        <option value="">请选择商品状态</option>
+                        <option value="0">下架</option>
+                        <option value="1">在售</option>
+                        <option value="2">缺货</option>
+                    </select>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>productPicPath</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productPicPath' type='text' name='productPicPath'
+                           id='productPicPath' data-bv-notempty='false' data-bv-notempty-message='productPicPath 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>kindCode</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='kindCode' type='text' name='kindCode' id='kindCode'
+                           data-bv-notempty='false' data-bv-notempty-message='kindCode 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>rootKindCode</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='rootKindCode' type='text' name='rootKindCode'
+                           id='rootKindCode' data-bv-notempty='false' data-bv-notempty-message='rootKindCode 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>productUrl</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productUrl' type='text' name='productUrl' id='productUrl'
+                           data-bv-notempty='false' data-bv-notempty-message='productUrl 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>creator</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='creator' type='text' name='creator' id='creator'
+                           data-bv-notempty='false' data-bv-notempty-message='creator 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>creatDate</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='creatDate' type='text' name='creatDate' id='creatDate'
+                           data-bv-notempty='false' data-bv-notempty-message='creatDate 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>modeifier</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='modeifier' type='text' name='modeifier' id='modeifier'
+                           data-bv-notempty='false' data-bv-notempty-message='modeifier 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>modifyDate</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='modifyDate' type='text' name='modifyDate' id='modifyDate'
+                           data-bv-notempty='false' data-bv-notempty-message='modifyDate 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>dataState</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='dataState' type='text' name='dataState' id='dataState'
+                           data-bv-notempty='false' data-bv-notempty-message='dataState 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>isLock</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='isLock' type='text' name='isLock' id='isLock'
+                           data-bv-notempty='false' data-bv-notempty-message='isLock 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>srcCode</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='srcCode' type='text' name='srcCode' id='srcCode'
+                           data-bv-notempty='false' data-bv-notempty-message='srcCode 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>productSource</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productSource' type='text' name='productSource'
+                           id='productSource' data-bv-notempty='false' data-bv-notempty-message='productSource 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>company</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='company' type='text' name='company' id='company'
+                           data-bv-notempty='false' data-bv-notempty-message='company 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>limitNum</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='limitNum' type='text' name='limitNum' id='limitNum'
+                           data-bv-notempty='false' data-bv-notempty-message='limitNum 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>productSaleTime</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='productSaleTime' type='text' name='productSaleTime'
+                           id='productSaleTime' data-bv-notempty='false'
+                           data-bv-notempty-message='productSaleTime 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>belongAlbum</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='belongAlbum' type='text' name='belongAlbum'
+                           id='belongAlbum' data-bv-notempty='false' data-bv-notempty-message='belongAlbum 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>ext1</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='ext1' type='text' name='ext1' id='ext1'
+                           data-bv-notempty='false' data-bv-notempty-message='ext1 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>ext2</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='ext2' type='text' name='ext2' id='ext2'
+                           data-bv-notempty='false' data-bv-notempty-message='ext2 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>EXT3</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='EXT3' type='text' name='EXT3' id='EXT3'
+                           data-bv-notempty='false' data-bv-notempty-message='EXT3 不能为空'>
+                </div>
+            </div>
+            <div class='form-group' style="display: none;">
+                <label class='col-md-2 control-label'>ISNEEDINVINST</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='ISNEEDINVINST' type='text' name='ISNEEDINVINST'
+                           id='ISNEEDINVINST' data-bv-notempty='false' data-bv-notempty-message='ISNEEDINVINST 不能为空'>
+                </div>
+            </div>
+
+
+            <div class="form-actions">
+                <div class="row" align="center">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" onclick="location.href='execProductList.html'">返回</button>
+                        <button class="btn btn-primary" type="submit" onclick="add()">
+                            <i class="fa fa-save"></i> 保存
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/jq.js"></script>
+<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript">
+    layui.use(['layer', 'laydate'], function () {
+        var layer = layui.layer;
+
+        var laydate = layui.laydate;
+        laydate.render({
+            elem: '#productStartTime',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#productEndTime',
+            type: 'datetime'
+        });
+
+    });
+
+    function add() {
+        $('#form').bootstrapValidator();
+        var bootstrapValidator = $("#form").data('bootstrapValidator');
+        bootstrapValidator.validate();
+        if (!bootstrapValidator.isValid()) {
+            return;
+        }
+
+        var formdata = $("#form").serializeObject();
+
+        $.ajax({
+            type: 'post',
+            url: '/execProducts',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(formdata),
+            success: function (data) {
+                layer.msg("添加成功", {shift: -1, time: 1000}, function () {
+                    location.href = "execProductList.html";
+                });
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

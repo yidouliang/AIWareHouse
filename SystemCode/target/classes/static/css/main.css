@@ -1,0 +1,13 @@
+tr.select th,tr.select td
+{
+    backgroundcolor:#CAE8EA;
+    color: #797268;
+}
+td.alt {
+    background: #F5FAFA;
+    color: #797268;
+}
+th.spec,td.spec {
+    border-left: 1px solid #C1DAD7;
+}
+
