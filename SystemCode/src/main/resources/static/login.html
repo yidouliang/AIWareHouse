@@ -45,6 +45,12 @@
                 <input type="password" name="" id="user-password" placeholder="请输入密码">
             </p>
 
+            <p class="user-password">
+                <label for="captchaCode">验证码:</label>
+                <input type="text" name="captchaCode" id="captchaCode" placeholder="请输入验证码">
+                <img src="/util/captcha" alt="验证码" onclick="this.src='/util/captcha?d=' + new Date()*1"/>
+            </p>
+
         </div>
         <div class="login-submit">
             <input type="button" name="" value="登录" onclick="login(this)">
@@ -152,14 +158,15 @@
 
         var username = $.trim($('#user-name').val());
         var password = $.trim($('#user-password').val());
-        if (username === "" || password === "") {
-            $("#info").html('用户名或者密码不能为空');
+        var captchaCode = $.trim($('#captchaCode').val());
+        if (username === "" || password === "" || captchaCode === "") {
+            $("#info").html('输入信息不能为空');
             $(obj).attr("disabled", false);
         } else {
             $.ajax({
                 type : 'post',
                 url : '/login',
-                data: {"username": username, "password": password},
+                data: {"username": username, "password": password, "captchaCode": captchaCode},
                 success : function(data) {
                     localStorage.setItem("token", data.token);
                     location.href = '/index.html';

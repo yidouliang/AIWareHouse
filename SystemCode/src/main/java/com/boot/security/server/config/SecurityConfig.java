@@ -1,5 +1,6 @@
 package com.boot.security.server.config;
 
+import com.boot.security.server.filter.CaptchaFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -41,6 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private TokenFilter tokenFilter;
 
+	@Autowired
+    private CaptchaFilter captchaFilter;
+
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -56,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/", "/*.html", "/favicon.ico", "/css/**", "/js/**", "/fonts/**", "/layui/**", "/img/**",
 						"/v2/api-docs/**", "/swagger-resources/**", "/webjars/**", "/pages/**", "/druid/**","/outInterface/**",
-						"/statics/**")
+						"/statics/**", "/util/*")
 				.permitAll().anyRequest().authenticated();
 		http.formLogin().loginPage("/login.html").loginProcessingUrl("/login")
 				.successHandler(authenticationSuccessHandler).failureHandler(authenticationFailureHandler).and()
@@ -66,6 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.headers().frameOptions().disable();
 		http.headers().cacheControl();
 
+		http.addFilterBefore(captchaFilter, UsernamePasswordAuthenticationFilter.class);
 		http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 
