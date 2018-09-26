@@ -20,10 +20,10 @@ public class AiMktInventoryInst extends BaseEntity<Long> {
 	private Date validmonths;
 	private String storestatus;
 	private String statusstatereason;
-	private String createoperId;
+	private String createoperid;
 	private String createorgid;
 	private Date createdate;
-	private String modifydate;
+	private Date modifydate;
 	private Integer datastate;
 	private String ext1;
 	private String ext2;
@@ -119,11 +119,11 @@ public class AiMktInventoryInst extends BaseEntity<Long> {
 	public String setStatusstatereason() {
 		return statusstatereason;
 	}
-	public String getCreateoperId() {
-		return createoperId;
+	public String getCreateoperid() {
+		return createoperid;
 	}
-	public String setCreateoperId() {
-		return createoperId;
+	public String setCreateoperid() {
+		return createoperid;
 	}
 	public String getCreateorgid() {
 		return createorgid;
@@ -137,10 +137,10 @@ public class AiMktInventoryInst extends BaseEntity<Long> {
 	public Date setCreatedate() {
 		return createdate;
 	}
-	public String getModifydate() {
+	public Date getModifydate() {
 		return modifydate;
 	}
-	public String setModifydate() {
+	public Date setModifydate() {
 		return modifydate;
 	}
 	public Integer getDatastate() {

@@ -53,8 +53,8 @@
 			<if test="params.statusstatereason != null and params.statusstatereason != ''">
 				and statusstatereason = #{params.statusstatereason} 
 			</if>
-			<if test="params.createoperId != null and params.createoperId != ''">
-				and createoperId = #{params.createoperId} 
+			<if test="params.createoperid != null and params.createoperid != ''">
+				and createoperid = #{params.createoperid}
 			</if>
 			<if test="params.createorgid != null and params.createorgid != ''">
 				and createorgid = #{params.createorgid} 
@@ -141,8 +141,8 @@
 			<if test="statusstatereason != null">
 				statusstatereason = #{statusstatereason}, 
 			</if>
-			<if test="createoperId != null">
-				createoperId = #{createoperId}, 
+			<if test="createoperid != null">
+				createoperid = #{createoperid},
 			</if>
 			<if test="createorgid != null">
 				createorgid = #{createorgid}, 
