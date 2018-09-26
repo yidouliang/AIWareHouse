@@ -56,8 +56,8 @@ function init(){
                         var href2 = "orderThirdLevelList.html?id=" + id;
                         var edit = buttonEdit(href, "", pers);
                         var del = buttonDel(id, "", pers);
-                        var about = buttonAbout(href2, "", pers);
-                        return edit + del + about;
+                        var Oabout = buttonAbout(href2, "", pers);
+                        return edit + del + Oabout;
                     }
                 },
 

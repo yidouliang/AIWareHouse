@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
 <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/taobao.css">
 </head>
 <body>
     <div>
@@ -36,32 +37,30 @@
                 
                 <div>
                     <div class="widget-body no-padding">
+						<div class = "c_table  " style="overflow-x: auto; overflow-y:hidden; height: 100%; width:100%;">
                         <table id="dt-table" class="table table-striped table-bordered table-hover" style="width:100%">
                             <thead>
                                 <tr>
                                 </tr>                       
                                 <tr>
-									<th>id</th>
-									<th>serialnumber</th>
-									<th>consumerid</th>
-									<th>createtime</th>
-									<th>telephone</th>
-									<th>boxcode</th>
-									<th>paytime</th>
-									<th>sendtime</th>
-									<th>replytime</th>
-									<th>orderpreprice</th>
-									<th>orderrealprice</th>
-									<th>orderno</th>
-									<th>paystatus</th>
-									<th>failreason</th>
-									<th>paytype</th>
-									<th>payurl</th>
-									<th>ordercomment</th>
-									<th>datastate</th>
-									<th>ext1</th>
-									<th>ext2</th>
-									<th>ext3</th>
+									<th>订单ID</th>
+									<th>平台订单流水号</th>
+									<th>消费者ID</th>
+									<th>订购时间</th>
+									<th>联系电话</th>
+									<th>AI货柜编码</th>
+									<th>支付时间</th>
+									<th>请求发送时间</th>
+									<th>状态反馈时间</th>
+									<th>订单原价</th>
+									<th>实际价格</th>
+									<th>订单支付平台流水</th>
+									<th>支付状态</th>
+									<th>失败原因</th>
+									<th>支付类型</th>
+									<th>支付URL</th>
+									<th>用户备注</th>
+									<th>数据状态</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -69,6 +68,7 @@
                             </tbody>
                         </table>
                     </div>
+					</div>
                 </div>
             </div>
         </div>
@@ -119,9 +119,6 @@ function init(){
 				{"data" : "payurl", "defaultContent" : ""},
 				{"data" : "ordercomment", "defaultContent" : ""},
 				{"data" : "datastate", "defaultContent" : ""},
-				{"data" : "ext1", "defaultContent" : ""},
-				{"data" : "ext2", "defaultContent" : ""},
-				{"data" : "ext3", "defaultContent" : ""},
 				{ 
 								"data": "", 
 								"defaultContent": "",
@@ -129,9 +126,11 @@ function init(){
 						        "render": function (data, type, row) {
                 		           var id = row['id'];
                 		           var href = "updateAiOrderFirstLevel.html?id=" + id;
+                		           var href1 = "aiOrderThirdLevelList.html?id=" + id;
                                    var edit = buttonEdit(href, "", pers);
                 		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
+                		           var aboutO = buttonAbout(href1, "", pers);
+                                   return edit + del + aboutO;
                   	            }		
 							},
                 

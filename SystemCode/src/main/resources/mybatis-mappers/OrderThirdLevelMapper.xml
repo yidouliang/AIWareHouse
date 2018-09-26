@@ -34,92 +34,10 @@
     </resultMap>
 
 
-    <sql id="where">
-        <where>
-            <if test="params.id != null and params.id != ''">
-                and ID = #{params.id}
-            </if>
-            <if test="params.firstLevelId != null and params.firstLevelId != ''">
-                and FIRST_LEVEL_ID = #{params.firstLevelId}
-            </if>
-            <if test="params.userCode != null and params.userCode != ''">
-                and USER_CODE = #{params.userCode}
-            </if>
-            <if test="params.telephone != null and params.telephone != ''">
-                and TELEPHONE = #{params.telephone}
-            </if>
-            <if test="params.serialNumber != null and params.serialNumber != ''">
-                and SERIAL_NUMBER = #{params.serialNumber}
-            </if>
-            <if test="params.pSerialNumber != null and params.pSerialNumber != ''">
-                and P_SERIAL_NUMBER = #{params.pSerialNumber}
-            </if>
-            <if test="params.productOriginPrice != null and params.productOriginPrice != ''">
-                and PRODUCT_ORIGIN_PRICE = #{params.productOriginPrice}
-            </if>
-            <if test="params.productSalePrice != null and params.productSalePrice != ''">
-                and PRODUCT_SALE_PRICE = #{params.productSalePrice}
-            </if>
-            <if test="params.orderStatus != null and params.orderStatus != ''">
-                and ORDER_STATUS = #{params.orderStatus}
-            </if>
-            <if test="params.errorCode != null and params.errorCode != ''">
-                and ERROR_CODE = #{params.errorCode}
-            </if>
-            <if test="params.productTypeId != null and params.productTypeId != ''">
-                and PRODUCT_TYPE_ID = #{params.productTypeId}
-            </if>
-            <if test="params.productTypeName != null and params.productTypeName != ''">
-                and PRODUCT_TYPE_NAME = #{params.productTypeName}
-            </if>
-            <if test="params.productName != null and params.productName != ''">
-                and PRODUCT_NAME = #{params.productName}
-            </if>
-            <if test="params.productCode != null and params.productCode != ''">
-                and PRODUCT_CODE = #{params.productCode}
-            </if>
-            <if test="params.productImgUrl != null and params.productImgUrl != ''">
-                and PRODUCT_IMG_URL = #{params.productImgUrl}
-            </if>
-            <if test="params.productDesc != null and params.productDesc != ''">
-                and PRODUCT_DESC = #{params.productDesc}
-            </if>
-            <if test="params.buyNum != null and params.buyNum != ''">
-                and BUY_NUM = #{params.buyNum}
-            </if>
-            <if test="params.activityName != null and params.activityName != ''">
-                and ACTIVITY_NAME = #{params.activityName}
-            </if>
-            <if test="params.mktInvId != null and params.mktInvId != ''">
-                and MKT_INV_ID = #{params.mktInvId}
-            </if>
-            <if test="params.dataState != null and params.dataState != ''">
-                and DATA_STATE = #{params.dataState}
-            </if>
-            <if test="params.ext1 != null and params.ext1 != ''">
-                and EXT_1 = #{params.ext1}
-            </if>
-            <if test="params.ext2 != null and params.ext2 != ''">
-                and EXT_2 = #{params.ext2}
-            </if>
-            <if test="params.ext3 != null and params.ext3 != ''">
-                and EXT_3 = #{params.ext3}
-            </if>
-            <if test="params.ext4 != null and params.ext4 != ''">
-                and EXT_4 = #{params.ext4}
-            </if>
-            <if test="params.createTime != null and params.createTime != ''">
-                and CREATE_TIME = #{params.createTime}
-            </if>
-            <if test="params.updateTime != null and params.updateTime != ''">
-                and LAST_UPDATE_TIME = #{params.updateTime}
-            </if>
-        </where>
-    </sql>
 
     <select id="listThirdLevel" resultMap="thirdLevel">
         select * from order_third_level o
-        <include refid="where" />
+        where o.FIRST_LEVEL_ID = #{params.FIRST_LEVEL_ID}
         ${params.orderBy}
         limit #{offset}, #{limit}
 
@@ -127,6 +45,6 @@
 
     <select id="count" resultType="int">
         select count(ID) from order_third_level t
-        where t.FIRST_LEVEL_ID = #{id}
+        where t.FIRST_LEVEL_ID = #{params.FIRST_LEVEL_ID}
     </select>
 </mapper>
