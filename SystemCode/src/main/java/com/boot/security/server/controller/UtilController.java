@@ -17,8 +17,8 @@ import java.io.IOException;
 
 /**
  * Created By Seven.wk
- * Description: 工具类控制器，对外提供工具类服务
- * Created At 2018/09/25
+ * Description: 对外提供工具类服务接口
+ * Created At 2018/09/26
  */
 @RestController
 @RequestMapping("/util")
@@ -27,12 +27,6 @@ public class UtilController {
     @Autowired
     private DefaultKaptcha defaultKaptcha;
 
-    /**
-     * 产生验证码
-     * @param response
-     * @param session
-     * @throws IOException
-     */
     @GetMapping("/captcha")
     public void captcha(HttpServletResponse response,
                         HttpSession session) throws IOException {

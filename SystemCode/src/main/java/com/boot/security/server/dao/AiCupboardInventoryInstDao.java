@@ -24,7 +24,7 @@ public interface AiCupboardInventoryInstDao {
     int update(AiCupboardInventoryInst aiCupboardInventoryInst);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_cupboard_inventory_inst(ID, PROD_INST_ID, PRODUCT_NAME, SERIAL_NO, ALL_NUM, REMAIND_NUM, USER_ID, OLD_PRICE, NOW_PRICE, BOX_ID, DISCOUNT, BATCH_ID, SUPPLIER, FACTORY_DATE, VALID_MONTHS, STORE_STATUS, STATUS_STATE_REASON, CREATE_OPER_ID, CREATE_ORG_ID, CREATE_DATE, MODIFY_DATE, DATA_STATE, EXT1, EXT2, EXT3, AI_CODE) values(#{ID}, #{PRODINSTID}, #{PRODUCTNAME}, #{SERIALNO}, #{ALLNUM}, #{REMAINDNUM}, #{USERID}, #{OLDPRICE}, #{NOWPRICE}, #{BOXID}, #{DISCOUNT}, #{BATCHID}, #{SUPPLIER}, #{FACTORYDATE}, #{VALIDMONTHS}, #{STORESTATUS}, #{STATUSSTATEREASON}, #{CREATEOPERID}, #{CREATEORGID}, #{CREATEDATE}, #{MODIFYDATE}, #{DATASTATE}, #{EXT1}, #{EXT2}, #{EXT3}, #{AICODE})")
+    @Insert("insert into ai_cupboard_inventory_inst(prodinstid, productname, serialno, allnum, remindnum, userid, originprice, saleprice, boxid, discount, batchid, supplier, factorydate, validmonths, storestatus, statusstatereason, createoperid, createorgid, createdate, modifydate, datastate, ext1, ext2, ext3, aicode) values(#{prodinstid}, #{productname}, #{serialno}, #{allnum}, #{remindnum}, #{userid}, #{originprice}, #{saleprice}, #{boxid}, #{discount}, #{batchid}, #{supplier}, #{factorydate}, #{validmonths}, #{storestatus}, #{statusstatereason}, #{createoperid}, #{createorgid}, #{createdate}, #{modifydate}, #{datastate}, #{ext1}, #{ext2}, #{ext3}, #{aicode})")
     int save(AiCupboardInventoryInst aiCupboardInventoryInst);
     
     int count(@Param("params") Map<String, Object> params);

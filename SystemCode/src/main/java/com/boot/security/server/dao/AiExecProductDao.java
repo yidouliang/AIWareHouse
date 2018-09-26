@@ -24,7 +24,7 @@ public interface AiExecProductDao {
     int update(AiExecProduct aiExecProduct);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(#{PRODUCTCODE}, #{AICODE}, #{PRODUCTNAME}, #{PRODUCTDESC}, #{PRODUCTTYPEID}, #{PRODUCTORIPRICE}, #{PRODUCTSTATUS}, #{PRODUCTPICPATH}, #{PRODUCTURL}, #{CREATOR}, #{CREATEDATE}, #{MODIFYDATE}, #{DATASTATE}, #{PRODUCTSOURCE}, #{EXT1}, #{EXT2}, #{EXT3})")
+    @Insert("insert into ai_exec_product(productcode, aicode, productname, productdesc, producttypeid, productoriprice, productstatus, productpicpath, producturl, creator, createdate, modifydate, datastate, productsource, ext1, ext2, ext3) values(#{productcode}, #{aicode}, #{productname}, #{productdesc}, #{producttypeid}, #{productoriprice}, #{productstatus}, #{productpicpath}, #{producturl}, #{creator}, #{createdate}, #{modifydate}, #{datastate}, #{productsource}, #{ext1}, #{ext2}, #{ext3})")
     int save(AiExecProduct aiExecProduct);
     
     int count(@Param("params") Map<String, Object> params);

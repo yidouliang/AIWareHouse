@@ -8,56 +8,56 @@
 			<if test="params.id != null and params.id != ''">
 				and id = #{params.id} 
 			</if>
-			<if test="params.PRODUCT_CODE != null and params.PRODUCT_CODE != ''">
-				and PRODUCT_CODE = #{params.PRODUCTCODE} 
+			<if test="params.productcode != null and params.productcode != ''">
+				and productcode = #{params.productcode} 
 			</if>
-			<if test="params.AI_CODE != null and params.AI_CODE != ''">
-				and AI_CODE = #{params.AICODE} 
+			<if test="params.aicode != null and params.aicode != ''">
+				and aicode = #{params.aicode} 
 			</if>
-			<if test="params.PRODUCT_NAME != null and params.PRODUCT_NAME != ''">
-				and PRODUCT_NAME = #{params.PRODUCTNAME} 
+			<if test="params.productname != null and params.productname != ''">
+				and productname = #{params.productname} 
 			</if>
-			<if test="params.PRODUCT_DESC != null and params.PRODUCT_DESC != ''">
-				and PRODUCT_DESC = #{params.PRODUCTDESC} 
+			<if test="params.productdesc != null and params.productdesc != ''">
+				and productdesc = #{params.productdesc} 
 			</if>
-			<if test="params.PRODUCT_TYPE_ID != null and params.PRODUCT_TYPE_ID != ''">
-				and PRODUCT_TYPE_ID = #{params.PRODUCTTYPEID} 
+			<if test="params.producttypeid != null and params.producttypeid != ''">
+				and producttypeid = #{params.producttypeid} 
 			</if>
-			<if test="params.PRODUCT_ORI_PRICE != null and params.PRODUCT_ORI_PRICE != ''">
-				and PRODUCT_ORI_PRICE = #{params.PRODUCTORIPRICE} 
+			<if test="params.productoriprice != null and params.productoriprice != ''">
+				and productoriprice = #{params.productoriprice} 
 			</if>
-			<if test="params.PRODUCT_STATUS != null and params.PRODUCT_STATUS != ''">
-				and PRODUCT_STATUS = #{params.PRODUCTSTATUS} 
+			<if test="params.productstatus != null and params.productstatus != ''">
+				and productstatus = #{params.productstatus} 
 			</if>
-			<if test="params.PRODUCT_PIC_PATH != null and params.PRODUCT_PIC_PATH != ''">
-				and PRODUCT_PIC_PATH = #{params.PRODUCTPICPATH} 
+			<if test="params.productpicpath != null and params.productpicpath != ''">
+				and productpicpath = #{params.productpicpath} 
 			</if>
-			<if test="params.PRODUCT_URL != null and params.PRODUCT_URL != ''">
-				and PRODUCT_URL = #{params.PRODUCTURL} 
+			<if test="params.producturl != null and params.producturl != ''">
+				and producturl = #{params.producturl} 
 			</if>
-			<if test="params.CREATOR != null and params.CREATOR != ''">
-				and CREATOR = #{params.CREATOR} 
+			<if test="params.creator != null and params.creator != ''">
+				and creator = #{params.creator} 
 			</if>
-			<if test="params.CREATE_DATE != null and params.CREATE_DATE != ''">
-				and CREATE_DATE = #{params.CREATEDATE} 
+			<if test="params.createdate != null and params.createdate != ''">
+				and createdate = #{params.createdate} 
 			</if>
-			<if test="params.MODIFY_DATE != null and params.MODIFY_DATE != ''">
-				and MODIFY_DATE = #{params.MODIFYDATE} 
+			<if test="params.modifydate != null and params.modifydate != ''">
+				and modifydate = #{params.modifydate} 
 			</if>
-			<if test="params.DATA_STATE != null and params.DATA_STATE != ''">
-				and DATA_STATE = #{params.DATASTATE} 
+			<if test="params.datastate != null and params.datastate != ''">
+				and datastate = #{params.datastate} 
 			</if>
-			<if test="params.PRODUCT_SOURCE != null and params.PRODUCT_SOURCE != ''">
-				and PRODUCT_SOURCE = #{params.PRODUCTSOURCE} 
+			<if test="params.productsource != null and params.productsource != ''">
+				and productsource = #{params.productsource} 
 			</if>
-			<if test="params.EXT1 != null and params.EXT1 != ''">
-				and EXT1 = #{params.EXT1} 
+			<if test="params.ext1 != null and params.ext1 != ''">
+				and ext1 = #{params.ext1} 
 			</if>
-			<if test="params.EXT2 != null and params.EXT2 != ''">
-				and EXT2 = #{params.EXT2} 
+			<if test="params.ext2 != null and params.ext2 != ''">
+				and ext2 = #{params.ext2} 
 			</if>
-			<if test="params.EXT3 != null and params.EXT3 != ''">
-				and EXT3 = #{params.EXT3} 
+			<if test="params.ext3 != null and params.ext3 != ''">
+				and ext3 = #{params.ext3} 
 			</if>
 		
 		</where>
@@ -78,56 +78,56 @@
 	<update id="update">
 		update ai_exec_product t
 		<set>
-			<if test="PRODUCT_CODE != null">
-				PRODUCT_CODE = #{PRODUCTCODE}, 
+			<if test="productcode != null">
+				productcode = #{productcode}, 
 			</if>
-			<if test="AI_CODE != null">
-				AI_CODE = #{AICODE}, 
+			<if test="aicode != null">
+				aicode = #{aicode}, 
 			</if>
-			<if test="PRODUCT_NAME != null">
-				PRODUCT_NAME = #{PRODUCTNAME}, 
+			<if test="productname != null">
+				productname = #{productname}, 
 			</if>
-			<if test="PRODUCT_DESC != null">
-				PRODUCT_DESC = #{PRODUCTDESC}, 
+			<if test="productdesc != null">
+				productdesc = #{productdesc}, 
 			</if>
-			<if test="PRODUCT_TYPE_ID != null">
-				PRODUCT_TYPE_ID = #{PRODUCTTYPEID}, 
+			<if test="producttypeid != null">
+				producttypeid = #{producttypeid}, 
 			</if>
-			<if test="PRODUCT_ORI_PRICE != null">
-				PRODUCT_ORI_PRICE = #{PRODUCTORIPRICE}, 
+			<if test="productoriprice != null">
+				productoriprice = #{productoriprice}, 
 			</if>
-			<if test="PRODUCT_STATUS != null">
-				PRODUCT_STATUS = #{PRODUCTSTATUS}, 
+			<if test="productstatus != null">
+				productstatus = #{productstatus}, 
 			</if>
-			<if test="PRODUCT_PIC_PATH != null">
-				PRODUCT_PIC_PATH = #{PRODUCTPICPATH}, 
+			<if test="productpicpath != null">
+				productpicpath = #{productpicpath}, 
 			</if>
-			<if test="PRODUCT_URL != null">
-				PRODUCT_URL = #{PRODUCTURL}, 
+			<if test="producturl != null">
+				producturl = #{producturl}, 
 			</if>
-			<if test="CREATOR != null">
-				CREATOR = #{CREATOR}, 
+			<if test="creator != null">
+				creator = #{creator}, 
 			</if>
-			<if test="CREATE_DATE != null">
-				CREATE_DATE = #{CREATEDATE}, 
+			<if test="createdate != null">
+				createdate = #{createdate}, 
 			</if>
-			<if test="MODIFY_DATE != null">
-				MODIFY_DATE = #{MODIFYDATE}, 
+			<if test="modifydate != null">
+				modifydate = #{modifydate}, 
 			</if>
-			<if test="DATA_STATE != null">
-				DATA_STATE = #{DATASTATE}, 
+			<if test="datastate != null">
+				datastate = #{datastate}, 
 			</if>
-			<if test="PRODUCT_SOURCE != null">
-				PRODUCT_SOURCE = #{PRODUCTSOURCE}, 
+			<if test="productsource != null">
+				productsource = #{productsource}, 
 			</if>
-			<if test="EXT1 != null">
-				EXT1 = #{EXT1}, 
+			<if test="ext1 != null">
+				ext1 = #{ext1}, 
 			</if>
-			<if test="EXT2 != null">
-				EXT2 = #{EXT2}, 
+			<if test="ext2 != null">
+				ext2 = #{ext2}, 
 			</if>
-			<if test="EXT3 != null">
-				EXT3 = #{EXT3}, 
+			<if test="ext3 != null">
+				ext3 = #{ext3}, 
 			</if>
 
 		</set>

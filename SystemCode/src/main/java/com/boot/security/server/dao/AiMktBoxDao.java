@@ -24,7 +24,7 @@ public interface AiMktBoxDao {
     int update(AiMktBox aiMktBox);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_mkt_box(boxName, boxCode, boxType, boxPerson, address, status, FACTORY_DATE, PAY_STATE, BOX_WAREHOUSE_ID, END_DATE, personTelphone, longitude, latitude, EXT1, EXT2, EXT3) values(#{boxName}, #{boxCode}, #{boxType}, #{boxPerson}, #{address}, #{status}, #{FACTORYDATE}, #{PAYSTATE}, #{BOXWAREHOUSEID}, #{ENDDATE}, #{personTelphone}, #{longitude}, #{latitude}, #{EXT1}, #{EXT2}, #{EXT3})")
+    @Insert("insert into ai_mkt_box(boxname, boxcode, boxtype, boxperson, address, status, factorydate, paystate, boxwarehouseid, enddate, persontelphone, longitude, latitude, ext1, ext2, ext3) values(#{boxname}, #{boxcode}, #{boxtype}, #{boxperson}, #{address}, #{status}, #{factorydate}, #{paystate}, #{boxwarehouseid}, #{enddate}, #{persontelphone}, #{longitude}, #{latitude}, #{ext1}, #{ext2}, #{ext3})")
     int save(AiMktBox aiMktBox);
     
     int count(@Param("params") Map<String, Object> params);

@@ -5,46 +5,46 @@ import java.util.Date;
 
 public class AiMktBox extends BaseEntity<Long> {
 
-	private String boxName;
-	private String boxCode;
-	private String boxType;
-	private Integer boxPerson;
+	private String boxname;
+	private String boxcode;
+	private String boxtype;
+	private Integer boxperson;
 	private String address;
 	private String status;
-	private Date FACTORYDATE;
-	private Integer PAYSTATE;
-	private Integer BOXWAREHOUSEID;
-	private Date ENDDATE;
-	private String personTelphone;
+	private Date factorydate;
+	private Integer paystate;
+	private Integer boxwarehouseid;
+	private Date enddate;
+	private String persontelphone;
 	private BigDecimal longitude;
 	private BigDecimal latitude;
-	private String EXT1;
-	private String EXT2;
-	private String EXT3;
+	private String ext1;
+	private String ext2;
+	private String ext3;
 
-	public String getBoxName() {
-		return boxName;
+	public String getBoxname() {
+		return boxname;
 	}
-	public String setBoxName() {
-		return boxName;
+	public String setBoxname() {
+		return boxname;
 	}
-	public String getBoxCode() {
-		return boxCode;
+	public String getBoxcode() {
+		return boxcode;
 	}
-	public String setBoxCode() {
-		return boxCode;
+	public String setBoxcode() {
+		return boxcode;
 	}
-	public String getBoxType() {
-		return boxType;
+	public String getBoxtype() {
+		return boxtype;
 	}
-	public String setBoxType() {
-		return boxType;
+	public String setBoxtype() {
+		return boxtype;
 	}
-	public Integer getBoxPerson() {
-		return boxPerson;
+	public Integer getBoxperson() {
+		return boxperson;
 	}
-	public Integer setBoxPerson() {
-		return boxPerson;
+	public Integer setBoxperson() {
+		return boxperson;
 	}
 	public String getAddress() {
 		return address;
@@ -58,35 +58,35 @@ public class AiMktBox extends BaseEntity<Long> {
 	public String setStatus() {
 		return status;
 	}
-	public Date getFACTORYDATE() {
-		return FACTORYDATE;
+	public Date getFactorydate() {
+		return factorydate;
 	}
-	public Date setFACTORYDATE() {
-		return FACTORYDATE;
+	public Date setFactorydate() {
+		return factorydate;
 	}
-	public Integer getPAYSTATE() {
-		return PAYSTATE;
+	public Integer getPaystate() {
+		return paystate;
 	}
-	public Integer setPAYSTATE() {
-		return PAYSTATE;
+	public Integer setPaystate() {
+		return paystate;
 	}
-	public Integer getBOXWAREHOUSEID() {
-		return BOXWAREHOUSEID;
+	public Integer getBoxwarehouseid() {
+		return boxwarehouseid;
 	}
-	public Integer setBOXWAREHOUSEID() {
-		return BOXWAREHOUSEID;
+	public Integer setBoxwarehouseid() {
+		return boxwarehouseid;
 	}
-	public Date getENDDATE() {
-		return ENDDATE;
+	public Date getEnddate() {
+		return enddate;
 	}
-	public Date setENDDATE() {
-		return ENDDATE;
+	public Date setEnddate() {
+		return enddate;
 	}
-	public String getPersonTelphone() {
-		return personTelphone;
+	public String getPersontelphone() {
+		return persontelphone;
 	}
-	public String setPersonTelphone() {
-		return personTelphone;
+	public String setPersontelphone() {
+		return persontelphone;
 	}
 	public BigDecimal getLongitude() {
 		return longitude;
@@ -100,23 +100,23 @@ public class AiMktBox extends BaseEntity<Long> {
 	public BigDecimal setLatitude() {
 		return latitude;
 	}
-	public String getEXT1() {
-		return EXT1;
+	public String getExt1() {
+		return ext1;
 	}
-	public String setEXT1() {
-		return EXT1;
+	public String setExt1() {
+		return ext1;
 	}
-	public String getEXT2() {
-		return EXT2;
+	public String getExt2() {
+		return ext2;
 	}
-	public String setEXT2() {
-		return EXT2;
+	public String setExt2() {
+		return ext2;
 	}
-	public String getEXT3() {
-		return EXT3;
+	public String getExt3() {
+		return ext3;
 	}
-	public String setEXT3() {
-		return EXT3;
+	public String setExt3() {
+		return ext3;
 	}
 
 }

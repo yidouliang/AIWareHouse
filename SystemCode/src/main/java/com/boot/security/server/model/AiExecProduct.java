@@ -5,125 +5,125 @@ import java.util.Date;
 
 public class AiExecProduct extends BaseEntity<Long> {
 
-	private String PRODUCTCODE;
-	private String AICODE;
-	private String PRODUCTNAME;
-	private String PRODUCTDESC;
-	private Integer PRODUCTTYPEID;
-	private BigDecimal PRODUCTORIPRICE;
-	private Integer PRODUCTSTATUS;
-	private String PRODUCTPICPATH;
-	private String PRODUCTURL;
-	private BigDecimal CREATOR;
-	private Date CREATEDATE;
-	private Date MODIFYDATE;
-	private Integer DATASTATE;
-	private String PRODUCTSOURCE;
-	private Integer EXT1;
-	private String EXT2;
-	private String EXT3;
+	private String productcode;
+	private String aicode;
+	private String productname;
+	private String productdesc;
+	private Integer producttypeid;
+	private BigDecimal productoriprice;
+	private Integer productstatus;
+	private String productpicpath;
+	private String producturl;
+	private BigDecimal creator;
+	private Date createdate;
+	private Date modifydate;
+	private Integer datastate;
+	private String productsource;
+	private Integer ext1;
+	private String ext2;
+	private String ext3;
 
-	public String getPRODUCTCODE() {
-		return PRODUCTCODE;
+	public String getProductcode() {
+		return productcode;
 	}
-	public String setPRODUCTCODE() {
-		return PRODUCTCODE;
+	public String setProductcode() {
+		return productcode;
 	}
-	public String getAICODE() {
-		return AICODE;
+	public String getAicode() {
+		return aicode;
 	}
-	public String setAICODE() {
-		return AICODE;
+	public String setAicode() {
+		return aicode;
 	}
-	public String getPRODUCTNAME() {
-		return PRODUCTNAME;
+	public String getProductname() {
+		return productname;
 	}
-	public String setPRODUCTNAME() {
-		return PRODUCTNAME;
+	public String setProductname() {
+		return productname;
 	}
-	public String getPRODUCTDESC() {
-		return PRODUCTDESC;
+	public String getProductdesc() {
+		return productdesc;
 	}
-	public String setPRODUCTDESC() {
-		return PRODUCTDESC;
+	public String setProductdesc() {
+		return productdesc;
 	}
-	public Integer getPRODUCTTYPEID() {
-		return PRODUCTTYPEID;
+	public Integer getProducttypeid() {
+		return producttypeid;
 	}
-	public Integer setPRODUCTTYPEID() {
-		return PRODUCTTYPEID;
+	public Integer setProducttypeid() {
+		return producttypeid;
 	}
-	public BigDecimal getPRODUCTORIPRICE() {
-		return PRODUCTORIPRICE;
+	public BigDecimal getProductoriprice() {
+		return productoriprice;
 	}
-	public BigDecimal setPRODUCTORIPRICE() {
-		return PRODUCTORIPRICE;
+	public BigDecimal setProductoriprice() {
+		return productoriprice;
 	}
-	public Integer getPRODUCTSTATUS() {
-		return PRODUCTSTATUS;
+	public Integer getProductstatus() {
+		return productstatus;
 	}
-	public Integer setPRODUCTSTATUS() {
-		return PRODUCTSTATUS;
+	public Integer setProductstatus() {
+		return productstatus;
 	}
-	public String getPRODUCTPICPATH() {
-		return PRODUCTPICPATH;
+	public String getProductpicpath() {
+		return productpicpath;
 	}
-	public String setPRODUCTPICPATH() {
-		return PRODUCTPICPATH;
+	public String setProductpicpath() {
+		return productpicpath;
 	}
-	public String getPRODUCTURL() {
-		return PRODUCTURL;
+	public String getProducturl() {
+		return producturl;
 	}
-	public String setPRODUCTURL() {
-		return PRODUCTURL;
+	public String setProducturl() {
+		return producturl;
 	}
-	public BigDecimal getCREATOR() {
-		return CREATOR;
+	public BigDecimal getCreator() {
+		return creator;
 	}
-	public BigDecimal setCREATOR() {
-		return CREATOR;
+	public BigDecimal setCreator() {
+		return creator;
 	}
-	public Date getCREATEDATE() {
-		return CREATEDATE;
+	public Date getCreatedate() {
+		return createdate;
 	}
-	public Date setCREATEDATE() {
-		return CREATEDATE;
+	public Date setCreatedate() {
+		return createdate;
 	}
-	public Date getMODIFYDATE() {
-		return MODIFYDATE;
+	public Date getModifydate() {
+		return modifydate;
 	}
-	public Date setMODIFYDATE() {
-		return MODIFYDATE;
+	public Date setModifydate() {
+		return modifydate;
 	}
-	public Integer getDATASTATE() {
-		return DATASTATE;
+	public Integer getDatastate() {
+		return datastate;
 	}
-	public Integer setDATASTATE() {
-		return DATASTATE;
+	public Integer setDatastate() {
+		return datastate;
 	}
-	public String getPRODUCTSOURCE() {
-		return PRODUCTSOURCE;
+	public String getProductsource() {
+		return productsource;
 	}
-	public String setPRODUCTSOURCE() {
-		return PRODUCTSOURCE;
+	public String setProductsource() {
+		return productsource;
 	}
-	public Integer getEXT1() {
-		return EXT1;
+	public Integer getExt1() {
+		return ext1;
 	}
-	public Integer setEXT1() {
-		return EXT1;
+	public Integer setExt1() {
+		return ext1;
 	}
-	public String getEXT2() {
-		return EXT2;
+	public String getExt2() {
+		return ext2;
 	}
-	public String setEXT2() {
-		return EXT2;
+	public String setExt2() {
+		return ext2;
 	}
-	public String getEXT3() {
-		return EXT3;
+	public String getExt3() {
+		return ext3;
 	}
-	public String setEXT3() {
-		return EXT3;
+	public String setExt3() {
+		return ext3;
 	}
 
 }

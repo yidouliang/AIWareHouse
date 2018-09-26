@@ -24,7 +24,7 @@ public interface AiWarehouseStockDao {
     int update(AiWarehouseStock aiWarehouseStock);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_warehouse_stock(ID, PROD_INST_ID, PRODUCT_NAME, SERIAL_NO, ALL_NUM, REMAIND_NUM, AI_CODE, USER_ID, OLD_PRICE, NOW_PRICE, WAREHOUSE_ID, DISCOUNT, BATCH_ID, SUPPLIER, FACTORY_DATE, VALID_MONTHS, STORE_STATUS, STATUS_STATE_REASON, CREATE_OPER_ID, CREATE_ORG_ID, CREATE_DATE, MODIFY_DATE, DATA_STATE, EXT1, EXT2, EXT3) values(#{ID}, #{PRODINSTID}, #{PRODUCTNAME}, #{SERIALNO}, #{ALLNUM}, #{REMAINDNUM}, #{AICODE}, #{USERID}, #{OLDPRICE}, #{NOWPRICE}, #{WAREHOUSEID}, #{DISCOUNT}, #{BATCHID}, #{SUPPLIER}, #{FACTORYDATE}, #{VALIDMONTHS}, #{STORESTATUS}, #{STATUSSTATEREASON}, #{CREATEOPERID}, #{CREATEORGID}, #{CREATEDATE}, #{MODIFYDATE}, #{DATASTATE}, #{EXT1}, #{EXT2}, #{EXT3})")
+    @Insert("insert into ai_warehouse_stock(prodinstid, productname, serialno, allnum, remaindnum, aicode, userid, oldprice, nowprice, warehouseid, discount, batchid, supplier, factorydate, validmonths, storestatus, statusstatereason, createoperid, createorgid, createdate, modifydate, datastate, ext1, ext2, ext3) values(#{prodinstid}, #{productname}, #{serialno}, #{allnum}, #{remaindnum}, #{aicode}, #{userid}, #{oldprice}, #{nowprice}, #{warehouseid}, #{discount}, #{batchid}, #{supplier}, #{factorydate}, #{validmonths}, #{storestatus}, #{statusstatereason}, #{createoperid}, #{createorgid}, #{createdate}, #{modifydate}, #{datastate}, #{ext1}, #{ext2}, #{ext3})")
     int save(AiWarehouseStock aiWarehouseStock);
     
     int count(@Param("params") Map<String, Object> params);

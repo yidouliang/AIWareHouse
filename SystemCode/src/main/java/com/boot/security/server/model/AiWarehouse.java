@@ -5,83 +5,76 @@ import java.math.BigDecimal;
 
 public class AiWarehouse extends BaseEntity<Long> {
 
-	private Integer ID;
-	private String NAME;
-	private String ADDESS;
-	private BigDecimal LONGITUDE;
-	private BigDecimal LATITUDE;
-	private Integer TYPE;
-	private Integer USERID;
-	private Integer WAREHOUSESTATE;
-	private String EXT1;
-	private String EXT2;
-	private String EXT3;
+	private String name;
+	private String address;
+	private BigDecimal longitude;
+	private BigDecimal latitude;
+	private Integer type;
+	private Integer userid;
+	private Integer warehousestate;
+	private String ext1;
+	private String ext2;
+	private String ext3;
 
-	public Integer getID() {
-		return ID;
+	public String getName() {
+		return name;
 	}
-	public Integer setID() {
-		return ID;
+	public String setName() {
+		return name;
 	}
-	public String getNAME() {
-		return NAME;
+	public String getAddress() {
+		return address;
 	}
-	public String setNAME() {
-		return NAME;
+	public String setAddress() {
+		return address;
 	}
-	public String getADDESS() {
-		return ADDESS;
+	public BigDecimal getLongitude() {
+		return longitude;
 	}
-	public String setADDESS() {
-		return ADDESS;
+	public BigDecimal setLongitude() {
+		return longitude;
 	}
-	public BigDecimal getLONGITUDE() {
-		return LONGITUDE;
+	public BigDecimal getLatitude() {
+		return latitude;
 	}
-	public BigDecimal setLONGITUDE() {
-		return LONGITUDE;
+	public BigDecimal setLatitude() {
+		return latitude;
 	}
-	public BigDecimal getLATITUDE() {
-		return LATITUDE;
+	public Integer getType() {
+		return type;
 	}
-	public BigDecimal setLATITUDE() {
-		return LATITUDE;
+	public Integer setType() {
+		return type;
 	}
-	public Integer getTYPE() {
-		return TYPE;
+	public Integer getUserid() {
+		return userid;
 	}
-	public Integer setTYPE() {
-		return TYPE;
+	public Integer setUserid() {
+		return userid;
 	}
-	public Integer getUSERID() {
-		return USERID;
+	public Integer getWarehousestate() {
+		return warehousestate;
 	}
-	public Integer setUSERID() {
-		return USERID;
+	public Integer setWarehousestate() {
+		return warehousestate;
 	}
-	public Integer getWAREHOUSESTATE() {
-		return WAREHOUSESTATE;
+	public String getExt1() {
+		return ext1;
 	}
-	public Integer setWAREHOUSESTATE() {
-		return WAREHOUSESTATE;
+	public String setExt1() {
+		return ext1;
 	}
-	public String getEXT1() {
-		return EXT1;
+	public String getExt2() {
+		return ext2;
 	}
-	public String setEXT1() {
-		return EXT1;
+	public String setExt2() {
+		return ext2;
 	}
-	public String getEXT2() {
-		return EXT2;
+	public String getExt3() {
+		return ext3;
 	}
-	public String setEXT2() {
-		return EXT2;
-	}
-	public String getEXT3() {
-		return EXT3;
-	}
-	public String setEXT3() {
-		return EXT3;
+	public String setExt3() {
+		return ext3;
 	}
 
 }

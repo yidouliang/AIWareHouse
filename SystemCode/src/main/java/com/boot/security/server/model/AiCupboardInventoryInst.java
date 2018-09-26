@@ -5,188 +5,181 @@ import java.util.Date;
 
 public class AiCupboardInventoryInst extends BaseEntity<Long> {
 
-	private String ID;
-	private BigDecimal PRODINSTID;
-	private String PRODUCTNAME;
-	private String SERIALNO;
-	private Integer ALLNUM;
-	private Integer REMAINDNUM;
-	private Integer USERID;
-	private BigDecimal OLDPRICE;
-	private BigDecimal NOWPRICE;
-	private Integer BOXID;
-	private BigDecimal DISCOUNT;
-	private String BATCHID;
-	private String SUPPLIER;
-	private Date FACTORYDATE;
-	private Date VALIDMONTHS;
-	private String STORESTATUS;
-	private String STATUSSTATEREASON;
-	private String CREATEOPERID;
-	private String CREATEORGID;
-	private Date CREATEDATE;
-	private Date MODIFYDATE;
-	private String DATASTATE;
-	private String EXT1;
-	private String EXT2;
-	private String EXT3;
-	private String AICODE;
+	private BigDecimal prodinstid;
+	private String productname;
+	private String serialno;
+	private Integer allnum;
+	private Integer remindnum;
+	private Integer userid;
+	private BigDecimal originprice;
+	private BigDecimal saleprice;
+	private Integer boxid;
+	private BigDecimal discount;
+	private String batchid;
+	private String supplier;
+	private Date factorydate;
+	private Date validmonths;
+	private String storestatus;
+	private String statusstatereason;
+	private String createoperid;
+	private String createorgid;
+	private Date createdate;
+	private Date modifydate;
+	private String datastate;
+	private String ext1;
+	private String ext2;
+	private String ext3;
+	private String aicode;
 
-	public String getID() {
-		return ID;
+	public BigDecimal getProdinstid() {
+		return prodinstid;
 	}
-	public String setID() {
-		return ID;
+	public BigDecimal setProdinstid() {
+		return prodinstid;
 	}
-	public BigDecimal getPRODINSTID() {
-		return PRODINSTID;
+	public String getProductname() {
+		return productname;
 	}
-	public BigDecimal setPRODINSTID() {
-		return PRODINSTID;
+	public String setProductname() {
+		return productname;
 	}
-	public String getPRODUCTNAME() {
-		return PRODUCTNAME;
+	public String getSerialno() {
+		return serialno;
 	}
-	public String setPRODUCTNAME() {
-		return PRODUCTNAME;
+	public String setSerialno() {
+		return serialno;
 	}
-	public String getSERIALNO() {
-		return SERIALNO;
+	public Integer getAllnum() {
+		return allnum;
 	}
-	public String setSERIALNO() {
-		return SERIALNO;
+	public Integer setAllnum() {
+		return allnum;
 	}
-	public Integer getALLNUM() {
-		return ALLNUM;
+	public Integer getRemindnum() {
+		return remindnum;
 	}
-	public Integer setALLNUM() {
-		return ALLNUM;
+	public Integer setRemindnum() {
+		return remindnum;
 	}
-	public Integer getREMAINDNUM() {
-		return REMAINDNUM;
+	public Integer getUserid() {
+		return userid;
 	}
-	public Integer setREMAINDNUM() {
-		return REMAINDNUM;
+	public Integer setUserid() {
+		return userid;
 	}
-	public Integer getUSERID() {
-		return USERID;
+	public BigDecimal getOriginprice() {
+		return originprice;
 	}
-	public Integer setUSERID() {
-		return USERID;
+	public BigDecimal setOriginprice() {
+		return originprice;
 	}
-	public BigDecimal getOLDPRICE() {
-		return OLDPRICE;
+	public BigDecimal getSaleprice() {
+		return saleprice;
 	}
-	public BigDecimal setOLDPRICE() {
-		return OLDPRICE;
+	public BigDecimal setSaleprice() {
+		return saleprice;
 	}
-	public BigDecimal getNOWPRICE() {
-		return NOWPRICE;
+	public Integer getBoxid() {
+		return boxid;
 	}
-	public BigDecimal setNOWPRICE() {
-		return NOWPRICE;
+	public Integer setBoxid() {
+		return boxid;
 	}
-	public Integer getBOXID() {
-		return BOXID;
+	public BigDecimal getDiscount() {
+		return discount;
 	}
-	public Integer setBOXID() {
-		return BOXID;
+	public BigDecimal setDiscount() {
+		return discount;
 	}
-	public BigDecimal getDISCOUNT() {
-		return DISCOUNT;
+	public String getBatchid() {
+		return batchid;
 	}
-	public BigDecimal setDISCOUNT() {
-		return DISCOUNT;
+	public String setBatchid() {
+		return batchid;
 	}
-	public String getBATCHID() {
-		return BATCHID;
+	public String getSupplier() {
+		return supplier;
 	}
-	public String setBATCHID() {
-		return BATCHID;
+	public String setSupplier() {
+		return supplier;
 	}
-	public String getSUPPLIER() {
-		return SUPPLIER;
+	public Date getFactorydate() {
+		return factorydate;
 	}
-	public String setSUPPLIER() {
-		return SUPPLIER;
+	public Date setFactorydate() {
+		return factorydate;
 	}
-	public Date getFACTORYDATE() {
-		return FACTORYDATE;
+	public Date getValidmonths() {
+		return validmonths;
 	}
-	public Date setFACTORYDATE() {
-		return FACTORYDATE;
+	public Date setValidmonths() {
+		return validmonths;
 	}
-	public Date getVALIDMONTHS() {
-		return VALIDMONTHS;
+	public String getStorestatus() {
+		return storestatus;
 	}
-	public Date setVALIDMONTHS() {
-		return VALIDMONTHS;
+	public String setStorestatus() {
+		return storestatus;
 	}
-	public String getSTORESTATUS() {
-		return STORESTATUS;
+	public String getStatusstatereason() {
+		return statusstatereason;
 	}
-	public String setSTORESTATUS() {
-		return STORESTATUS;
+	public String setStatusstatereason() {
+		return statusstatereason;
 	}
-	public String getSTATUSSTATEREASON() {
-		return STATUSSTATEREASON;
+	public String getCreateoperid() {
+		return createoperid;
 	}
-	public String setSTATUSSTATEREASON() {
-		return STATUSSTATEREASON;
+	public String setCreateoperid() {
+		return createoperid;
 	}
-	public String getCREATEOPERID() {
-		return CREATEOPERID;
+	public String getCreateorgid() {
+		return createorgid;
 	}
-	public String setCREATEOPERID() {
-		return CREATEOPERID;
+	public String setCreateorgid() {
+		return createorgid;
 	}
-	public String getCREATEORGID() {
-		return CREATEORGID;
+	public Date getCreatedate() {
+		return createdate;
 	}
-	public String setCREATEORGID() {
-		return CREATEORGID;
+	public Date setCreatedate() {
+		return createdate;
 	}
-	public Date getCREATEDATE() {
-		return CREATEDATE;
+	public Date getModifydate() {
+		return modifydate;
 	}
-	public Date setCREATEDATE() {
-		return CREATEDATE;
+	public Date setModifydate() {
+		return modifydate;
 	}
-	public Date getMODIFYDATE() {
-		return MODIFYDATE;
+	public String getDatastate() {
+		return datastate;
 	}
-	public Date setMODIFYDATE() {
-		return MODIFYDATE;
+	public String setDatastate() {
+		return datastate;
 	}
-	public String getDATASTATE() {
-		return DATASTATE;
+	public String getExt1() {
+		return ext1;
 	}
-	public String setDATASTATE() {
-		return DATASTATE;
+	public String setExt1() {
+		return ext1;
 	}
-	public String getEXT1() {
-		return EXT1;
+	public String getExt2() {
+		return ext2;
 	}
-	public String setEXT1() {
-		return EXT1;
+	public String setExt2() {
+		return ext2;
 	}
-	public String getEXT2() {
-		return EXT2;
+	public String getExt3() {
+		return ext3;
 	}
-	public String setEXT2() {
-		return EXT2;
+	public String setExt3() {
+		return ext3;
 	}
-	public String getEXT3() {
-		return EXT3;
+	public String getAicode() {
+		return aicode;
 	}
-	public String setEXT3() {
-		return EXT3;
-	}
-	public String getAICODE() {
-		return AICODE;
-	}
-	public String setAICODE() {
-		return AICODE;
+	public String setAicode() {
+		return aicode;
 	}
 
 }

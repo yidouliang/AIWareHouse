@@ -5,83 +5,83 @@
 
 	<sql id="where">
 		<where>
-			<if test="params.ID != null and params.ID != ''">
-				and ID = #{params.ID} 
+			<if test="params.id != null and params.id != ''">
+				and id = #{params.id} 
 			</if>
-			<if test="params.PROD_INST_ID != null and params.PROD_INST_ID != ''">
-				and PROD_INST_ID = #{params.PRODINSTID} 
+			<if test="params.prodinstid != null and params.prodinstid != ''">
+				and prodinstid = #{params.prodinstid} 
 			</if>
-			<if test="params.PRODUCT_NAME != null and params.PRODUCT_NAME != ''">
-				and PRODUCT_NAME = #{params.PRODUCTNAME} 
+			<if test="params.productname != null and params.productname != ''">
+				and productname = #{params.productname} 
 			</if>
-			<if test="params.SERIAL_NO != null and params.SERIAL_NO != ''">
-				and SERIAL_NO = #{params.SERIALNO} 
+			<if test="params.serialno != null and params.serialno != ''">
+				and serialno = #{params.serialno} 
 			</if>
-			<if test="params.ALL_NUM != null and params.ALL_NUM != ''">
-				and ALL_NUM = #{params.ALLNUM} 
+			<if test="params.allnum != null and params.allnum != ''">
+				and allnum = #{params.allnum} 
 			</if>
-			<if test="params.REMAIND_NUM != null and params.REMAIND_NUM != ''">
-				and REMAIND_NUM = #{params.REMAINDNUM} 
+			<if test="params.remaindnum != null and params.remaindnum != ''">
+				and remaindnum = #{params.remaindnum} 
 			</if>
-			<if test="params.AI_CODE != null and params.AI_CODE != ''">
-				and AI_CODE = #{params.AICODE} 
+			<if test="params.aicode != null and params.aicode != ''">
+				and aicode = #{params.aicode} 
 			</if>
-			<if test="params.USER_ID != null and params.USER_ID != ''">
-				and USER_ID = #{params.USERID} 
+			<if test="params.userid != null and params.userid != ''">
+				and userid = #{params.userid} 
 			</if>
-			<if test="params.OLD_PRICE != null and params.OLD_PRICE != ''">
-				and OLD_PRICE = #{params.OLDPRICE} 
+			<if test="params.oldprice != null and params.oldprice != ''">
+				and oldprice = #{params.oldprice} 
 			</if>
-			<if test="params.NOW_PRICE != null and params.NOW_PRICE != ''">
-				and NOW_PRICE = #{params.NOWPRICE} 
+			<if test="params.nowprice != null and params.nowprice != ''">
+				and nowprice = #{params.nowprice} 
 			</if>
-			<if test="params.WAREHOUSE_ID != null and params.WAREHOUSE_ID != ''">
-				and WAREHOUSE_ID = #{params.WAREHOUSEID} 
+			<if test="params.warehouseid != null and params.warehouseid != ''">
+				and warehouseid = #{params.warehouseid} 
 			</if>
-			<if test="params.DISCOUNT != null and params.DISCOUNT != ''">
-				and DISCOUNT = #{params.DISCOUNT} 
+			<if test="params.discount != null and params.discount != ''">
+				and discount = #{params.discount} 
 			</if>
-			<if test="params.BATCH_ID != null and params.BATCH_ID != ''">
-				and BATCH_ID = #{params.BATCHID} 
+			<if test="params.batchid != null and params.batchid != ''">
+				and batchid = #{params.batchid} 
 			</if>
-			<if test="params.SUPPLIER != null and params.SUPPLIER != ''">
-				and SUPPLIER = #{params.SUPPLIER} 
+			<if test="params.supplier != null and params.supplier != ''">
+				and supplier = #{params.supplier} 
 			</if>
-			<if test="params.FACTORY_DATE != null and params.FACTORY_DATE != ''">
-				and FACTORY_DATE = #{params.FACTORYDATE} 
+			<if test="params.factorydate != null and params.factorydate != ''">
+				and factorydate = #{params.factorydate} 
 			</if>
-			<if test="params.VALID_MONTHS != null and params.VALID_MONTHS != ''">
-				and VALID_MONTHS = #{params.VALIDMONTHS} 
+			<if test="params.validmonths != null and params.validmonths != ''">
+				and validmonths = #{params.validmonths} 
 			</if>
-			<if test="params.STORE_STATUS != null and params.STORE_STATUS != ''">
-				and STORE_STATUS = #{params.STORESTATUS} 
+			<if test="params.storestatus != null and params.storestatus != ''">
+				and storestatus = #{params.storestatus} 
 			</if>
-			<if test="params.STATUS_STATE_REASON != null and params.STATUS_STATE_REASON != ''">
-				and STATUS_STATE_REASON = #{params.STATUSSTATEREASON} 
+			<if test="params.statusstatereason != null and params.statusstatereason != ''">
+				and statusstatereason = #{params.statusstatereason} 
 			</if>
-			<if test="params.CREATE_OPER_ID != null and params.CREATE_OPER_ID != ''">
-				and CREATE_OPER_ID = #{params.CREATEOPERID} 
+			<if test="params.createoperid != null and params.createoperid != ''">
+				and createoperid = #{params.createoperid} 
 			</if>
-			<if test="params.CREATE_ORG_ID != null and params.CREATE_ORG_ID != ''">
-				and CREATE_ORG_ID = #{params.CREATEORGID} 
+			<if test="params.createorgid != null and params.createorgid != ''">
+				and createorgid = #{params.createorgid} 
 			</if>
-			<if test="params.CREATE_DATE != null and params.CREATE_DATE != ''">
-				and CREATE_DATE = #{params.CREATEDATE} 
+			<if test="params.createdate != null and params.createdate != ''">
+				and createdate = #{params.createdate} 
 			</if>
-			<if test="params.MODIFY_DATE != null and params.MODIFY_DATE != ''">
-				and MODIFY_DATE = #{params.MODIFYDATE} 
+			<if test="params.modifydate != null and params.modifydate != ''">
+				and modifydate = #{params.modifydate} 
 			</if>
-			<if test="params.DATA_STATE != null and params.DATA_STATE != ''">
-				and DATA_STATE = #{params.DATASTATE} 
+			<if test="params.datastate != null and params.datastate != ''">
+				and datastate = #{params.datastate} 
 			</if>
-			<if test="params.EXT1 != null and params.EXT1 != ''">
-				and EXT1 = #{params.EXT1} 
+			<if test="params.ext1 != null and params.ext1 != ''">
+				and ext1 = #{params.ext1} 
 			</if>
-			<if test="params.EXT2 != null and params.EXT2 != ''">
-				and EXT2 = #{params.EXT2} 
+			<if test="params.ext2 != null and params.ext2 != ''">
+				and ext2 = #{params.ext2} 
 			</if>
-			<if test="params.EXT3 != null and params.EXT3 != ''">
-				and EXT3 = #{params.EXT3} 
+			<if test="params.ext3 != null and params.ext3 != ''">
+				and ext3 = #{params.ext3} 
 			</if>
 		
 		</where>
@@ -102,83 +102,80 @@
 	<update id="update">
 		update ai_warehouse_stock t
 		<set>
-			<if test="ID != null">
-				ID = #{ID}, 
+			<if test="prodinstid != null">
+				prodinstid = #{prodinstid}, 
 			</if>
-			<if test="PROD_INST_ID != null">
-				PROD_INST_ID = #{PRODINSTID}, 
+			<if test="productname != null">
+				productname = #{productname}, 
 			</if>
-			<if test="PRODUCT_NAME != null">
-				PRODUCT_NAME = #{PRODUCTNAME}, 
+			<if test="serialno != null">
+				serialno = #{serialno}, 
 			</if>
-			<if test="SERIAL_NO != null">
-				SERIAL_NO = #{SERIALNO}, 
+			<if test="allnum != null">
+				allnum = #{allnum}, 
 			</if>
-			<if test="ALL_NUM != null">
-				ALL_NUM = #{ALLNUM}, 
+			<if test="remaindnum != null">
+				remaindnum = #{remaindnum}, 
 			</if>
-			<if test="REMAIND_NUM != null">
-				REMAIND_NUM = #{REMAINDNUM}, 
+			<if test="aicode != null">
+				aicode = #{aicode}, 
 			</if>
-			<if test="AI_CODE != null">
-				AI_CODE = #{AICODE}, 
+			<if test="userid != null">
+				userid = #{userid}, 
 			</if>
-			<if test="USER_ID != null">
-				USER_ID = #{USERID}, 
+			<if test="oldprice != null">
+				oldprice = #{oldprice}, 
 			</if>
-			<if test="OLD_PRICE != null">
-				OLD_PRICE = #{OLDPRICE}, 
+			<if test="nowprice != null">
+				nowprice = #{nowprice}, 
 			</if>
-			<if test="NOW_PRICE != null">
-				NOW_PRICE = #{NOWPRICE}, 
+			<if test="warehouseid != null">
+				warehouseid = #{warehouseid}, 
 			</if>
-			<if test="WAREHOUSE_ID != null">
-				WAREHOUSE_ID = #{WAREHOUSEID}, 
+			<if test="discount != null">
+				discount = #{discount}, 
 			</if>
-			<if test="DISCOUNT != null">
-				DISCOUNT = #{DISCOUNT}, 
+			<if test="batchid != null">
+				batchid = #{batchid}, 
 			</if>
-			<if test="BATCH_ID != null">
-				BATCH_ID = #{BATCHID}, 
+			<if test="supplier != null">
+				supplier = #{supplier}, 
 			</if>
-			<if test="SUPPLIER != null">
-				SUPPLIER = #{SUPPLIER}, 
+			<if test="factorydate != null">
+				factorydate = #{factorydate}, 
 			</if>
-			<if test="FACTORY_DATE != null">
-				FACTORY_DATE = #{FACTORYDATE}, 
+			<if test="validmonths != null">
+				validmonths = #{validmonths}, 
 			</if>
-			<if test="VALID_MONTHS != null">
-				VALID_MONTHS = #{VALIDMONTHS}, 
+			<if test="storestatus != null">
+				storestatus = #{storestatus}, 
 			</if>
-			<if test="STORE_STATUS != null">
-				STORE_STATUS = #{STORESTATUS}, 
+			<if test="statusstatereason != null">
+				statusstatereason = #{statusstatereason}, 
 			</if>
-			<if test="STATUS_STATE_REASON != null">
-				STATUS_STATE_REASON = #{STATUSSTATEREASON}, 
+			<if test="createoperid != null">
+				createoperid = #{createoperid}, 
 			</if>
-			<if test="CREATE_OPER_ID != null">
-				CREATE_OPER_ID = #{CREATEOPERID}, 
+			<if test="createorgid != null">
+				createorgid = #{createorgid}, 
 			</if>
-			<if test="CREATE_ORG_ID != null">
-				CREATE_ORG_ID = #{CREATEORGID}, 
+			<if test="createdate != null">
+				createdate = #{createdate}, 
 			</if>
-			<if test="CREATE_DATE != null">
-				CREATE_DATE = #{CREATEDATE}, 
+			<if test="modifydate != null">
+				modifydate = #{modifydate}, 
 			</if>
-			<if test="MODIFY_DATE != null">
-				MODIFY_DATE = #{MODIFYDATE}, 
+			<if test="datastate != null">
+				datastate = #{datastate}, 
 			</if>
-			<if test="DATA_STATE != null">
-				DATA_STATE = #{DATASTATE}, 
+			<if test="ext1 != null">
+				ext1 = #{ext1}, 
 			</if>
-			<if test="EXT1 != null">
-				EXT1 = #{EXT1}, 
+			<if test="ext2 != null">
+				ext2 = #{ext2}, 
 			</if>
-			<if test="EXT2 != null">
-				EXT2 = #{EXT2}, 
-			</if>
-			<if test="EXT3 != null">
-				EXT3 = #{EXT3}, 
+			<if test="ext3 != null">
+				ext3 = #{ext3}, 
 			</if>
 
 		</set>

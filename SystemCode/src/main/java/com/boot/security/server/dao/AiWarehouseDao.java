@@ -24,7 +24,7 @@ public interface AiWarehouseDao {
     int update(AiWarehouse aiWarehouse);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_warehouse(ID, NAME, ADDESS, LONGITUDE, LATITUDE, TYPE, USER_ID, WAREHOUSE_STATE, EXT1, EXT2, EXT3) values(#{ID}, #{NAME}, #{ADDESS}, #{LONGITUDE}, #{LATITUDE}, #{TYPE}, #{USERID}, #{WAREHOUSESTATE}, #{EXT1}, #{EXT2}, #{EXT3})")
+    @Insert("insert into ai_warehouse(name, address, longitude, latitude, type, userid, warehousestate, ext1, ext2, ext3) values(#{name}, #{address}, #{longitude}, #{latitude}, #{type}, #{userid}, #{warehousestate}, #{ext1}, #{ext2}, #{ext3})")
     int save(AiWarehouse aiWarehouse);
     
     int count(@Param("params") Map<String, Object> params);

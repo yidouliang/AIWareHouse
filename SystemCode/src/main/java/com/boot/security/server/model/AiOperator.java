@@ -7,12 +7,12 @@ public class AiOperator extends BaseEntity<Long> {
 	private String name;
 	private String description;
 	private Integer level;
-	private String EXT4;
-	private String EXT5;
-	private String EXT6;
-	private String EXT1;
-	private String EXT2;
-	private String owernum;
+	private String ext4;
+	private String ext5;
+	private String ext6;
+	private String ext1;
+	private String ext2;
+	private Integer owernum;
 
 	public String getName() {
 		return name;
@@ -32,40 +32,40 @@ public class AiOperator extends BaseEntity<Long> {
 	public Integer setLevel() {
 		return level;
 	}
-	public String getEXT4() {
-		return EXT4;
+	public String getExt4() {
+		return ext4;
 	}
-	public String setEXT4() {
-		return EXT4;
+	public String setExt4() {
+		return ext4;
 	}
-	public String getEXT5() {
-		return EXT5;
+	public String getExt5() {
+		return ext5;
 	}
-	public String setEXT5() {
-		return EXT5;
+	public String setExt5() {
+		return ext5;
 	}
-	public String getEXT6() {
-		return EXT6;
+	public String getExt6() {
+		return ext6;
 	}
-	public String setEXT6() {
-		return EXT6;
+	public String setExt6() {
+		return ext6;
 	}
-	public String getEXT1() {
-		return EXT1;
+	public String getExt1() {
+		return ext1;
 	}
-	public String setEXT1() {
-		return EXT1;
+	public String setExt1() {
+		return ext1;
 	}
-	public String getEXT2() {
-		return EXT2;
+	public String getExt2() {
+		return ext2;
 	}
-	public String setEXT2() {
-		return EXT2;
+	public String setExt2() {
+		return ext2;
 	}
-	public String getOwernum() {
+	public Integer getOwernum() {
 		return owernum;
 	}
-	public String setOwernum() {
+	public Integer setOwernum() {
 		return owernum;
 	}
 

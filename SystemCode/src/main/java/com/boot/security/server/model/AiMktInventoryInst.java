@@ -5,174 +5,167 @@ import java.util.Date;
 
 public class AiMktInventoryInst extends BaseEntity<Long> {
 
-	private String ID;
-	private BigDecimal PRODINSTID;
-	private String PRODUCTCODE;
-	private String PRODUCTNAME;
-	private String SERIALNO;
-	private Integer USERID;
-	private BigDecimal 原价格;
-	private BigDecimal 现在价格;
-	private Integer BOXID;
-	private BigDecimal 折扣率;
-	private String BATCHID;
-	private String SUPPLIER;
-	private Date FACTORYDATE;
-	private Date VALIDMONTHS;
-	private String STORESTATUS;
-	private String STATUSSTATEREASON;
-	private String CREATEOPERID;
-	private String CREATEORGID;
-	private Date CREATEDATE;
-	private String MODIFYDATE;
-	private Integer DATASTATE;
-	private String EXT1;
-	private String EXT2;
-	private String EXT3;
+	private BigDecimal prodinstid;
+	private String productcode;
+	private String productname;
+	private String serialno;
+	private Integer userid;
+	private BigDecimal originprice;
+	private BigDecimal saleprice;
+	private Integer boxid;
+	private BigDecimal discount;
+	private String batchid;
+	private String supplier;
+	private Date factorydate;
+	private Date validmonths;
+	private String storestatus;
+	private String statusstatereason;
+	private String createoperId;
+	private String createorgid;
+	private Date createdate;
+	private String modifydate;
+	private Integer datastate;
+	private String ext1;
+	private String ext2;
+	private String ext3;
 
-	public String getID() {
-		return ID;
+	public BigDecimal getProdinstid() {
+		return prodinstid;
 	}
-	public String setID() {
-		return ID;
+	public BigDecimal setProdinstid() {
+		return prodinstid;
 	}
-	public BigDecimal getPRODINSTID() {
-		return PRODINSTID;
+	public String getProductcode() {
+		return productcode;
 	}
-	public BigDecimal setPRODINSTID() {
-		return PRODINSTID;
+	public String setProductcode() {
+		return productcode;
 	}
-	public String getPRODUCTCODE() {
-		return PRODUCTCODE;
+	public String getProductname() {
+		return productname;
 	}
-	public String setPRODUCTCODE() {
-		return PRODUCTCODE;
+	public String setProductname() {
+		return productname;
 	}
-	public String getPRODUCTNAME() {
-		return PRODUCTNAME;
+	public String getSerialno() {
+		return serialno;
 	}
-	public String setPRODUCTNAME() {
-		return PRODUCTNAME;
+	public String setSerialno() {
+		return serialno;
 	}
-	public String getSERIALNO() {
-		return SERIALNO;
+	public Integer getUserid() {
+		return userid;
 	}
-	public String setSERIALNO() {
-		return SERIALNO;
+	public Integer setUserid() {
+		return userid;
 	}
-	public Integer getUSERID() {
-		return USERID;
+	public BigDecimal getOriginprice() {
+		return originprice;
 	}
-	public Integer setUSERID() {
-		return USERID;
+	public BigDecimal setOriginprice() {
+		return originprice;
 	}
-	public BigDecimal get原价格() {
-		return 原价格;
+	public BigDecimal getSaleprice() {
+		return saleprice;
 	}
-	public BigDecimal set原价格() {
-		return 原价格;
+	public BigDecimal setSaleprice() {
+		return saleprice;
 	}
-	public BigDecimal get现在价格() {
-		return 现在价格;
+	public Integer getBoxid() {
+		return boxid;
 	}
-	public BigDecimal set现在价格() {
-		return 现在价格;
+	public Integer setBoxid() {
+		return boxid;
 	}
-	public Integer getBOXID() {
-		return BOXID;
+	public BigDecimal getDiscount() {
+		return discount;
 	}
-	public Integer setBOXID() {
-		return BOXID;
+	public BigDecimal setDiscount() {
+		return discount;
 	}
-	public BigDecimal get折扣率() {
-		return 折扣率;
+	public String getBatchid() {
+		return batchid;
 	}
-	public BigDecimal set折扣率() {
-		return 折扣率;
+	public String setBatchid() {
+		return batchid;
 	}
-	public String getBATCHID() {
-		return BATCHID;
+	public String getSupplier() {
+		return supplier;
 	}
-	public String setBATCHID() {
-		return BATCHID;
+	public String setSupplier() {
+		return supplier;
 	}
-	public String getSUPPLIER() {
-		return SUPPLIER;
+	public Date getFactorydate() {
+		return factorydate;
 	}
-	public String setSUPPLIER() {
-		return SUPPLIER;
+	public Date setFactorydate() {
+		return factorydate;
 	}
-	public Date getFACTORYDATE() {
-		return FACTORYDATE;
+	public Date getValidmonths() {
+		return validmonths;
 	}
-	public Date setFACTORYDATE() {
-		return FACTORYDATE;
+	public Date setValidmonths() {
+		return validmonths;
 	}
-	public Date getVALIDMONTHS() {
-		return VALIDMONTHS;
+	public String getStorestatus() {
+		return storestatus;
 	}
-	public Date setVALIDMONTHS() {
-		return VALIDMONTHS;
+	public String setStorestatus() {
+		return storestatus;
 	}
-	public String getSTORESTATUS() {
-		return STORESTATUS;
+	public String getStatusstatereason() {
+		return statusstatereason;
 	}
-	public String setSTORESTATUS() {
-		return STORESTATUS;
+	public String setStatusstatereason() {
+		return statusstatereason;
 	}
-	public String getSTATUSSTATEREASON() {
-		return STATUSSTATEREASON;
+	public String getCreateoperId() {
+		return createoperId;
 	}
-	public String setSTATUSSTATEREASON() {
-		return STATUSSTATEREASON;
+	public String setCreateoperId() {
+		return createoperId;
 	}
-	public String getCREATEOPERID() {
-		return CREATEOPERID;
+	public String getCreateorgid() {
+		return createorgid;
 	}
-	public String setCREATEOPERID() {
-		return CREATEOPERID;
+	public String setCreateorgid() {
+		return createorgid;
 	}
-	public String getCREATEORGID() {
-		return CREATEORGID;
+	public Date getCreatedate() {
+		return createdate;
 	}
-	public String setCREATEORGID() {
-		return CREATEORGID;
+	public Date setCreatedate() {
+		return createdate;
 	}
-	public Date getCREATEDATE() {
-		return CREATEDATE;
+	public String getModifydate() {
+		return modifydate;
 	}
-	public Date setCREATEDATE() {
-		return CREATEDATE;
+	public String setModifydate() {
+		return modifydate;
 	}
-	public String getMODIFYDATE() {
-		return MODIFYDATE;
+	public Integer getDatastate() {
+		return datastate;
 	}
-	public String setMODIFYDATE() {
-		return MODIFYDATE;
+	public Integer setDatastate() {
+		return datastate;
 	}
-	public Integer getDATASTATE() {
-		return DATASTATE;
+	public String getExt1() {
+		return ext1;
 	}
-	public Integer setDATASTATE() {
-		return DATASTATE;
+	public String setExt1() {
+		return ext1;
 	}
-	public String getEXT1() {
-		return EXT1;
+	public String getExt2() {
+		return ext2;
 	}
-	public String setEXT1() {
-		return EXT1;
+	public String setExt2() {
+		return ext2;
 	}
-	public String getEXT2() {
-		return EXT2;
+	public String getExt3() {
+		return ext3;
 	}
-	public String setEXT2() {
-		return EXT2;
-	}
-	public String getEXT3() {
-		return EXT3;
-	}
-	public String setEXT3() {
-		return EXT3;
+	public String setExt3() {
+		return ext3;
 	}
 
 }

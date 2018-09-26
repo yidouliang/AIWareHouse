@@ -17,20 +17,20 @@
 			<if test="params.level != null and params.level != ''">
 				and level = #{params.level} 
 			</if>
-			<if test="params.EXT4 != null and params.EXT4 != ''">
-				and EXT4 = #{params.EXT4} 
+			<if test="params.ext4 != null and params.ext4 != ''">
+				and ext4 = #{params.ext4} 
 			</if>
-			<if test="params.EXT5 != null and params.EXT5 != ''">
-				and EXT5 = #{params.EXT5} 
+			<if test="params.ext5 != null and params.ext5 != ''">
+				and ext5 = #{params.ext5} 
 			</if>
-			<if test="params.EXT6 != null and params.EXT6 != ''">
-				and EXT6 = #{params.EXT6} 
+			<if test="params.ext6 != null and params.ext6 != ''">
+				and ext6 = #{params.ext6} 
 			</if>
-			<if test="params.EXT1 != null and params.EXT1 != ''">
-				and EXT1 = #{params.EXT1} 
+			<if test="params.ext1 != null and params.ext1 != ''">
+				and ext1 = #{params.ext1} 
 			</if>
-			<if test="params.EXT2 != null and params.EXT2 != ''">
-				and EXT2 = #{params.EXT2} 
+			<if test="params.ext2 != null and params.ext2 != ''">
+				and ext2 = #{params.ext2} 
 			</if>
 			<if test="params.owernum != null and params.owernum != ''">
 				and owernum = #{params.owernum} 
@@ -63,20 +63,20 @@
 			<if test="level != null">
 				level = #{level}, 
 			</if>
-			<if test="EXT4 != null">
-				EXT4 = #{EXT4}, 
+			<if test="ext4 != null">
+				ext4 = #{ext4}, 
 			</if>
-			<if test="EXT5 != null">
-				EXT5 = #{EXT5}, 
+			<if test="ext5 != null">
+				ext5 = #{ext5}, 
 			</if>
-			<if test="EXT6 != null">
-				EXT6 = #{EXT6}, 
+			<if test="ext6 != null">
+				ext6 = #{ext6}, 
 			</if>
-			<if test="EXT1 != null">
-				EXT1 = #{EXT1}, 
+			<if test="ext1 != null">
+				ext1 = #{ext1}, 
 			</if>
-			<if test="EXT2 != null">
-				EXT2 = #{EXT2}, 
+			<if test="ext2 != null">
+				ext2 = #{ext2}, 
 			</if>
 			<if test="owernum != null">
 				owernum = #{owernum}, 

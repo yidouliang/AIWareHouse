@@ -5,168 +5,160 @@ import java.math.BigDecimal;
 
 public class AiOrderThirdLevel extends BaseEntity<Long> {
 
-	private String ID;
-	private String FIRSTLEVELID;
-	private String MKTINVID;
-	private String USERCODE;
-	private String TELEPHONE;
-	private String SERIALNUMBER;
-	private String boxName;
-	private Integer boxType;
-	private String PSERIALNUMBER;
-	private BigDecimal PRODUCTPRICE;
-	private Integer PRODUCTTYPEID;
-	private String PRODUCTNAME;
-	private String PRODUCTCODE;
-	private String PRODUCTIMGURL;
-	private String PRODUCTDESC;
-	private Integer BUYNUM;
-	private Integer activityID;
-	private String ACTIVITYNAME;
-	private String DATASTATE;
-	private String EXT1;
-	private String EXT2;
-	private String EXT3;
-	private String EXT4;
+	private String firstlevelid;
+	private String mktinvid;
+	private String usercode;
+	private String telephone;
+	private String serialnumber;
+	private String boxname;
+	private Integer boxtype;
+	private String pserialnumber;
+	private BigDecimal productprice;
+	private Integer producttypeid;
+	private String productname;
+	private String productcode;
+	private String productimgurl;
+	private String productdesc;
+	private Integer buynum;
+	private Integer activityid;
+	private String activityname;
+	private String datastate;
+	private String ext1;
+	private String ext2;
+	private String ext3;
+	private String ext4;
 
-	public String getID() {
-		return ID;
+	public String getFirstlevelid() {
+		return firstlevelid;
 	}
-	public String setID() {
-		return ID;
+	public String setFirstlevelid() {
+		return firstlevelid;
 	}
-	public String getFIRSTLEVELID() {
-		return FIRSTLEVELID;
+	public String getMktinvid() {
+		return mktinvid;
 	}
-	public String setFIRSTLEVELID() {
-		return FIRSTLEVELID;
+	public String setMktinvid() {
+		return mktinvid;
 	}
-	public String getMKTINVID() {
-		return MKTINVID;
+	public String getUsercode() {
+		return usercode;
 	}
-	public String setMKTINVID() {
-		return MKTINVID;
+	public String setUsercode() {
+		return usercode;
 	}
-	public String getUSERCODE() {
-		return USERCODE;
+	public String getTelephone() {
+		return telephone;
 	}
-	public String setUSERCODE() {
-		return USERCODE;
+	public String setTelephone() {
+		return telephone;
 	}
-	public String getTELEPHONE() {
-		return TELEPHONE;
+	public String getSerialnumber() {
+		return serialnumber;
 	}
-	public String setTELEPHONE() {
-		return TELEPHONE;
+	public String setSerialnumber() {
+		return serialnumber;
 	}
-	public String getSERIALNUMBER() {
-		return SERIALNUMBER;
+	public String getBoxname() {
+		return boxname;
 	}
-	public String setSERIALNUMBER() {
-		return SERIALNUMBER;
+	public String setBoxname() {
+		return boxname;
 	}
-	public String getBoxName() {
-		return boxName;
+	public Integer getBoxtype() {
+		return boxtype;
 	}
-	public String setBoxName() {
-		return boxName;
+	public Integer setBoxtype() {
+		return boxtype;
 	}
-	public Integer getBoxType() {
-		return boxType;
+	public String getPserialnumber() {
+		return pserialnumber;
 	}
-	public Integer setBoxType() {
-		return boxType;
+	public String setPserialnumber() {
+		return pserialnumber;
 	}
-	public String getPSERIALNUMBER() {
-		return PSERIALNUMBER;
+	public BigDecimal getProductprice() {
+		return productprice;
 	}
-	public String setPSERIALNUMBER() {
-		return PSERIALNUMBER;
+	public BigDecimal setProductprice() {
+		return productprice;
 	}
-	public BigDecimal getPRODUCTPRICE() {
-		return PRODUCTPRICE;
+	public Integer getProducttypeid() {
+		return producttypeid;
 	}
-	public BigDecimal setPRODUCTPRICE() {
-		return PRODUCTPRICE;
+	public Integer setProducttypeid() {
+		return producttypeid;
 	}
-	public Integer getPRODUCTTYPEID() {
-		return PRODUCTTYPEID;
+	public String getProductname() {
+		return productname;
 	}
-	public Integer setPRODUCTTYPEID() {
-		return PRODUCTTYPEID;
+	public String setProductname() {
+		return productname;
 	}
-	public String getPRODUCTNAME() {
-		return PRODUCTNAME;
+	public String getProductcode() {
+		return productcode;
 	}
-	public String setPRODUCTNAME() {
-		return PRODUCTNAME;
+	public String setProductcode() {
+		return productcode;
 	}
-	public String getPRODUCTCODE() {
-		return PRODUCTCODE;
+	public String getProductimgurl() {
+		return productimgurl;
 	}
-	public String setPRODUCTCODE() {
-		return PRODUCTCODE;
+	public String setProductimgurl() {
+		return productimgurl;
 	}
-	public String getPRODUCTIMGURL() {
-		return PRODUCTIMGURL;
+	public String getProductdesc() {
+		return productdesc;
 	}
-	public String setPRODUCTIMGURL() {
-		return PRODUCTIMGURL;
+	public String setProductdesc() {
+		return productdesc;
 	}
-	public String getPRODUCTDESC() {
-		return PRODUCTDESC;
+	public Integer getBuynum() {
+		return buynum;
 	}
-	public String setPRODUCTDESC() {
-		return PRODUCTDESC;
+	public Integer setBuynum() {
+		return buynum;
 	}
-	public Integer getBUYNUM() {
-		return BUYNUM;
+	public Integer getActivityid() {
+		return activityid;
 	}
-	public Integer setBUYNUM() {
-		return BUYNUM;
+	public Integer setActivityid() {
+		return activityid;
 	}
-	public Integer getActivityID() {
-		return activityID;
+	public String getActivityname() {
+		return activityname;
 	}
-	public Integer setActivityID() {
-		return activityID;
+	public String setActivityname() {
+		return activityname;
 	}
-	public String getACTIVITYNAME() {
-		return ACTIVITYNAME;
+	public String getDatastate() {
+		return datastate;
 	}
-	public String setACTIVITYNAME() {
-		return ACTIVITYNAME;
+	public String setDatastate() {
+		return datastate;
 	}
-	public String getDATASTATE() {
-		return DATASTATE;
+	public String getExt1() {
+		return ext1;
 	}
-	public String setDATASTATE() {
-		return DATASTATE;
+	public String setExt1() {
+		return ext1;
 	}
-	public String getEXT1() {
-		return EXT1;
+	public String getExt2() {
+		return ext2;
 	}
-	public String setEXT1() {
-		return EXT1;
+	public String setExt2() {
+		return ext2;
 	}
-	public String getEXT2() {
-		return EXT2;
+	public String getExt3() {
+		return ext3;
 	}
-	public String setEXT2() {
-		return EXT2;
+	public String setExt3() {
+		return ext3;
 	}
-	public String getEXT3() {
-		return EXT3;
+	public String getExt4() {
+		return ext4;
 	}
-	public String setEXT3() {
-		return EXT3;
+	public String setExt4() {
+		return ext4;
 	}
-	public String getEXT4() {
-		return EXT4;
-	}
-	public String setEXT4() {
-		return EXT4;
-	}
-
 
 }

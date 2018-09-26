@@ -15,11 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-
 /**
  * Created By Seven.wk
  * Description: 验证码过滤器
- * Created At 2018/09/25
+ * Created At 2018/09/26
  */
 @Component
 public class CaptchaFilter extends OncePerRequestFilter {

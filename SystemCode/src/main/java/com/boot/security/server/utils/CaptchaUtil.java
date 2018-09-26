@@ -10,7 +10,7 @@ import java.util.Properties;
 /**
  * Created By Seven.wk
  * Description: 验证码工具类
- * Created At 2018/09/25
+ * Created At 2018/09/26
  */
 @Component
 public class CaptchaUtil {

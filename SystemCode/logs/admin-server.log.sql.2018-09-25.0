@@ -1,0 +1,1150 @@
+2018-09-25 11:35:17,136 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 11:35:17,285 [http-nio-9090-exec-2] ==> Parameters: 1(Long)
+2018-09-25 11:35:17,346 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 11:35:19,263 [taskExecutor-1] ==>  Preparing: insert into sys_logs(userId, module, flag, remark, createTime) values(?, ?, ?, ?, now()) 
+2018-09-25 11:35:19,281 [taskExecutor-1] ==> Parameters: 1(Long), 退出(String), true(Boolean), null
+2018-09-25 11:35:19,409 [taskExecutor-1] <==    Updates: 1
+2018-09-25 11:35:25,888 [http-nio-9090-exec-8] ==>  Preparing: select * from sys_user t where t.username = ? 
+2018-09-25 11:35:25,890 [http-nio-9090-exec-8] ==> Parameters: admin(String)
+2018-09-25 11:35:25,982 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 11:35:26,002 [http-nio-9090-exec-8] ==>  Preparing: select distinct p.* from sys_permission p inner join sys_role_permission rp on p.id = rp.permissionId inner join sys_role_user ru on ru.roleId = rp.roleId where ru.userId = ? order by p.sort 
+2018-09-25 11:35:26,004 [http-nio-9090-exec-8] ==> Parameters: 1(Long)
+2018-09-25 11:35:26,057 [http-nio-9090-exec-8] <==      Total: 45
+2018-09-25 11:35:32,375 [http-nio-9090-exec-10] ==>  Preparing: select * from sys_user t where t.username = ? 
+2018-09-25 11:35:32,376 [http-nio-9090-exec-10] ==> Parameters: admin(String)
+2018-09-25 11:35:32,476 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 11:35:32,477 [http-nio-9090-exec-10] ==>  Preparing: select distinct p.* from sys_permission p inner join sys_role_permission rp on p.id = rp.permissionId inner join sys_role_user ru on ru.roleId = rp.roleId where ru.userId = ? order by p.sort 
+2018-09-25 11:35:32,477 [http-nio-9090-exec-10] ==> Parameters: 1(Long)
+2018-09-25 11:35:32,521 [http-nio-9090-exec-10] <==      Total: 45
+2018-09-25 11:35:32,696 [taskExecutor-2] ==>  Preparing: insert into sys_logs(userId, module, flag, remark, createTime) values(?, ?, ?, ?, now()) 
+2018-09-25 11:35:32,701 [taskExecutor-2] ==> Parameters: 1(Long), 登陆(String), true(Boolean), null
+2018-09-25 11:35:32,789 [taskExecutor-2] <==    Updates: 1
+2018-09-25 11:35:33,158 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 11:35:33,161 [http-nio-9090-exec-1] ==> Parameters: 1(Long)
+2018-09-25 11:35:33,210 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 11:35:38,482 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_mkt_box t 
+2018-09-25 11:35:38,488 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 11:35:38,539 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 11:35:38,763 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_consumer t 
+2018-09-25 11:35:38,765 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 11:35:38,805 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 11:35:39,665 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_order_first_level t 
+2018-09-25 11:35:39,668 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 11:35:39,715 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 11:35:41,176 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_operator t 
+2018-09-25 11:35:41,177 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 11:35:41,217 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 11:35:52,562 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_order_first_level t 
+2018-09-25 11:35:52,563 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 11:35:52,641 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 11:48:35,009 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 11:48:35,147 [http-nio-9090-exec-6] ==> Parameters: 1(Long)
+2018-09-25 11:48:35,216 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 11:56:46,162 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 11:56:46,280 [http-nio-9090-exec-7] ==> Parameters: 1(Long)
+2018-09-25 11:56:46,338 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 11:56:48,177 [taskExecutor-1] ==>  Preparing: insert into sys_logs(userId, module, flag, remark, createTime) values(?, ?, ?, ?, now()) 
+2018-09-25 11:56:48,209 [taskExecutor-1] ==> Parameters: 1(Long), 退出(String), true(Boolean), null
+2018-09-25 11:56:48,421 [taskExecutor-1] <==    Updates: 1
+2018-09-25 11:57:00,306 [http-nio-9090-exec-4] ==>  Preparing: select * from sys_user t where t.username = ? 
+2018-09-25 11:57:00,307 [http-nio-9090-exec-4] ==> Parameters: asdf(String)
+2018-09-25 11:57:00,402 [http-nio-9090-exec-4] <==      Total: 0
+2018-09-25 11:57:10,090 [http-nio-9090-exec-2] ==>  Preparing: select * from sys_user t where t.username = ? 
+2018-09-25 11:57:10,091 [http-nio-9090-exec-2] ==> Parameters: admin(String)
+2018-09-25 11:57:10,154 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 11:57:10,168 [http-nio-9090-exec-2] ==>  Preparing: select distinct p.* from sys_permission p inner join sys_role_permission rp on p.id = rp.permissionId inner join sys_role_user ru on ru.roleId = rp.roleId where ru.userId = ? order by p.sort 
+2018-09-25 11:57:10,169 [http-nio-9090-exec-2] ==> Parameters: 1(Long)
+2018-09-25 11:57:10,262 [http-nio-9090-exec-2] <==      Total: 45
+2018-09-25 11:57:14,557 [http-nio-9090-exec-5] ==>  Preparing: select * from sys_user t where t.username = ? 
+2018-09-25 11:57:14,557 [http-nio-9090-exec-5] ==> Parameters: admin(String)
+2018-09-25 11:57:14,627 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 11:57:14,627 [http-nio-9090-exec-5] ==>  Preparing: select distinct p.* from sys_permission p inner join sys_role_permission rp on p.id = rp.permissionId inner join sys_role_user ru on ru.roleId = rp.roleId where ru.userId = ? order by p.sort 
+2018-09-25 11:57:14,628 [http-nio-9090-exec-5] ==> Parameters: 1(Long)
+2018-09-25 11:57:14,678 [http-nio-9090-exec-5] <==      Total: 45
+2018-09-25 11:57:14,804 [taskExecutor-2] ==>  Preparing: insert into sys_logs(userId, module, flag, remark, createTime) values(?, ?, ?, ?, now()) 
+2018-09-25 11:57:14,806 [taskExecutor-2] ==> Parameters: 1(Long), 登陆(String), true(Boolean), null
+2018-09-25 11:57:14,900 [taskExecutor-2] <==    Updates: 1
+2018-09-25 11:57:15,205 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 11:57:15,207 [http-nio-9090-exec-8] ==> Parameters: 1(Long)
+2018-09-25 11:57:15,252 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 13:14:35,885 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:14:35,908 [http-nio-9090-exec-3] ==> Parameters: 1(Long)
+2018-09-25 13:14:35,967 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:14:45,242 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:14:45,244 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 13:14:45,342 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:15:25,530 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 13:15:25,535 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 13:15:25,574 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:15:26,516 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_mkt_box t 
+2018-09-25 13:15:26,518 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 13:15:26,557 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:16:47,962 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:16:47,964 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 13:16:48,004 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:16:55,028 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t WHERE id = ? 
+2018-09-25 13:16:55,029 [http-nio-9090-exec-9] ==> Parameters: d(String)
+2018-09-25 13:16:55,072 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:17:50,916 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:17:50,916 [http-nio-9090-exec-4] ==> Parameters: 1(Long)
+2018-09-25 13:17:50,993 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:17:55,081 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_mkt_box t 
+2018-09-25 13:17:55,082 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 13:17:55,165 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:18:00,534 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:18:00,535 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 13:18:00,593 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:18:05,385 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 13:18:05,387 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 13:18:05,425 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:18:06,872 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:18:06,873 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 13:18:06,911 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 13:21:17,514 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:21:17,515 [http-nio-9090-exec-10] ==> Parameters: 1(Long)
+2018-09-25 13:21:17,597 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 13:21:21,566 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:21:21,567 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 13:21:21,609 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:22:32,767 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:22:32,768 [http-nio-9090-exec-3] ==> Parameters: 1(Long)
+2018-09-25 13:22:32,825 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:22:36,746 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:22:36,747 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 13:22:36,787 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:30:01,461 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:30:01,465 [http-nio-9090-exec-8] ==> Parameters: 1(Long)
+2018-09-25 13:30:01,510 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 13:30:04,778 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:30:04,779 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 13:30:04,822 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 13:30:08,919 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:30:08,920 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 13:30:08,973 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:30:19,924 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:30:19,925 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 13:30:20,001 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:30:21,939 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from sys_logs t left join sys_user u on u.id = t.userId 
+2018-09-25 13:30:21,943 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:30:21,982 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:30:21,986 [http-nio-9090-exec-1] ==>  Preparing: select t.*, u.username, u.nickname from sys_logs t left join sys_user u on u.id = t.userId order by createTime desc limit ?, ? 
+2018-09-25 13:30:21,990 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 13:30:22,064 [http-nio-9090-exec-1] <==      Total: 10
+2018-09-25 13:30:24,553 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from exec_product t 
+2018-09-25 13:30:24,555 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 13:30:24,611 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:24,613 [http-nio-9090-exec-4] ==>  Preparing: select * from exec_product t order by id asc limit ?, ? 
+2018-09-25 13:30:24,614 [http-nio-9090-exec-4] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 13:30:24,986 [http-nio-9090-exec-4] <==      Total: 10
+2018-09-25 13:30:25,000 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,002 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,041 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,042 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,043 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,083 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,084 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,085 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,129 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,130 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,130 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,172 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,173 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,173 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,212 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,213 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,213 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,254 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,256 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,258 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,297 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,298 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,298 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,338 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,339 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,339 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,378 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,379 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,379 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,418 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,419 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,420 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,459 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,460 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,460 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,499 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,500 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,501 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,540 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,541 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,541 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,583 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,584 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,584 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,623 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,624 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,625 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,665 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,666 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,666 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,705 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,706 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,707 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,746 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,747 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,747 [http-nio-9090-exec-4] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:30:25,787 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:25,788 [http-nio-9090-exec-4] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:30:25,788 [http-nio-9090-exec-4] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:30:25,826 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:30:32,907 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:30:32,907 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:30:32,945 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:30:33,418 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:30:33,418 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 13:30:33,456 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 13:30:34,018 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:30:34,019 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 13:30:34,058 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:30:34,366 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:30:34,367 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 13:30:34,407 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:34:55,723 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:34:55,724 [http-nio-9090-exec-10] ==> Parameters: 1(Long)
+2018-09-25 13:34:55,814 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 13:34:59,135 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:34:59,135 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 13:34:59,175 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 13:35:01,185 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:35:01,185 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 13:35:01,231 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:01,916 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:35:01,917 [http-nio-9090-exec-3] ==> Parameters: 1(Long)
+2018-09-25 13:35:01,955 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:35:04,190 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:35:04,191 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 13:35:04,230 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:35:04,953 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:35:04,954 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 13:35:04,994 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 13:35:23,191 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from exec_product t 
+2018-09-25 13:35:23,192 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 13:35:23,282 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,286 [http-nio-9090-exec-9] ==>  Preparing: select * from exec_product t order by id asc limit ?, ? 
+2018-09-25 13:35:23,287 [http-nio-9090-exec-9] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 13:35:23,333 [http-nio-9090-exec-9] <==      Total: 10
+2018-09-25 13:35:23,334 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,335 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:23,379 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,380 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,382 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:23,423 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,424 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,424 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:23,467 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,469 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,470 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:23,511 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,511 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,512 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:23,552 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,553 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,553 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:23,591 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,592 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,593 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:23,632 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,634 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,635 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:23,675 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,676 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,676 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:23,718 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,719 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,720 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:23,761 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,769 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,770 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:23,810 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,811 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,811 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:23,849 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,852 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,853 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:23,892 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,893 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,894 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:23,935 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,936 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,937 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:23,978 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:23,979 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:23,979 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:24,019 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:24,020 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:24,021 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:24,060 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:24,061 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:24,061 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:24,100 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:24,102 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:24,103 [http-nio-9090-exec-9] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:24,143 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:24,143 [http-nio-9090-exec-9] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:24,144 [http-nio-9090-exec-9] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:24,184 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:35:26,669 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from exec_product t 
+2018-09-25 13:35:26,670 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 13:35:26,718 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:26,719 [http-nio-9090-exec-7] ==>  Preparing: select * from exec_product t order by id asc limit ?, ? 
+2018-09-25 13:35:26,719 [http-nio-9090-exec-7] ==> Parameters: 10(Integer), 10(Integer)
+2018-09-25 13:35:26,764 [http-nio-9090-exec-7] <==      Total: 10
+2018-09-25 13:35:26,765 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:26,766 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:26,804 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:26,805 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:26,806 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:26,857 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:26,859 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:26,859 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:26,902 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:26,903 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:26,903 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 1(String)
+2018-09-25 13:35:26,946 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:26,948 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:26,948 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:26,987 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:26,988 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:26,989 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 1(String)
+2018-09-25 13:35:27,029 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,030 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,030 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:27,072 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,073 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,073 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 1(String)
+2018-09-25 13:35:27,120 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,121 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,121 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:35:27,171 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,173 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,173 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:27,215 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,216 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,217 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 1(String)
+2018-09-25 13:35:27,256 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,257 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,257 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 1(String)
+2018-09-25 13:35:27,296 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,296 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,297 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 1(String)
+2018-09-25 13:35:27,336 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,337 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,337 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:27,375 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,377 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,379 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 0(String)
+2018-09-25 13:35:27,421 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,422 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,422 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 1(String)
+2018-09-25 13:35:27,462 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,463 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,463 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 1(String)
+2018-09-25 13:35:27,538 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,538 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,539 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 1(String)
+2018-09-25 13:35:27,695 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,696 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,697 [http-nio-9090-exec-7] ==> Parameters: productTypeId(String), 1(String)
+2018-09-25 13:35:27,745 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:35:27,747 [http-nio-9090-exec-7] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:35:27,747 [http-nio-9090-exec-7] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:35:27,784 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 13:36:53,769 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:36:53,770 [http-nio-9090-exec-2] ==> Parameters: 1(Long)
+2018-09-25 13:36:53,859 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:36:56,326 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:36:56,327 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 13:36:56,368 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:36:59,142 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:36:59,143 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 13:36:59,180 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 13:36:59,317 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:36:59,318 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:36:59,357 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:36:59,992 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:36:59,992 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 13:37:00,037 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 13:38:07,585 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:38:07,586 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:38:07,665 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:38:11,690 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from sys_logs t left join sys_user u on u.id = t.userId 
+2018-09-25 13:38:11,693 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 13:38:11,737 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 13:38:11,738 [http-nio-9090-exec-10] ==>  Preparing: select t.*, u.username, u.nickname from sys_logs t left join sys_user u on u.id = t.userId order by createTime desc limit ?, ? 
+2018-09-25 13:38:11,738 [http-nio-9090-exec-10] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 13:38:11,782 [http-nio-9090-exec-10] <==      Total: 10
+2018-09-25 13:38:20,930 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from exec_product t 
+2018-09-25 13:38:20,931 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 13:38:20,971 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:20,972 [http-nio-9090-exec-2] ==>  Preparing: select * from exec_product t order by id asc limit ?, ? 
+2018-09-25 13:38:20,973 [http-nio-9090-exec-2] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 13:38:21,014 [http-nio-9090-exec-2] <==      Total: 10
+2018-09-25 13:38:21,017 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,019 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,058 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,059 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,059 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,098 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,101 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,102 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,145 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,145 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,146 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,187 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,189 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,190 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,229 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,230 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,231 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,271 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,272 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,272 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,311 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,311 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,312 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,351 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,352 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,353 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,391 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,392 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,393 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,433 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,434 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,435 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,475 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,476 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,477 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,516 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,518 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,519 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,557 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,558 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,558 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,597 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,600 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,601 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,639 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,640 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,640 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,682 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,684 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,684 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,725 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,726 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,726 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,766 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,767 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,768 [http-nio-9090-exec-2] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:38:21,807 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:38:21,808 [http-nio-9090-exec-2] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:38:21,808 [http-nio-9090-exec-2] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:38:21,849 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:41:22,710 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_mkt_box t 
+2018-09-25 13:41:22,711 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 13:41:22,788 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:41:22,791 [http-nio-9090-exec-4] ==>  Preparing: select * from ai_mkt_box t order by id asc limit ?, ? 
+2018-09-25 13:41:22,791 [http-nio-9090-exec-4] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 13:41:22,831 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:42:04,265 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 13:42:04,266 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 13:42:04,305 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:42:31,880 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:42:31,881 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 13:42:31,919 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 13:42:33,078 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:42:33,079 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 13:42:33,117 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 13:42:54,411 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:42:54,412 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 13:42:54,452 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 13:43:23,434 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:43:23,435 [http-nio-9090-exec-4] ==> Parameters: 1(Long)
+2018-09-25 13:43:23,476 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:43:26,070 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:43:26,071 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 13:43:26,111 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 13:43:52,757 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:43:52,758 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 13:43:52,799 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 13:44:10,952 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:44:10,953 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 13:44:11,036 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:46:32,291 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:46:32,292 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 13:46:32,333 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 13:46:37,184 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 13:46:37,186 [http-nio-9090-exec-1] ==> Parameters: 1(Long)
+2018-09-25 13:46:37,266 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:46:39,789 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:46:39,790 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:46:39,834 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:48:08,175 [http-nio-9090-exec-4] ==>  Preparing: select * from sys_user t where t.username = ? 
+2018-09-25 13:48:08,177 [http-nio-9090-exec-4] ==> Parameters: admin(String)
+2018-09-25 13:48:08,221 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 13:48:08,239 [http-nio-9090-exec-4] ==>  Preparing: select distinct p.* from sys_permission p inner join sys_role_permission rp on p.id = rp.permissionId inner join sys_role_user ru on ru.roleId = rp.roleId where ru.userId = ? order by p.sort 
+2018-09-25 13:48:08,241 [http-nio-9090-exec-4] ==> Parameters: 1(Long)
+2018-09-25 13:48:08,325 [http-nio-9090-exec-4] <==      Total: 45
+2018-09-25 13:48:08,520 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:48:08,520 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 13:48:08,559 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 13:48:54,139 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:48:54,171 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:48:54,226 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:46,344 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:49:46,346 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 13:49:46,391 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:49:49,329 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:49:49,330 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 13:49:49,375 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 13:49:57,952 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from exec_product t 
+2018-09-25 13:49:57,955 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:49:58,054 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,058 [http-nio-9090-exec-1] ==>  Preparing: select * from exec_product t order by id asc limit ?, ? 
+2018-09-25 13:49:58,061 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 13:49:58,122 [http-nio-9090-exec-1] <==      Total: 10
+2018-09-25 13:49:58,145 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,147 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:58,193 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,194 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,194 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:58,253 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,254 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,255 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:58,300 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,301 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,302 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:58,351 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,352 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,352 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:58,399 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,400 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,401 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:58,455 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,455 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,456 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:58,502 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,503 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,504 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:58,563 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,565 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,565 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:58,627 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,628 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,628 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:58,708 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,710 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,710 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:58,760 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,762 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,763 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:58,809 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,811 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,812 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:58,856 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,857 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,857 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:58,912 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,912 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,913 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:58,958 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:58,960 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:58,960 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:59,005 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:59,006 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:59,007 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:59,054 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:59,055 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:59,056 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:59,102 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:59,104 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:59,104 [http-nio-9090-exec-1] ==> Parameters: productTypeId(String), 2(String)
+2018-09-25 13:49:59,152 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:49:59,153 [http-nio-9090-exec-1] ==>  Preparing: select * from t_dict t where t.type = ? and k = ? 
+2018-09-25 13:49:59,154 [http-nio-9090-exec-1] ==> Parameters: productStatus(String), 0(String)
+2018-09-25 13:49:59,199 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:50:03,255 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from consumer t 
+2018-09-25 13:50:03,256 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:50:03,301 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:50:03,302 [http-nio-9090-exec-1] ==>  Preparing: select * from consumer t order by consumerid asc limit ?, ? 
+2018-09-25 13:50:03,303 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 13:50:03,349 [http-nio-9090-exec-1] <==      Total: 3
+2018-09-25 13:50:22,760 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 13:50:22,761 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:50:22,851 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:53:26,985 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 13:53:26,985 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 13:53:27,038 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:53:39,181 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 13:53:39,182 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 13:53:39,271 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 13:54:42,573 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 13:54:42,574 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 13:54:42,619 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 13:57:12,691 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 13:57:12,693 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 13:57:12,779 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 14:02:26,001 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:02:26,003 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 14:02:26,094 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 14:02:29,354 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:02:29,354 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 14:02:29,404 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 14:02:29,530 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:02:29,530 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 14:02:29,585 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 14:02:29,922 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:02:29,923 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 14:02:29,972 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 14:02:30,100 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:02:30,101 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 14:02:30,152 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 14:02:30,566 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:02:30,566 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 14:02:30,621 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 14:02:33,624 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:02:33,625 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 14:02:33,693 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 14:02:34,081 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:02:34,082 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 14:02:34,128 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 14:03:06,076 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:03:06,076 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 14:03:06,127 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 14:03:28,206 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:03:28,207 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 14:03:28,258 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 14:04:01,926 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:04:01,926 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 14:04:01,995 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 14:04:02,492 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:04:02,492 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 14:04:02,550 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 14:04:03,055 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:04:03,055 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 14:04:03,228 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 14:04:03,605 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 14:04:03,606 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 14:04:03,664 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 14:04:20,159 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_mkt_box t 
+2018-09-25 14:04:20,160 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 14:04:20,259 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 14:04:20,261 [http-nio-9090-exec-6] ==>  Preparing: select * from ai_mkt_box t order by id asc limit ?, ? 
+2018-09-25 14:04:20,264 [http-nio-9090-exec-6] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:04:20,321 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 14:04:23,711 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_operator t 
+2018-09-25 14:04:23,715 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 14:04:23,767 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 14:04:30,664 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_warehouse t 
+2018-09-25 14:04:30,665 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 14:04:30,713 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 14:06:32,519 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_warehouse t 
+2018-09-25 14:06:32,520 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 14:06:32,629 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 14:06:37,670 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_warehouse_stock t 
+2018-09-25 14:06:37,673 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 14:06:37,725 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 14:07:13,862 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_warehouse_stock t 
+2018-09-25 14:07:13,863 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 14:07:13,954 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 14:14:43,860 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_warehouse_stock t 
+2018-09-25 14:14:43,862 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 14:14:43,910 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 14:14:58,273 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_warehouse t 
+2018-09-25 14:14:58,275 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 14:14:58,324 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 14:15:00,287 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_warehouse_stock t 
+2018-09-25 14:15:00,288 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 14:15:00,349 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 14:16:14,870 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:16:14,872 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 14:16:14,918 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 14:28:31,622 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:28:31,624 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 14:28:31,732 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 14:28:52,418 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:28:52,419 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 14:28:52,515 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 14:34:02,407 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:02,408 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 14:34:02,476 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 14:34:25,913 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:25,914 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 14:34:26,083 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 14:34:40,038 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:40,041 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 14:34:40,132 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 14:34:40,726 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:40,726 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 14:34:40,770 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 14:34:42,903 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:42,904 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 14:34:42,961 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 14:34:43,410 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:43,410 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 14:34:43,455 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 14:34:43,940 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:43,941 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 14:34:44,001 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 14:34:44,516 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:44,517 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 14:34:44,562 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 14:34:45,460 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:45,461 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 14:34:45,507 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 14:34:48,359 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_mkt_inventory_inst t 
+2018-09-25 14:34:48,360 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 14:34:48,405 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 14:49:13,463 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:49:13,465 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 14:49:13,512 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 14:50:54,253 [http-nio-9090-exec-2] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 14:50:54,264 [http-nio-9090-exec-2] ==> Parameters: null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 14:50:54,472 [http-nio-9090-exec-2] <==    Updates: 1
+2018-09-25 14:50:56,077 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:50:56,078 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 14:50:56,160 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 14:50:56,164 [http-nio-9090-exec-9] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:50:56,165 [http-nio-9090-exec-9] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:50:56,233 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 14:53:38,634 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:53:38,635 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 14:53:38,809 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 14:53:38,811 [http-nio-9090-exec-8] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:53:38,812 [http-nio-9090-exec-8] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:53:38,862 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 14:53:44,808 [http-nio-9090-exec-9] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 14:53:44,808 [http-nio-9090-exec-9] ==> Parameters: null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 14:53:44,992 [http-nio-9090-exec-9] <==    Updates: 1
+2018-09-25 14:53:46,643 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:53:46,644 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 14:53:46,690 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 14:53:46,691 [http-nio-9090-exec-10] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:53:46,692 [http-nio-9090-exec-10] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:53:46,743 [http-nio-9090-exec-10] <==      Total: 2
+2018-09-25 14:53:48,957 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_exec_product t where t.id = ? 
+2018-09-25 14:53:48,960 [http-nio-9090-exec-1] ==> Parameters: 2(Long)
+2018-09-25 14:53:49,015 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 14:56:26,643 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:56:26,644 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 14:56:26,695 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 14:56:26,697 [http-nio-9090-exec-9] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:56:26,700 [http-nio-9090-exec-9] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:56:26,751 [http-nio-9090-exec-9] <==      Total: 2
+2018-09-25 14:58:10,365 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:58:10,366 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 14:58:10,457 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 14:58:10,458 [http-nio-9090-exec-8] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:58:10,460 [http-nio-9090-exec-8] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:58:10,513 [http-nio-9090-exec-8] <==      Total: 2
+2018-09-25 14:58:35,560 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:58:35,561 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 14:58:35,650 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 14:58:35,653 [http-nio-9090-exec-10] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:58:35,653 [http-nio-9090-exec-10] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:58:35,702 [http-nio-9090-exec-10] <==      Total: 2
+2018-09-25 14:58:59,537 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:58:59,538 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 14:58:59,626 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 14:58:59,629 [http-nio-9090-exec-5] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:58:59,630 [http-nio-9090-exec-5] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:58:59,716 [http-nio-9090-exec-5] <==      Total: 2
+2018-09-25 14:59:03,897 [http-nio-9090-exec-7] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 14:59:03,899 [http-nio-9090-exec-7] ==> Parameters: null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 14:59:04,047 [http-nio-9090-exec-7] <==    Updates: 1
+2018-09-25 14:59:05,713 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:59:05,714 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 14:59:05,758 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 14:59:05,759 [http-nio-9090-exec-10] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:59:05,760 [http-nio-9090-exec-10] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:59:06,079 [http-nio-9090-exec-10] <==      Total: 3
+2018-09-25 14:59:36,267 [http-nio-9090-exec-9] ==>  Preparing: delete from ai_exec_product where id = ? 
+2018-09-25 14:59:36,268 [http-nio-9090-exec-9] ==> Parameters: 3(Long)
+2018-09-25 14:59:36,400 [http-nio-9090-exec-9] <==    Updates: 1
+2018-09-25 14:59:36,428 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:59:36,429 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 14:59:36,495 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 14:59:36,496 [http-nio-9090-exec-7] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:59:36,497 [http-nio-9090-exec-7] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:59:36,541 [http-nio-9090-exec-7] <==      Total: 2
+2018-09-25 14:59:38,723 [http-nio-9090-exec-3] ==>  Preparing: delete from ai_exec_product where id = ? 
+2018-09-25 14:59:38,725 [http-nio-9090-exec-3] ==> Parameters: 2(Long)
+2018-09-25 14:59:38,822 [http-nio-9090-exec-3] <==    Updates: 1
+2018-09-25 14:59:38,843 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 14:59:38,844 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 14:59:38,892 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 14:59:38,893 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 14:59:38,894 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 14:59:38,940 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 15:00:42,248 [http-nio-9090-exec-4] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:00:42,250 [http-nio-9090-exec-4] ==> Parameters: null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 15:00:42,403 [http-nio-9090-exec-4] <==    Updates: 1
+2018-09-25 15:00:44,248 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:00:44,254 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 15:00:44,302 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 15:00:44,304 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:00:44,306 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:00:44,346 [http-nio-9090-exec-1] <==      Total: 2
+2018-09-25 15:03:05,777 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:03:05,789 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 15:03:05,876 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 15:03:05,880 [http-nio-9090-exec-7] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:03:05,884 [http-nio-9090-exec-7] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:03:05,926 [http-nio-9090-exec-7] <==      Total: 2
+2018-09-25 15:03:08,069 [http-nio-9090-exec-2] ==>  Preparing: delete from ai_exec_product where id = ? 
+2018-09-25 15:03:08,074 [http-nio-9090-exec-2] ==> Parameters: 4(Long)
+2018-09-25 15:03:08,166 [http-nio-9090-exec-2] <==    Updates: 1
+2018-09-25 15:03:08,202 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:03:08,204 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 15:03:08,246 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 15:03:08,248 [http-nio-9090-exec-9] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:03:08,248 [http-nio-9090-exec-9] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:03:08,289 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 15:03:14,095 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:03:14,096 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 15:03:14,140 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 15:03:14,143 [http-nio-9090-exec-7] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:03:14,144 [http-nio-9090-exec-7] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:03:14,203 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 15:04:03,244 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:04:03,246 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 15:04:03,327 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 15:04:03,329 [http-nio-9090-exec-8] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:04:03,330 [http-nio-9090-exec-8] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:04:03,368 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 15:09:00,064 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 15:09:00,205 [http-nio-9090-exec-8] ==> Parameters: 1(Long)
+2018-09-25 15:09:00,265 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 15:09:07,952 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:09:07,955 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 15:09:08,185 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 15:09:08,190 [http-nio-9090-exec-8] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:09:08,193 [http-nio-9090-exec-8] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:09:08,249 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 15:09:14,111 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:09:14,112 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 15:09:14,161 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 15:09:14,164 [http-nio-9090-exec-2] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:09:14,165 [http-nio-9090-exec-2] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:09:14,227 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 15:10:42,281 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_mkt_box t 
+2018-09-25 15:10:42,283 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 15:10:42,324 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 15:10:42,325 [http-nio-9090-exec-8] ==>  Preparing: select * from ai_mkt_box t order by id asc limit ?, ? 
+2018-09-25 15:10:42,326 [http-nio-9090-exec-8] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:10:42,376 [http-nio-9090-exec-8] <==      Total: 2
+2018-09-25 15:10:44,046 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 15:10:44,048 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 15:10:44,235 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 15:11:18,333 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_operator t 
+2018-09-25 15:11:18,335 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 15:11:18,376 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 15:11:18,378 [http-nio-9090-exec-3] ==>  Preparing: select * from ai_operator t order by id asc limit ?, ? 
+2018-09-25 15:11:18,380 [http-nio-9090-exec-3] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:11:18,424 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 15:11:58,464 [http-nio-9090-exec-8] ==>  Preparing: insert into ai_operator(name, description, level, EXT4, EXT5, EXT6, EXT1, EXT2, owernum) values(?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:11:58,466 [http-nio-9090-exec-8] ==> Parameters: 运营商一号(String), 运营商一号(String), 1(Integer), null, null, null, null, null, 10(String)
+2018-09-25 15:11:58,560 [http-nio-9090-exec-8] <==    Updates: 1
+2018-09-25 15:12:00,067 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_operator t 
+2018-09-25 15:12:00,068 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 15:12:00,108 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 15:12:00,109 [http-nio-9090-exec-5] ==>  Preparing: select * from ai_operator t order by id asc limit ?, ? 
+2018-09-25 15:12:00,110 [http-nio-9090-exec-5] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:12:00,540 [http-nio-9090-exec-5] <==      Total: 2
+2018-09-25 15:12:13,014 [http-nio-9090-exec-2] ==>  Preparing: select * from ai_operator t where t.id = ? 
+2018-09-25 15:12:13,017 [http-nio-9090-exec-2] ==> Parameters: 2(Long)
+2018-09-25 15:12:13,059 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 15:13:19,244 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_warehouse_stock t 
+2018-09-25 15:13:19,246 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 15:13:19,349 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 15:13:21,487 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_warehouse t 
+2018-09-25 15:13:21,489 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 15:13:21,542 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 15:14:21,903 [http-nio-9090-exec-2] ==>  Preparing: insert into ai_warehouse(ID, NAME, ADDESS, LONGITUDE, LATITUDE, TYPE, USER_ID, WAREHOUSE_STATE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:14:21,906 [http-nio-9090-exec-2] ==> Parameters: null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 15:14:21,994 [http-nio-9090-exec-2] <==    Updates: 1
+2018-09-25 15:14:23,470 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_warehouse t 
+2018-09-25 15:14:23,471 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 15:14:23,511 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 15:14:23,513 [http-nio-9090-exec-2] ==>  Preparing: select * from ai_warehouse t order by ID asc limit ?, ? 
+2018-09-25 15:14:23,514 [http-nio-9090-exec-2] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:14:23,554 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 15:16:19,484 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_mkt_box t 
+2018-09-25 15:16:19,485 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 15:16:19,586 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 15:16:19,589 [http-nio-9090-exec-10] ==>  Preparing: select * from ai_mkt_box t order by id asc limit ?, ? 
+2018-09-25 15:16:19,589 [http-nio-9090-exec-10] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:16:19,634 [http-nio-9090-exec-10] <==      Total: 2
+2018-09-25 15:17:52,244 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_exec_product t where t.id = ? 
+2018-09-25 15:17:52,246 [http-nio-9090-exec-1] ==> Parameters: 1(Long)
+2018-09-25 15:17:52,296 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 15:18:43,607 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:18:43,608 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 15:18:43,691 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 15:18:43,692 [http-nio-9090-exec-10] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:18:43,693 [http-nio-9090-exec-10] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:18:43,752 [http-nio-9090-exec-10] <==      Total: 2
+2018-09-25 15:18:50,837 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:18:50,838 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 15:18:50,880 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 15:18:50,882 [http-nio-9090-exec-3] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:18:50,883 [http-nio-9090-exec-3] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:18:50,933 [http-nio-9090-exec-3] <==      Total: 2
+2018-09-25 15:22:52,379 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:22:52,380 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 15:22:52,419 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 15:22:52,421 [http-nio-9090-exec-5] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:22:52,421 [http-nio-9090-exec-5] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:22:52,463 [http-nio-9090-exec-5] <==      Total: 2
+2018-09-25 15:23:02,384 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:23:02,385 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 15:23:02,427 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 15:23:02,429 [http-nio-9090-exec-4] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:23:02,431 [http-nio-9090-exec-4] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:23:02,476 [http-nio-9090-exec-4] <==      Total: 2
+2018-09-25 15:24:10,698 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_mkt_box t 
+2018-09-25 15:24:10,699 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 15:24:10,743 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 15:24:10,744 [http-nio-9090-exec-10] ==>  Preparing: select * from ai_mkt_box t order by id asc limit ?, ? 
+2018-09-25 15:24:10,744 [http-nio-9090-exec-10] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:24:10,785 [http-nio-9090-exec-10] <==      Total: 2
+2018-09-25 15:24:16,342 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_operator t 
+2018-09-25 15:24:16,343 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 15:24:16,429 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 15:24:16,431 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_operator t order by id asc limit ?, ? 
+2018-09-25 15:24:16,432 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:24:16,472 [http-nio-9090-exec-1] <==      Total: 2
+2018-09-25 15:27:43,386 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:27:43,396 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 15:27:43,470 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 15:27:43,474 [http-nio-9090-exec-6] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:27:43,476 [http-nio-9090-exec-6] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:27:43,577 [http-nio-9090-exec-6] <==      Total: 2
+2018-09-25 15:29:08,150 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:29:08,151 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 15:29:08,192 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 15:29:08,194 [http-nio-9090-exec-2] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:29:08,195 [http-nio-9090-exec-2] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:29:08,237 [http-nio-9090-exec-2] <==      Total: 2
+2018-09-25 15:29:20,471 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:29:20,472 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 15:29:20,963 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 15:29:20,964 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:29:20,965 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:29:21,007 [http-nio-9090-exec-1] <==      Total: 2
+2018-09-25 15:34:51,491 [http-nio-9090-exec-4] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:36:00,254 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:36:00,257 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 15:36:00,310 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 15:36:00,313 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:36:00,316 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:36:00,367 [http-nio-9090-exec-1] <==      Total: 2
+2018-09-25 15:36:09,043 [http-nio-9090-exec-7] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:40:45,083 [http-nio-9090-exec-8] ==>  Preparing: select * from sys_user t where t.username = ? 
+2018-09-25 15:40:45,187 [http-nio-9090-exec-8] ==> Parameters: admin(String)
+2018-09-25 15:40:45,245 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 15:40:45,266 [http-nio-9090-exec-8] ==>  Preparing: select distinct p.* from sys_permission p inner join sys_role_permission rp on p.id = rp.permissionId inner join sys_role_user ru on ru.roleId = rp.roleId where ru.userId = ? order by p.sort 
+2018-09-25 15:40:45,274 [http-nio-9090-exec-8] ==> Parameters: 1(Long)
+2018-09-25 15:40:45,330 [http-nio-9090-exec-8] <==      Total: 45
+2018-09-25 15:40:45,593 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 15:40:45,603 [http-nio-9090-exec-4] ==> Parameters: 1(Long)
+2018-09-25 15:40:45,647 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 15:40:48,475 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:40:48,476 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 15:40:48,530 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 15:40:48,535 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:40:48,539 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:40:48,588 [http-nio-9090-exec-1] <==      Total: 2
+2018-09-25 15:40:56,085 [http-nio-9090-exec-8] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:40:56,090 [http-nio-9090-exec-8] ==> Parameters: null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 15:40:56,239 [http-nio-9090-exec-8] <==    Updates: 1
+2018-09-25 15:40:57,825 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:40:57,827 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 15:40:57,875 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 15:40:57,876 [http-nio-9090-exec-7] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:40:57,877 [http-nio-9090-exec-7] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:40:57,938 [http-nio-9090-exec-7] <==      Total: 3
+2018-09-25 15:46:03,551 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 15:46:03,596 [http-nio-9090-exec-4] ==> Parameters: 1(Long)
+2018-09-25 15:46:03,703 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 15:46:06,584 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:46:06,585 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 15:46:06,653 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 15:46:06,657 [http-nio-9090-exec-4] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:46:06,659 [http-nio-9090-exec-4] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:46:06,710 [http-nio-9090-exec-4] <==      Total: 3
+2018-09-25 15:46:14,194 [http-nio-9090-exec-10] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:46:21,171 [http-nio-9090-exec-10] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:46:21,172 [http-nio-9090-exec-10] ==> Parameters: 
+2018-09-25 15:46:21,220 [http-nio-9090-exec-10] <==      Total: 1
+2018-09-25 15:46:21,222 [http-nio-9090-exec-10] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:46:21,222 [http-nio-9090-exec-10] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:46:21,274 [http-nio-9090-exec-10] <==      Total: 3
+2018-09-25 15:46:27,558 [http-nio-9090-exec-2] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:48:09,677 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:48:09,722 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 15:48:09,780 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 15:48:09,785 [http-nio-9090-exec-3] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:48:09,791 [http-nio-9090-exec-3] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:48:09,834 [http-nio-9090-exec-3] <==      Total: 3
+2018-09-25 15:48:22,262 [http-nio-9090-exec-7] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:48:22,267 [http-nio-9090-exec-7] ==> Parameters: 测试(String), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 15:48:22,382 [http-nio-9090-exec-7] <==    Updates: 1
+2018-09-25 15:48:23,946 [http-nio-9090-exec-6] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:48:23,948 [http-nio-9090-exec-6] ==> Parameters: 
+2018-09-25 15:48:23,985 [http-nio-9090-exec-6] <==      Total: 1
+2018-09-25 15:48:23,987 [http-nio-9090-exec-6] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:48:23,988 [http-nio-9090-exec-6] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:48:24,026 [http-nio-9090-exec-6] <==      Total: 4
+2018-09-25 15:53:46,320 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 15:53:46,440 [http-nio-9090-exec-5] ==> Parameters: 1(Long)
+2018-09-25 15:53:46,510 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 15:53:49,444 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:53:49,445 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 15:53:49,486 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 15:53:49,489 [http-nio-9090-exec-5] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:53:49,498 [http-nio-9090-exec-5] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:53:49,546 [http-nio-9090-exec-5] <==      Total: 4
+2018-09-25 15:53:52,383 [http-nio-9090-exec-4] ==>  Preparing: delete from ai_exec_product where id = ? 
+2018-09-25 15:53:52,385 [http-nio-9090-exec-4] ==> Parameters: 7(Long)
+2018-09-25 15:53:52,488 [http-nio-9090-exec-4] <==    Updates: 1
+2018-09-25 15:53:52,528 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:53:52,530 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 15:53:52,566 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 15:53:52,568 [http-nio-9090-exec-9] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:53:52,569 [http-nio-9090-exec-9] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:53:52,617 [http-nio-9090-exec-9] <==      Total: 3
+2018-09-25 15:53:54,356 [http-nio-9090-exec-6] ==>  Preparing: delete from ai_exec_product where id = ? 
+2018-09-25 15:53:54,357 [http-nio-9090-exec-6] ==> Parameters: 6(Long)
+2018-09-25 15:53:54,446 [http-nio-9090-exec-6] <==    Updates: 1
+2018-09-25 15:53:54,468 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:53:54,468 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 15:53:54,582 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 15:53:54,584 [http-nio-9090-exec-3] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:53:54,585 [http-nio-9090-exec-3] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:53:54,634 [http-nio-9090-exec-3] <==      Total: 2
+2018-09-25 15:54:02,368 [http-nio-9090-exec-7] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:54:02,373 [http-nio-9090-exec-7] ==> Parameters: 测试(String), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 15:54:02,445 [http-nio-9090-exec-7] <==    Updates: 1
+2018-09-25 15:54:04,014 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:54:04,015 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 15:54:04,049 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 15:54:04,050 [http-nio-9090-exec-5] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:54:04,052 [http-nio-9090-exec-5] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:54:04,088 [http-nio-9090-exec-5] <==      Total: 3
+2018-09-25 15:59:23,958 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:59:24,068 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 15:59:24,187 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 15:59:24,197 [http-nio-9090-exec-4] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:59:24,205 [http-nio-9090-exec-4] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:59:24,287 [http-nio-9090-exec-4] <==      Total: 3
+2018-09-25 15:59:30,918 [http-nio-9090-exec-2] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 15:59:30,921 [http-nio-9090-exec-2] ==> Parameters: 电饭锅电饭锅中(String), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 15:59:31,048 [http-nio-9090-exec-2] <==    Updates: 1
+2018-09-25 15:59:32,592 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 15:59:32,594 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 15:59:32,634 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 15:59:32,636 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 15:59:32,637 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 15:59:32,697 [http-nio-9090-exec-1] <==      Total: 4
+2018-09-25 16:07:53,067 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:07:53,115 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 16:07:53,171 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 16:07:53,176 [http-nio-9090-exec-5] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:07:53,181 [http-nio-9090-exec-5] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:07:53,235 [http-nio-9090-exec-5] <==      Total: 4
+2018-09-25 16:08:03,282 [http-nio-9090-exec-10] ==>  Preparing: insert into ai_exec_product(PRODUCT_CODE, AI_CODE, PRODUCT_NAME, PRODUCT_DESC, PRODUCT_TYPE_ID, PRODUCT_ORI_PRICE, PRODUCT_STATUS, PRODUCT_PIC_PATH, PRODUCT_URL, CREATOR, CREATE_DATE, MODIFY_DATE, DATA_STATE, PRODUCT_SOURCE, EXT1, EXT2, EXT3) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2018-09-25 16:08:03,288 [http-nio-9090-exec-10] ==> Parameters: 测试大小写的问题(String), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+2018-09-25 16:08:03,423 [http-nio-9090-exec-10] <==    Updates: 1
+2018-09-25 16:08:05,044 [http-nio-9090-exec-2] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:08:05,047 [http-nio-9090-exec-2] ==> Parameters: 
+2018-09-25 16:08:05,088 [http-nio-9090-exec-2] <==      Total: 1
+2018-09-25 16:08:05,090 [http-nio-9090-exec-2] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:08:05,091 [http-nio-9090-exec-2] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:08:05,144 [http-nio-9090-exec-2] <==      Total: 5
+2018-09-25 16:09:07,727 [http-nio-9090-exec-7] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:09:07,728 [http-nio-9090-exec-7] ==> Parameters: 
+2018-09-25 16:09:07,770 [http-nio-9090-exec-7] <==      Total: 1
+2018-09-25 16:09:07,771 [http-nio-9090-exec-7] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:09:07,772 [http-nio-9090-exec-7] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:09:07,818 [http-nio-9090-exec-7] <==      Total: 5
+2018-09-25 16:09:31,025 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:09:31,027 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 16:09:31,070 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 16:09:31,072 [http-nio-9090-exec-9] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:09:31,073 [http-nio-9090-exec-9] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:09:31,118 [http-nio-9090-exec-9] <==      Total: 5
+2018-09-25 16:10:47,218 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:10:47,243 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 16:10:47,341 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 16:10:47,347 [http-nio-9090-exec-9] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:10:47,353 [http-nio-9090-exec-9] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:10:47,956 [http-nio-9090-exec-9] <==      Total: 5
+2018-09-25 16:11:09,531 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:11:09,532 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 16:11:09,592 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 16:11:09,595 [http-nio-9090-exec-3] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:11:09,596 [http-nio-9090-exec-3] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:11:09,662 [http-nio-9090-exec-3] <==      Total: 5
+2018-09-25 16:11:18,692 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from t_notice t left join t_notice_read r on r.noticeId = t.id and r.userId = ? where t.status = 1 and r.userId is null 
+2018-09-25 16:11:18,701 [http-nio-9090-exec-4] ==> Parameters: 1(Long)
+2018-09-25 16:11:18,786 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 16:11:24,288 [http-nio-9090-exec-1] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:11:24,289 [http-nio-9090-exec-1] ==> Parameters: 
+2018-09-25 16:11:24,337 [http-nio-9090-exec-1] <==      Total: 1
+2018-09-25 16:11:24,339 [http-nio-9090-exec-1] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:11:24,340 [http-nio-9090-exec-1] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:11:24,387 [http-nio-9090-exec-1] <==      Total: 5
+2018-09-25 16:12:19,391 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_cupboard_inventory_inst t 
+2018-09-25 16:12:19,394 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 16:12:19,428 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 16:12:20,666 [http-nio-9090-exec-9] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:12:20,670 [http-nio-9090-exec-9] ==> Parameters: 
+2018-09-25 16:12:20,708 [http-nio-9090-exec-9] <==      Total: 1
+2018-09-25 16:12:20,710 [http-nio-9090-exec-9] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:12:20,711 [http-nio-9090-exec-9] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:12:21,322 [http-nio-9090-exec-9] <==      Total: 5
+2018-09-25 16:14:08,131 [http-nio-9090-exec-5] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:14:08,198 [http-nio-9090-exec-5] ==> Parameters: 
+2018-09-25 16:14:08,270 [http-nio-9090-exec-5] <==      Total: 1
+2018-09-25 16:14:08,277 [http-nio-9090-exec-5] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:14:08,282 [http-nio-9090-exec-5] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:14:08,327 [http-nio-9090-exec-5] <==      Total: 5
+2018-09-25 16:14:44,058 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:14:44,059 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 16:14:44,122 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 16:14:44,124 [http-nio-9090-exec-3] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:14:44,126 [http-nio-9090-exec-3] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:14:44,195 [http-nio-9090-exec-3] <==      Total: 5
+2018-09-25 16:17:44,627 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:17:44,630 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 16:17:44,673 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 16:17:44,675 [http-nio-9090-exec-3] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:17:44,677 [http-nio-9090-exec-3] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:17:44,723 [http-nio-9090-exec-3] <==      Total: 5
+2018-09-25 16:17:47,741 [http-nio-9090-exec-8] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:17:47,743 [http-nio-9090-exec-8] ==> Parameters: 
+2018-09-25 16:17:47,792 [http-nio-9090-exec-8] <==      Total: 1
+2018-09-25 16:17:47,793 [http-nio-9090-exec-8] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:17:47,794 [http-nio-9090-exec-8] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:17:47,845 [http-nio-9090-exec-8] <==      Total: 5
+2018-09-25 16:19:05,006 [http-nio-9090-exec-3] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:19:05,008 [http-nio-9090-exec-3] ==> Parameters: 
+2018-09-25 16:19:05,053 [http-nio-9090-exec-3] <==      Total: 1
+2018-09-25 16:19:05,056 [http-nio-9090-exec-3] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:19:05,057 [http-nio-9090-exec-3] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:19:05,107 [http-nio-9090-exec-3] <==      Total: 5
+2018-09-25 16:20:27,899 [http-nio-9090-exec-4] ==>  Preparing: select count(1) from ai_exec_product t 
+2018-09-25 16:20:27,903 [http-nio-9090-exec-4] ==> Parameters: 
+2018-09-25 16:20:28,354 [http-nio-9090-exec-4] <==      Total: 1
+2018-09-25 16:20:28,355 [http-nio-9090-exec-4] ==>  Preparing: select * from ai_exec_product t order by id asc limit ?, ? 
+2018-09-25 16:20:28,356 [http-nio-9090-exec-4] ==> Parameters: 0(Integer), 10(Integer)
+2018-09-25 16:20:28,599 [http-nio-9090-exec-4] <==      Total: 5

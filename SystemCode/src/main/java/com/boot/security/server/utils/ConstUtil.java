@@ -2,8 +2,8 @@ package com.boot.security.server.utils;
 
 /**
  * Created By Seven.wk
- * Description: 存储系统静态变量字段
- * Created At 2018/09/25
+ * Description: 静态变量工具类
+ * Created At 2018/09/26
  */
 public class ConstUtil {
 

@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private TokenFilter tokenFilter;
 
 	@Autowired
-    private CaptchaFilter captchaFilter;
+	private CaptchaFilter captchaFilter;
 
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.headers().frameOptions().disable();
 		http.headers().cacheControl();
 
-		http.addFilterBefore(captchaFilter, UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(captchaFilter, UsernamePasswordAuthenticationFilter.class);
 		http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 

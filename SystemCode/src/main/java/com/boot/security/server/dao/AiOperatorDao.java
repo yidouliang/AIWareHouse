@@ -24,7 +24,7 @@ public interface AiOperatorDao {
     int update(AiOperator aiOperator);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_operator(name, description, level, EXT4, EXT5, EXT6, EXT1, EXT2, owernum) values(#{name}, #{description}, #{level}, #{EXT4}, #{EXT5}, #{EXT6}, #{EXT1}, #{EXT2}, #{owernum})")
+    @Insert("insert into ai_operator(name, description, level, ext4, ext5, ext6, ext1, ext2, owernum) values(#{name}, #{description}, #{level}, #{ext4}, #{ext5}, #{ext6}, #{ext1}, #{ext2}, #{owernum})")
     int save(AiOperator aiOperator);
     
     int count(@Param("params") Map<String, Object> params);
