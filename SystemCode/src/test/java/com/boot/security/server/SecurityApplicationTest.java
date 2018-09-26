@@ -29,31 +29,5 @@ public class SecurityApplicationTest {
 		System.out.println(string.length());
 	}
 
-	@Autowired
-	private OrderThirdLevelDao orderThirdLevelDao;
 
-	@Autowired
-	private OrderThirdLevelController controller;
-
-	@Test
-	public void ortest(){
-		Map<String,Object> params = new HashMap<String,Object>();
-		params.put("orderBy","ORDER BY SID ASC");
-		List<OrderThirdLevel> lists = orderThirdLevelDao.listThirdLevel(params,0,3,6L);
-		for (OrderThirdLevel o:lists
-			 ) {
-			System.err.println("sid:"+o.getId());
-		}
-	}
-
-//	@Test
-//	public void ootest(){
-//		PageTableRequest p = new PageTableRequest();
-//		Map<String,Object> params = new HashMap<String,Object>();
-//		params.put("orderBy","ORDER BY FIRST_LEVEL_ID ASC");
-//		p.setLimit(3);
-//		p.setParams(params);
-//		p.setOffset(0);
-//		List<OrderThirdLevel> lists = controller.list(p,6L);
-//	}
 }

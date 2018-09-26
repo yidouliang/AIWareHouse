@@ -13,9 +13,12 @@ function initData(){
         "destroy": true,
         "retrieve":true,
         "ajax": {
-            url: "/orderThirdLevels?firstLevelId="+getParam(),
+            url: "/orderThirdLevels",
             "dataType" : 'json',
             type: 'GET',
+            "data":function(d){
+                d.FIRST_LEVEL_ID = getParam();
+            }
         },
         "dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",
         "columns": [
@@ -39,12 +42,6 @@ function initData(){
             {"data" : "ACTIVITY_NAME", "defaultContent" : ""},
             {"data" : "MKT_INV_ID", "defaultContent" : ""},
             {"data" : "DATA_STATE", "defaultContent" : ""},
-            {"data" : "EXT_1", "defaultContent" : ""},
-            {"data" : "EXT_2", "defaultContent" : ""},
-            {"data" : "EXT_3", "defaultContent" : ""},
-            {"data" : "EXT_4", "defaultContent" : ""},
-            {"data" : "createTime", "defaultContent" : ""},
-            {"data" : "updateTime", "defaultContent" : ""},
 
         ],
         "iDisplayLength": 10,

@@ -9,7 +9,7 @@
 				and id = #{params.id} 
 			</if>
 			<if test="params.firstlevelid != null and params.firstlevelid != ''">
-				and firstlevelid = #{params.firstlevelid} 
+				and firstlevelid = #{params.firstlevelid}
 			</if>
 			<if test="params.mktinvid != null and params.mktinvid != ''">
 				and mktinvid = #{params.mktinvid} 

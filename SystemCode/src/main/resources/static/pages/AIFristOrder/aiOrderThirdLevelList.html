@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/taobao.css">
+</head>
+<body>
+<div>
+    <div class="widget-body no-padding">
+        <div class = "c_table  " style="overflow-x: auto; overflow-y:hidden; height: 100%; width:100%;">
+        <table id="odt-table" class="table table-striped table-bordered table-hover" style="width:100%">
+            <thead>
+            <tr>
+            </tr>
+            <tr>
+                <th>订单商品ID</th>
+                <th>所属订单ID</th>
+                <th>库存实例标识</th>
+                <th>消费者ID</th>
+                <th>联系电话</th>
+                <th>订单流水号</th>
+                <th>所属盒子ID</th>
+                <th>所属盒子类型</th>
+                <th>父订单流水号</th>
+                <th>产品价格</th>
+                <th>产品类型</th>
+                <th>产品名称</th>
+                <th>产品编码</th>
+                <th>商品图片URL</th>
+                <th>产品描述</th>
+                <th>购买数量</th>
+                <th>活动ID</th>
+                <th>归属活动名称</th>
+                <th>数据状态</th>
+                <th>创建时间</th>
+                <th>更新时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <button class="btn btn-primary" onclick="location.href='aiOrderFirstLevelList.html'">返回</button>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/jq.js"></script>
+<script type="text/javascript" src="../../js/plugin/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../../js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/my/permission.js"></script>
+<script>
+
+    $(document).ready(function() {
+        initData();
+    });
+
+    var example;
+    //加载初始化数据
+    function initData(){
+        example =
+            $('#odt-table').DataTable({
+                "searching": false,
+                "processing": false,
+                "serverSide" : true,
+                "destroy": true,
+                "retrieve":true,
+                "ajax": {
+                    url: "/aiOrderThirdLevels",
+                    "dataType" : 'json',
+                    type: 'GET',
+                    "data":function(d){
+                        d.firstlevelid = getParam();
+                    }
+                },
+                "dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",
+                "columns": [
+                    {"data" : "id", "defaultContent" : ""},
+                    {"data" : "firstlevelid", "defaultContent" : ""},
+                    {"data" : "mktinvid", "defaultContent" : ""},
+                    {"data" : "usercode", "defaultContent" : ""},
+                    {"data" : "telephone", "defaultContent" : ""},
+                    {"data" : "serialnumber", "defaultContent" : ""},
+                    {"data" : "boxname", "defaultContent" : ""},
+                    {"data" : "boxtype", "defaultContent" : ""},
+                    {"data" : "pserialnumber", "defaultContent" : ""},
+                    {"data" : "productprice", "defaultContent" : ""},
+                    {"data" : "producttypeid", "defaultContent" : ""},
+                    {"data" : "productname", "defaultContent" : ""},
+                    {"data" : "productcode", "defaultContent" : ""},
+                    {"data" : "productimgurl", "defaultContent" : ""},
+                    {"data" : "productdesc", "defaultContent" : ""},
+                    {"data" : "buynum", "defaultContent" : ""},
+                    {"data" : "activityid", "defaultContent" : ""},
+                    {"data" : "activityname", "defaultContent" : ""},
+                    {"data" : "datastate", "defaultContent" : ""},
+                    {"data" : "createTime", "defaultContent" : ""},
+                    {"data" : "updateTime", "defaultContent" : ""},
+
+                ],
+                "iDisplayLength": 10,
+                "order": [[ 0, "asc" ]]
+            } );
+    }
+
+    function getParam(){
+        C1=window.location.href.split("?")[1];
+        C2=C1.split("=")[1];
+        return C2;
+    }
+
+
+</script>

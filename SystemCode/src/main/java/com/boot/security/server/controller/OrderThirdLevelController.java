@@ -24,18 +24,18 @@ public class OrderThirdLevelController {
 
     @GetMapping()
     @ApiOperation(value = "获取三级订单信息")
-    public PageTableResponse list(PageTableRequest request,@RequestParam("firstLevelId") Long fId) {
+    public PageTableResponse list(PageTableRequest request) {
         return new PageTableHandler(new CountHandler() {
 
             @Override
             public int count(PageTableRequest request) {
-                return orderThirdLevelDao.count(request.getParams(),fId);
+                return orderThirdLevelDao.count(request.getParams());
             }
         }, new ListHandler() {
 
             @Override
             public List<OrderThirdLevel> list(PageTableRequest request) {
-                return orderThirdLevelDao.listThirdLevel(request.getParams(),request.getOffset(),request.getLimit(),fId);
+                return orderThirdLevelDao.listThirdLevel(request.getParams(),request.getOffset(),request.getLimit());
             }
         }).handle(request);
     }

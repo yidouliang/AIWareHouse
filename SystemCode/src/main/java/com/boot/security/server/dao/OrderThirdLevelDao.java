@@ -10,7 +10,7 @@ import java.util.Map;
 @Mapper
 public interface OrderThirdLevelDao {
 
-    int count(@Param("params") Map<String, Object> params,@Param("id")  Long id);
+    int count(@Param("params") Map<String, Object> params);
 
-    List<OrderThirdLevel> listThirdLevel(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit,@Param("id") Long id);
+    List<OrderThirdLevel> listThirdLevel(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 }
