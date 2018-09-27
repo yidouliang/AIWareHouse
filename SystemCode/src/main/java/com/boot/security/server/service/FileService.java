@@ -12,4 +12,6 @@ public interface FileService {
 
 	void delete(String id);
 
+	FileInfo saveWithoutRecord(MultipartFile file) throws IOException;
+
 }

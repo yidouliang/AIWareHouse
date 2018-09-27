@@ -2,6 +2,8 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.convert.AiExecProduct2AiExecProductDto;
+import com.boot.security.server.dto.AiExecProductDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +30,9 @@ public class AiExecProductController {
 
     @Autowired
     private AiExecProductDao aiExecProductDao;
+
+    @Autowired
+    private AiExecProduct2AiExecProductDto aiExecProduct2AiExecProductDto;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -63,8 +68,9 @@ public class AiExecProductController {
         }, new ListHandler() {
 
             @Override
-            public List<AiExecProduct> list(PageTableRequest request) {
-                return aiExecProductDao.list(request.getParams(), request.getOffset(), request.getLimit());
+            public List<AiExecProductDto> list(PageTableRequest request) {
+                List<AiExecProduct> aiExecProductList = aiExecProductDao.list(request.getParams(), request.getOffset(), request.getLimit());
+                return aiExecProduct2AiExecProductDto.convert(aiExecProductList);
             }
         }).handle(request);
     }
