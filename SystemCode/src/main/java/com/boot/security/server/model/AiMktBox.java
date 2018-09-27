@@ -25,98 +25,104 @@ public class AiMktBox extends BaseEntity<Long> {
 	public String getBoxname() {
 		return boxname;
 	}
-	public String setBoxname() {
-		return boxname;
+
+	public void setBoxname(String boxname) {
+		this.boxname = boxname;
 	}
+
 	public String getBoxcode() {
 		return boxcode;
 	}
-	public String setBoxcode() {
-		return boxcode;
+
+	public void setBoxcode(String boxcode) {
+		this.boxcode = boxcode;
 	}
+
 	public String getBoxtype() {
 		return boxtype;
 	}
-	public String setBoxtype() {
-		return boxtype;
+
+	public void setBoxtype(String boxtype) {
+		this.boxtype = boxtype;
 	}
+
 	public Integer getBoxperson() {
 		return boxperson;
 	}
-	public Integer setBoxperson() {
-		return boxperson;
+
+	public void setBoxperson(Integer boxperson) {
+		this.boxperson = boxperson;
 	}
+
 	public String getAddress() {
 		return address;
 	}
-	public String setAddress() {
-		return address;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
+
 	public String getStatus() {
 		return status;
 	}
-	public String setStatus() {
-		return status;
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
+
 	public Date getFactorydate() {
 		return factorydate;
 	}
-	public Date setFactorydate() {
-		return factorydate;
+
+	public void setFactorydate(Date factorydate) {
+		this.factorydate = factorydate;
 	}
+
 	public Integer getPaystate() {
 		return paystate;
 	}
-	public Integer setPaystate() {
-		return paystate;
+
+	public void setPaystate(Integer paystate) {
+		this.paystate = paystate;
 	}
+
 	public Integer getBoxwarehouseid() {
 		return boxwarehouseid;
 	}
-	public Integer setBoxwarehouseid() {
-		return boxwarehouseid;
+
+	public void setBoxwarehouseid(Integer boxwarehouseid) {
+		this.boxwarehouseid = boxwarehouseid;
 	}
+
 	public Date getEnddate() {
 		return enddate;
 	}
-	public Date setEnddate() {
-		return enddate;
+
+	public void setEnddate(Date enddate) {
+		this.enddate = enddate;
 	}
+
 	public String getPersontelphone() {
 		return persontelphone;
 	}
-	public String setPersontelphone() {
-		return persontelphone;
+
+	public void setPersontelphone(String persontelphone) {
+		this.persontelphone = persontelphone;
 	}
+
 	public BigDecimal getLongitude() {
 		return longitude;
 	}
-	public BigDecimal setLongitude() {
-		return longitude;
+
+	public void setLongitude(BigDecimal longitude) {
+		this.longitude = longitude;
 	}
+
 	public BigDecimal getLatitude() {
 		return latitude;
 	}
-	public BigDecimal setLatitude() {
-		return latitude;
-	}
-	public String getExt1() {
-		return ext1;
-	}
-	public String setExt1() {
-		return ext1;
-	}
-	public String getExt2() {
-		return ext2;
-	}
-	public String setExt2() {
-		return ext2;
-	}
-	public String getExt3() {
-		return ext3;
-	}
-	public String setExt3() {
-		return ext3;
-	}
 
+	public void setLatitude(BigDecimal latitude) {
+		this.latitude = latitude;
+	}
 }

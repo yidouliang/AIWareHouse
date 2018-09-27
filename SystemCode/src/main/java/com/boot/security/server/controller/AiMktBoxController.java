@@ -1,7 +1,14 @@
 package com.boot.security.server.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import com.boot.security.server.convert.AiMktBoxVo2AiBox;
+import com.boot.security.server.dao.DictDao;
+import com.boot.security.server.dto.AiMktBoxVo;
+import com.mchange.v2.beans.BeansUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,9 +36,14 @@ public class AiMktBoxController {
     @Autowired
     private AiMktBoxDao aiMktBoxDao;
 
+    @Autowired
+    private DictDao dictDao;
+
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiMktBox save(@RequestBody AiMktBox aiMktBox) {
+    public AiMktBox save(@RequestBody AiMktBoxVo aiMktBoxVo) {
+        AiMktBox aiMktBox = new AiMktBox();
+        AiMktBoxVo2AiBox.aiMktBoxVo2AiBox(aiMktBoxVo,aiMktBox);
         aiMktBoxDao.save(aiMktBox);
 
         return aiMktBox;
@@ -63,8 +75,14 @@ public class AiMktBoxController {
         }, new ListHandler() {
 
             @Override
-            public List<AiMktBox> list(PageTableRequest request) {
-                return aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit());
+            public List<AiMktBoxVo> list(PageTableRequest request) {
+                List<AiMktBox> aiMktBoxList =  aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit());
+                List<AiMktBoxVo> aiMktBoxVoList = new ArrayList<>();
+                AiMktBoxVo2AiBox.aiMktBoxList2AiBoxList(dictDao,aiMktBoxVoList,aiMktBoxList);
+                for(AiMktBoxVo aiMktBoxVo : aiMktBoxVoList){
+                    System.err.println("货柜类型:"+aiMktBoxVo.getAiBoxType()+" 货柜状态:"+aiMktBoxVo.getAiBoxStatus()+" 支付状态:"+aiMktBoxVo.getPayState());
+                }
+                return aiMktBoxVoList;
             }
         }).handle(request);
     }

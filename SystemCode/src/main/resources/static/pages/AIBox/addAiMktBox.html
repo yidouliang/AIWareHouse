@@ -27,9 +27,11 @@
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>AI货柜类型</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='AI货柜类型' type='text' name='boxtype' id='boxtype' data-bv-notempty='true' data-bv-notempty-message='AI货柜类型 不能为空'>
-				</div>
+
+					<div class="col-md-10" style="width: 180px">
+						<select class="form-control input-sm" name="boxtype" id="AiBoxType">
+						</select>
+					</div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>运营商ID</label>
@@ -40,16 +42,16 @@
 			<div class='form-group' >
 
 				<label class='col-md-2 control-label'>地区选择</label>
-				<div id="distpicker" class='col-md-10'>
-					<div class="form-group">
+				<div id="distpicker" class='col-md-9'>
+
 						<div style="position: relative;">
-							<input id="city-picker3" class="form-control" readonly type="text" value="江苏省/常州市/溧阳市" data-toggle="city-picker">
+							<input id="city-picker3" name="area" class="form-control" readonly type="text" value="四川省/成都市/龙泉驿区" data-toggle="city-picker">
 						</div>
-					</div>
-					<div class="form-group">
+
+
 						<button class="btn btn-warning" id="reset" type="button">重置</button>
 						<button class="btn btn-danger" id="destroy" type="button">确定</button>
-					</div>
+
 				</div>
 			</div>
 			</div>
@@ -61,8 +63,10 @@
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>AI货柜状态</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='AI货柜状态' type='text' name='status' id='status' data-bv-notempty='true' data-bv-notempty-message='AI货柜状态 不能为空'>
+
+				<div class="col-md-10" style="width: 180px">
+					<select class="form-control input-sm" name="status" id="AiBoxStatus">
+					</select>
 				</div>
 			</div>
 			<div class='form-group'>
@@ -73,8 +77,9 @@
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>支付状态</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='支付状态' type='text' name='paystate' id='paystate' data-bv-notempty='true' data-bv-notempty-message='支付状态 不能为空'>
+				<div class="col-md-10" style="width: 180px">
+					<select class="form-control input-sm" name="paystate" id="payState">
+					</select>
 				</div>
 			</div>
 			<div class='form-group'>
@@ -95,7 +100,9 @@
 					<input class='form-control' placeholder='联系人电话' type='text' name='persontelphone' id='persontelphone' data-bv-notempty='true' data-bv-notempty-message='联系人电话 不能为空'>
 				</div>
 			</div>
+			<button class="btn btn-primary" onclick="getLocation()">使用当前经纬度</button>
 			<div class='form-group'>
+
 				<label class='col-md-2 control-label'>经度</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='经度' type='text' name='longitude' id='longitude' data-bv-notempty='true' data-bv-notempty-message='经度 不能为空'>
@@ -131,15 +138,16 @@
 	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
-	<script src="../../js/my/area/jquery.js"></script>
     <script src="../../js/my/area/bootstrap.js"></script>
 	<script src="../../js/my/area/city-picker.data.js"></script>
 	<script src="../../js/my/area/city-picker.js"></script>
 	<script src="../../js/my/area/main.js"></script>
+	<script type="text/javascript" src="../../js/dict.js"></script>
 
 	<script type="text/javascript">
 
-
+        var longtitude = 0;
+        var latitude = 0;
 
 		layui.use(['layer','laydate','jquery', 'form'], function(){
             var layer = layui.layer;
@@ -158,9 +166,13 @@
 
 
 		});
+        showDictSelect("AiBoxType", "AiBoxType");
+        showDictSelect("AiBoxStatus", "AiBoxStatus");
+        showDictSelect("payState", "payState");
+
 		
 		function add() {
-			$('#form').bootstrapValidator();
+            $('#form').bootstrapValidator();
 			var bootstrapValidator = $("#form").data('bootstrapValidator');
 			bootstrapValidator.validate();
 		    if(!bootstrapValidator.isValid()){
@@ -182,6 +194,17 @@
 			});
 		}
 
+		function getLocation() {
+            var address = "具体的地理位置 ";
+            var url = "http://api.map.baidu.com/geocoder/v2/?address=" + address + "&output=json&ak=FG7wxr1VUj0k2NwoO3yXzymd&callback=?";
+            $.getJSON(url, function (data) {
+
+                longtitude = data.result.location.lng;
+                latitude = data.result.location.lat;
+                $("#longitude").attr("value",longtitude);
+                $("#latitude").attr("value",latitude);
+            });
+        }
 
 	</script>
 </body>
