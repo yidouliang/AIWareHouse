@@ -1,5 +1,8 @@
 package com.boot.security.server.model;
 
+import com.boot.security.server.enums.DataStatusEnum;
+import com.boot.security.server.utils.ConstUtil;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -23,9 +26,9 @@ public class AiCupboardInventoryInst extends BaseEntity<Long> {
 	private String statusstatereason;
 	private String createoperid;
 	private String createorgid;
-	private Date createdate;
-	private Date modifydate;
-	private String datastate;
+	private Date createdate = new Date();
+	private Date modifydate = new Date();
+	private String datastate = DataStatusEnum.NORMAL.getMessage();
 	private String ext1;
 	private String ext2;
 	private String ext3;

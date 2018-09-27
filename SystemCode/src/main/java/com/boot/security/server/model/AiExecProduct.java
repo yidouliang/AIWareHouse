@@ -1,5 +1,8 @@
 package com.boot.security.server.model;
 
+import com.boot.security.server.enums.DataStatusEnum;
+import com.boot.security.server.enums.ProductStatusEnum;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -11,13 +14,13 @@ public class AiExecProduct extends BaseEntity<Long> {
 	private String productdesc;
 	private Integer producttypeid;
 	private BigDecimal productoriprice;
-	private Integer productstatus;
+	private Integer productstatus = ProductStatusEnum.OBTAINED.getCode();
 	private String productpicpath;
 	private String producturl;
 	private BigDecimal creator;
-	private Date createdate;
-	private Date modifydate;
-	private Integer datastate;
+	private Date createdate = new Date();
+	private Date modifydate = new Date();
+	private Integer datastate = DataStatusEnum.NORMAL.getCode();
 	private String productsource;
 	private Integer ext1;
 	private String ext2;

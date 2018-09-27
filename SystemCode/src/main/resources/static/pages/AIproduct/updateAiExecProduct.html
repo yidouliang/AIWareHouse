@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -33,9 +34,10 @@
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>产品类型ID</label>
+				<label class='col-md-2 control-label'>产品类型</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品类型ID' type='text' name='producttypeid' id='producttypeid' data-bv-notempty='true' data-bv-notempty-message='producttypeid 不能为空'>
+					<select class="form-control input-sm" name="producttypeid" id="producttypeid">
+					</select>
 				</div>
 			</div>
 			<div class='form-group'>
@@ -47,14 +49,25 @@
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品状态</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品状态' type='text' name='productstatus' id='productstatus' data-bv-notempty='true' data-bv-notempty-message='productstatus 不能为空'>
+					<select class="form-control input-sm" name="productstatus" id="productstatus">
+					</select>
 				</div>
 			</div>
+
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品图片</label>
+                <div class='col-md-10'>
+                    <button type="button" class="layui-btn" id="uploadImage">
+                        <i class="layui-icon">&#xe67c;</i>上传图片
+                    </button>
+                </div>
+            </div>
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品图片地址</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品图片地址' type='text' name='productpicpath' id='productpicpath' data-bv-notempty='true' data-bv-notempty-message='productpicpath 不能为空'>
-				</div>
+                    <input class='form-control' placeholder='请输入产品图片地址' type='text' name='productpicpath' id='productpicpath' data-bv-notempty='true' data-bv-notempty-message='productpicpath 不能为空' disabled>
+                </div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品展示网址</label>
@@ -69,49 +82,11 @@
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>创建时间</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入创建时间' type='text' name='createdate' id='createdate' data-bv-notempty='true' data-bv-notempty-message='createdate 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>修改时间</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入修改时间' type='text' name='modifydate' id='modifydate' data-bv-notempty='true' data-bv-notempty-message='modifydate 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>数据状态</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入数据状态' type='text' name='datastate' id='datastate' data-bv-notempty='true' data-bv-notempty-message='datastate 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品来源</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='请输入产品来源' type='text' name='productsource' id='productsource' data-bv-notempty='true' data-bv-notempty-message='productsource 不能为空'>
 				</div>
 			</div>
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>ext1</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='ext1' type='text' name='ext1' id='ext1' data-bv-notempty='true' data-bv-notempty-message='ext1 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>ext2</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='ext2' type='text' name='ext2' id='ext2' data-bv-notempty='true' data-bv-notempty-message='ext2 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>ext3</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='ext3' type='text' name='ext3' id='ext3' data-bv-notempty='true' data-bv-notempty-message='ext3 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-
-
 
 			<div class="form-actions">
 				<div class="row" align="center">
@@ -132,12 +107,33 @@
 	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../js/dict.js"></script>
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
 		
 		initData();
+
+        layui.use('upload', function(){
+            var upload = layui.upload;
+
+            //执行实例
+            var uploadInst = upload.render({
+                elem: '#uploadImage' //绑定元素
+                ,url: '/files/image' //上传接口
+                ,done: function(res){
+                    layer.msg("上传成功", {shift: -1, time: 1000});
+                    $("#productpicpath").val(res.path);
+                }
+                ,error: function(){
+                    alert("上传失败");
+                }
+            });
+        });
+
+        showDictSelect("producttypeid", "producttypeid");
+        showDictSelect("productstatus", "productstatus");
 		
 		function initData(){
 			var id = getUrlParam("id");
@@ -153,18 +149,12 @@
 						$('#productname').val(data.productname);
 						$('#productdesc').val(data.productdesc);
 						$('#producttypeid').val(data.producttypeid);
-						$('#productoriprice').val(data.productoriprice);
+                        $('#productoriprice').val(data.productoriprice);
 						$('#productstatus').val(data.productstatus);
 						$('#productpicpath').val(data.productpicpath);
 						$('#producturl').val(data.producturl);
 						$('#creator').val(data.creator);
-						$('#createdate').val(data.createdate);
-						$('#modifydate').val(data.modifydate);
-						$('#datastate').val(data.datastate);
 						$('#productsource').val(data.productsource);
-						// $('#ext1').val(data.ext1);
-						// $('#ext2').val(data.ext2);
-						// $('#ext3').val(data.ext3);
 
 					}
 				});
@@ -192,8 +182,9 @@
                     });
 				}
 			});
+
 		}
-		
+
 	</script>
 </body>
 </html>
