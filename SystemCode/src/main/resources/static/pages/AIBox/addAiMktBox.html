@@ -2,9 +2,15 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link href="../../css/area/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/area/city-picker.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/area/main.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<div class='form-group'>
@@ -31,7 +37,23 @@
 					<input class='form-control' placeholder='运营商ID' type='text' name='boxperson' id='boxperson' data-bv-notempty='true' data-bv-notempty-message='运营商ID 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
+			<div class='form-group' >
+
+				<label class='col-md-2 control-label'>地区选择</label>
+				<div id="distpicker" class='col-md-10'>
+					<div class="form-group">
+						<div style="position: relative;">
+							<input id="city-picker3" class="form-control" readonly type="text" value="江苏省/常州市/溧阳市" data-toggle="city-picker">
+						</div>
+					</div>
+					<div class="form-group">
+						<button class="btn btn-warning" id="reset" type="button">重置</button>
+						<button class="btn btn-danger" id="destroy" type="button">确定</button>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class='form-group' >
 				<label class='col-md-2 control-label'>地址</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='地址' type='text' name='address' id='address' data-bv-notempty='true' data-bv-notempty-message='地址 不能为空'>
@@ -100,15 +122,41 @@
 
 		</fieldset>
 	</form>
+
 </div>
+
+
 	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="../../js/jq.js"></script>
 	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script src="../../js/my/area/jquery.js"></script>
+    <script src="../../js/my/area/bootstrap.js"></script>
+	<script src="../../js/my/area/city-picker.data.js"></script>
+	<script src="../../js/my/area/city-picker.js"></script>
+	<script src="../../js/my/area/main.js"></script>
+
 	<script type="text/javascript">
-		layui.use(['layer','laydate'], function(){
-		    var layer = layui.layer;
+
+
+
+		layui.use(['layer','laydate','jquery', 'form'], function(){
+            var layer = layui.layer;
+            var laydate = layui.laydate;
+
+
+            laydate.render({
+                elem: '#factorydate',
+                type: 'datetime'
+            });
+
+            laydate.render({
+                elem: '#enddate'
+                ,type: 'datetime'
+            });
+
+
 		});
 		
 		function add() {
@@ -133,7 +181,8 @@
 				}
 			});
 		}
-		
+
+
 	</script>
 </body>
 </html>
