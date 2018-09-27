@@ -8,5 +8,4 @@ package com.boot.security.server.utils;
 public class ConstUtil {
 
     public static final String CAPTCHA_CODE = "captchaCode";
-
 }

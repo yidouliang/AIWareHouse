@@ -24,4 +24,12 @@ public enum DataStatusEnum {
     public String getMessage() {
         return message;
     }
+
+    public static String getMessage(Integer code) {
+        for(DataStatusEnum dataStatusEnum : DataStatusEnum.values()) {
+            if(dataStatusEnum.getCode() == code)
+                return dataStatusEnum.getMessage();
+        }
+        return "";
+    }
 }

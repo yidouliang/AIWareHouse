@@ -45,6 +45,13 @@ public class FileController {
 		return fileService.save(file);
 	}
 
+	@LogAnnotation
+	@PostMapping("/image")
+	@ApiOperation(value = "图片上传")
+	public FileInfo uploadImage(MultipartFile file) throws IOException {
+		return fileService.saveWithoutRecord(file);
+	}
+
 	/**
 	 * layui富文本文件自定义上传
 	 * 

@@ -74,4 +74,36 @@ public class FileServiceImpl implements FileService {
 		}
 	}
 
+	@Override
+	public FileInfo saveWithoutRecord(MultipartFile file) throws IOException {
+		String fileOrigName = file.getOriginalFilename();
+		if (!fileOrigName.contains(".")) {
+			throw new IllegalArgumentException("缺少后缀名");
+		}
+
+		FileInfo fileInfo;
+
+		String md5 = FileUtil.fileMd5(file.getInputStream());
+
+		fileOrigName = fileOrigName.substring(fileOrigName.lastIndexOf("."));
+		String pathname = FileUtil.getPath() + md5 + fileOrigName;
+		String fullPath = filesPath + pathname;
+		FileUtil.saveFile(file, fullPath);
+
+		long size = file.getSize();
+		String contentType = file.getContentType();
+
+		fileInfo = new FileInfo();
+		fileInfo.setId(md5);
+		fileInfo.setContentType(contentType);
+		fileInfo.setSize(size);
+		fileInfo.setPath(fullPath);
+		fileInfo.setUrl(pathname);
+		fileInfo.setType(contentType.startsWith("image/") ? 1 : 0);
+
+		log.debug("上传文件{}", fullPath);
+
+		return fileInfo;
+	}
+
 }

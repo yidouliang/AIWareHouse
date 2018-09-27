@@ -26,4 +26,13 @@ public enum ProductStatusEnum {
     public String getMessage() {
         return message;
     }
+
+    public static String getMessage(Integer code) {
+        for(ProductStatusEnum productStatusEnum : ProductStatusEnum.values()) {
+            if(productStatusEnum.getCode() == code)
+                return productStatusEnum.getMessage();
+        }
+        return "";
+    }
+
 }
