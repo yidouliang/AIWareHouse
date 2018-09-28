@@ -5,8 +5,15 @@ import java.util.Date;
 import java.util.List;
 
 import com.boot.security.server.convert.AiMktBoxVo2AiBox;
+import com.boot.security.server.dao.AiOperatorDao;
 import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dto.AiMktBoxVo;
+import com.boot.security.server.filter.TokenFilter;
+import com.boot.security.server.model.AiOperator;
+import com.boot.security.server.model.SysUser;
+import com.boot.security.server.service.TokenService;
+import com.boot.security.server.service.UserService;
+import com.boot.security.server.service.impl.UserServiceImpl;
 import com.mchange.v2.beans.BeansUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +36,8 @@ import com.boot.security.server.model.AiMktBox;
 
 import io.swagger.annotations.ApiOperation;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/aiMktBoxs")
 public class AiMktBoxController {
@@ -39,11 +48,21 @@ public class AiMktBoxController {
     @Autowired
     private DictDao dictDao;
 
+    @Autowired
+    private UserServiceImpl userService;
+
+    @Autowired
+    private AiOperatorDao aiOperatorDao;
+
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiMktBox save(@RequestBody AiMktBoxVo aiMktBoxVo) {
+    public AiMktBox save(@RequestBody AiMktBoxVo aiMktBoxVo, HttpServletRequest request) {
+        //获取运营商Id,存入AiMktBox中
+        SysUser user = userService.getTokenUser(request);
+        AiOperator aiOperator = aiOperatorDao.getAiOperatorByUserId(user.getId());
         AiMktBox aiMktBox = new AiMktBox();
         AiMktBoxVo2AiBox.aiMktBoxVo2AiBox(aiMktBoxVo,aiMktBox);
+        aiMktBox.setBoxperson(aiOperator.getId());
         aiMktBoxDao.save(aiMktBox);
 
         return aiMktBox;
@@ -58,6 +77,7 @@ public class AiMktBoxController {
     @PutMapping
     @ApiOperation(value = "修改")
     public AiMktBox update(@RequestBody AiMktBox aiMktBox) {
+        //aiMktBoxDao.getById(aiMktBox.)
         aiMktBoxDao.update(aiMktBox);
 
         return aiMktBox;
@@ -79,9 +99,6 @@ public class AiMktBoxController {
                 List<AiMktBox> aiMktBoxList =  aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit());
                 List<AiMktBoxVo> aiMktBoxVoList = new ArrayList<>();
                 AiMktBoxVo2AiBox.aiMktBoxList2AiBoxList(dictDao,aiMktBoxVoList,aiMktBoxList);
-                for(AiMktBoxVo aiMktBoxVo : aiMktBoxVoList){
-                    System.err.println("货柜类型:"+aiMktBoxVo.getAiBoxType()+" 货柜状态:"+aiMktBoxVo.getAiBoxStatus()+" 支付状态:"+aiMktBoxVo.getPayState());
-                }
                 return aiMktBoxVoList;
             }
         }).handle(request);
