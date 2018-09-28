@@ -35,6 +35,9 @@
 			<if test="params.owernum != null and params.owernum != ''">
 				and owernum = #{params.owernum} 
 			</if>
+			<if test="params.userid != null and params.userid != ''">
+				and userid = #{params.userid}
+			</if>
 		
 		</where>
 	</sql>
@@ -80,6 +83,9 @@
 			</if>
 			<if test="owernum != null">
 				owernum = #{owernum}, 
+			</if>
+			<if test="userid != null">
+				userid = #{userid},
 			</if>
 
 		</set>

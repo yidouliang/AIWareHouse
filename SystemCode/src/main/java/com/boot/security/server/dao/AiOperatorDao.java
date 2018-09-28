@@ -30,4 +30,7 @@ public interface AiOperatorDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<AiOperator> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select * from ai_operator t where t.userid = #{id}")
+    AiOperator getAiOperatorByUserId(@Param("id") Long userId);
 }

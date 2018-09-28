@@ -2,6 +2,8 @@ package com.boot.security.server.service.impl;
 
 import java.util.List;
 
+import com.boot.security.server.filter.TokenFilter;
+import com.boot.security.server.service.TokenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ import com.boot.security.server.model.SysUser;
 import com.boot.security.server.model.SysUser.Status;
 import com.boot.security.server.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -25,6 +29,9 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+
+	@Autowired
+	private TokenService tokenService;
 
 	@Override
 	@Transactional
@@ -67,6 +74,17 @@ public class UserServiceImpl implements UserService {
 		userDao.changePassword(u.getId(), passwordEncoder.encode(newPassword));
 
 		log.debug("修改{}的密码", username);
+	}
+
+	/**
+	 * 通过token获取User
+	 * @return
+	 */
+	@Override
+	public SysUser getTokenUser(HttpServletRequest request) {
+		String token = TokenFilter.getToken(request);
+		SysUser user = tokenService.getLoginUser(token);
+		return user;
 	}
 
 	@Override

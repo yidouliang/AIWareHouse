@@ -2,6 +2,10 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+	<link href="../../css/area/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/area/city-picker.css" rel="stylesheet" type="text/css" />
+	<link href="../../css/area/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -27,12 +31,12 @@
 					</select>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>运营商ID</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='运营商ID' type='text' name='boxperson' id='boxperson' data-bv-notempty='true' data-bv-notempty-message='运营商ID 不能为空'>
-				</div>
-			</div>
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>运营商ID</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='运营商ID' type='text' name='boxperson' id='boxperson' data-bv-notempty='true' data-bv-notempty-message='运营商ID 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>地址</label>
 				<div class='col-md-10'>
@@ -107,12 +111,16 @@
 		</fieldset>
 	</form>
 </div>
-	<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="../../js/jq.js"></script>
-	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
-	<script type="text/javascript" src="../../js/common.js"></script>
-	<script type="text/javascript" src="../../layui/layui.js"></script>
-	<script type="text/javascript" src="../../js/dict.js"></script>
+<script type="text/javascript" src="../../js/libs/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../../js/jq.js"></script>
+<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script src="../../js/my/area/bootstrap.js"></script>
+<script src="../../js/my/area/city-picker.data.js"></script>
+<script src="../../js/my/area/city-picker.js"></script>
+<script src="../../js/my/area/main.js"></script>
+<script type="text/javascript" src="../../js/dict.js"></script>
 	<script type="text/javascript">
 		layui.use(['layer','laydate','jquery', 'form'], function(){
 		    var layer = layui.layer;
@@ -146,7 +154,7 @@
 						$('#boxname').val(data.boxname);
 						$('#boxcode').val(data.boxcode);
 						$('#boxtype').val(data.boxtype);
-						$('#boxperson').val(data.boxperson);
+						//$('#boxperson').val(data.boxperson);
 						$('#address').val(data.address);
 						$('#status').val(data.status);
 						$('#factorydate').val(data.factorydate);
@@ -156,10 +164,6 @@
 						$('#persontelphone').val(data.persontelphone);
 						$('#longitude').val(data.longitude);
 						$('#latitude').val(data.latitude);
-						$('#ext1').val(data.ext1);
-						$('#ext2').val(data.ext2);
-						$('#ext3').val(data.ext3);
-
 					}
 				});
 			}
@@ -195,8 +199,10 @@
 
                 longtitude = data.result.location.lng;
                 latitude = data.result.location.lat;
-                $("#longitude").attr("value",longtitude);
-                $("#latitude").attr("value",latitude);
+                document.getElementById("longitude").value=longtitude;
+                document.getElementById("latitude").value=latitude;
+                //$('#longitude').attr("value",longtitude);
+                //$('#latitude').attr("value",latitude);
             });
         }
 		

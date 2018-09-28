@@ -19,6 +19,7 @@ public class AiMktBoxVo2AiBox {
         aiMktBoxVo.setCreateTime(new Date());
         aiMktBoxVo.setUpdateTime(new Date());
         BeanUtils.copyProperties(aiMktBoxVo,aiMktBox);
+        aiMktBox.setPaystate(Integer.valueOf(aiMktBoxVo.getPaystate()));
     }
 
     public static void aiMktBoxList2AiBoxList(DictDao dictDao,List<AiMktBoxVo> aiMktBoxVoList,List<AiMktBox> aiMktBoxList){
@@ -26,24 +27,23 @@ public class AiMktBoxVo2AiBox {
         List<Dict> aiBoxTypeDictList = dictDao.listByType("AiBoxType");
         List<Dict> AiBoxStatusDictList = dictDao.listByType("AiBoxStatus");
         List<Dict> payStateDictList = dictDao.listByType("payState");
-
         for(AiMktBox aiMktBox : aiMktBoxList){
                 AiMktBoxVo aiMktBoxVo = new AiMktBoxVo();
                 BeanUtils.copyProperties(aiMktBox,aiMktBoxVo);
+                aiMktBoxVo.setPaystate(String.valueOf(aiMktBox.getPaystate()));
                 for(Dict d : aiBoxTypeDictList){
                     if(aiMktBox.getBoxtype().equals(d.getK())){
-                        aiMktBoxVo.setAiBoxType(d.getVal());
+                        aiMktBoxVo.setBoxtype(d.getVal());
                     }
                 }
                 for(Dict d : AiBoxStatusDictList){
-                    if(aiMktBox.getStatus().equals(d.getK())){
-                        aiMktBoxVo.setAiBoxStatus(d.getVal());
+                    if(aiMktBoxVo.getStatus().equals(d.getK())){
+                        aiMktBoxVo.setStatus(d.getVal());
                     }
                 }
                 for(Dict d : payStateDictList){
-                    if(aiMktBox.getPaystate().equals(d.getK())){
-                        System.err.println(aiMktBox.getPaystate()+":"+d.getVal());
-                        aiMktBoxVo.setPayState(d.getVal());
+                    if(aiMktBoxVo.getPaystate().equals(d.getK())){
+                        aiMktBoxVo.setPaystate(d.getVal());
                     }
                 }
             aiMktBoxVoList.add(aiMktBoxVo);
