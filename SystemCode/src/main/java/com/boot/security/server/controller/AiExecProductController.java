@@ -1,42 +1,60 @@
 package com.boot.security.server.controller;
 
-import java.util.List;
-
 import com.boot.security.server.convert.AiExecProduct2AiExecProductDto;
+import com.boot.security.server.dao.AiExecProductDao;
 import com.boot.security.server.dto.AiExecProductDto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.boot.security.server.page.table.PageTableRequest;
+import com.boot.security.server.dto.ResponseInfo;
+import com.boot.security.server.model.AiExecProduct;
+import com.boot.security.server.model.SysUser;
 import com.boot.security.server.page.table.PageTableHandler;
-import com.boot.security.server.page.table.PageTableResponse;
 import com.boot.security.server.page.table.PageTableHandler.CountHandler;
 import com.boot.security.server.page.table.PageTableHandler.ListHandler;
-import com.boot.security.server.dao.AiExecProductDao;
-import com.boot.security.server.model.AiExecProduct;
-
+import com.boot.security.server.page.table.PageTableRequest;
+import com.boot.security.server.page.table.PageTableResponse;
+import com.boot.security.server.service.AiExecProductService;
+import com.boot.security.server.service.FileService;
+import com.boot.security.server.service.UserService;
+import com.boot.security.server.utils.FileUtil;
 import io.swagger.annotations.ApiOperation;
+import org.apache.poi.util.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/aiExecProducts")
 public class AiExecProductController {
 
+    @Value("${files.path}")
+    private String filesPath;
+
     @Autowired
     private AiExecProductDao aiExecProductDao;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private AiExecProductService aiExecProductService;
 
     @Autowired
     private AiExecProduct2AiExecProductDto aiExecProduct2AiExecProductDto;
 
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiExecProduct save(@RequestBody AiExecProduct aiExecProduct) {
+    public AiExecProduct save(@RequestBody AiExecProduct aiExecProduct,
+                              HttpServletRequest request) {
+        SysUser user = userService.getTokenUser(request);
+        aiExecProduct.setCreatorid(user.getId());
         aiExecProductDao.save(aiExecProduct);
 
         return aiExecProduct;
@@ -50,7 +68,10 @@ public class AiExecProductController {
 
     @PutMapping
     @ApiOperation(value = "修改")
-    public AiExecProduct update(@RequestBody AiExecProduct aiExecProduct) {
+    public AiExecProduct update(@RequestBody AiExecProduct aiExecProduct,
+                                HttpServletRequest request) {
+        SysUser user = userService.getTokenUser(request);
+        aiExecProduct.setCreatorid(user.getId());
         aiExecProductDao.update(aiExecProduct);
 
         return aiExecProduct;
@@ -59,6 +80,7 @@ public class AiExecProductController {
     @GetMapping
     @ApiOperation(value = "列表")
     public PageTableResponse list(PageTableRequest request) {
+        System.out.println(FileUtil.getPath());
         return new PageTableHandler(new CountHandler() {
 
             @Override
@@ -79,5 +101,24 @@ public class AiExecProductController {
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
         aiExecProductDao.delete(id);
+    }
+
+    @PostMapping("/import")
+    @ApiOperation(value = "从Excel中导入产品数据")
+    public ResponseInfo importProduct(MultipartFile file) throws IOException {
+        return aiExecProductService.importProduct(file);
+    }
+
+    @PostMapping("/downloadTemplate")
+    @ApiOperation(value = "下载Excel模板")
+    public void downloadTemplate(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        response.setCharacterEncoding(request.getCharacterEncoding());
+        response.setContentType("application/octet-stream");
+        File file = new File("D:/files/templates/Excel模板.xlsx");
+        FileInputStream fileInputStream = new FileInputStream(file);
+        response.setHeader("Content-Disposition", "attachment; filename="+file.getName());
+        IOUtils.copy(fileInputStream, response.getOutputStream());
+        response.flushBuffer();
+        fileInputStream.close();
     }
 }

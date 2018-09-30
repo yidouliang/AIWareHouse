@@ -10,71 +10,68 @@ public class AiWarehouse extends BaseEntity<Long> {
 	private BigDecimal longitude;
 	private BigDecimal latitude;
 	private Integer type;
-	private Integer userid;
+	private Long operatorid;
 	private Integer warehousestate;
 	private String ext1;
 	private String ext2;
 	private String ext3;
 
+	public AiWarehouse() {
+	}
+
 	public String getName() {
 		return name;
 	}
-	public String setName() {
-		return name;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
 	public String getAddress() {
 		return address;
 	}
-	public String setAddress() {
-		return address;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
+
 	public BigDecimal getLongitude() {
 		return longitude;
 	}
-	public BigDecimal setLongitude() {
-		return longitude;
+
+	public void setLongitude(BigDecimal longitude) {
+		this.longitude = longitude;
 	}
+
 	public BigDecimal getLatitude() {
 		return latitude;
 	}
-	public BigDecimal setLatitude() {
-		return latitude;
+
+	public void setLatitude(BigDecimal latitude) {
+		this.latitude = latitude;
 	}
+
 	public Integer getType() {
 		return type;
 	}
-	public Integer setType() {
-		return type;
+
+	public void setType(Integer type) {
+		this.type = type;
 	}
-	public Integer getUserid() {
-		return userid;
+
+	public Long getOperatorid() {
+		return operatorid;
 	}
-	public Integer setUserid() {
-		return userid;
+
+	public void setOperatorid(Long operatorid) {
+		this.operatorid = operatorid;
 	}
+
 	public Integer getWarehousestate() {
 		return warehousestate;
 	}
-	public Integer setWarehousestate() {
-		return warehousestate;
-	}
-	public String getExt1() {
-		return ext1;
-	}
-	public String setExt1() {
-		return ext1;
-	}
-	public String getExt2() {
-		return ext2;
-	}
-	public String setExt2() {
-		return ext2;
-	}
-	public String getExt3() {
-		return ext3;
-	}
-	public String setExt3() {
-		return ext3;
-	}
 
+	public void setWarehousestate(Integer warehousestate) {
+		this.warehousestate = warehousestate;
+	}
 }

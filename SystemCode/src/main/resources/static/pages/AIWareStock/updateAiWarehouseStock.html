@@ -8,24 +8,24 @@
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<input type="hidden" id="id" name="id">
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>产品类目ID</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品类目ID' type='text' name='prodinstid' id='prodinstid' data-bv-notempty='true' data-bv-notempty-message='prodinstid 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>产品名称</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品名称' type='text' name='productname' id='productname' data-bv-notempty='true' data-bv-notempty-message='productname 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>产品编码</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品编码' type='text' name='serialno' id='serialno' data-bv-notempty='true' data-bv-notempty-message='serialno 不能为空'>
-				</div>
-			</div>
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>产品类目ID</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='请输入产品类目ID' type='text' name='prodinstid' id='prodinstid' data-bv-notempty='true' data-bv-notempty-message='prodinstid 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>产品名称</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='请输入产品名称' type='text' name='productname' id='productname' data-bv-notempty='true' data-bv-notempty-message='productname 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>产品编码</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='请输入产品编码' type='text' name='productcode' id='productcode' data-bv-notempty='true' data-bv-notempty-message='productcode 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>总数量</label>
 				<div class='col-md-10'>
@@ -180,7 +180,7 @@
 						$('#id').val(data.id);
 						$('#prodinstid').val(data.prodinstid);
 						$('#productname').val(data.productname);
-						$('#serialno').val(data.serialno);
+						$('#productcode').val(data.productcode);
 						$('#allnum').val(data.allnum);
 						$('#remaindnum').val(data.remaindnum);
 						$('#aicode').val(data.aicode);

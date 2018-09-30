@@ -14,8 +14,8 @@
 			<if test="params.productname != null and params.productname != ''">
 				and productname = #{params.productname} 
 			</if>
-			<if test="params.serialno != null and params.serialno != ''">
-				and serialno = #{params.serialno} 
+			<if test="params.productcode != null and params.productcode != ''">
+				and productcode = #{params.productcode} 
 			</if>
 			<if test="params.allnum != null and params.allnum != ''">
 				and allnum = #{params.allnum} 
@@ -108,8 +108,8 @@
 			<if test="productname != null">
 				productname = #{productname}, 
 			</if>
-			<if test="serialno != null">
-				serialno = #{serialno}, 
+			<if test="productcode != null">
+				productcode = #{productcode}, 
 			</if>
 			<if test="allnum != null">
 				allnum = #{allnum}, 

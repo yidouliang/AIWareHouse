@@ -21,11 +21,22 @@
 										<div class="form-group">
 											id：
 											<input id="id" type="text" class="form-control" placeholder="id">
+											产品名称：
+											<input id="productname" type="text" class="form-control" placeholder="产品名称">
+											产品类型：
+											<input id="producttypeid" type="text" class="form-control" placeholder="产品类型">
+
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
 	                   			</td>
 	                   			<td align="right">
+                                    <button type="button" class="layui-btn layui-btn-sm" id="downloadExcel" onclick="download()">
+                                        <i class="layui-icon">&#xe67c;</i>下载Excel模板
+                                    </button>
+									<button type="button" class="layui-btn layui-btn-sm" id="uploadExcel">
+										<i class="layui-icon">&#xe67c;</i>Excel导入
+									</button>
 	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addAiExecProduct.html'">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
@@ -56,11 +67,8 @@
 									<th>创建者</th>
 									<th>创建时间</th>
 									<th>修改时间</th>
-									<th>数据状态</th>
+									<!--<th>数据状态</th>-->
 									<th>产品来源</th>
-									<!--<th>ext1</th>-->
-									<!--<th>ext2</th>-->
-									<!--<th>ext3</th>-->
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -97,6 +105,8 @@ function init(){
         		"type":"get",
         		"data":function(d){
     				d.id = $("#id").val();
+                    d.productname = $("#productname").val();
+                    d.producttypeid = $("#producttypeid").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
@@ -111,14 +121,11 @@ function init(){
 				{"data" : "productstatus", "defaultContent" : ""},
 				{"data" : "productpicpath", "defaultContent" : ""},
 				{"data" : "producturl", "defaultContent" : ""},
-				{"data" : "creator", "defaultContent" : ""},
+				{"data" : "creatorid", "defaultContent" : ""},
 				{"data" : "createdate", "defaultContent" : ""},
 				{"data" : "modifydate", "defaultContent" : ""},
-				{"data" : "datastate", "defaultContent" : ""},
+				// {"data" : "datastate", "defaultContent" : ""},
 				{"data" : "productsource", "defaultContent" : ""},
-				// {"data" : "ext1", "defaultContent" : ""},
-				// {"data" : "ext2", "defaultContent" : ""},
-				// {"data" : "ext3", "defaultContent" : ""},
 				{ 
 								"data": "", 
 								"defaultContent": "",
@@ -141,6 +148,28 @@ layui.use('layer', function(){
     var layer = layui.layer;
 });
 
+layui.use('upload', function(){
+    var upload = layui.upload;
+
+    var uploadInst = upload.render({
+        elem: '#uploadExcel'
+        ,url: '/aiExecProducts/import'
+        ,accept: 'file'
+        ,before: function () {
+            layer.load(1);
+        }
+        ,done: function(res){
+            layer.closeAll("loading");
+            layer.msg(res.message);
+            example.ajax.reload();
+        }
+        ,error: function(){
+            layer.closeAll("loading");
+            layer.msg("从Excel导入数据失败");
+        }
+    });
+});
+
 function del(id){
 	layer.confirm('确定要删除吗？', {
         btn : [ '确定', '取消' ]
@@ -155,6 +184,20 @@ function del(id){
         });
         
         layer.close(1);
+    });
+}
+
+function download() {
+    $.ajax({
+        url: "/aiExecProducts/downloadTemplate",
+        type: "POST",
+        async: true,
+        success: function () {
+            layer.msg("下载成功");
+        },
+        error: function () {
+            layer.msg("下载失败");
+        }
     });
 }
 

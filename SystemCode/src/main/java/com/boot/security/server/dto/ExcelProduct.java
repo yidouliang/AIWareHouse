@@ -15,15 +15,7 @@ public class ExcelProduct {
 
     private String productTypeId;
 
-    private String productStartTime;
-
-    private String productEndTime;
-
-    private String productPrice;
-
     private String productOriPrice;
-
-    private String company;
 
     private String productSource;
 
@@ -35,12 +27,8 @@ public class ExcelProduct {
         productName = content[1];
         productDesc = content[2];
         productTypeId = content[3];
-        productStartTime = content[4];
-        productEndTime = content[5];
-        productPrice = content[6];
-        productOriPrice = content[7];
-        company = content[8];
-        productSource = content[9];
+        productOriPrice = content[4];
+        productSource = content[5];
     }
 
     public String getProductCode() {
@@ -75,30 +63,6 @@ public class ExcelProduct {
         this.productTypeId = productTypeId;
     }
 
-    public String getProductStartTime() {
-        return productStartTime;
-    }
-
-    public void setProductStartTime(String productStartTime) {
-        this.productStartTime = productStartTime;
-    }
-
-    public String getProductEndTime() {
-        return productEndTime;
-    }
-
-    public void setProductEndTime(String productEndTime) {
-        this.productEndTime = productEndTime;
-    }
-
-    public String getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(String productPrice) {
-        this.productPrice = productPrice;
-    }
-
     public String getProductOriPrice() {
         return productOriPrice;
     }
@@ -107,19 +71,23 @@ public class ExcelProduct {
         this.productOriPrice = productOriPrice;
     }
 
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
     public String getProductSource() {
         return productSource;
     }
 
     public void setProductSource(String productSource) {
         this.productSource = productSource;
+    }
+
+    @Override
+    public String toString() {
+        return "ExcelProduct{" +
+                "productCode='" + productCode + '\'' +
+                ", productName='" + productName + '\'' +
+                ", productDesc='" + productDesc + '\'' +
+                ", productTypeId='" + productTypeId + '\'' +
+                ", productOriPrice='" + productOriPrice + '\'' +
+                ", productSource='" + productSource + '\'' +
+                '}';
     }
 }

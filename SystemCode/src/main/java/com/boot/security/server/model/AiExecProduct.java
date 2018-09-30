@@ -17,7 +17,7 @@ public class AiExecProduct extends BaseEntity<Long> {
 	private Integer productstatus = ProductStatusEnum.OBTAINED.getCode();
 	private String productpicpath;
 	private String producturl;
-	private BigDecimal creator;
+	private Long creatorid;
 	private Date createdate = new Date();
 	private Date modifydate = new Date();
 	private Integer datastate = DataStatusEnum.NORMAL.getCode();
@@ -26,107 +26,118 @@ public class AiExecProduct extends BaseEntity<Long> {
 	private String ext2;
 	private String ext3;
 
+	public AiExecProduct() {
+	}
+
 	public String getProductcode() {
 		return productcode;
 	}
-	public String setProductcode() {
-		return productcode;
+
+	public void setProductcode(String productcode) {
+		this.productcode = productcode;
 	}
+
 	public String getAicode() {
 		return aicode;
 	}
-	public String setAicode() {
-		return aicode;
+
+	public void setAicode(String aicode) {
+		this.aicode = aicode;
 	}
+
 	public String getProductname() {
 		return productname;
 	}
-	public String setProductname() {
-		return productname;
+
+	public void setProductname(String productname) {
+		this.productname = productname;
 	}
+
 	public String getProductdesc() {
 		return productdesc;
 	}
-	public String setProductdesc() {
-		return productdesc;
+
+	public void setProductdesc(String productdesc) {
+		this.productdesc = productdesc;
 	}
+
 	public Integer getProducttypeid() {
 		return producttypeid;
 	}
-	public Integer setProducttypeid() {
-		return producttypeid;
+
+	public void setProducttypeid(Integer producttypeid) {
+		this.producttypeid = producttypeid;
 	}
+
 	public BigDecimal getProductoriprice() {
 		return productoriprice;
 	}
-	public BigDecimal setProductoriprice() {
-		return productoriprice;
+
+	public void setProductoriprice(BigDecimal productoriprice) {
+		this.productoriprice = productoriprice;
 	}
+
 	public Integer getProductstatus() {
 		return productstatus;
 	}
-	public Integer setProductstatus() {
-		return productstatus;
+
+	public void setProductstatus(Integer productstatus) {
+		this.productstatus = productstatus;
 	}
+
 	public String getProductpicpath() {
 		return productpicpath;
 	}
-	public String setProductpicpath() {
-		return productpicpath;
+
+	public void setProductpicpath(String productpicpath) {
+		this.productpicpath = productpicpath;
 	}
+
 	public String getProducturl() {
 		return producturl;
 	}
-	public String setProducturl() {
-		return producturl;
+
+	public void setProducturl(String producturl) {
+		this.producturl = producturl;
 	}
-	public BigDecimal getCreator() {
-		return creator;
+
+	public Long getCreatorid() {
+		return creatorid;
 	}
-	public BigDecimal setCreator() {
-		return creator;
+
+	public void setCreatorid(Long creatorid) {
+		this.creatorid = creatorid;
 	}
+
 	public Date getCreatedate() {
 		return createdate;
 	}
-	public Date setCreatedate() {
-		return createdate;
+
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
 	}
+
 	public Date getModifydate() {
 		return modifydate;
 	}
-	public Date setModifydate() {
-		return modifydate;
+
+	public void setModifydate(Date modifydate) {
+		this.modifydate = modifydate;
 	}
+
 	public Integer getDatastate() {
 		return datastate;
 	}
-	public Integer setDatastate() {
-		return datastate;
+
+	public void setDatastate(Integer datastate) {
+		this.datastate = datastate;
 	}
+
 	public String getProductsource() {
 		return productsource;
 	}
-	public String setProductsource() {
-		return productsource;
-	}
-	public Integer getExt1() {
-		return ext1;
-	}
-	public Integer setExt1() {
-		return ext1;
-	}
-	public String getExt2() {
-		return ext2;
-	}
-	public String setExt2() {
-		return ext2;
-	}
-	public String getExt3() {
-		return ext3;
-	}
-	public String setExt3() {
-		return ext3;
-	}
 
+	public void setProductsource(String productsource) {
+		this.productsource = productsource;
+	}
 }

@@ -1,5 +1,6 @@
 package com.boot.security.server.advice;
 
+import com.boot.security.server.exception.SystemException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -50,6 +51,12 @@ public class ExceptionHandlerAdvice {
 		log.error("系统异常", throwable);
 		return new ResponseInfo(HttpStatus.INTERNAL_SERVER_ERROR.value() + "", throwable.getMessage());
 
+	}
+
+	@ExceptionHandler(SystemException.class)
+	@ResponseStatus(HttpStatus.OK)
+	public ResponseInfo systemException(SystemException systemException) {
+		return new ResponseInfo(systemException.getCode(), systemException.getMessage());
 	}
 
 }

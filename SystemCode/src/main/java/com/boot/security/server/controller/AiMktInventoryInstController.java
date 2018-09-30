@@ -22,6 +22,8 @@ import com.boot.security.server.model.AiMktInventoryInst;
 
 import io.swagger.annotations.ApiOperation;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/aiMktInventoryInsts")
 public class AiMktInventoryInstController {
@@ -31,8 +33,10 @@ public class AiMktInventoryInstController {
 
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiMktInventoryInst save(@RequestBody AiMktInventoryInst aiMktInventoryInst) {
-        aiMktInventoryInstDao.save(aiMktInventoryInst);
+    public AiMktInventoryInst save(@RequestBody AiMktInventoryInst aiMktInventoryInst,
+                                   HttpServletRequest request) {
+
+        //aiMktInventoryInstDao.save(aiMktInventoryInst);
 
         return aiMktInventoryInst;
     }

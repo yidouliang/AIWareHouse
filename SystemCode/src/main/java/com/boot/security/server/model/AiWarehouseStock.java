@@ -1,20 +1,22 @@
 package com.boot.security.server.model;
 
+import com.boot.security.server.enums.DataStatusEnum;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class AiWarehouseStock extends BaseEntity<Long> {
 
-	private BigDecimal prodinstid;
+	private Long prodinstid;
 	private String productname;
-	private String serialno;
+	private String productcode;
 	private Integer allnum;
 	private Integer remaindnum;
 	private String aicode;
 	private Integer userid;
 	private BigDecimal oldprice;
 	private BigDecimal nowprice;
-	private Integer warehouseid;
+	private Long warehouseid;
 	private BigDecimal discount;
 	private String batchid;
 	private String supplier;
@@ -22,164 +24,188 @@ public class AiWarehouseStock extends BaseEntity<Long> {
 	private Date validmonths;
 	private String storestatus;
 	private String statusstatereason;
-	private String createoperid;
-	private String createorgid;
-	private Date createdate;
-	private Date modifydate;
-	private String datastate;
+	private Long createoperid;
+	private Long createorgid;
+	private Date createdate = new Date();
+	private Date modifydate = new Date();
+	private Integer datastate = DataStatusEnum.NORMAL.getCode();
 	private String ext1;
 	private String ext2;
 	private String ext3;
 
-	public BigDecimal getProdinstid() {
+	public AiWarehouseStock() {
+	}
+
+	public Long getProdinstid() {
 		return prodinstid;
 	}
-	public BigDecimal setProdinstid() {
-		return prodinstid;
+
+	public void setProdinstid(Long prodinstid) {
+		this.prodinstid = prodinstid;
 	}
+
 	public String getProductname() {
 		return productname;
 	}
-	public String setProductname() {
-		return productname;
+
+	public void setProductname(String productname) {
+		this.productname = productname;
 	}
-	public String getSerialno() {
-		return serialno;
+
+	public String getProductcode() {
+		return productcode;
 	}
-	public String setSerialno() {
-		return serialno;
+
+	public void setProductcode(String productcode) {
+		this.productcode = productcode;
 	}
+
+	public void setDatastate(Integer datastate) {
+		this.datastate = datastate;
+	}
+
 	public Integer getAllnum() {
 		return allnum;
 	}
-	public Integer setAllnum() {
-		return allnum;
+
+	public void setAllnum(Integer allnum) {
+		this.allnum = allnum;
 	}
+
 	public Integer getRemaindnum() {
 		return remaindnum;
 	}
-	public Integer setRemaindnum() {
-		return remaindnum;
+
+	public void setRemaindnum(Integer remaindnum) {
+		this.remaindnum = remaindnum;
 	}
+
 	public String getAicode() {
 		return aicode;
 	}
-	public String setAicode() {
-		return aicode;
+
+	public void setAicode(String aicode) {
+		this.aicode = aicode;
 	}
+
 	public Integer getUserid() {
 		return userid;
 	}
-	public Integer setUserid() {
-		return userid;
+
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
+
 	public BigDecimal getOldprice() {
 		return oldprice;
 	}
-	public BigDecimal setOldprice() {
-		return oldprice;
+
+	public void setOldprice(BigDecimal oldprice) {
+		this.oldprice = oldprice;
 	}
+
 	public BigDecimal getNowprice() {
 		return nowprice;
 	}
-	public BigDecimal setNowprice() {
-		return nowprice;
+
+	public void setNowprice(BigDecimal nowprice) {
+		this.nowprice = nowprice;
 	}
-	public Integer getWarehouseid() {
+
+	public Long getWarehouseid() {
 		return warehouseid;
 	}
-	public Integer setWarehouseid() {
-		return warehouseid;
+
+	public void setWarehouseid(Long warehouseid) {
+		this.warehouseid = warehouseid;
 	}
+
 	public BigDecimal getDiscount() {
 		return discount;
 	}
-	public BigDecimal setDiscount() {
-		return discount;
+
+	public void setDiscount(BigDecimal discount) {
+		this.discount = discount;
 	}
+
 	public String getBatchid() {
 		return batchid;
 	}
-	public String setBatchid() {
-		return batchid;
+
+	public void setBatchid(String batchid) {
+		this.batchid = batchid;
 	}
+
 	public String getSupplier() {
 		return supplier;
 	}
-	public String setSupplier() {
-		return supplier;
+
+	public void setSupplier(String supplier) {
+		this.supplier = supplier;
 	}
+
 	public Date getFactorydate() {
 		return factorydate;
 	}
-	public Date setFactorydate() {
-		return factorydate;
+
+	public void setFactorydate(Date factorydate) {
+		this.factorydate = factorydate;
 	}
+
 	public Date getValidmonths() {
 		return validmonths;
 	}
-	public Date setValidmonths() {
-		return validmonths;
+
+	public void setValidmonths(Date validmonths) {
+		this.validmonths = validmonths;
 	}
+
 	public String getStorestatus() {
 		return storestatus;
 	}
-	public String setStorestatus() {
-		return storestatus;
+
+	public void setStorestatus(String storestatus) {
+		this.storestatus = storestatus;
 	}
+
 	public String getStatusstatereason() {
 		return statusstatereason;
 	}
-	public String setStatusstatereason() {
-		return statusstatereason;
+
+	public void setStatusstatereason(String statusstatereason) {
+		this.statusstatereason = statusstatereason;
 	}
-	public String getCreateoperid() {
+
+	public Long getCreateoperid() {
 		return createoperid;
 	}
-	public String setCreateoperid() {
-		return createoperid;
+
+	public void setCreateoperid(Long createoperid) {
+		this.createoperid = createoperid;
 	}
-	public String getCreateorgid() {
+
+	public Long getCreateorgid() {
 		return createorgid;
 	}
-	public String setCreateorgid() {
-		return createorgid;
+
+	public void setCreateorgid(Long createorgid) {
+		this.createorgid = createorgid;
 	}
+
 	public Date getCreatedate() {
 		return createdate;
 	}
-	public Date setCreatedate() {
-		return createdate;
+
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
 	}
+
 	public Date getModifydate() {
 		return modifydate;
 	}
-	public Date setModifydate() {
-		return modifydate;
-	}
-	public String getDatastate() {
-		return datastate;
-	}
-	public String setDatastate() {
-		return datastate;
-	}
-	public String getExt1() {
-		return ext1;
-	}
-	public String setExt1() {
-		return ext1;
-	}
-	public String getExt2() {
-		return ext2;
-	}
-	public String setExt2() {
-		return ext2;
-	}
-	public String getExt3() {
-		return ext3;
-	}
-	public String setExt3() {
-		return ext3;
+
+	public void setModifydate(Date modifydate) {
+		this.modifydate = modifydate;
 	}
 
 }

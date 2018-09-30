@@ -10,179 +10,230 @@ public class AiCupboardInventoryInst extends BaseEntity<Long> {
 
 	private BigDecimal prodinstid;
 	private String productname;
-	private String serialno;
+	private Long productcode;
 	private Integer allnum;
 	private Integer remindnum;
 	private Integer userid;
 	private BigDecimal originprice;
 	private BigDecimal saleprice;
-	private Integer boxid;
+	private Long boxid;
 	private BigDecimal discount;
 	private String batchid;
-	private String supplier;
+	private Long warehouseid;
 	private Date factorydate;
 	private Date validmonths;
-	private String storestatus;
+	private Integer storestatus;
 	private String statusstatereason;
-	private String createoperid;
-	private String createorgid;
+	private Long createoperid;
+	private Long createorgid;
 	private Date createdate = new Date();
 	private Date modifydate = new Date();
-	private String datastate = DataStatusEnum.NORMAL.getMessage();
+	private Integer datastate = DataStatusEnum.NORMAL.getCode();
 	private String ext1;
 	private String ext2;
 	private String ext3;
 	private String aicode;
 
+	public AiCupboardInventoryInst() {
+	}
+
 	public BigDecimal getProdinstid() {
 		return prodinstid;
 	}
-	public BigDecimal setProdinstid() {
-		return prodinstid;
+
+	public void setProdinstid(BigDecimal prodinstid) {
+		this.prodinstid = prodinstid;
 	}
+
 	public String getProductname() {
 		return productname;
 	}
-	public String setProductname() {
-		return productname;
+
+	public void setProductname(String productname) {
+		this.productname = productname;
 	}
-	public String getSerialno() {
-		return serialno;
+
+	public Long getProductcode() {
+		return productcode;
 	}
-	public String setSerialno() {
-		return serialno;
+
+	public void setProductcode(Long productcode) {
+		this.productcode = productcode;
 	}
+
 	public Integer getAllnum() {
 		return allnum;
 	}
-	public Integer setAllnum() {
-		return allnum;
+
+	public void setAllnum(Integer allnum) {
+		this.allnum = allnum;
 	}
+
 	public Integer getRemindnum() {
 		return remindnum;
 	}
-	public Integer setRemindnum() {
-		return remindnum;
+
+	public void setRemindnum(Integer remindnum) {
+		this.remindnum = remindnum;
 	}
+
 	public Integer getUserid() {
 		return userid;
 	}
-	public Integer setUserid() {
-		return userid;
+
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
+
 	public BigDecimal getOriginprice() {
 		return originprice;
 	}
-	public BigDecimal setOriginprice() {
-		return originprice;
+
+	public void setOriginprice(BigDecimal originprice) {
+		this.originprice = originprice;
 	}
+
 	public BigDecimal getSaleprice() {
 		return saleprice;
 	}
-	public BigDecimal setSaleprice() {
-		return saleprice;
+
+	public void setSaleprice(BigDecimal saleprice) {
+		this.saleprice = saleprice;
 	}
-	public Integer getBoxid() {
+
+	public Long getBoxid() {
 		return boxid;
 	}
-	public Integer setBoxid() {
-		return boxid;
+
+	public void setBoxid(Long boxid) {
+		this.boxid = boxid;
 	}
+
 	public BigDecimal getDiscount() {
 		return discount;
 	}
-	public BigDecimal setDiscount() {
-		return discount;
+
+	public void setDiscount(BigDecimal discount) {
+		this.discount = discount;
 	}
+
 	public String getBatchid() {
 		return batchid;
 	}
-	public String setBatchid() {
-		return batchid;
+
+	public void setBatchid(String batchid) {
+		this.batchid = batchid;
 	}
-	public String getSupplier() {
-		return supplier;
+
+	public Long getWarehouseid() {
+		return warehouseid;
 	}
-	public String setSupplier() {
-		return supplier;
+
+	public void setWarehouseid(Long warehouseid) {
+		this.warehouseid = warehouseid;
 	}
+
 	public Date getFactorydate() {
 		return factorydate;
 	}
-	public Date setFactorydate() {
-		return factorydate;
+
+	public void setFactorydate(Date factorydate) {
+		this.factorydate = factorydate;
 	}
+
 	public Date getValidmonths() {
 		return validmonths;
 	}
-	public Date setValidmonths() {
-		return validmonths;
+
+	public void setValidmonths(Date validmonths) {
+		this.validmonths = validmonths;
 	}
-	public String getStorestatus() {
+
+	public Integer getStorestatus() {
 		return storestatus;
 	}
-	public String setStorestatus() {
-		return storestatus;
+
+	public void setStorestatus(Integer storestatus) {
+		this.storestatus = storestatus;
 	}
+
 	public String getStatusstatereason() {
 		return statusstatereason;
 	}
-	public String setStatusstatereason() {
-		return statusstatereason;
+
+	public void setStatusstatereason(String statusstatereason) {
+		this.statusstatereason = statusstatereason;
 	}
-	public String getCreateoperid() {
+
+	public Long getCreateoperid() {
 		return createoperid;
 	}
-	public String setCreateoperid() {
-		return createoperid;
+
+	public void setCreateoperid(Long createoperid) {
+		this.createoperid = createoperid;
 	}
-	public String getCreateorgid() {
+
+	public Long getCreateorgid() {
 		return createorgid;
 	}
-	public String setCreateorgid() {
-		return createorgid;
+
+	public void setCreateorgid(Long createorgid) {
+		this.createorgid = createorgid;
 	}
+
 	public Date getCreatedate() {
 		return createdate;
 	}
-	public Date setCreatedate() {
-		return createdate;
+
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
 	}
+
 	public Date getModifydate() {
 		return modifydate;
 	}
-	public Date setModifydate() {
-		return modifydate;
+
+	public void setModifydate(Date modifydate) {
+		this.modifydate = modifydate;
 	}
-	public String getDatastate() {
+
+	public Integer getDatastate() {
 		return datastate;
 	}
-	public String setDatastate() {
-		return datastate;
+
+	public void setDatastate(Integer datastate) {
+		this.datastate = datastate;
 	}
+
 	public String getExt1() {
 		return ext1;
 	}
-	public String setExt1() {
-		return ext1;
+
+	public void setExt1(String ext1) {
+		this.ext1 = ext1;
 	}
+
 	public String getExt2() {
 		return ext2;
 	}
-	public String setExt2() {
-		return ext2;
+
+	public void setExt2(String ext2) {
+		this.ext2 = ext2;
 	}
+
 	public String getExt3() {
 		return ext3;
 	}
-	public String setExt3() {
-		return ext3;
+
+	public void setExt3(String ext3) {
+		this.ext3 = ext3;
 	}
+
 	public String getAicode() {
 		return aicode;
 	}
-	public String setAicode() {
-		return aicode;
-	}
 
+	public void setAicode(String aicode) {
+		this.aicode = aicode;
+	}
 }

@@ -6,8 +6,12 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import com.boot.security.server.convert.ExcelProduct2AiExecProduct;
 import com.boot.security.server.convert.ExcelProduct2ExecProduct;
 import com.boot.security.server.dto.ExcelProduct;
+import com.boot.security.server.enums.SystemStatusEnum;
+import com.boot.security.server.exception.SystemException;
+import com.boot.security.server.model.AiExecProduct;
 import com.boot.security.server.model.ExecProduct;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
@@ -15,6 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * excel工具类
@@ -176,22 +181,22 @@ public class ExcelUtil {
 	}
 
     /**
-     * 从Excel中导入ExecProduct信息
-     * @param excel
+     * 从Excel中导入AiExecProduct信息
+     * @param file
      * @return
      */
-	public static List<ExecProduct> ExcelImport(File excel) throws IOException {
+	public static List<AiExecProduct> importAiExecProduct(File file) throws IOException {
         List<ExcelProduct> excelProductList = new ArrayList<>();
         Workbook wb;
-        if(is2003Excel(excel)) {
-            wb = new HSSFWorkbook(new FileInputStream(excel));
+        if(is2003Excel(file)) {
+            wb = new HSSFWorkbook(new FileInputStream(file));
         } else {
-            wb = new XSSFWorkbook(new FileInputStream(excel));
+            wb = new XSSFWorkbook(new FileInputStream(file));
         }
         Sheet sheet = null;
         Row row = null;
         Cell cell = null;
-        String[] content = new String[10];
+        String[] content = new String[6];
         for(int i=0; i<wb.getNumberOfSheets(); i++) {
             sheet = wb.getSheetAt(i);
             for (int j = 1; j < sheet.getLastRowNum() + 1; j++) {
@@ -202,32 +207,37 @@ public class ExcelUtil {
                         cell.setCellType(CellType.STRING);
                         content[z] = cell.getStringCellValue();
                     }
+                    else {
+                        file.delete();
+                        throw new SystemException(SystemStatusEnum.NO_NULL_VALUE);
+                    }
                 }
                 ExcelProduct product = new ExcelProduct(content);
                 excelProductList.add(product);
             }
         }
-        return ExcelProduct2ExecProduct.convert(excelProductList);
+        return ExcelProduct2AiExecProduct.convert(excelProductList);
+
     }
 
     /**
      * 判断Excel的版本
-     * @param excel
+     * @param file
      * @return
      */
-    public static boolean is2003Excel(File excel) {
-	    String originName = excel.getName();
+    public static boolean is2003Excel(File file) {
+	    String originName = file.getName();
 	    String suffix = originName.substring(originName.lastIndexOf("."));
         return ".xls".equals(suffix);
     }
 
     /**
      * 判断该文件是否是Excel文件
-     * @param excel
+     * @param file
      * @return
      */
-    public static boolean isExcel(File excel) {
-        String originName = excel.getName();
+    public static boolean isExcel(File file) {
+        String originName = file.getName();
         String suffix = originName.substring(originName.lastIndexOf("."));
         return ".xls".equals(suffix) || ".xlsx".equals(suffix);
     }
