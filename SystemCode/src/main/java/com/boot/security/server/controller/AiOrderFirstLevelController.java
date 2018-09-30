@@ -1,7 +1,11 @@
 package com.boot.security.server.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.boot.security.server.convert.AiOrderFIrstLevel2AiOrderFirstLevelDto;
+import com.boot.security.server.dao.DictDao;
+import com.boot.security.server.dto.AiOrderFirstLevelDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +32,9 @@ public class AiOrderFirstLevelController {
 
     @Autowired
     private AiOrderFirstLevelDao aiOrderFirstLevelDao;
+
+    @Autowired
+    private DictDao dictDao;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -63,8 +70,11 @@ public class AiOrderFirstLevelController {
         }, new ListHandler() {
 
             @Override
-            public List<AiOrderFirstLevel> list(PageTableRequest request) {
-                return aiOrderFirstLevelDao.list(request.getParams(), request.getOffset(), request.getLimit());
+            public List<AiOrderFirstLevelDto> list(PageTableRequest request) {
+                List<AiOrderFirstLevelDto> aiOrderFirstLevelDtos = new ArrayList<>();
+                List<AiOrderFirstLevel> aiOrderFirstLevels = aiOrderFirstLevelDao.list(request.getParams(), request.getOffset(), request.getLimit());
+                AiOrderFIrstLevel2AiOrderFirstLevelDto.aiOrderFIrstLevelAiOrderFirstLevelDto(dictDao,aiOrderFirstLevels,aiOrderFirstLevelDtos);
+                return aiOrderFirstLevelDtos;
             }
         }).handle(request);
     }

@@ -180,19 +180,33 @@
 		    }
 		    
 		    var formdata = $("#form").serializeObject();
+            var wherego='${wherego}';
 
 			$.ajax({
 				type : 'post',
-				url : '/aiMktBoxs',
+				url : '/aiMktBoxs?boxperson='+getParam(),
 				contentType: "application/json; charset=utf-8",  
 				data : JSON.stringify(formdata),
 				success : function(data) {
-					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "aiMktBoxList.html";
-                    });
+				    if(wherego){
+                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "../AIOperator/aiOperatorList.html";
+                        });
+					}else{
+                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "aiMktBoxList.html";
+                        });
+					}
+
 				}
 			});
 		}
+
+        function getParam(){
+            C1=window.location.href.split("?")[1];
+            C2=C1.split("=")[1];
+            return C2;
+        }
 
 		function getLocation() {
             var address = "具体的地理位置 ";

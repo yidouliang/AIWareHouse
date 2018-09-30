@@ -21,6 +21,8 @@
 										<div class="form-group">
 											id：
 											<input id="id" type="text" class="form-control" placeholder="id">
+                                            运营商名称(全名)：
+                                            <input id="name" type="text" class="form-control" placeholder="运营商名称(全名)">
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -84,6 +86,7 @@ function init(){
         		"type":"get",
         		"data":function(d){
     				d.id = $("#id").val();
+                    d.name = $("#name").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
@@ -100,9 +103,11 @@ function init(){
 						        "render": function (data, type, row) {
                 		           var id = row['id'];
                 		           var href = "updateAiOperator.html?id=" + id;
+                                    var href = "../AIBox/addAiMktBox.html?id=" + id;
                                    var edit = buttonEdit(href, "", pers);
                 		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
+                		           var cre = buttonCreate(href, "", pers);
+                                   return edit + del + cre;
                   	            }		
 							},
                 

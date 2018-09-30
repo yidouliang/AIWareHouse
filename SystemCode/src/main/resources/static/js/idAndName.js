@@ -15,8 +15,7 @@ function showIdAndNameSelect(id, modelName, all) {
 }
 
 function getDict(modelName) {
-	var v = sessionStorage[modelName];
-	if (v == null || v == "") {
+
 		$.ajax({
 			type : 'get',
 			url : '/idAndName/'+modelName,
@@ -31,7 +30,7 @@ function getDict(modelName) {
 				sessionStorage[modelName] = JSON.stringify(v);
 			}
 		});
-	}
+
 	
 	return JSON.parse(sessionStorage[modelName]);
 }

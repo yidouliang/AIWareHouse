@@ -76,8 +76,9 @@
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>支付状态</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='paystatus' type='text' name='支付状态' id='paystatus' data-bv-notempty='true' data-bv-notempty-message='支付状态 不能为空'>
+				<div class="col-md-10" style="width: 180px">
+					<select class="form-control input-sm" name="paystatus" id="paystatus">
+					</select>
 				</div>
 			</div>
 			<div class='form-group'>
@@ -88,8 +89,9 @@
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>支付类型</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='支付类型' type='text' name='paytype' id='paytype' data-bv-notempty='true' data-bv-notempty-message='支付类型 不能为空'>
+				<div class="col-md-10" style="width: 180px">
+					<select class="form-control input-sm" name="paytype" id="paytype">
+					</select>
 				</div>
 			</div>
 			<div class='form-group'>
@@ -106,8 +108,9 @@
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>数据状态</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='数据状态' type='text' name='datastate' id='datastate' data-bv-notempty='true' data-bv-notempty-message='数据状态 不能为空'>
+				<div class="col-md-10" style="width: 180px">
+					<select class="form-control input-sm" name="datastate" id="datastate">
+					</select>
 				</div>
 			</div>
 
@@ -132,12 +135,29 @@
 	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
+	<script type="text/javascript" src="../../js/dict.js"></script>
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
+            var laydate = layui.laydate;
+            laydate.render({
+                elem: '#paytime',
+                type: 'datetime'
+            });
+            laydate.render({
+                elem: '#sendtime',
+                type: 'datetime'
+            });
+            laydate.render({
+                elem: '#replytime',
+                type: 'datetime'
+            });
 		});
 		
 		initData();
+        showDictSelect("paystatus", "aiOrderPayStatus");
+        showDictSelect("paytype", "aiOrderPayType");
+        showDictSelect("datastate", "datastate");
 		
 		function initData(){
 			var id = getUrlParam("id");

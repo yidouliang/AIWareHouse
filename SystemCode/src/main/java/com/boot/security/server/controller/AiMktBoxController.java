@@ -17,14 +17,8 @@ import com.boot.security.server.service.impl.UserServiceImpl;
 import com.mchange.v2.beans.BeansUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import com.boot.security.server.page.table.PageTableRequest;
 import com.boot.security.server.page.table.PageTableHandler;
@@ -56,13 +50,29 @@ public class AiMktBoxController {
 
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiMktBox save(@RequestBody AiMktBoxVo aiMktBoxVo, HttpServletRequest request) {
+    public AiMktBox save(@RequestBody AiMktBoxVo aiMktBoxVo, HttpServletRequest request,
+                         @RequestParam(value = "boxperson",required = false) Long boxperson, Model model) {
         //获取运营商Id,存入AiMktBox中
         SysUser user = userService.getTokenUser(request);
         AiOperator aiOperator = aiOperatorDao.getAiOperatorByUserId(user.getId());
         AiMktBox aiMktBox = new AiMktBox();
-        AiMktBoxVo2AiBox.aiMktBoxVo2AiBox(aiMktBoxVo,aiMktBox);
-        aiMktBox.setBoxperson(aiOperator.getId());
+        AiMktBoxVo2AiBox.aiMktBoxVo2AiBox(aiMktBoxVo, aiMktBox);
+        //需要修改页面逻辑,如果是为关联运营者的用户(即管理员等)
+        //需要先创建运营商后再创建AI货柜或者无人超市
+        //在运营商管理的页面中添加使用选中运营商id创建盒子的按钮
+        if(aiOperator!=null) {
+
+            aiMktBox.setBoxperson(aiOperator.getId());
+            //如果是运营商操作跳转到盒子管理
+            //如果是管理员操作就抛出异常
+
+        }else{
+            //当获取运营商为空的时候代表登录user为高级的管理员
+            //boxperson是从运营商管理页面进行添加的时候传过来的
+            aiMktBox.setBoxperson(boxperson);
+            //如果是管理员操作跳转到盒子管理
+            model.addAttribute("wherego",true);
+        }
         aiMktBoxDao.save(aiMktBox);
 
         return aiMktBox;

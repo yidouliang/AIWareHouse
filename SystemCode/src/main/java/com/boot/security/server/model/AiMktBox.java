@@ -7,13 +7,13 @@ public class AiMktBox extends BaseEntity<Long> {
 
 	private String boxname;
 	private String boxcode;
-	private String boxtype;
+	private Integer boxtype;
 	private Long boxperson;
 	private String address;
-	private String status;
+	private Integer status;
 	private Date factorydate;
 	private Integer paystate;
-	private Integer boxwarehouseid;
+	private Long boxwarehouseid;
 	private Date enddate;
 	private String persontelphone;
 	private BigDecimal longitude;
@@ -21,6 +21,28 @@ public class AiMktBox extends BaseEntity<Long> {
 	private String ext1;
 	private String ext2;
 	private String ext3;
+
+	@Override
+	public String toString() {
+		return "AiMktBox{" +
+				"boxname='" + boxname + '\'' +
+				", boxcode='" + boxcode + '\'' +
+				", boxtype=" + boxtype +
+				", boxperson=" + boxperson +
+				", address='" + address + '\'' +
+				", status=" + status +
+				", factorydate=" + factorydate +
+				", paystate=" + paystate +
+				", boxwarehouseid=" + boxwarehouseid +
+				", enddate=" + enddate +
+				", persontelphone='" + persontelphone + '\'' +
+				", longitude=" + longitude +
+				", latitude=" + latitude +
+				", ext1='" + ext1 + '\'' +
+				", ext2='" + ext2 + '\'' +
+				", ext3='" + ext3 + '\'' +
+				'}';
+	}
 
 	public String getBoxname() {
 		return boxname;
@@ -38,11 +60,11 @@ public class AiMktBox extends BaseEntity<Long> {
 		this.boxcode = boxcode;
 	}
 
-	public String getBoxtype() {
+	public Integer getBoxtype() {
 		return boxtype;
 	}
 
-	public void setBoxtype(String boxtype) {
+	public void setBoxtype(Integer boxtype) {
 		this.boxtype = boxtype;
 	}
 
@@ -62,11 +84,11 @@ public class AiMktBox extends BaseEntity<Long> {
 		this.address = address;
 	}
 
-	public String getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 
@@ -86,11 +108,11 @@ public class AiMktBox extends BaseEntity<Long> {
 		this.paystate = paystate;
 	}
 
-	public Integer getBoxwarehouseid() {
+	public Long getBoxwarehouseid() {
 		return boxwarehouseid;
 	}
 
-	public void setBoxwarehouseid(Integer boxwarehouseid) {
+	public void setBoxwarehouseid(Long boxwarehouseid) {
 		this.boxwarehouseid = boxwarehouseid;
 	}
 
@@ -124,29 +146,5 @@ public class AiMktBox extends BaseEntity<Long> {
 
 	public void setLatitude(BigDecimal latitude) {
 		this.latitude = latitude;
-	}
-
-	public String getExt1() {
-		return ext1;
-	}
-
-	public void setExt1(String ext1) {
-		this.ext1 = ext1;
-	}
-
-	public String getExt2() {
-		return ext2;
-	}
-
-	public void setExt2(String ext2) {
-		this.ext2 = ext2;
-	}
-
-	public String getExt3() {
-		return ext3;
-	}
-
-	public void setExt3(String ext3) {
-		this.ext3 = ext3;
 	}
 }

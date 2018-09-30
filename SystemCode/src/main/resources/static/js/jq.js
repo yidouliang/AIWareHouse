@@ -54,6 +54,16 @@ function buttonAbout(href, permission, pers){
     return btn.prop("outerHTML");
 }
 
+function buttonCreate(href, permission, pers){
+    if(permission != ""){
+        if ($.inArray(permission, pers) < 0) {
+            return "";
+        }
+    }
+    var btn = $("<button class='layui-btn layui-btn-xs' title='添加盒子' onclick='window.location=\"" + href +"\"'><i class='layui-icon'>添加盒子</i></button>");
+    return btn.prop("outerHTML");
+}
+
 
 function deleteCurrentTab(){
 	var lay_id = $(parent.document).find("ul.layui-tab-title").children("li.layui-this").attr("lay-id");

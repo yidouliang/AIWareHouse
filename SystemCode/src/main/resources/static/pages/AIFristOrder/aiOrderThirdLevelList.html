@@ -96,7 +96,10 @@
                     {"data" : "producttypeid", "defaultContent" : ""},
                     {"data" : "productname", "defaultContent" : ""},
                     {"data" : "productcode", "defaultContent" : ""},
-                    {"data" : "productimgurl", "defaultContent" : ""},
+                    {"data" : "productimgurl", "defaultContent" : "",
+                        "render": function ( data, type, full, meta ) {
+                            return '<img src="'+data+'"  alt="图片详情" />';
+                        }},
                     {"data" : "productdesc", "defaultContent" : ""},
                     {"data" : "buynum", "defaultContent" : ""},
                     {"data" : "activityid", "defaultContent" : ""},

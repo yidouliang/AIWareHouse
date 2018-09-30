@@ -16,7 +16,7 @@ public class AiMktBoxVo extends BaseEntity<Long> {
     private String status;
     private Date factorydate;
     private String paystate;
-    private Integer boxwarehouseid;
+    private Long boxwarehouseid;
     private Date enddate;
     private String persontelphone;
     private BigDecimal longitude;
@@ -62,6 +62,14 @@ public class AiMktBoxVo extends BaseEntity<Long> {
         return boxperson;
     }
 
+    public Long getBoxwarehouseid() {
+        return boxwarehouseid;
+    }
+
+    public void setBoxwarehouseid(Long boxwarehouseid) {
+        this.boxwarehouseid = boxwarehouseid;
+    }
+
     public void setBoxperson(Long boxperson) {
         this.boxperson = boxperson;
     }
@@ -98,13 +106,6 @@ public class AiMktBoxVo extends BaseEntity<Long> {
         this.paystate = paystate;
     }
 
-    public Integer getBoxwarehouseid() {
-        return boxwarehouseid;
-    }
-
-    public void setBoxwarehouseid(Integer boxwarehouseid) {
-        this.boxwarehouseid = boxwarehouseid;
-    }
 
     public Date getEnddate() {
         return enddate;

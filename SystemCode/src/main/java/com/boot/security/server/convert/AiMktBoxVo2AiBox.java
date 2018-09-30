@@ -14,12 +14,15 @@ public class AiMktBoxVo2AiBox {
 
     public static void aiMktBoxVo2AiBox(AiMktBoxVo aiMktBoxVo, AiMktBox aiMktBox){
 
+        //将area信息合并到address中
         String addr = aiMktBoxVo.getArea().replaceAll("/","")+aiMktBoxVo.getAddress();
         aiMktBoxVo.setAddress(addr);
         aiMktBoxVo.setCreateTime(new Date());
         aiMktBoxVo.setUpdateTime(new Date());
         BeanUtils.copyProperties(aiMktBoxVo,aiMktBox);
         aiMktBox.setPaystate(Integer.valueOf(aiMktBoxVo.getPaystate()));
+        aiMktBox.setStatus(Integer.valueOf(aiMktBoxVo.getStatus()));
+        aiMktBox.setBoxtype(Integer.valueOf(aiMktBoxVo.getBoxtype()));
     }
 
     public static void aiMktBoxList2AiBoxList(DictDao dictDao,List<AiMktBoxVo> aiMktBoxVoList,List<AiMktBox> aiMktBoxList){
@@ -31,8 +34,10 @@ public class AiMktBoxVo2AiBox {
                 AiMktBoxVo aiMktBoxVo = new AiMktBoxVo();
                 BeanUtils.copyProperties(aiMktBox,aiMktBoxVo);
                 aiMktBoxVo.setPaystate(String.valueOf(aiMktBox.getPaystate()));
+                aiMktBoxVo.setStatus(String.valueOf(aiMktBox.getStatus()));
+                aiMktBoxVo.setBoxtype(String.valueOf(aiMktBox.getBoxtype()));
                 for(Dict d : aiBoxTypeDictList){
-                    if(aiMktBox.getBoxtype().equals(d.getK())){
+                    if(aiMktBoxVo.getBoxtype().equals(d.getK())){
                         aiMktBoxVo.setBoxtype(d.getVal());
                     }
                 }

@@ -2,6 +2,7 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.service.AiMktBoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,9 @@ public class AiOperatorController {
 
     @Autowired
     private AiOperatorDao aiOperatorDao;
+
+    @Autowired
+    private AiMktBoxService aiMktBoxService;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -64,7 +68,14 @@ public class AiOperatorController {
 
             @Override
             public List<AiOperator> list(PageTableRequest request) {
-                return aiOperatorDao.list(request.getParams(), request.getOffset(), request.getLimit());
+                List<AiOperator> aiOperators = aiOperatorDao.list(request.getParams(), request.getOffset(), request.getLimit());
+                //获取拥有盒子的个数(不建议循环加查询,以后优化)
+                for (AiOperator aiOperator: aiOperators
+                     ) {
+                    aiOperator.setOwernum(aiMktBoxService.getBoxCountByOperatorId(aiOperator.getId()));
+                    aiOperatorDao.update(aiOperator);
+                }
+                return aiOperators;
             }
         }).handle(request);
     }

@@ -1,0 +1,14 @@
+.dim{/*默认是灰色的星星*/
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url('../../img/star/star1.png');
+    background-size: 100%;
+}
+.highlight{/*评论是几就会点亮几颗星星*/
+    float: left;
+    width: 20px;
+    height: 20px;
+    background: url('../../img/star/star2.png');
+    background-size: 100%;
+}
