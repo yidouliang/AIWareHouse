@@ -21,6 +21,13 @@
 										<div class="form-group">
 											id：
 											<input id="id" type="text" class="form-control" placeholder="id">
+
+											产品名称：
+											<input id="productname" type="text" class="form-control" placeholder="产品名称">
+
+											产品编码：
+											<input id="productcode" type="text" class="form-control" placeholder="产品编码">
+
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -64,9 +71,6 @@
 									<th>创建日期</th>
 									<th>修改日期</th>
 									<th>数据状态</th>
-									<!--<th>ext1</th>-->
-									<!--<th>ext2</th>-->
-									<!--<th>ext3</th>-->
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -103,6 +107,8 @@ function init(){
         		"type":"get",
         		"data":function(d){
     				d.id = $("#id").val();
+                    d.productname = $("#productname").val();
+                    d.productcode = $("#productcode").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
@@ -111,14 +117,14 @@ function init(){
 				{"data" : "prodinstid", "defaultContent" : ""},
 				{"data" : "productcode", "defaultContent" : ""},
 				{"data" : "productname", "defaultContent" : ""},
-				{"data" : "serialno", "defaultContent" : ""},
+				{"data" : "rfid", "defaultContent" : ""},
 				{"data" : "userid", "defaultContent" : ""},
 				{"data" : "originprice", "defaultContent" : ""},
 				{"data" : "saleprice", "defaultContent" : ""},
 				{"data" : "boxid", "defaultContent" : ""},
 				{"data" : "discount", "defaultContent" : ""},
 				{"data" : "batchid", "defaultContent" : ""},
-				{"data" : "supplier", "defaultContent" : ""},
+				{"data" : "warehouseid", "defaultContent" : ""},
 				{"data" : "factorydate", "defaultContent" : ""},
 				{"data" : "validmonths", "defaultContent" : ""},
 				{"data" : "storestatus", "defaultContent" : ""},
@@ -128,9 +134,6 @@ function init(){
 				{"data" : "createdate", "defaultContent" : ""},
 				{"data" : "modifydate", "defaultContent" : ""},
 				{"data" : "datastate", "defaultContent" : ""},
-				// {"data" : "ext1", "defaultContent" : ""},
-				// {"data" : "ext2", "defaultContent" : ""},
-				// {"data" : "ext3", "defaultContent" : ""},
 				{ 
 								"data": "", 
 								"defaultContent": "",

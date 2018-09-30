@@ -23,8 +23,8 @@
 			<if test="params.type != null and params.type != ''">
 				and type = #{params.type} 
 			</if>
-			<if test="params.userid != null and params.userid != ''">
-				and userid = #{params.userid} 
+			<if test="params.operatorid != null and params.operatorid != ''">
+				and operatorid = #{params.operatorid} 
 			</if>
 			<if test="params.warehousestate != null and params.warehousestate != ''">
 				and warehousestate = #{params.warehousestate} 
@@ -72,8 +72,8 @@
 			<if test="type != null">
 				type = #{type}, 
 			</if>
-			<if test="userid != null">
-				userid = #{userid}, 
+			<if test="operatorid != null">
+				operatorid = #{operatorid},
 			</if>
 			<if test="warehousestate != null">
 				warehousestate = #{warehousestate}, 

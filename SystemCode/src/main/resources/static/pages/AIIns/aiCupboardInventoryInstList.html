@@ -21,6 +21,11 @@
 										<div class="form-group">
 											id：
 											<input id="id" type="text" class="form-control" placeholder="id">
+											产品名称：
+											<input id="productname" type="text" class="form-control" placeholder="产品名称">
+											产品编码：
+											<input id="productcode" type="text" class="form-control" placeholder="产品编码">
+
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -102,14 +107,16 @@ function init(){
         		"type":"get",
         		"data":function(d){
     				d.id = $("#id").val();
-    			}
+                    d.productname = $("#productname").val();
+                    d.productcode = $("#productcode").val();       //这里还没有productcode
+                }
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
 				{"data" : "id", "defaultContent" : ""},
 				{"data" : "prodinstid", "defaultContent" : ""},
 				{"data" : "productname", "defaultContent" : ""},
-				{"data" : "serialno", "defaultContent" : ""},
+				{"data" : "productcode", "defaultContent" : ""},
 				{"data" : "allnum", "defaultContent" : ""},
 				{"data" : "remindnum", "defaultContent" : ""},
 				{"data" : "userid", "defaultContent" : ""},
@@ -118,7 +125,7 @@ function init(){
 				{"data" : "boxid", "defaultContent" : ""},
 				{"data" : "discount", "defaultContent" : ""},
 				{"data" : "batchid", "defaultContent" : ""},
-				{"data" : "supplier", "defaultContent" : ""},
+				{"data" : "warehouseid", "defaultContent" : ""},
 				{"data" : "factorydate", "defaultContent" : ""},
 				{"data" : "validmonths", "defaultContent" : ""},
 				{"data" : "storestatus", "defaultContent" : ""},

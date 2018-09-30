@@ -122,20 +122,20 @@ public class ExecProductController {
      * @return
      * @throws IOException
      */
-    @PostMapping("/excel")
-    @ApiOperation(value = "从Excel中导入产品数据")
-    public ResponseInfo importExcel(MultipartFile file) throws IOException {
-        FileInfo fileInfo = fileService.save(file);
-        File excel = new File(fileInfo.getPath());
-        if(!ExcelUtil.isExcel(excel)) {
-            excel.delete();
-            return new ResponseInfo("500", "Excel格式错误");
-        }
-        List<ExecProduct> execProductList = ExcelUtil.ExcelImport(excel);
-        for(ExecProduct product : execProductList) {
-            execProductDao.save(product);
-        }
-        excel.delete();     //删除该Excel文件
-        return new ResponseInfo("200", "导入成功！共导入" + execProductList.size() + "条数据");
-    }
+//    @PostMapping("/excel")
+//    @ApiOperation(value = "从Excel中导入产品数据")
+//    public ResponseInfo importExcel(MultipartFile file) throws IOException {
+//        FileInfo fileInfo = fileService.save(file);
+//        File excel = new File(fileInfo.getPath());
+//        if(!ExcelUtil.isExcel(excel)) {
+//            excel.delete();
+//            return new ResponseInfo("500", "Excel格式错误");
+//        }
+//        List<ExecProduct> execProductList = ExcelUtil.ExcelImport(excel);
+//        for(ExecProduct product : execProductList) {
+//            execProductDao.save(product);
+//        }
+//        excel.delete();     //删除该Excel文件
+//        return new ResponseInfo("200", "导入成功！共导入" + execProductList.size() + "条数据");
+//    }
 }

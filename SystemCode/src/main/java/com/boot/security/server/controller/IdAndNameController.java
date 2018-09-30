@@ -1,6 +1,8 @@
 package com.boot.security.server.controller;
 
 import com.boot.security.server.dao.AiExecProductDao;
+import com.boot.security.server.dao.AiMktBoxDao;
+import com.boot.security.server.dao.AiWarehouseDao;
 import com.boot.security.server.dto.IdAndNameDto;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +26,30 @@ public class IdAndNameController {
     @Autowired
     private AiExecProductDao aiExecProductDao;
 
+    @Autowired
+    private AiWarehouseDao aiWarehouseDao;
+
+    @Autowired
+    private AiMktBoxDao aiMktBoxDao;
+
     @GetMapping("/aiExecProduct")
     @ApiOperation(value = "获得product的id与Name的键值对")
-    public List<IdAndNameDto> getIdAndName() {
+    public List<IdAndNameDto> getProductIdAndName() {
         List<Map<String, Object>> mapList = aiExecProductDao.getIdAndName();
+        return getIdAndName(mapList);
+    }
+
+    @GetMapping("/aiWarehouse")
+    @ApiOperation(value = "获得仓库的id和Name键值对")
+    public List<IdAndNameDto> getWarehouseIdAndName() {
+        List<Map<String, Object>> mapList = aiWarehouseDao.getIdAndName();
+        return getIdAndName(mapList);
+    }
+
+    @GetMapping("/aiMktBox")
+    @ApiOperation(value = "获得aiBox的id和name键值对")
+    public List<IdAndNameDto> getMktBoxIdAndName() {
+        List<Map<String, Object>> mapList = aiMktBoxDao.getIdAndName();
         return getIdAndName(mapList);
     }
 
@@ -35,16 +57,16 @@ public class IdAndNameController {
         List<IdAndNameDto> idAndNameDtoList = new ArrayList<>();
         for(Map<String, Object> kv : mapList) {
             IdAndNameDto idAndNameDto = new IdAndNameDto();
-            int i = 0;
-            Object[] arr = new Object[2];
             for (Object o : kv.keySet()) {
-                arr[i++] = kv.get(o);
+                if(kv.get(o) instanceof Integer)
+                    idAndNameDto.setId(kv.get(o));
+                else
+                    idAndNameDto.setName(kv.get(o));
             }
 
-            idAndNameDto.setId(arr[1]);
-            idAndNameDto.setName(arr[0]);
             idAndNameDtoList.add(idAndNameDto);
         }
         return idAndNameDtoList;
     }
+
 }

@@ -22,6 +22,13 @@
 										<div class="form-group">
 											id：
 											<input id="id" type="text" class="form-control" placeholder="id">
+
+											仓库名称：
+											<input id="name" type="text" class="form-control" placeholder="仓库名称">
+
+											仓库类型：
+											<input id="type" type="text" class="form-control" placeholder="仓库类型">
+
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -91,6 +98,8 @@ function init(){
         		"type":"get",
         		"data":function(d){
     				d.id = $("#id").val();
+                    d.name = $("#name").val();
+                    d.type = $("#type").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
@@ -101,7 +110,7 @@ function init(){
 				{"data" : "longitude", "defaultContent" : ""},
 				{"data" : "latitude", "defaultContent" : ""},
 				{"data" : "type", "defaultContent" : ""},
-				{"data" : "userid", "defaultContent" : ""},
+				{"data" : "operatorid", "defaultContent" : ""},
 				{"data" : "warehousestate", "defaultContent" : ""},
 				// {"data" : "ext1", "defaultContent" : ""},
 				// {"data" : "ext2", "defaultContent" : ""},

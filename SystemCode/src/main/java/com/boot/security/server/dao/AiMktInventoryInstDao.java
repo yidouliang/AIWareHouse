@@ -24,7 +24,7 @@ public interface AiMktInventoryInstDao {
     int update(AiMktInventoryInst aiMktInventoryInst);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_mkt_inventory_inst(prodinstid, productcode, productname, serialno, userid, originprice, saleprice, boxid, discount, batchid, supplier, factorydate, validmonths, storestatus, statusstatereason, createoperid, createorgid, createdate, modifydate, datastate, ext1, ext2, ext3) values(#{prodinstid}, #{productcode}, #{productname}, #{serialno}, #{userid}, #{originprice}, #{saleprice}, #{boxid}, #{discount}, #{batchid}, #{supplier}, #{factorydate}, #{validmonths}, #{storestatus}, #{statusstatereason}, #{createoperid}, #{createorgid}, #{createdate}, #{modifydate}, #{datastate}, #{ext1}, #{ext2}, #{ext3})")
+    @Insert("insert into ai_mkt_inventory_inst(prodinstid, productcode, productname, rfid, userid, originprice, saleprice, boxid, discount, batchid, warehouseid, factorydate, validmonths, storestatus, statusstatereason, createoperid, createorgid, createdate, modifydate, datastate, ext1, ext2, ext3) values(#{prodinstid}, #{productcode}, #{productname}, #{rfid}, #{userid}, #{originprice}, #{saleprice}, #{boxid}, #{discount}, #{batchid}, #{warehouseid}, #{factorydate}, #{validmonths}, #{storestatus}, #{statusstatereason}, #{createoperid}, #{createorgid}, #{createdate}, #{modifydate}, #{datastate}, #{ext1}, #{ext2}, #{ext3})")
     int save(AiMktInventoryInst aiMktInventoryInst);
     
     int count(@Param("params") Map<String, Object> params);

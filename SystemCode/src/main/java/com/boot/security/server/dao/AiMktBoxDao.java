@@ -30,4 +30,8 @@ public interface AiMktBoxDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<AiMktBox> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select id, boxname from ai_mkt_box t where t.status = 1 ")
+    List<Map<String, Object>> getIdAndName();
 }
+

@@ -1,4 +1,4 @@
-function showIdAndNameSelect(id, modelName, all) {
+function showIdAndNameSelect(id, modelName, oriId, all) {
 	var data = getDict(modelName);
 	var select = $("#" + id);
 	select.empty();
@@ -7,16 +7,18 @@ function showIdAndNameSelect(id, modelName, all) {
 		select.append("<option value=''>全部</option>");
 	}
 
-	$.each(data, function(id, name) {
-		select.append("<option value ='" + id + "'>" + name + "</option>");
-	});
+	$.each(data, function(id, name, oriId) {
+		if(oriId === id)
+		    select.append("<option value ='" + id + "' selected>" + name + "</option>");
+		else
+            select.append("<option value ='" + id + "'>" + name + "</option>");
+
+    });
 
 	return data;
 }
 
 function getDict(modelName) {
-	var v = sessionStorage[modelName];
-	if (v == null || v == "") {
 		$.ajax({
 			type : 'get',
 			url : '/idAndName/'+modelName,
@@ -27,11 +29,9 @@ function getDict(modelName) {
 					v[d.id] = d.name;
 				});
 
-				console.log(JSON.stringify(v));
 				sessionStorage[modelName] = JSON.stringify(v);
 			}
 		});
-	}
-	
+
 	return JSON.parse(sessionStorage[modelName]);
 }

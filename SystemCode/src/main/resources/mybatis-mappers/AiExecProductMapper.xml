@@ -35,7 +35,7 @@
 			<if test="params.producturl != null and params.producturl != ''">
 				and producturl = #{params.producturl} 
 			</if>
-			<if test="params.creator != null and params.creator != ''">
+			<if test="params.creatorid != null and params.creatoidr != ''">
 				and creator = #{params.creator} 
 			</if>
 			<if test="params.createdate != null and params.createdate != ''">
@@ -105,8 +105,8 @@
 			<if test="producturl != null">
 				producturl = #{producturl}, 
 			</if>
-			<if test="creator != null">
-				creator = #{creator}, 
+			<if test="creatorid != null">
+				creatorid = #{creatorid},
 			</if>
 			<if test="modifydate != null">
 				modifydate = #{modifydate}, 

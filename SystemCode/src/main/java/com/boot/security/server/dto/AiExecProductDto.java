@@ -32,7 +32,7 @@ public class AiExecProductDto extends BaseEntity<Long> {
 
     private String producturl;
 
-    private BigDecimal creator;
+    private Long creatorid;
 
     private Date createdate;
 
@@ -117,12 +117,12 @@ public class AiExecProductDto extends BaseEntity<Long> {
         this.producturl = producturl;
     }
 
-    public BigDecimal getCreator() {
-        return creator;
+    public Long getCreatorid() {
+        return creatorid;
     }
 
-    public void setCreator(BigDecimal creator) {
-        this.creator = creator;
+    public void setCreatorid(Long creatorid) {
+        this.creatorid = creatorid;
     }
 
     public Date getCreatedate() {
@@ -169,7 +169,7 @@ public class AiExecProductDto extends BaseEntity<Long> {
                 ", productstatus='" + productstatus + '\'' +
                 ", productpicpath='" + productpicpath + '\'' +
                 ", producturl='" + producturl + '\'' +
-                ", creator=" + creator +
+                ", creator=" + creatorid +
                 ", createdate=" + createdate +
                 ", modifydate=" + modifydate +
                 ", datastate='" + datastate + '\'' +

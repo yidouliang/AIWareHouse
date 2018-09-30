@@ -24,10 +24,13 @@ public interface AiWarehouseDao {
     int update(AiWarehouse aiWarehouse);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_warehouse(name, address, longitude, latitude, type, userid, warehousestate, ext1, ext2, ext3) values(#{name}, #{address}, #{longitude}, #{latitude}, #{type}, #{userid}, #{warehousestate}, #{ext1}, #{ext2}, #{ext3})")
+    @Insert("insert into ai_warehouse(name, address, longitude, latitude, type, operatorid, warehousestate, ext1, ext2, ext3) values(#{name}, #{address}, #{longitude}, #{latitude}, #{type}, #{operatorid}, #{warehousestate}, #{ext1}, #{ext2}, #{ext3})")
     int save(AiWarehouse aiWarehouse);
     
     int count(@Param("params") Map<String, Object> params);
 
     List<AiWarehouse> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select id, name from ai_warehouse t where t.warehousestate = 1 ")
+    List<Map<String, Object>> getIdAndName();
 }

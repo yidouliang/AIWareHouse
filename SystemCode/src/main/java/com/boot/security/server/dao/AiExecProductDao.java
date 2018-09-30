@@ -24,14 +24,14 @@ public interface AiExecProductDao {
     int update(AiExecProduct aiExecProduct);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_exec_product(productcode, aicode, productname, productdesc, producttypeid, productoriprice, productstatus, productpicpath, producturl, creator, createdate, modifydate, datastate, productsource, ext1, ext2, ext3) values(#{productcode}, #{aicode}, #{productname}, #{productdesc}, #{producttypeid}, #{productoriprice}, #{productstatus}, #{productpicpath}, #{producturl}, #{creator}, #{createdate}, #{modifydate}, #{datastate}, #{productsource}, #{ext1}, #{ext2}, #{ext3})")
+    @Insert("insert into ai_exec_product(productcode, aicode, productname, productdesc, producttypeid, productoriprice, productstatus, productpicpath, producturl, creatorid, createdate, modifydate, datastate, productsource, ext1, ext2, ext3) values(#{productcode}, #{aicode}, #{productname}, #{productdesc}, #{producttypeid}, #{productoriprice}, #{productstatus}, #{productpicpath}, #{producturl}, #{creatorid}, #{createdate}, #{modifydate}, #{datastate}, #{productsource}, #{ext1}, #{ext2}, #{ext3})")
     int save(AiExecProduct aiExecProduct);
     
     int count(@Param("params") Map<String, Object> params);
 
     List<AiExecProduct> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
-    @Select("select id, productname from ai_exec_product t where t.productstatus=1")
+    @Select("select id, productname from ai_exec_product t where t.productstatus = 1")
     List<Map<String, Object>> getIdAndName();
 
 }

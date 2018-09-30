@@ -1,5 +1,7 @@
 package com.boot.security.server.dto;
 
+import com.boot.security.server.enums.SystemStatusEnum;
+
 import java.io.Serializable;
 
 public class ResponseInfo implements Serializable {
@@ -13,6 +15,12 @@ public class ResponseInfo implements Serializable {
 		super();
 		this.code = code;
 		this.message = message;
+	}
+
+	public ResponseInfo(SystemStatusEnum systemStatusEnum) {
+		super();
+		this.code = systemStatusEnum.getCode();
+		this.message = systemStatusEnum.getMessage();
 	}
 
 	public String getCode() {

@@ -65,7 +65,7 @@
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品图片地址</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品图片地址' type='text' name='productpicpath' id='productpicpath' data-bv-notempty='true' data-bv-notempty-message='productpicpath 不能为空' disabled>
+					<input class='form-control' placeholder='请输入产品图片地址' type='text' name='productpicpath' id='productpicpath' data-bv-notempty='true' data-bv-notempty-message='productpicpath 不能为空' readonly>
 				</div>
 			</div>
 
@@ -75,12 +75,12 @@
 					<input class='form-control' placeholder='请输入产品展示网址' type='text' name='producturl' id='producturl' data-bv-notempty='true' data-bv-notempty-message='producturl 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>创建者</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入创建者' type='text' name='creator' id='creator' data-bv-notempty='true' data-bv-notempty-message='creator 不能为空'>
-				</div>
-			</div>
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>创建者</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='请输入创建者' type='text' name='creator' id='creator' data-bv-notempty='true' data-bv-notempty-message='creator 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品来源</label>
 				<div class='col-md-10'>
@@ -127,10 +127,11 @@
 		    
 		    var formdata = $("#form").serializeObject();
 
+		    console.log(JSON.stringify(formdata));
 			$.ajax({
 				type : 'post',
 				url : '/aiExecProducts',
-				contentType: "application/json; charset=utf-8",  
+				contentType: "application/json; charset=utf-8",
 				data : JSON.stringify(formdata),
 				success : function(data) {
 					layer.msg("添加成功", {shift: -1, time: 1000}, function(){

@@ -66,19 +66,13 @@
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品图片地址</label>
 				<div class='col-md-10'>
-                    <input class='form-control' placeholder='请输入产品图片地址' type='text' name='productpicpath' id='productpicpath' data-bv-notempty='true' data-bv-notempty-message='productpicpath 不能为空' disabled>
+                    <input class='form-control' placeholder='请输入产品图片地址' type='text' name='productpicpath' id='productpicpath' data-bv-notempty='true' data-bv-notempty-message='productpicpath 不能为空' readonly>
                 </div>
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品展示网址</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='请输入产品展示网址' type='text' name='producturl' id='producturl' data-bv-notempty='true' data-bv-notempty-message='producturl 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>创建者</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入创建者' type='text' name='creator' id='creator' data-bv-notempty='true' data-bv-notempty-message='creator 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
@@ -153,7 +147,6 @@
 						$('#productstatus').val(data.productstatus);
 						$('#productpicpath').val(data.productpicpath);
 						$('#producturl').val(data.producturl);
-						$('#creator').val(data.creator);
 						$('#productsource').val(data.productsource);
 
 					}

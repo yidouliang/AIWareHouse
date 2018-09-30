@@ -2,6 +2,9 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.model.SysUser;
+import com.boot.security.server.service.AiWarehouseStockService;
+import com.boot.security.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,8 @@ import com.boot.security.server.model.AiWarehouseStock;
 
 import io.swagger.annotations.ApiOperation;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/aiWarehouseStocks")
 public class AiWarehouseStockController {
@@ -29,12 +34,24 @@ public class AiWarehouseStockController {
     @Autowired
     private AiWarehouseStockDao aiWarehouseStockDao;
 
+    @Autowired
+    private AiWarehouseStockService aiWarehouseStockService;
+
+    @Autowired
+    private UserService userService;
+
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiWarehouseStock save(@RequestBody AiWarehouseStock aiWarehouseStock) {
-        aiWarehouseStockDao.save(aiWarehouseStock);
+    public AiWarehouseStock save(@RequestBody AiWarehouseStock aiWarehouseStock,
+                                 HttpServletRequest request) {
 
-        return aiWarehouseStock;
+        AiWarehouseStock warehouseStock = aiWarehouseStockService.paddingField(request, aiWarehouseStock);
+        //创建时库存数量等于总数量
+        warehouseStock.setRemaindnum(warehouseStock.getAllnum());
+
+        aiWarehouseStockDao.save(warehouseStock);
+
+        return warehouseStock;
     }
 
     @GetMapping("/{id}")
