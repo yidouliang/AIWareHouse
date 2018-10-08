@@ -10,7 +10,7 @@ public class AiMktInventoryInst extends BaseEntity<Long> {
 	private Long prodinstid;
 	private String productcode;
 	private String productname;
-	private Long rfid;
+	private String rfid;
 	private Long userid;
 	private BigDecimal originprice;
 	private BigDecimal saleprice;
@@ -27,6 +27,10 @@ public class AiMktInventoryInst extends BaseEntity<Long> {
 	private Date createdate = new Date();
 	private Date modifydate = new Date();
 	private Integer datastate = DataStatusEnum.NORMAL.getCode();
+	private String ext1;
+	private String ext2;
+	private String ext3;
+
 
 	public AiMktInventoryInst() {
 	}
@@ -151,11 +155,11 @@ public class AiMktInventoryInst extends BaseEntity<Long> {
 		this.datastate = datastate;
 	}
 
-	public Long getRfid() {
+	public String getRfid() {
 		return rfid;
 	}
 
-	public void setRfid(Long rfid) {
+	public void setRfid(String rfid) {
 		this.rfid = rfid;
 	}
 
@@ -190,4 +194,28 @@ public class AiMktInventoryInst extends BaseEntity<Long> {
 	public void setStorestatus(Integer storestatus) {
 		this.storestatus = storestatus;
 	}
+
+    public String getExt1() {
+        return ext1;
+    }
+
+    public void setExt1(String ext1) {
+        this.ext1 = ext1;
+    }
+
+    public String getExt2() {
+        return ext2;
+    }
+
+    public void setExt2(String ext2) {
+        this.ext2 = ext2;
+    }
+
+    public String getExt3() {
+        return ext3;
+    }
+
+    public void setExt3(String ext3) {
+        this.ext3 = ext3;
+    }
 }

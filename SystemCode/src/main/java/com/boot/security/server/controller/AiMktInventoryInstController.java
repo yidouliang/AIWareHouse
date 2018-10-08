@@ -2,6 +2,8 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.dto.ResponseInfo;
+import com.boot.security.server.service.AiMktInventoryInstService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,14 +33,14 @@ public class AiMktInventoryInstController {
     @Autowired
     private AiMktInventoryInstDao aiMktInventoryInstDao;
 
+    @Autowired
+    private AiMktInventoryInstService aiMktInventoryInstService;
+
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiMktInventoryInst save(@RequestBody AiMktInventoryInst aiMktInventoryInst,
-                                   HttpServletRequest request) {
-
-        //aiMktInventoryInstDao.save(aiMktInventoryInst);
-
-        return aiMktInventoryInst;
+    public ResponseInfo save(@RequestBody AiMktInventoryInst aiMktInventoryInst,
+                             HttpServletRequest request) {
+        return aiMktInventoryInstService.save(request, aiMktInventoryInst);
     }
 
     @GetMapping("/{id}")
@@ -49,10 +51,8 @@ public class AiMktInventoryInstController {
 
     @PutMapping
     @ApiOperation(value = "修改")
-    public AiMktInventoryInst update(@RequestBody AiMktInventoryInst aiMktInventoryInst) {
-        aiMktInventoryInstDao.update(aiMktInventoryInst);
-
-        return aiMktInventoryInst;
+    public ResponseInfo update(@RequestBody AiMktInventoryInst aiMktInventoryInst) {
+        return aiMktInventoryInstService.update(aiMktInventoryInst);
     }
 
     @GetMapping

@@ -8,84 +8,21 @@
 	<form class="form-horizontal" onsubmit="return false" id="form">
 		<fieldset>
 			<input type="hidden" id="id" name="id">
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>产品类目ID</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入产品类目ID' type='text' name='prodinstid' id='prodinstid' data-bv-notempty='true' data-bv-notempty-message='prodinstid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>产品名称</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入产品名称' type='text' name='productname' id='productname' data-bv-notempty='true' data-bv-notempty-message='productname 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>产品编码</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入产品编码' type='text' name='productcode' id='productcode' data-bv-notempty='true' data-bv-notempty-message='productcode 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>总数量</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='请输入总数量' type='text' name='allnum' id='allnum' data-bv-notempty='true' data-bv-notempty-message='allnum 不能为空'>
 				</div>
 			</div>
+
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>库存数量</label>
+				<label class='col-md-2 control-label'>价格</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入库存数量' type='text' name='remaindnum' id='remaindnum' data-bv-notempty='true' data-bv-notempty-message='remaindnum 不能为空'>
+					<input class='form-control' placeholder='请输入价格' type='text' name='oldprice' id='oldprice' data-bv-notempty='true' data-bv-notempty-message='oldprice 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>AI识别码</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入AI识别码' type='text' name='aicode' id='aicode' data-bv-notempty='true' data-bv-notempty-message='aicode 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>运营者</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入运营者' type='text' name='userid' id='userid' data-bv-notempty='true' data-bv-notempty-message='userid 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>原价</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入原价' type='text' name='oldprice' id='oldprice' data-bv-notempty='true' data-bv-notempty-message='oldprice 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>售价</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入售价' type='text' name='nowprice' id='nowprice' data-bv-notempty='true' data-bv-notempty-message='nowprice 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>仓库ID</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入仓库ID' type='text' name='warehouseid' id='warehouseid' data-bv-notempty='true' data-bv-notempty-message='warehouseid 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>折扣率</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入折扣率' type='text' name='discount' id='discount' data-bv-notempty='true' data-bv-notempty-message='discount 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>批次</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入批次' type='text' name='batchid' id='batchid' data-bv-notempty='true' data-bv-notempty-message='batchid 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>仓库名称</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入仓库名称' type='text' name='supplier' id='supplier' data-bv-notempty='true' data-bv-notempty-message='supplier 不能为空'>
-				</div>
-			</div>
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>生产日期</label>
 				<div class='col-md-10'>
@@ -110,38 +47,18 @@
 					<input class='form-control' placeholder='请输入状态变化原因' type='text' name='statusstatereason' id='statusstatereason' data-bv-notempty='true' data-bv-notempty-message='statusstatereason 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>创建人</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入创建人' type='text' name='createoperid' id='createoperid' data-bv-notempty='true' data-bv-notempty-message='createoperid 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>运营商</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入运营商' type='text' name='createorgid' id='createorgid' data-bv-notempty='true' data-bv-notempty-message='createorgid 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>创建时间</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入创建时间' type='text' name='createdate' id='createdate' data-bv-notempty='true' data-bv-notempty-message='createdate 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>修改时间</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入修改时间' type='text' name='modifydate' id='modifydate' data-bv-notempty='true' data-bv-notempty-message='modifydate 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>数据状态</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入数据状态' type='text' name='datastate' id='datastate' data-bv-notempty='true' data-bv-notempty-message='datastate 不能为空'>
-				</div>
-			</div>
-
-
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>创建人</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='请输入创建人' type='text' name='createoperid' id='createoperid' data-bv-notempty='true' data-bv-notempty-message='createoperid 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>运营商</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='请输入运营商' type='text' name='createorgid' id='createorgid' data-bv-notempty='true' data-bv-notempty-message='createorgid 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
 
 			<div class="form-actions">
 				<div class="row" align="center">
@@ -182,24 +99,24 @@
 						$('#productname').val(data.productname);
 						$('#productcode').val(data.productcode);
 						$('#allnum').val(data.allnum);
-						$('#remaindnum').val(data.remaindnum);
-						$('#aicode').val(data.aicode);
-						$('#userid').val(data.userid);
+						// $('#remaindnum').val(data.remaindnum);
+						// $('#aicode').val(data.aicode);
+						// $('#userid').val(data.userid);
 						$('#oldprice').val(data.oldprice);
-						$('#nowprice').val(data.nowprice);
+						// $('#nowprice').val(data.nowprice);
 						$('#warehouseid').val(data.warehouseid);
 						$('#discount').val(data.discount);
 						$('#batchid').val(data.batchid);
-						$('#supplier').val(data.supplier);
+						// $('#supplier').val(data.supplier);
 						$('#factorydate').val(data.factorydate);
 						$('#validmonths').val(data.validmonths);
 						$('#storestatus').val(data.storestatus);
 						$('#statusstatereason').val(data.statusstatereason);
-						$('#createoperid').val(data.createoperid);
-						$('#createorgid').val(data.createorgid);
-						$('#createdate').val(data.createdate);
-						$('#modifydate').val(data.modifydate);
-						$('#datastate').val(data.datastate);
+						// $('#createoperid').val(data.createoperid);
+						// $('#createorgid').val(data.createorgid);
+						// $('#createdate').val(data.createdate);
+						// $('#modifydate').val(data.modifydate);
+						// $('#datastate').val(data.datastate);
 						// $('#ext1').val(data.ext1);
 						// $('#ext2').val(data.ext2);
 						// $('#ext3').val(data.ext3);

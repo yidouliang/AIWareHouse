@@ -21,6 +21,8 @@ public class SysUser extends BaseEntity<Long> {
 	private Integer status;
 	private String intro;
 
+	private Long operatorid;
+
 	public String getUsername() {
 		return username;
 	}
@@ -109,7 +111,15 @@ public class SysUser extends BaseEntity<Long> {
 		this.intro = intro;
 	}
 
-	public interface Status {
+    public Long getOperatorid() {
+        return operatorid;
+    }
+
+    public void setOperatorid(Long operatorid) {
+        this.operatorid = operatorid;
+    }
+
+    public interface Status {
 		int DISABLED = 0;
 		int VALID = 1;
 		int LOCKED = 2;

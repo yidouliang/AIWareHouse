@@ -9,82 +9,38 @@
 		<fieldset>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品类目ID</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品类目ID' type='text' name='prodinstid' id='prodinstid' data-bv-notempty='true' data-bv-notempty-message='prodinstid 不能为空'>
-				</div>
+                <div class='col-md-10'>
+                    <select class="form-control input-sm" id="prodinstid" name="prodinstid"></select>
+                </div>
 			</div>
+
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>产品名称</label>
+				<label class='col-md-2 control-label'>数量</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品名称' type='text' name='productname' id='productname' data-bv-notempty='true' data-bv-notempty-message='productname 不能为空'>
+					<input class='form-control' placeholder='请输入数量' type='text' name='allnum' id='allnum' data-bv-notempty='true' data-bv-notempty-message='allnum 不能为空'>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>产品编码</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入产品编码' type='text' name='productcode' id='productcode' data-bv-notempty='true' data-bv-notempty-message='productcode 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>总数量</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入总数量' type='text' name='allnum' id='allnum' data-bv-notempty='true' data-bv-notempty-message='allnum 不能为空'>
-				</div>
-			</div>
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>库存数量</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入库存数量' type='text' name='remindnum' id='remindnum' data-bv-notempty='true' data-bv-notempty-message='remindnum 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>入库运营者</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入入库运营者' type='text' name='userid' id='userid' data-bv-notempty='true' data-bv-notempty-message='userid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>商品原价</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入商品原价' type='text' name='originprice' id='originprice' data-bv-notempty='true' data-bv-notempty-message='originprice 不能为空'>
-				</div>
-			</div>
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>折扣率</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='请输入折扣率' type='text' name='discount' id='discount' data-bv-notempty='true' data-bv-notempty-message='discount 不能为空'>
 				</div>
 			</div>
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>批次</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入批次' type='text' name='batchid' id='batchid' data-bv-notempty='true' data-bv-notempty-message='batchid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
+
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>盒子编码</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入盒子编码' type='text' name='boxid' id='boxid' data-bv-notempty='true' data-bv-notempty-message='boxid 不能为空'>
-				</div>
+				<label class='col-md-2 control-label'>选择盒子</label>
+                <div class='col-md-10'>
+                    <select class="form-control input-sm" id="boxid" name="boxid"></select>
+                </div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>仓库名称</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入仓库名称' type='text' name='warehouseid' id='warehouseid' data-bv-notempty='true' data-bv-notempty-message='warehouseid 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>生产日期</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入生产日期' type='text' name='factorydate' id='factorydate' data-bv-notempty='true' data-bv-notempty-message='factorydate 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>过期日期</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入过期日期' type='text' name='validmonths' id='validmonths' data-bv-notempty='true' data-bv-notempty-message='validmonths 不能为空'>
-				</div>
-			</div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>选择仓库</label>
+                <div class='col-md-10'>
+                    <select class="form-control input-sm" id="warehouseid" name="warehouseid"></select>
+                </div>
+            </div>
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>库存状态</label>
 				<div class='col-md-10'>
@@ -95,60 +51,6 @@
 				<label class='col-md-2 control-label'>状态变化原因</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='请输入状态变化原因' type='text' name='statusstatereason' id='statusstatereason' data-bv-notempty='true' data-bv-notempty-message='statusstatereason 不能为空'>
-				</div>
-			</div>
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>创建人</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入创建人' type='text' name='createoperid' id='createoperid' data-bv-notempty='true' data-bv-notempty-message='createoperid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>运营商</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入运营商' type='text' name='createorgid' id='createorgid' data-bv-notempty='true' data-bv-notempty-message='createorgid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>创建日期</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入创建日期' type='text' name='createdate' id='createdate' data-bv-notempty='true' data-bv-notempty-message='createdate 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>修改日期</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入修改日期' type='text' name='modifydate' id='modifydate' data-bv-notempty='true' data-bv-notempty-message='modifydate 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>数据状态</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入数据状态' type='text' name='datastate' id='datastate' data-bv-notempty='true' data-bv-notempty-message='datastate 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>ext1</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入ext1' type='text' name='ext1' id='ext1' data-bv-notempty='true' data-bv-notempty-message='ext1 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>ext2</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入ext2' type='text' name='ext2' id='ext2' data-bv-notempty='true' data-bv-notempty-message='ext2 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>ext3</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入ext3' type='text' name='ext3' id='ext3' data-bv-notempty='true' data-bv-notempty-message='ext3 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>AI识别码</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入AI识别码' type='text' name='aicode' id='aicode' data-bv-notempty='true' data-bv-notempty-message='aicode 不能为空'>
 				</div>
 			</div>
 
@@ -172,10 +74,15 @@
 	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/idAndName.js"></script>
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
+
+        showIdAndNameSelect("prodinstid", "aiExecProduct");
+        showIdAndNameSelect("warehouseid", "aiWarehouse");
+        showIdAndNameSelect("boxid", "aiMktBox");
 		
 		function add() {
 			$('#form').bootstrapValidator();
@@ -193,10 +100,17 @@
 				contentType: "application/json; charset=utf-8",  
 				data : JSON.stringify(formdata),
 				success : function(data) {
-					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "aiCupboardInventoryInstList.html";
-                    });
-				}
+				    if(data.code === "200")
+				        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "aiCupboardInventoryInstList.html";
+                        });
+				    else {
+                        layer.msg(data.message, {shift: -1, time: 1000});
+                    }
+				},
+                error: function (data) {
+                    layer.msg("添加失败", {shift: -1, time: 1000});
+                }
 			});
 		}
 		

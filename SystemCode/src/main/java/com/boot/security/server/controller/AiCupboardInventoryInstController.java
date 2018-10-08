@@ -2,6 +2,8 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.dto.ResponseInfo;
+import com.boot.security.server.service.AiCupboardInventoryInstService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +24,8 @@ import com.boot.security.server.model.AiCupboardInventoryInst;
 
 import io.swagger.annotations.ApiOperation;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/aiCupboardInventoryInsts")
 public class AiCupboardInventoryInstController {
@@ -29,12 +33,14 @@ public class AiCupboardInventoryInstController {
     @Autowired
     private AiCupboardInventoryInstDao aiCupboardInventoryInstDao;
 
+    @Autowired
+    private AiCupboardInventoryInstService aiCupboardInventoryInstService;
+
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiCupboardInventoryInst save(@RequestBody AiCupboardInventoryInst aiCupboardInventoryInst) {
-        aiCupboardInventoryInstDao.save(aiCupboardInventoryInst);
-
-        return aiCupboardInventoryInst;
+    public ResponseInfo save(@RequestBody AiCupboardInventoryInst aiCupboardInventoryInst,
+                             HttpServletRequest request) {
+        return aiCupboardInventoryInstService.save(request, aiCupboardInventoryInst);
     }
 
     @GetMapping("/{id}")
@@ -45,10 +51,9 @@ public class AiCupboardInventoryInstController {
 
     @PutMapping
     @ApiOperation(value = "修改")
-    public AiCupboardInventoryInst update(@RequestBody AiCupboardInventoryInst aiCupboardInventoryInst) {
-        aiCupboardInventoryInstDao.update(aiCupboardInventoryInst);
+    public ResponseInfo update(@RequestBody AiCupboardInventoryInst aiCupboardInventoryInst) {
 
-        return aiCupboardInventoryInst;
+        return aiCupboardInventoryInstService.update(aiCupboardInventoryInst);
     }
 
     @GetMapping

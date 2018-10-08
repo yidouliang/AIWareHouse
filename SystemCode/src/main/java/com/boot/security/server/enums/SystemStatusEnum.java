@@ -13,6 +13,11 @@ public enum SystemStatusEnum {
     FILE_FORMAT_ERROR("11", "文件格式错误"),
 
     NO_NULL_VALUE("12", "表格中不能含有空值"),
+
+    PRODUCT_NOT_EXIST("13", "商品不存在"),
+
+    INVENTORY_SHORTAGE("14", "商品库存不足"),
+
     ;
 
     String code;

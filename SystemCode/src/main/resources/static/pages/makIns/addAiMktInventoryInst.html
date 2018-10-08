@@ -14,6 +14,12 @@
 				</div>
 			</div>
 			<div class='form-group'>
+				<label class='col-md-2 control-label'>RFID码</label>
+				<div class='col-md-10'>
+                    <input class='form-control' placeholder='请输入RFID码' type='text' name='rfid' id='rfid' data-bv-notempty='true' data-bv-notempty-message='rfid 不能为空'>
+				</div>
+			</div>
+			<div class='form-group'>
 				<label class='col-md-2 control-label'>选择盒子</label>
 				<div class='col-md-10'>
 					<select class="form-control input-sm" id="boxid" name="boxid"></select>
@@ -26,7 +32,7 @@
 				</div>
 			</div>
             <div class='form-group'>
-                <label class='col-md-2 control-label'>入库仓库</label>
+                <label class='col-md-2 control-label'>选择仓库</label>
                 <div class='col-md-10'>
                     <select class="form-control input-sm" id="warehouseid" name="warehouseid"></select>
                 </div>
@@ -92,9 +98,14 @@
 				contentType: "application/json; charset=utf-8",  
 				data : JSON.stringify(formdata),
 				success : function(data) {
-					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "aiMktInventoryInstList.html";
-                    });
+				    if(data.code === "200") {
+				        layer.msg("修改成功", {shift: -1, time: 1000}, function () {
+                            location.href = "aiMktInventoryInstList.html";
+                        });
+                    }
+                    else {
+                        layer.msg(data.message, {shift: -1, time: 1000});
+                    }
 				}
 			});
 		}

@@ -35,28 +35,24 @@
 <div class="body-right">
     <div class="login-wrap">
         <div class="login-name">
-            <h1><strong>一斗粮后台管理系统</strong></h1>
+            <h1>系统后台登陆</h1>
             <p class="user-name">
                 <label for="user-name">用户名:</label>
-                <input type="text" name="" id="user-name" placeholder="请输入用户名">
+                <input type="text" name="" id="user-name" placeholder="scydl">
             </p>
             <p class="user-password">
                 <label for="user-password">密码:</label>
-                <input type="password" name="" id="user-password" placeholder="请输入密码">
+                <input type="text" name="" id="user-password" placeholder="******">
             </p>
-
-            <p class="user-password">
+            <p class="captchaCode">
                 <label for="captchaCode">验证码:</label>
-                <input type="text" name="captchaCode" id="captchaCode" placeholder="请输入验证码">
-                <img src="/util/captcha" alt="验证码" onclick="this.src='/util/captcha?d=' + new Date()*1"/>
+                <input type="text" name="captchaCode" id="captchaCode" placeholder="请输入验证码"><img src="/util/captcha" width="21%" alt=" " onclick="this.src='/util/captcha?d=' + new Date()*1" >
             </p>
 
         </div>
         <div class="login-submit">
             <input type="button" name="" value="登录" onclick="login(this)">
         </div>
-        <hr class="hr20">
-        <span id="info" style="color: red"></span>
 
     </div>
 
@@ -154,14 +150,15 @@
     }
 
     function login(obj) {
+
         $(obj).attr("disabled", true);
 
         var username = $.trim($('#user-name').val());
         var password = $.trim($('#user-password').val());
         var captchaCode = $.trim($('#captchaCode').val());
         if (username === "" || password === "" || captchaCode === "") {
-            $("#info").html('输入信息不能为空');
             $(obj).attr("disabled", false);
+            alert("'输入信息不能为空");
         } else {
             $.ajax({
                 type : 'post',
@@ -174,7 +171,7 @@
                 error : function(xhr, textStatus, errorThrown) {
                     var msg = xhr.responseText;
                     var response = JSON.parse(msg);
-                    $("#info").html(response.message);
+                    alert(response.message);
                     $(obj).attr("disabled", false);
                 }
             });

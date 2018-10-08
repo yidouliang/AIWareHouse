@@ -8,16 +8,16 @@ import java.util.Date;
 
 public class AiCupboardInventoryInst extends BaseEntity<Long> {
 
-	private BigDecimal prodinstid;
+	private Long prodinstid;
 	private String productname;
-	private Long productcode;
+	private String productcode;
 	private Integer allnum;
 	private Integer remindnum;
 	private Integer userid;
 	private BigDecimal originprice;
 	private BigDecimal saleprice;
 	private Long boxid;
-	private BigDecimal discount;
+	private BigDecimal discount = new BigDecimal(1);
 	private String batchid;
 	private Long warehouseid;
 	private Date factorydate;
@@ -37,11 +37,11 @@ public class AiCupboardInventoryInst extends BaseEntity<Long> {
 	public AiCupboardInventoryInst() {
 	}
 
-	public BigDecimal getProdinstid() {
+	public Long getProdinstid() {
 		return prodinstid;
 	}
 
-	public void setProdinstid(BigDecimal prodinstid) {
+	public void setProdinstid(Long prodinstid) {
 		this.prodinstid = prodinstid;
 	}
 
@@ -53,11 +53,11 @@ public class AiCupboardInventoryInst extends BaseEntity<Long> {
 		this.productname = productname;
 	}
 
-	public Long getProductcode() {
+	public String getProductcode() {
 		return productcode;
 	}
 
-	public void setProductcode(Long productcode) {
+	public void setProductcode(String productcode) {
 		this.productcode = productcode;
 	}
 

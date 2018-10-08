@@ -39,28 +39,33 @@ body{
 
 }
 /*设置页面主体 右侧登录模块*/
+
 .body-right{
-    position: relative;
     float: right;
     border:1px solid  #E8E8E8;
     width: 400px;
     height: 350px;
-    margin-top: 100px;
-    margin-right: 150px;
+    margin-top: 50px;
+    margin-right: 50px;
     background-color: #E8E8E8;
     border-radius: 10px;
-    text-align: center;
+
 
 }
-.user-name label, .user-password label{
+h1{
+    width: 70%;
+    margin: 20px auto;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+}
+.login-name label{
     display: inline-block;
     margin-right: 6px;
     border-radius: 5px;
 }
 
-input{
-    outline: none;
-}
+
 
 .login-name input{
     background-color: #ffffcc;
@@ -73,6 +78,9 @@ input{
 
 }
 
+input{
+    outline: none;
+}
 
 .login-submit input{
     width: 250px;
@@ -82,9 +90,8 @@ input{
 }
 
 .login-wrap p{
-    margin-top: 40px;
-    margin-bottom: 30px;
-    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .user-password label{
@@ -92,9 +99,19 @@ input{
 }
 
 .login-wrap{
+    margin: 30px 60px;
+    width: 80%;
     position: relative;
-    margin-top: 35px;
 }
+.body-box{
+    overflow: hidden;
+    min-width: 900px;
+
+    background-color: #6699FF;
+    border: 1px solid red;
+
+}
+
 
 /*页面底部模块*/
 .footer-{

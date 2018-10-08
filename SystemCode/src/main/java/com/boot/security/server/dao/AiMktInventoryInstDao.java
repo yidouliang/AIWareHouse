@@ -1,5 +1,6 @@
 package com.boot.security.server.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -30,4 +31,7 @@ public interface AiMktInventoryInstDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<AiMktInventoryInst> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select originprice from ai_mkt_inventory_inst where id = #{id}")
+    BigDecimal getOriginPrice(Long id);
 }

@@ -24,10 +24,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.net.URLEncoder;
 import java.util.List;
 
 @RestController
@@ -109,16 +107,26 @@ public class AiExecProductController {
         return aiExecProductService.importProduct(file);
     }
 
-    @PostMapping("/downloadTemplate")
+    @GetMapping("/downloadTemplate")
     @ApiOperation(value = "下载Excel模板")
     public void downloadTemplate(HttpServletRequest request, HttpServletResponse response) throws Exception {
         response.setCharacterEncoding(request.getCharacterEncoding());
-        response.setContentType("application/octet-stream");
         File file = new File("D:/files/templates/Excel模板.xlsx");
+        response.setHeader("content-type", "application/octet-stream");
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-Disposition", "attachment; filename="+URLEncoder.encode("test.xlsx", "UTF-8"));
+
+        byte[] bytes = new byte[1024];
         FileInputStream fileInputStream = new FileInputStream(file);
-        response.setHeader("Content-Disposition", "attachment; filename="+file.getName());
-        IOUtils.copy(fileInputStream, response.getOutputStream());
-        response.flushBuffer();
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+        OutputStream outputStream = response.getOutputStream();
+        int i = bufferedInputStream.read(bytes);
+        while(i != -1) {
+            outputStream.write(bytes, 0, i);
+            i = bufferedInputStream.read(bytes);
+        }
+
         fileInputStream.close();
+        bufferedInputStream.close();
     }
 }
