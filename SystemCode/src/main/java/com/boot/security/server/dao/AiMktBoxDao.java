@@ -33,4 +33,7 @@ public interface AiMktBoxDao {
 
     @Select("select count(1) from ai_mkt_box where boxperson = #{boxperson}")
     int getBoxCountByOperatorId(@Param("boxperson") Long operatorId);
+
+    @Select("select id, boxname from ai_mkt_box t where t.status = 1 ")
+    List<Map<String, Object>> getIdAndName();
 }

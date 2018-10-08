@@ -46,19 +46,19 @@ public class IdAndNameController {
         return getIdAndName(mapList);
     }
 
-//    @GetMapping("/aiMktBox")
-//    @ApiOperation(value = "获得aiBox的id和name键值对")
-//    public List<IdAndNameDto> getMktBoxIdAndName() {
-//        List<Map<String, Object>> mapList = aiMktBoxDao.getIdAndName();
-//        return getIdAndName(mapList);
-//    }
+    @GetMapping("/aiMktBox")
+    @ApiOperation(value = "获得aiBox的id和name键值对")
+    public List<IdAndNameDto> getMktBoxIdAndName() {
+        List<Map<String, Object>> mapList = aiMktBoxDao.getIdAndName();
+        return getIdAndName(mapList);
+    }
 
     private List<IdAndNameDto> getIdAndName(List<Map<String, Object>> mapList) {
         List<IdAndNameDto> idAndNameDtoList = new ArrayList<>();
         for(Map<String, Object> kv : mapList) {
             IdAndNameDto idAndNameDto = new IdAndNameDto();
             for (Object o : kv.keySet()) {
-                if(kv.get(o) instanceof Integer)
+                if(kv.get(o) instanceof Long)
                     idAndNameDto.setId(kv.get(o));
                 else
                     idAndNameDto.setName(kv.get(o));

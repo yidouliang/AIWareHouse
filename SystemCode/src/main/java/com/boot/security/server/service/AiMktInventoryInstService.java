@@ -1,5 +1,6 @@
 package com.boot.security.server.service;
 
+import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.model.AiMktInventoryInst;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,5 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface AiMktInventoryInstService {
 
-    AiMktInventoryInst paddingField(HttpServletRequest request, AiMktInventoryInst aiMktInventoryInst);
+    ResponseInfo save(HttpServletRequest request, AiMktInventoryInst aiMktInventoryInst);
+
+    ResponseInfo update(AiMktInventoryInst aiMktInventoryInst);
 }
