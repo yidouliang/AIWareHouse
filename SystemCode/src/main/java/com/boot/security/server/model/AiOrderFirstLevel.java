@@ -7,7 +7,6 @@ public class AiOrderFirstLevel extends BaseEntity<Long> {
 
 	private String serialnumber;
 	private Long consumerid;
-	private Date createtime;
 	private String telephone;
 	private Long boxcode;
 	private Date paytime;
@@ -41,14 +40,6 @@ public class AiOrderFirstLevel extends BaseEntity<Long> {
 
 	public void setConsumerid(Long consumerid) {
 		this.consumerid = consumerid;
-	}
-
-	public Date getCreatetime() {
-		return createtime;
-	}
-
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
 	}
 
 	public String getTelephone() {

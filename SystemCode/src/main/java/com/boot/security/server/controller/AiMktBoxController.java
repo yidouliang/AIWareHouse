@@ -57,14 +57,12 @@ public class AiMktBoxController {
         AiOperator aiOperator = aiOperatorDao.getAiOperatorByUserId(user.getId());
         AiMktBox aiMktBox = new AiMktBox();
         AiMktBoxVo2AiBox.aiMktBoxVo2AiBox(aiMktBoxVo, aiMktBox);
-        //需要修改页面逻辑,如果是为关联运营者的用户(即管理员等)
+        //如果是为关联运营者的用户(即管理员等)
         //需要先创建运营商后再创建AI货柜或者无人超市
-        //在运营商管理的页面中添加使用选中运营商id创建盒子的按钮
         if(aiOperator!=null) {
 
             aiMktBox.setBoxperson(aiOperator.getId());
-            //如果是运营商操作跳转到盒子管理
-            //如果是管理员操作就抛出异常
+            //如果是管理员操作就提示(此处需要添加后台验证)
 
         }else{
             //当获取运营商为空的时候代表登录user为高级的管理员
@@ -87,7 +85,6 @@ public class AiMktBoxController {
     @PutMapping
     @ApiOperation(value = "修改")
     public AiMktBox update(@RequestBody AiMktBox aiMktBox) {
-        //aiMktBoxDao.getById(aiMktBox.)
         aiMktBoxDao.update(aiMktBox);
 
         return aiMktBox;
@@ -95,28 +92,88 @@ public class AiMktBoxController {
 
     @GetMapping
     @ApiOperation(value = "列表")
-    public PageTableResponse list(PageTableRequest request) {
-        return new PageTableHandler(new CountHandler() {
+    public PageTableResponse list(PageTableRequest request,HttpServletRequest servletRequest) {
+        //根据运营商id判断,如果不是运营商就返回全部box
+        //先获取用户
+        SysUser user = userService.getTokenUser(servletRequest);
+        //从Operator表中查询相关的运营商
+        AiOperator aiOperator = aiOperatorDao.getAiOperatorByUserId(user.getId());
 
-            @Override
-            public int count(PageTableRequest request) {
-                return aiMktBoxDao.count(request.getParams());
-            }
-        }, new ListHandler() {
+        if(aiOperator == null){
+            return new PageTableHandler(new CountHandler() {
 
-            @Override
-            public List<AiMktBoxVo> list(PageTableRequest request) {
-                List<AiMktBox> aiMktBoxList =  aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit());
-                List<AiMktBoxVo> aiMktBoxVoList = new ArrayList<>();
-                AiMktBoxVo2AiBox.aiMktBoxList2AiBoxList(dictDao,aiMktBoxVoList,aiMktBoxList);
-                return aiMktBoxVoList;
-            }
-        }).handle(request);
+                @Override
+                public int count(PageTableRequest request) {
+                    return aiMktBoxDao.count(request.getParams(),null);
+                }
+            }, new ListHandler() {
+
+                @Override
+                public List<AiMktBoxVo> list(PageTableRequest request) {
+                    List<AiMktBox> aiMktBoxList =  aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit(),null);
+                    //判断盒子是否需要缴费,若欠费就更新状态
+                    for (AiMktBox box:aiMktBoxList
+                    ) {
+                        Date now = new Date();
+                        if(box.getEnddate().before(now)){
+                            //支付状态 0欠费 1已缴费
+                            box.setPaystate(0);
+                            aiMktBoxDao.update(box);
+                        }
+                    }
+                    List<AiMktBoxVo> aiMktBoxVoList = new ArrayList<>();
+                    AiMktBoxVo2AiBox.aiMktBoxList2AiBoxList(dictDao,aiMktBoxVoList,aiMktBoxList);
+                    return aiMktBoxVoList;
+                }
+            }).handle(request);
+        }else {
+            return new PageTableHandler(new CountHandler() {
+
+                @Override
+                public int count(PageTableRequest request) {
+                    return aiMktBoxDao.count(request.getParams(), aiOperator.getId());
+                }
+            }, new ListHandler() {
+
+                @Override
+                public List<AiMktBoxVo> list(PageTableRequest request) {
+                    List<AiMktBox> aiMktBoxList = aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit(), aiOperator.getId());
+                    //判断盒子是否需要缴费,若欠费就更新状态
+                    for (AiMktBox box : aiMktBoxList
+                    ) {
+                        Date now = new Date();
+                        if (box.getEnddate().before(now)) {
+                            //支付状态 0欠费 1已缴费
+                            box.setPaystate(0);
+                            aiMktBoxDao.update(box);
+                        }
+                    }
+                    List<AiMktBoxVo> aiMktBoxVoList = new ArrayList<>();
+                    AiMktBoxVo2AiBox.aiMktBoxList2AiBoxList(dictDao, aiMktBoxVoList, aiMktBoxList);
+                    return aiMktBoxVoList;
+                }
+            }).handle(request);
+        }
     }
 
     @DeleteMapping("/{id}")
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
         aiMktBoxDao.delete(id);
+    }
+
+    @GetMapping("/checkUser")
+    @ApiOperation(value = "鉴别用户是运营商还是高级管理员")
+    public boolean checkUser(HttpServletRequest request){
+        //先获取用户
+        SysUser user = userService.getTokenUser(request);
+        //从Operator表中查询相关的运营商
+        AiOperator aiOperator = aiOperatorDao.getAiOperatorByUserId(user.getId());
+        //判断是否为空,为空返回false提示需要先添加运营商从运营商页面添加
+        if(aiOperator!=null){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

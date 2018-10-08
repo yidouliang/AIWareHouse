@@ -6,7 +6,7 @@ package com.boot.security.server.result;
 public class PayCount {
 
     //使用某支付类型的数量
-    private Integer value;
+    private Integer value = 0;
 
     //支付类型
     private String name;

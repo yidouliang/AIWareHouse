@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.model.AiMktBox;
 import com.boot.security.server.result.MonthSum;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -29,12 +30,17 @@ public interface AiOrderFirstLevelDao {
     @Insert("insert into ai_order_first_level(serialnumber, consumerid, createtime, telephone, boxcode, paytime, sendtime, replytime, orderpreprice, orderrealprice, orderno, paystatus, failreason, paytype, payurl, ordercomment, datastate, ext1, ext2, ext3) values(#{serialnumber}, #{consumerid}, #{createtime}, #{telephone}, #{boxcode}, #{paytime}, #{sendtime}, #{replytime}, #{orderpreprice}, #{orderrealprice}, #{orderno}, #{paystatus}, #{failreason}, #{paytype}, #{payurl}, #{ordercomment}, #{datastate}, #{ext1}, #{ext2}, #{ext3})")
     int save(AiOrderFirstLevel aiOrderFirstLevel);
     
-    int count(@Param("params") Map<String, Object> params);
+    int count(@Param("params") Map<String, Object> params,@Param("boxperson") Long boxperson);
 
-    List<AiOrderFirstLevel> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    List<AiOrderFirstLevel> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit,@Param("boxperson") Long boxperson);
 
     @Select("SELECT count(1) FROM ai_order_first_level a WHERE a.paytype = #{paytype}")
     int getPayTypeCount(@Param("paytype") Integer payType);
 
+    @Select("SELECT count(1) FROM ai_order_first_level a WHERE a.paytype = #{paytype} AND a.boxcode = #{boxcode}")
+    int getPayTypeCountWithBoxCode(@Param("paytype") Integer payType,@Param("boxcode") Long boxCode);
+
     List<MonthSum> getMounthTurnover(@Param("beginDay") Integer beginDay,@Param("endDay")Integer endDay);
+
+    List<MonthSum> getMounthTurnoverWithBoxCode(@Param("beginDay")Integer beginDay,@Param("endDay") Integer endDay,@Param("boxCodeList") List<Long> boxCodeList);
 }
