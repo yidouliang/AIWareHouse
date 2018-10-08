@@ -1,8 +1,10 @@
 package com.boot.security.server.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.result.MonthSum;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -30,4 +32,9 @@ public interface AiOrderFirstLevelDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<AiOrderFirstLevel> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("SELECT count(1) FROM ai_order_first_level a WHERE a.paytype = #{paytype}")
+    int getPayTypeCount(@Param("paytype") Integer payType);
+
+    List<MonthSum> getMounthTurnover(@Param("beginDay") Integer beginDay,@Param("endDay")Integer endDay);
 }

@@ -255,6 +255,42 @@ function  setchart() {
         ]
     };
 
+    //动态修改myChart的数据
+    function setmyChartOptin(){
+        // 异步加载数据
+        $.get('/reportForm/getPayType').done(function (data) {
+            // 填入数据
+            myChart.setOption({
+                legend: {
+                    data: data.payTypes
+                },
+
+                series:[
+					{
+                        data: data.payCounts
+					}
+				]
+            });
+        });
+        myChart.hideLoading();
+	}
+
+    //动态修改myCharttoday的数据
+    function setMyCharttodayOptin(){
+        // 异步加载数据
+        $.get('/reportForm/getTurnover').done(function (data) {
+            // 填入数据
+            myCharttoday.setOption({
+                series:[
+                    {
+                        data: data
+                    }
+                ]
+            });
+        });
+        myChart.hideLoading();
+    }
+
 
     optiontoday = {
         title : {
@@ -305,30 +341,19 @@ function  setchart() {
                         {type : 'average', name: '平均值'}
                     ]
                 }
-            },
-            {
-                name:'销售额',
-                type:'bar',
-                data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
-                markPoint : {
-                    data : [
-                        {name : '年最高', value : 182.2, xAxis: 7, yAxis: 183, symbolSize:18},
-                        {name : '年最低', value : 2.3, xAxis: 11, yAxis: 3}
-                    ]
-                },
-                markLine : {
-                    data : [
-                        {type : 'average', name : '平均值'}
-                    ]
-                }
             }
         ]
     };
 
 
 
+    myChart.showLoading(); //显示加载图标
     myChart.setOption(option)  ;
     myCharttoday.setOption(optiontoday)  ;
+    myChart.showLoading();
+    setmyChartOptin();
+    setMyCharttodayOptin();
+    myChart.hideLoading();
 
 }
 
