@@ -46,12 +46,12 @@ public class IdAndNameController {
         return getIdAndName(mapList);
     }
 
-    @GetMapping("/aiMktBox")
-    @ApiOperation(value = "获得aiBox的id和name键值对")
-    public List<IdAndNameDto> getMktBoxIdAndName() {
-        List<Map<String, Object>> mapList = aiMktBoxDao.getIdAndName();
-        return getIdAndName(mapList);
-    }
+//    @GetMapping("/aiMktBox")
+//    @ApiOperation(value = "获得aiBox的id和name键值对")
+//    public List<IdAndNameDto> getMktBoxIdAndName() {
+//        List<Map<String, Object>> mapList = aiMktBoxDao.getIdAndName();
+//        return getIdAndName(mapList);
+//    }
 
     private List<IdAndNameDto> getIdAndName(List<Map<String, Object>> mapList) {
         List<IdAndNameDto> idAndNameDtoList = new ArrayList<>();

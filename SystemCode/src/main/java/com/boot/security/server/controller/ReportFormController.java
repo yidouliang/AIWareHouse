@@ -23,9 +23,9 @@ public class ReportFormController {
         return reportFormService.getPayType();
     }
 
-    @GetMapping("/getTypeCount")
-    @ApiOperation(value = "获取支付类型对应的参数")
-    public List<Integer> getpayTypeCount(){
-        return reportFormService.getpayTypeCount();
-    }
+//    @GetMapping("/getTypeCount")
+//    @ApiOperation(value = "获取支付类型对应的参数")
+//    public List<Integer> getpayTypeCount(){
+//        return reportFormService.getpayTypeCount();
+//    }
 }
