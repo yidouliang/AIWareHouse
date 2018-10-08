@@ -20,8 +20,6 @@ public class SecurityApplicationTest {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
-	@Autowired
-	private ReportFormServiceImpl reportFormService;
 
 
 	@Test
@@ -32,8 +30,4 @@ public class SecurityApplicationTest {
 	}
 
 
-	@Test
-	public void getSum(){
-		System.err.println(JSON.toJSONString(reportFormService.getTurnover(new Date())));
-	}
 }

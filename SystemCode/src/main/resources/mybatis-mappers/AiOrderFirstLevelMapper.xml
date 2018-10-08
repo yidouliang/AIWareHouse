@@ -23,6 +23,9 @@
             <if test="params.boxcode != null and params.boxcode != ''">
                 and boxcode = #{params.boxcode}
             </if>
+            <if test="boxperson != null and boxperson != ''">
+                and boxcode in (select boxcode from ai_mkt_box where boxperson = #{boxperson})
+            </if>
             <if test="params.paytime != null and params.paytime != ''">
                 and paytime = #{params.paytime}
             </if>
@@ -59,15 +62,7 @@
             <if test="params.datastate != null and params.datastate != ''">
                 and datastate = #{params.datastate}
             </if>
-            <if test="params.ext1 != null and params.ext1 != ''">
-                and ext1 = #{params.ext1}
-            </if>
-            <if test="params.ext2 != null and params.ext2 != ''">
-                and ext2 = #{params.ext2}
-            </if>
-            <if test="params.ext3 != null and params.ext3 != ''">
-                and ext3 = #{params.ext3}
-            </if>
+
 
         </where>
     </sql>
@@ -166,5 +161,17 @@
         group by months
         having months between #{beginDay} and #{endDay};
 	</select>
+
+
+    <select id="getMounthTurnoverWithBoxCode" resultMap="monthSum">
+        select sum(orderrealprice),DATE_FORMAT(createtime,'%Y%m') months,count(*) count
+        from ai_order_first_level
+        where boxcode in
+        <foreach collection="boxCodeList" item="id" index="index" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+        group by months
+        having months between #{beginDay} and #{endDay};
+    </select>
 
 </mapper>

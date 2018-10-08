@@ -47,6 +47,9 @@
 			<if test="params.latitude != null and params.latitude != ''">
 				and latitude = #{params.latitude} 
 			</if>
+			<if test="boxperson != null and boxperson != ''">
+				and boxperson = #{boxperson}
+			</if>
 			<if test="params.ext1 != null and params.ext1 != ''">
 				and ext1 = #{params.ext1} 
 			</if>

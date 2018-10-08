@@ -1,5 +1,9 @@
 package com.boot.security.server.service;
 
+import com.boot.security.server.model.AiMktBox;
+
+import java.util.List;
+
 public interface AiMktBoxService {
 
     /**
@@ -8,4 +12,6 @@ public interface AiMktBoxService {
      * @return
      */
     int getBoxCountByOperatorId(Long operatorId);
+
+    List<AiMktBox> getBoxListByOperatorId(Long operatorId);
 }

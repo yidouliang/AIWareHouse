@@ -6,6 +6,10 @@ import java.util.List;
 import com.boot.security.server.convert.AiOrderFIrstLevel2AiOrderFirstLevelDto;
 import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dto.AiOrderFirstLevelDto;
+import com.boot.security.server.model.AiOperator;
+import com.boot.security.server.model.SysUser;
+import com.boot.security.server.service.UserService;
+import com.boot.security.server.service.impl.AiOperatorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +30,8 @@ import com.boot.security.server.model.AiOrderFirstLevel;
 
 import io.swagger.annotations.ApiOperation;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/aiOrderFirstLevels")
 public class AiOrderFirstLevelController {
@@ -35,6 +41,12 @@ public class AiOrderFirstLevelController {
 
     @Autowired
     private DictDao dictDao;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private AiOperatorServiceImpl aiOperatorService;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -60,23 +72,46 @@ public class AiOrderFirstLevelController {
 
     @GetMapping
     @ApiOperation(value = "列表")
-    public PageTableResponse list(PageTableRequest request) {
+    public PageTableResponse list(PageTableRequest request, HttpServletRequest servletRequest) {
+        SysUser user = userService.getTokenUser(servletRequest);
+        AiOperator aiOperator = aiOperatorService.getAiOperatorByUserId(user.getId());
+        if(aiOperator != null){
         return new PageTableHandler(new CountHandler() {
 
             @Override
             public int count(PageTableRequest request) {
-                return aiOrderFirstLevelDao.count(request.getParams());
+                return aiOrderFirstLevelDao.count(request.getParams(),aiOperator.getId());
             }
         }, new ListHandler() {
 
             @Override
             public List<AiOrderFirstLevelDto> list(PageTableRequest request) {
                 List<AiOrderFirstLevelDto> aiOrderFirstLevelDtos = new ArrayList<>();
-                List<AiOrderFirstLevel> aiOrderFirstLevels = aiOrderFirstLevelDao.list(request.getParams(), request.getOffset(), request.getLimit());
+                List<AiOrderFirstLevel> aiOrderFirstLevels = aiOrderFirstLevelDao.list(request.getParams(),
+                        request.getOffset(), request.getLimit(),aiOperator.getId());
                 AiOrderFIrstLevel2AiOrderFirstLevelDto.aiOrderFIrstLevelAiOrderFirstLevelDto(dictDao,aiOrderFirstLevels,aiOrderFirstLevelDtos);
                 return aiOrderFirstLevelDtos;
             }
         }).handle(request);
+        }else{
+            return new PageTableHandler(new CountHandler() {
+
+                @Override
+                public int count(PageTableRequest request) {
+                    return aiOrderFirstLevelDao.count(request.getParams(),null);
+                }
+            }, new ListHandler() {
+
+                @Override
+                public List<AiOrderFirstLevelDto> list(PageTableRequest request) {
+                    List<AiOrderFirstLevelDto> aiOrderFirstLevelDtos = new ArrayList<>();
+                    List<AiOrderFirstLevel> aiOrderFirstLevels = aiOrderFirstLevelDao.list(request.getParams(),
+                            request.getOffset(), request.getLimit(),null);
+                    AiOrderFIrstLevel2AiOrderFirstLevelDto.aiOrderFIrstLevelAiOrderFirstLevelDto(dictDao,aiOrderFirstLevels,aiOrderFirstLevelDtos);
+                    return aiOrderFirstLevelDtos;
+                }
+            }).handle(request);
+        }
     }
 
     @DeleteMapping("/{id}")

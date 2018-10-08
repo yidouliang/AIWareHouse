@@ -30,7 +30,7 @@
 									</form>
 	                   			</td>
 	                   			<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addAiMktBox.html'">
+	                   				<button class="layui-btn layui-btn-sm" onclick="checkUser()">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
 	                   			</td>
@@ -82,6 +82,7 @@
 <script type="text/javascript" src="../../js/plugin/datatables/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" src="../../layui/layui.js"></script>
 <script type="text/javascript" src="../../js/my/permission.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript">
 var pers = checkPermission();
 
@@ -125,7 +126,8 @@ function init(){
                 		           var href = "updateAiMktBox.html?id=" + id;
                                    var edit = buttonEdit(href, "", pers);
                 		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
+                                    var pay = buttonPay("", "", pers);
+                                   return edit + del + pay;
                   	            }		
 							},
                 
@@ -136,6 +138,7 @@ function init(){
 
 layui.use('layer', function(){
     var layer = layui.layer;
+    var element = layui.element;
 });
 
 function del(id){
@@ -153,6 +156,31 @@ function del(id){
         
         layer.close(1);
     });
+}
+
+function checkUser(){
+    $.ajax({
+		type : 'get',
+		url : '/aiMktBoxs/checkUser',
+		success : function(data){
+		    if(data){
+                location.href='addAiMktBox.html';
+			}else{
+                layer.confirm('您不是运营商,需要在运营商界面进行添加,是否前往?', {icon: 2, title:'提示'}, function(index){
+                    location.href='../AIOperator/aiOperatorList.html';
+                    //需要优化直接地址跳转为新增tab弹出页面
+                    // var title = $(this).html() + '<i class="layui-icon" data-id="' + lay_id + '"></i>';
+                    // element.tabAdd('admin-tab', {
+                    //     title: title,
+                    //     content: '<iframe src="../AIOperator/aiOperatorList.html"></iframe>',
+                    //     id: 65
+                    // });
+                    layer.close(index);
+                });
+			}
+		}
+	})
+
 }
 
 $("#searchBt").click(function(){

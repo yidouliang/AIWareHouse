@@ -58,7 +58,7 @@ public class IdAndNameController {
         for(Map<String, Object> kv : mapList) {
             IdAndNameDto idAndNameDto = new IdAndNameDto();
             for (Object o : kv.keySet()) {
-                if(kv.get(o) instanceof Integer)
+                if(kv.get(o) instanceof Long)
                     idAndNameDto.setId(kv.get(o));
                 else
                     idAndNameDto.setName(kv.get(o));
