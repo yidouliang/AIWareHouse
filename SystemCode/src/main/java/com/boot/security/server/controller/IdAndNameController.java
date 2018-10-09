@@ -2,6 +2,7 @@ package com.boot.security.server.controller;
 
 import com.boot.security.server.dao.AiExecProductDao;
 import com.boot.security.server.dao.AiMktBoxDao;
+import com.boot.security.server.dao.AiOperatorDao;
 import com.boot.security.server.dao.AiWarehouseDao;
 import com.boot.security.server.dto.IdAndNameDto;
 import io.swagger.annotations.ApiOperation;
@@ -32,6 +33,9 @@ public class IdAndNameController {
     @Autowired
     private AiMktBoxDao aiMktBoxDao;
 
+    @Autowired
+    private AiOperatorDao aiOperatorDao;
+
     @GetMapping("/aiExecProduct")
     @ApiOperation(value = "获得product的id与Name的键值对")
     public List<IdAndNameDto> getProductIdAndName() {
@@ -50,6 +54,13 @@ public class IdAndNameController {
     @ApiOperation(value = "获得aiBox的id和name键值对")
     public List<IdAndNameDto> getMktBoxIdAndName() {
         List<Map<String, Object>> mapList = aiMktBoxDao.getIdAndName();
+        return getIdAndName(mapList);
+    }
+
+    @GetMapping("/aiOperator")
+    @ApiOperation(value = "获得aiOperator的id和name键值对")
+    public List<IdAndNameDto> getAiOperatorIdAndName(){
+        List<Map<String,Object>> mapList = aiOperatorDao.getIdAndName();
         return getIdAndName(mapList);
     }
 

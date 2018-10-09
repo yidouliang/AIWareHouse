@@ -34,4 +34,6 @@ public interface AiOperatorDao {
     @Select("select * from ai_operator t where t.userid = #{id}")
     AiOperator getAiOperatorByUserId(@Param("id") Long userId);
 
+    @Select("select id ,name from ai_operator")
+    List<Map<String, Object>> getIdAndName();
 }

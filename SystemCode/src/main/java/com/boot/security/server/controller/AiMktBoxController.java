@@ -54,7 +54,7 @@ public class AiMktBoxController {
                          @RequestParam(value = "boxperson",required = false) Long boxperson, Model model) {
         //获取运营商Id,存入AiMktBox中
         SysUser user = userService.getTokenUser(request);
-        AiOperator aiOperator = aiOperatorDao.getAiOperatorByUserId(user.getId());
+        AiOperator aiOperator = aiOperatorDao.getById(user.getOperatorid());
         AiMktBox aiMktBox = new AiMktBox();
         AiMktBoxVo2AiBox.aiMktBoxVo2AiBox(aiMktBoxVo, aiMktBox);
         //如果是为关联运营者的用户(即管理员等)
