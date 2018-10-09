@@ -64,6 +64,16 @@ function buttonCreate(href, permission, pers){
     return btn.prop("outerHTML");
 }
 
+function buttonCreateWare(href, permission, pers){
+    if(permission != ""){
+        if ($.inArray(permission, pers) < 0) {
+            return "";
+        }
+    }
+    var btn = $("<button class='layui-btn layui-btn-xs' title='添加仓库' onclick='window.location=\"" + href +"\"'><i class='layui-icon'>添加仓库</i></button>");
+    return btn.prop("outerHTML");
+}
+
 function buttonPay(href, permission, pers){
    	//支付按钮 用于支付,需要之后补充
     if(permission != ""){

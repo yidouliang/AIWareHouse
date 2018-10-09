@@ -1,5 +1,7 @@
 package com.boot.security.server.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -11,9 +13,11 @@ public class AiMktBox extends BaseEntity<Long> {
 	private Long boxperson;
 	private String address;
 	private Integer status;
+	@JsonFormat(pattern ="yyyy-MM-dd")
 	private Date factorydate;
 	private Integer paystate;
 	private Long boxwarehouseid;
+	@JsonFormat(pattern ="yyyy-MM-dd")
 	private Date enddate;
 	private String persontelphone;
 	private BigDecimal longitude;

@@ -51,7 +51,7 @@ public class AiMktBoxController {
     @PostMapping
     @ApiOperation(value = "保存")
     public AiMktBox save(@RequestBody AiMktBoxVo aiMktBoxVo, HttpServletRequest request,
-                         @RequestParam(value = "boxperson",required = false) Long boxperson, Model model) {
+                         @RequestParam(value = "boxperson",required = false) Long boxperson) {
         //获取运营商Id,存入AiMktBox中
         SysUser user = userService.getTokenUser(request);
         AiOperator aiOperator = aiOperatorDao.getById(user.getOperatorid());
@@ -62,14 +62,18 @@ public class AiMktBoxController {
         if(aiOperator!=null) {
 
             aiMktBox.setBoxperson(aiOperator.getId());
+
             //如果是管理员操作就提示(此处需要添加后台验证)
 
         }else{
             //当获取运营商为空的时候代表登录user为高级的管理员
             //boxperson是从运营商管理页面进行添加的时候传过来的
-            aiMktBox.setBoxperson(boxperson);
-            //如果是管理员操作跳转到盒子管理
-            model.addAttribute("wherego",true);
+            if(boxperson!=null && boxperson!=0){
+                //如果是管理员操作跳转到盒子管理
+                aiMktBox.setBoxperson(boxperson);
+            }
+
+
         }
         aiMktBoxDao.save(aiMktBox);
 

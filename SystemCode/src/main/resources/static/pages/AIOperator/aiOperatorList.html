@@ -103,11 +103,13 @@ function init(){
 						        "render": function (data, type, row) {
                 		           var id = row['id'];
                 		           var href = "updateAiOperator.html?id=" + id;
-                                    var href = "../AIBox/addAiMktBox.html?id=" + id;
+                                    var href1 = "../AIBox/addAiMktBox.html?id=" + id;
+                                    var href2 = "../AIWareHouse/addAiWarehouse.html?id=" + id;
                                    var edit = buttonEdit(href, "", pers);
                 		           var del = buttonDel(id, "", pers);
-                		           var cre = buttonCreate(href, "", pers);
-                                   return edit + del + cre;
+                		           var crebox = buttonCreate(href1, "", pers);
+                		           var crewarehouse = buttonCreateWare(href2, "", pers);
+                                   return edit + del + crebox + crewarehouse;
                   	            }		
 							},
                 

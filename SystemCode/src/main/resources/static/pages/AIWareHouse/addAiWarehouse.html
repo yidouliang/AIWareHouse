@@ -48,7 +48,7 @@
 			<div class="form-actions">
 				<div class="row" align="center">
 					<div class="col-md-12">
-					    <button class="btn btn-primary" onclick="location.href='aiWarehouseList.html'">返回</button>
+					    <button class="btn btn-primary" onclick="window.history.back()">返回</button>
 						<button class="btn btn-primary" type="submit" onclick="add()">
 							<i class="fa fa-save"></i> 保存
 						</button>
@@ -86,11 +86,13 @@
 				data : JSON.stringify(formdata),
 				success : function(data) {
 					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "aiWarehouseList.html";
+                        //location.href = "aiWarehouseList.html";
+                        window.history.back();
                     });
 				}
 			});
 		}
+
 		
 	</script>
 </body>
