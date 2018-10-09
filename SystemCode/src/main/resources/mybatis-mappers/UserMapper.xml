@@ -66,8 +66,12 @@
 			<if test="status != null">
 				status = #{status},
 			</if>
+			<if test="operatorid != null">
+				operatorid = #{operatorid},
+			</if>
 			updateTime = #{updateTime}
 		</set>
 		where t.id = #{id}
+
 	</update>
 </mapper>

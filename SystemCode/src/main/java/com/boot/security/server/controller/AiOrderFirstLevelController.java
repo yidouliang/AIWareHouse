@@ -74,7 +74,7 @@ public class AiOrderFirstLevelController {
     @ApiOperation(value = "列表")
     public PageTableResponse list(PageTableRequest request, HttpServletRequest servletRequest) {
         SysUser user = userService.getTokenUser(servletRequest);
-        AiOperator aiOperator = aiOperatorService.getAiOperatorByUserId(user.getId());
+        AiOperator aiOperator = aiOperatorService.getAiOperatorById(user.getOperatorid());
         if(aiOperator != null){
         return new PageTableHandler(new CountHandler() {
 

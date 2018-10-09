@@ -21,6 +21,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="col-md-2 control-label">运营商Id</label>
+                <div class="col-md-10">
+                    <input class="form-control" placeholder="运营商Id" type="text" maxlength="11" name="operatorid" id="operatorid">
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="col-md-2 control-label">手机号</label>
                 <div class="col-md-10">
                     <input class="form-control" placeholder="手机号" type="text" maxlength="11" name="phone" id="phone">
@@ -112,6 +118,7 @@
 					$("#id").val(data.id);
 					$("#username").val(data.username);
 					$("#nickname").val(data.nickname);
+                    $("#operatorid").val(data.operatorid);
 					$("#phone").val(data.phone);
 					$("#telephone").val(data.telephone);
 					$("#email").val(data.email);

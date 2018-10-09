@@ -16,4 +16,9 @@ public class AiOperatorServiceImpl implements AiOperatorService {
     public AiOperator getAiOperatorByUserId(Long userId) {
         return aiOperatorDao.getAiOperatorByUserId(userId);
     }
+
+    @Override
+    public AiOperator getAiOperatorById(Long operatorId) {
+        return aiOperatorDao.getById(operatorId);
+    }
 }

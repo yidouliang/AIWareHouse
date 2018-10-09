@@ -97,7 +97,7 @@ public class AiMktBoxController {
         //先获取用户
         SysUser user = userService.getTokenUser(servletRequest);
         //从Operator表中查询相关的运营商
-        AiOperator aiOperator = aiOperatorDao.getAiOperatorByUserId(user.getId());
+        AiOperator aiOperator = aiOperatorDao.getById(user.getOperatorid());
 
         if(aiOperator == null){
             return new PageTableHandler(new CountHandler() {
@@ -168,7 +168,7 @@ public class AiMktBoxController {
         //先获取用户
         SysUser user = userService.getTokenUser(request);
         //从Operator表中查询相关的运营商
-        AiOperator aiOperator = aiOperatorDao.getAiOperatorByUserId(user.getId());
+        AiOperator aiOperator = aiOperatorDao.getById(user.getOperatorid());
         //判断是否为空,为空返回false提示需要先添加运营商从运营商页面添加
         if(aiOperator!=null){
             return true;
