@@ -40,4 +40,5 @@ public class PageTableRequest implements Serializable {
 	public void setParams(Map<String, Object> params) {
 		this.params = params;
 	}
+
 }

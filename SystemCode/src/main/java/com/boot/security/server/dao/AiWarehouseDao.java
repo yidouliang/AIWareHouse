@@ -29,7 +29,9 @@ public interface AiWarehouseDao {
     
     int count(@Param("params") Map<String, Object> params);
 
-    List<AiWarehouse> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    List<AiWarehouse> list(@Param("params") Map<String, Object> params,
+                           @Param("offset") Integer offset,
+                           @Param("limit") Integer limit);
 
     @Select("select id, name from ai_warehouse t where t.warehousestate = 1 ")
     List<Map<String, Object>> getIdAndName();

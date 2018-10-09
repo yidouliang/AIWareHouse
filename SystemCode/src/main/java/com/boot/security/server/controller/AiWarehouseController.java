@@ -1,7 +1,11 @@
 package com.boot.security.server.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.boot.security.server.model.SysUser;
+import com.boot.security.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +26,8 @@ import com.boot.security.server.model.AiWarehouse;
 
 import io.swagger.annotations.ApiOperation;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/aiWarehouses")
 public class AiWarehouseController {
@@ -29,9 +35,17 @@ public class AiWarehouseController {
     @Autowired
     private AiWarehouseDao aiWarehouseDao;
 
+    @Autowired
+    private UserService userService;
+
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiWarehouse save(@RequestBody AiWarehouse aiWarehouse) {
+    public AiWarehouse save(@RequestBody AiWarehouse aiWarehouse,
+                            HttpServletRequest request) {
+        SysUser user = userService.getTokenUser(request);
+        if(user.getOperatorid() != null) {
+            aiWarehouse.setOperatorid(user.getOperatorid());
+        }
         aiWarehouseDao.save(aiWarehouse);
 
         return aiWarehouse;
@@ -53,7 +67,8 @@ public class AiWarehouseController {
 
     @GetMapping
     @ApiOperation(value = "列表")
-    public PageTableResponse list(PageTableRequest request) {
+    public PageTableResponse list(PageTableRequest request,
+                                  HttpServletRequest httpServletRequest) {
         return new PageTableHandler(new CountHandler() {
 
             @Override
@@ -64,6 +79,12 @@ public class AiWarehouseController {
 
             @Override
             public List<AiWarehouse> list(PageTableRequest request) {
+                SysUser user = userService.getTokenUser(httpServletRequest);
+                if(user.getOperatorid() != null) {
+                    Map<String, Object> m = new HashMap<>();
+                    m.put("operatorid", user.getOperatorid());
+                    request.setParams(m);
+                }
                 return aiWarehouseDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }
         }).handle(request);
