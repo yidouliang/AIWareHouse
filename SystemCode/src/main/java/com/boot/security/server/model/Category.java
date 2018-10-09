@@ -7,9 +7,12 @@ public class Category extends BaseEntity<Long> {
 	private String categoryname;
 	private String parentid;
 	private Integer status;
-	private Date createtime;
-	private Date updatetime;
+	private Date createtime = new Date();
+	private Date updatetime = new Date();
 	private Integer isleaf;
+
+	public Category() {
+	}
 
 	public String getCategoryname() {
 		return categoryname;

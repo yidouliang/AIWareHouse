@@ -9,39 +9,24 @@
 		<fieldset>
 			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>categoryname</label>
+				<label class='col-md-2 control-label'>分类名称</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='categoryname' type='text' name='categoryname' id='categoryname' data-bv-notempty='true' data-bv-notempty-message='categoryname 不能为空'>
+					<input class='form-control' placeholder='请输入分类名称' type='text' name='categoryname' id='categoryname' data-bv-notempty='true' data-bv-notempty-message='categoryname 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>parentid</label>
+				<label class='col-md-2 control-label'>父级分类</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='parentid' type='text' name='parentid' id='parentid' data-bv-notempty='true' data-bv-notempty-message='parentid 不能为空'>
+					<input class='form-control' placeholder='请选择父级分类' type='text' name='parentid' id='parentid' data-bv-notempty='true' data-bv-notempty-message='parentid 不能为空'>
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>status</label>
+				<label class='col-md-2 control-label'>状态</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='status' type='text' name='status' id='status' data-bv-notempty='true' data-bv-notempty-message='status 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>createtime</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='createtime' type='text' name='createtime' id='createtime' data-bv-notempty='true' data-bv-notempty-message='createtime 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>updatetime</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='updatetime' type='text' name='updatetime' id='updatetime' data-bv-notempty='true' data-bv-notempty-message='updatetime 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>isleaf</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='isleaf' type='text' name='isleaf' id='isleaf' data-bv-notempty='true' data-bv-notempty-message='isleaf 不能为空'>
+					<select id="status" name="status" class="form-control input-sm">
+						<option value="1">启用</option>
+						<option value="0">禁用</option>
+					</select>
 				</div>
 			</div>
 

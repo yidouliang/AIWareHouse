@@ -18,6 +18,10 @@ public enum SystemStatusEnum {
 
     INVENTORY_SHORTAGE("14", "商品库存不足"),
 
+    WAREHOUSE_NOT_EXIST("15", "仓库不存在"),
+
+    BOX_NOT_EXIST("16", "盒子不存在"),
+
     ;
 
     String code;

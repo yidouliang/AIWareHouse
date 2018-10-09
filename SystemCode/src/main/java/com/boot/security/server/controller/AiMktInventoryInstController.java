@@ -1,9 +1,13 @@
 package com.boot.security.server.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.boot.security.server.dto.ResponseInfo;
+import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.AiMktInventoryInstService;
+import com.boot.security.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,6 +40,9 @@ public class AiMktInventoryInstController {
     @Autowired
     private AiMktInventoryInstService aiMktInventoryInstService;
 
+    @Autowired
+    private UserService userService;
+
     @PostMapping
     @ApiOperation(value = "保存")
     public ResponseInfo save(@RequestBody AiMktInventoryInst aiMktInventoryInst,
@@ -57,7 +64,8 @@ public class AiMktInventoryInstController {
 
     @GetMapping
     @ApiOperation(value = "列表")
-    public PageTableResponse list(PageTableRequest request) {
+    public PageTableResponse list(PageTableRequest request,
+                                  HttpServletRequest httpServletRequest) {
         return new PageTableHandler(new CountHandler() {
 
             @Override
@@ -68,6 +76,12 @@ public class AiMktInventoryInstController {
 
             @Override
             public List<AiMktInventoryInst> list(PageTableRequest request) {
+                SysUser user = userService.getTokenUser(httpServletRequest);
+                if(user.getOperatorid() != null) {
+                    Map<String, Object> m = new HashMap<>();
+                    m.put("createorgid", user.getOperatorid());
+                    request.setParams(m);
+                }
                 return aiMktInventoryInstDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }
         }).handle(request);

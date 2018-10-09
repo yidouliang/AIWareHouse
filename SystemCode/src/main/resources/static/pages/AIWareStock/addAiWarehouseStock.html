@@ -53,74 +53,18 @@
                 </div>
             </div>
 
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>库存数量</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入库存数量' type='text' name='remaindnum' id='remaindnum' data-bv-notempty='true' data-bv-notempty-message='remaindnum 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>AI识别码</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入AI识别码' type='text' name='aicode' id='aicode' data-bv-notempty='true' data-bv-notempty-message='aicode 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>运营者</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入运营者' type='text' name='userid' id='userid' data-bv-notempty='true' data-bv-notempty-message='userid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>原价</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入原价' type='text' name='oldprice' id='oldprice' data-bv-notempty='true' data-bv-notempty-message='oldprice 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>售价</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入售价' type='text' name='nowprice' id='nowprice' data-bv-notempty='true' data-bv-notempty-message='nowprice 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>仓库ID</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入仓库ID' type='text' name='warehouseid' id='warehouseid' data-bv-notempty='true' data-bv-notempty-message='warehouseid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>折扣率</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入折扣率' type='text' name='discount' id='discount' data-bv-notempty='true' data-bv-notempty-message='discount 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>批次</label>
 				<div class='col-md-10'>
 					<input class='form-control' placeholder='请输入批次' type='text' name='batchid' id='batchid' data-bv-notempty='true' data-bv-notempty-message='batchid 不能为空'>
 				</div>
 			</div>
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>供应商</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请选择仓库' type='text' name='supplier' id='supplier' data-bv-notempty='true' data-bv-notempty-message='supplier 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>创建人</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入创建人' type='text' name='createoperid' id='createoperid' data-bv-notempty='true' data-bv-notempty-message='createoperid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>运营商</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入运营商' type='text' name='createorgid' id='createorgid' data-bv-notempty='true' data-bv-notempty-message='createorgid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>供应商</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='请输入供应商' type='text' name='supplier' id='supplier' data-bv-notempty='true' data-bv-notempty-message='supplier 不能为空'>
+				</div>
+			</div>
 
 			<div class="form-actions">
 				<div class="row" align="center">
@@ -180,9 +124,14 @@
 				contentType: "application/json; charset=utf-8",
 				data : JSON.stringify(formdata),
 				success : function(data) {
-					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                        location.href = "aiWarehouseStockList.html";
-                    });
+				    if(data.code === "200") {
+                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                            location.href = "aiWarehouseStockList.html";
+                        });
+					}
+					else {
+                        layer.msg(data.message, {shift: -1, time: 1000});
+					}
 				}
 			});
 		}

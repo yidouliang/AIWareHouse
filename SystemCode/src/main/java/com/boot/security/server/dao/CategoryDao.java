@@ -30,4 +30,8 @@ public interface CategoryDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<Category> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select id, categoryname, parentid from category where status = 1")
+    List<Category> linkage();
+    //todo 完成dto层的编写并进行测试
 }

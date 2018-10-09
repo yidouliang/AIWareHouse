@@ -1,7 +1,10 @@
 package com.boot.security.server.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.AiWarehouseStockService;
 import com.boot.security.server.service.UserService;
@@ -35,23 +38,17 @@ public class AiWarehouseStockController {
     private AiWarehouseStockDao aiWarehouseStockDao;
 
     @Autowired
-    private AiWarehouseStockService aiWarehouseStockService;
+    private UserService userService;
 
     @Autowired
-    private UserService userService;
+    private AiWarehouseStockService aiWarehouseStockService;
 
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiWarehouseStock save(@RequestBody AiWarehouseStock aiWarehouseStock,
-                                 HttpServletRequest request) {
+    public ResponseInfo save(@RequestBody AiWarehouseStock aiWarehouseStock,
+                             HttpServletRequest request) {
 
-        AiWarehouseStock warehouseStock = aiWarehouseStockService.paddingField(request, aiWarehouseStock);
-        //创建时库存数量等于总数量
-        warehouseStock.setRemaindnum(warehouseStock.getAllnum());
-
-        aiWarehouseStockDao.save(warehouseStock);
-
-        return warehouseStock;
+        return aiWarehouseStockService.save(request, aiWarehouseStock);
     }
 
     @GetMapping("/{id}")
@@ -70,7 +67,8 @@ public class AiWarehouseStockController {
 
     @GetMapping
     @ApiOperation(value = "列表")
-    public PageTableResponse list(PageTableRequest request) {
+    public PageTableResponse list(PageTableRequest request,
+                                  HttpServletRequest httpServletRequest) {
         return new PageTableHandler(new CountHandler() {
 
             @Override
@@ -81,6 +79,12 @@ public class AiWarehouseStockController {
 
             @Override
             public List<AiWarehouseStock> list(PageTableRequest request) {
+                SysUser user = userService.getTokenUser(httpServletRequest);
+                if(user.getOperatorid() != null) {
+                    Map<String, Object> m = new HashMap<>();
+                    m.put("createorgid", user.getOperatorid());
+                    request.setParams(m);
+                }
                 return aiWarehouseStockDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }
         }).handle(request);

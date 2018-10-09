@@ -47,18 +47,13 @@
 					<input class='form-control' placeholder='请输入状态变化原因' type='text' name='statusstatereason' id='statusstatereason' data-bv-notempty='true' data-bv-notempty-message='statusstatereason 不能为空'>
 				</div>
 			</div>
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>创建人</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入创建人' type='text' name='createoperid' id='createoperid' data-bv-notempty='true' data-bv-notempty-message='createoperid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>运营商</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入运营商' type='text' name='createorgid' id='createorgid' data-bv-notempty='true' data-bv-notempty-message='createorgid 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
+
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>供应商</label>
+				<div class='col-md-10'>
+					<input class='form-control' placeholder='请输入供应商' type='text' name='supplier' id='supplier' data-bv-notempty='true' data-bv-notempty-message='supplier 不能为空'>
+				</div>
+			</div>
 
 			<div class="form-actions">
 				<div class="row" align="center">
@@ -95,31 +90,14 @@
 					async : false,
 					success : function(data) {
 						$('#id').val(data.id);
-						$('#prodinstid').val(data.prodinstid);
-						$('#productname').val(data.productname);
-						$('#productcode').val(data.productcode);
 						$('#allnum').val(data.allnum);
-						// $('#remaindnum').val(data.remaindnum);
-						// $('#aicode').val(data.aicode);
-						// $('#userid').val(data.userid);
 						$('#oldprice').val(data.oldprice);
-						// $('#nowprice').val(data.nowprice);
-						$('#warehouseid').val(data.warehouseid);
-						$('#discount').val(data.discount);
-						$('#batchid').val(data.batchid);
-						// $('#supplier').val(data.supplier);
+						// $('#batchid').val(data.batchid);
+						$('#supplier').val(data.supplier);
 						$('#factorydate').val(data.factorydate);
 						$('#validmonths').val(data.validmonths);
 						$('#storestatus').val(data.storestatus);
 						$('#statusstatereason').val(data.statusstatereason);
-						// $('#createoperid').val(data.createoperid);
-						// $('#createorgid').val(data.createorgid);
-						// $('#createdate').val(data.createdate);
-						// $('#modifydate').val(data.modifydate);
-						// $('#datastate').val(data.datastate);
-						// $('#ext1').val(data.ext1);
-						// $('#ext2').val(data.ext2);
-						// $('#ext3').val(data.ext3);
 
 					}
 				});

@@ -39,14 +39,23 @@ public class AiMktInventoryInstServiceImpl implements AiMktInventoryInstService 
     @Override
     @Transactional
     public ResponseInfo save(HttpServletRequest request, AiMktInventoryInst aiMktInventoryInst) {
+
+        if(aiMktInventoryInst.getBoxid() == null)
+            throw new SystemException(SystemStatusEnum.BOX_NOT_EXIST);
+
+        if(aiMktInventoryInst.getWarehouseid() == null)
+            throw new SystemException(SystemStatusEnum.WAREHOUSE_NOT_EXIST);
+
         //填充创建人信息
         SysUser user = userService.getTokenUser(request);
-        aiMktInventoryInst.setCreateorgid(user.getId());
+        aiMktInventoryInst.setCreateoperid(user.getId());
+        aiMktInventoryInst.setCreateorgid(user.getOperatorid());
 
         //填充产品信息
         AiWarehouseStock aiWarehouseStock = aiWarehouseStockDao.getByProdinstidAndWarehouseid(aiMktInventoryInst.getProdinstid(), aiMktInventoryInst.getWarehouseid());
         if(aiWarehouseStock == null)
             throw new SystemException(SystemStatusEnum.PRODUCT_NOT_EXIST);
+
         aiMktInventoryInst.setProductcode(aiWarehouseStock.getProductcode());
         aiMktInventoryInst.setProductname(aiWarehouseStock.getProductname());
         aiMktInventoryInst.setOriginprice(aiWarehouseStock.getOldprice());

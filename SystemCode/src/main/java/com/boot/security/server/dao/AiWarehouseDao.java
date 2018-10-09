@@ -33,6 +33,6 @@ public interface AiWarehouseDao {
                            @Param("offset") Integer offset,
                            @Param("limit") Integer limit);
 
-    @Select("select id, name from ai_warehouse t where t.warehousestate = 1 ")
-    List<Map<String, Object>> getIdAndName();
+    @Select("select id, name from ai_warehouse t where t.warehousestate = 1 and operatorId = #{operatorId} ")
+    List<Map<String, Object>> getIdAndName(Long operatorId);
 }

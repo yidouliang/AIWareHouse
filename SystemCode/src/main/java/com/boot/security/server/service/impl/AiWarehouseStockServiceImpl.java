@@ -2,6 +2,10 @@ package com.boot.security.server.service.impl;
 
 import com.boot.security.server.dao.AiExecProductDao;
 import com.boot.security.server.dao.AiWarehouseDao;
+import com.boot.security.server.dao.AiWarehouseStockDao;
+import com.boot.security.server.dto.ResponseInfo;
+import com.boot.security.server.enums.SystemStatusEnum;
+import com.boot.security.server.exception.SystemException;
 import com.boot.security.server.model.AiExecProduct;
 import com.boot.security.server.model.AiWarehouse;
 import com.boot.security.server.model.AiWarehouseStock;
@@ -28,13 +32,18 @@ public class AiWarehouseStockServiceImpl implements AiWarehouseStockService {
     private AiExecProductDao aiExecProductDao;
 
     @Autowired
-    private AiWarehouseDao aiWarehouseDao;
+    private AiWarehouseStockDao aiWarehouseStockDao;
 
     @Override
-    public AiWarehouseStock paddingField(HttpServletRequest request, AiWarehouseStock aiWarehouseStock) {
-        //填充创建人
+    public ResponseInfo save(HttpServletRequest request, AiWarehouseStock aiWarehouseStock) {
+
+        if(aiWarehouseStock.getWarehouseid() == null)
+            throw new SystemException(SystemStatusEnum.WAREHOUSE_NOT_EXIST);
+
+        //填充创建人和运营商
         SysUser user = userService.getTokenUser(request);
-        aiWarehouseStock.setCreateorgid(user.getId());
+        aiWarehouseStock.setCreateoperid(user.getId());
+        aiWarehouseStock.setCreateorgid(user.getOperatorid());
 
         //填充商品相关信息
         AiExecProduct aiExecProduct = aiExecProductDao.getById(aiWarehouseStock.getProdinstid());
@@ -42,12 +51,10 @@ public class AiWarehouseStockServiceImpl implements AiWarehouseStockService {
         aiWarehouseStock.setAicode(aiExecProduct.getAicode());
         aiWarehouseStock.setOldprice(aiExecProduct.getProductoriprice());
         aiWarehouseStock.setProductcode(aiExecProduct.getProductcode());
+        aiWarehouseStock.setRemaindnum(aiWarehouseStock.getAllnum());       //初始数量与总数量相同
 
-        //填充仓库相关信息
-        AiWarehouse aiWarehouse = aiWarehouseDao.getById(aiWarehouseStock.getWarehouseid());
-        aiWarehouseStock.setSupplier(aiWarehouse.getName());
+        aiWarehouseStockDao.save(aiWarehouseStock);
 
-
-        return aiWarehouseStock;
+        return new ResponseInfo(SystemStatusEnum.SUCCESS);
     }
 }

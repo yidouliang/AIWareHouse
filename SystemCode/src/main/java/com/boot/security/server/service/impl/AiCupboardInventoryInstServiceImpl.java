@@ -39,6 +39,12 @@ public class AiCupboardInventoryInstServiceImpl implements AiCupboardInventoryIn
     @Transactional
     public ResponseInfo save(HttpServletRequest request, AiCupboardInventoryInst aiCupboardInventoryInst) {
 
+        if(aiCupboardInventoryInst.getBoxid() == null)
+            throw new SystemException(SystemStatusEnum.BOX_NOT_EXIST);
+
+        if(aiCupboardInventoryInst.getWarehouseid() == null)
+            throw new SystemException(SystemStatusEnum.WAREHOUSE_NOT_EXIST);
+
         //1.从stock对象里获取对象并进行填充
         AiWarehouseStock aiWarehouseStock = aiWarehouseStockDao.getByProdinstidAndWarehouseid(aiCupboardInventoryInst.getProdinstid(), aiCupboardInventoryInst.getWarehouseid());
         if(aiWarehouseStock == null)
@@ -62,6 +68,7 @@ public class AiCupboardInventoryInstServiceImpl implements AiCupboardInventoryIn
         //2.设置创建者
         SysUser user = userService.getTokenUser(request);
         aiCupboardInventoryInst.setCreateoperid(user.getId());
+        aiCupboardInventoryInst.setCreateorgid(user.getOperatorid());
 
         //3.扣除仓库中商品的数量
         aiWarehouseStock.setRemaindnum(aiWarehouseStock.getRemaindnum() - aiCupboardInventoryInst.getAllnum());
