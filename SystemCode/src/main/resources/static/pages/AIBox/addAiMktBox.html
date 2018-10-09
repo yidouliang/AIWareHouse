@@ -82,12 +82,19 @@
 					</select>
 				</div>
 			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>货柜所属仓库ID</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='货柜所属仓库ID' type='text' name='boxwarehouseid' id='boxwarehouseid' data-bv-notempty='true' data-bv-notempty-message='货柜所属仓库ID 不能为空'>
+			<div class="form-group">
+				<label class="col-md-2 control-label">货柜配货仓库Id</label>
+				<div class="col-md-10" style="width: 200px">
+					<select class="form-control input-sm" name="boxwarehouseid" id="boxwarehouseid">
+					</select>
 				</div>
 			</div>
+			<!--<div class='form-group'>-->
+				<!--<label class='col-md-2 control-label'>货柜配货仓库</label>-->
+				<!--<div class='col-md-10'>-->
+					<!--<input class='form-control' placeholder='货柜配货仓库' type='text' name='boxwarehouseid' id='boxwarehouseid' data-bv-notempty='true' data-bv-notempty-message='联系人电话 不能为空'>-->
+				<!--</div>-->
+			<!--</div>-->
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>到期时间</label>
 				<div class='col-md-10'>
@@ -143,6 +150,7 @@
 	<script src="../../js/my/area/city-picker.js"></script>
 	<script src="../../js/my/area/main.js"></script>
 	<script type="text/javascript" src="../../js/dict.js"></script>
+	<script type="text/javascript" src="../../js/idAndName.js"></script>
 
 	<script type="text/javascript">
 
@@ -166,11 +174,13 @@
 
 
 		});
+
         showDictSelect("AiBoxType", "AiBoxType");
         showDictSelect("AiBoxStatus", "AiBoxStatus");
         showDictSelect("payState", "payState");
+        showIdAndNameSelect("boxwarehouseid", "aiWarehouse");
 
-		
+
 		function add() {
             $('#form').bootstrapValidator();
 			var bootstrapValidator = $("#form").data('bootstrapValidator');
@@ -178,34 +188,34 @@
 		    if(!bootstrapValidator.isValid()){
 			   return;
 		    }
-		    
+
 		    var formdata = $("#form").serializeObject();
             var wherego='${wherego}';
 
 			$.ajax({
 				type : 'post',
 				url : '/aiMktBoxs?boxperson='+getParam(),
-				contentType: "application/json; charset=utf-8",  
+				contentType: "application/json; charset=utf-8",
 				data : JSON.stringify(formdata),
 				success : function(data) {
-				    if(wherego){
                         layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                            location.href = "../AIOperator/aiOperatorList.html";
+                            window.history.back();
                         });
-					}else{
-                        layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-                            location.href = "aiMktBoxList.html";
-                        });
-					}
 
 				}
 			});
 		}
 
         function getParam(){
-            C1=window.location.href.split("?")[1];
-            C2=C1.split("=")[1];
-            return C2;
+		    var hre = window.location.href;
+		    if(hre.indexOf("?") !== -1){
+                C1=window.location.href.split("?")[1];
+                C2=C1.split("=")[1];
+                return C2;
+			}else{
+		        return 0;
+			}
+
         }
 
 		function getLocation() {
