@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<form class="form-horizontal" onsubmit="return false" id="form">
+	<form class="form-horizontal layui-form layui-form-pane" onsubmit="return false" id="form">
 		<fieldset>
 			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
@@ -33,13 +33,15 @@
 					<input class='form-control' placeholder='产品描述' type='text' name='productdesc' id='productdesc' data-bv-notempty='true' data-bv-notempty-message='productdesc 不能为空'>
 				</div>
 			</div>
+
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>产品类型</label>
+				<label class='col-md-2 control-label'></label>
 				<div class='col-md-10'>
-					<select class="form-control input-sm" name="producttypeid" id="producttypeid">
-					</select>
+					<div class="layui-form-item"></div>
+					<div class="layui-form-item threeLinkage" id="parentid" name="parentid"></div>
 				</div>
 			</div>
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>产品价格</label>
 				<div class='col-md-10'>
@@ -102,6 +104,8 @@
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 	<script type="text/javascript" src="../../js/dict.js"></script>
+<script type="text/javascript" src="../../js/threeLinkage.js"></script>
+
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
@@ -161,8 +165,8 @@
 		    if(!bootstrapValidator.isValid()){
 			   return;
 		    }
-		    
-		    var formdata = $("#form").serializeObject();
+
+            var formdata = formdataHandler($("#form").serializeObject());
 
 			$.ajax({
 				type : 'put',

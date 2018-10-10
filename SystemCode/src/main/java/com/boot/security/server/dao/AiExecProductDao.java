@@ -31,7 +31,7 @@ public interface AiExecProductDao {
 
     List<AiExecProduct> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
-    @Select("select id, productname from ai_exec_product t where t.productstatus = 1")
-    List<Map<String, Object>> getIdAndName();
+    @Select("select id, productname from ai_exec_product t where t.productstatus = 1 and t.producttypeid = #{productTypeId}")
+    List<Map<String, Object>> getIdAndName(Long productTypeId);
 
 }

@@ -1,11 +1,7 @@
-function showIdAndNameSelect(id, modelName, all) {
-	var data = getDict(modelName);
+function showIdAndNameSelect(id, modelName, producttypeid) {
+	var data = getDict(modelName, producttypeid);
 	var select = $("#" + id);
 	select.empty();
-
-	if (all != undefined || all) {
-		select.append("<option value=''>全部</option>");
-	}
 
 	$.each(data, function(id, name) {
 		select.append("<option value ='" + id + "'>" + name + "</option>");
@@ -14,11 +10,15 @@ function showIdAndNameSelect(id, modelName, all) {
 	return data;
 }
 
-function getDict(modelName) {
+function getDict(modelName, producttypeid) {
 
+	var url = '/idAndName/'+modelName;
+	if(producttypeid !== undefined) {
+	    url = '/idAndName/'+modelName + '/' + producttypeid;
+    }
 		$.ajax({
 			type : 'get',
-			url : '/idAndName/'+modelName,
+			url : url,
 			async : false,
 			success : function(data) {
 				v = {};
@@ -26,11 +26,9 @@ function getDict(modelName) {
 					v[d.id] = d.name;
 				});
 
-				console.log(JSON.stringify(v));
 				sessionStorage[modelName] = JSON.stringify(v);
 			}
 		});
 
-	
 	return JSON.parse(sessionStorage[modelName]);
 }

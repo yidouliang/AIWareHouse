@@ -10,6 +10,7 @@ import com.boot.security.server.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,10 +43,10 @@ public class IdAndNameController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/aiExecProduct")
+    @GetMapping("/aiExecProduct/{productTypeId}")
     @ApiOperation(value = "获得product的id与Name的键值对")
-    public List<IdAndNameDto> getProductIdAndName() {
-        List<Map<String, Object>> mapList = aiExecProductDao.getIdAndName();
+    public List<IdAndNameDto> getProductIdAndName(@PathVariable(value = "productTypeId") Long productTypeId) {
+        List<Map<String, Object>> mapList = aiExecProductDao.getIdAndName(productTypeId);
         return getIdAndName(mapList);
     }
 

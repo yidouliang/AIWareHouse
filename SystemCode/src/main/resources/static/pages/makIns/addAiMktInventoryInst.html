@@ -2,17 +2,29 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<form class="form-horizontal" onsubmit="return false" id="form">
+	<form class="form-horizontal layui-form layui-form-pane" onsubmit="return false" id="form">
 		<fieldset>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>产品类目</label>
-				<div class='col-md-10'>
-					<select class="form-control input-sm" id="prodinstid" name="prodinstid"></select>
-				</div>
-			</div>
+
+            <div class='form-group'>
+                <label class='col-md-2 control-label'></label>
+                <div class='col-md-10'>
+                    <div class="layui-form-item"></div>
+                    <div class="layui-form-item threeLinkage" id="parentid" name="parentid"></div>
+                    <button class="layui-btn btn-primary" onclick="search()">查询</button>
+                </div>
+            </div>
+
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>产品类目</label>
+                <div class='col-md-10'>
+                    <select class="form-control input-sm" id="prodinstid" name="prodinstid" lay-ignore></select>
+                </div>
+            </div>
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>RFID码</label>
 				<div class='col-md-10'>
@@ -37,12 +49,15 @@
                     <select class="form-control input-sm" id="warehouseid" name="warehouseid"></select>
                 </div>
             </div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>库存状态</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入库存状态' type='text' name='storestatus' id='storestatus' data-bv-notempty='true' data-bv-notempty-message='storestatus 不能为空'>
-				</div>
-			</div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>库存状态</label>
+                <div class='col-md-10'>
+                    <select class="form-control" id="storestatus" name="storestatus">
+                        <option value="1">正常</option>
+                        <option value="0">缺货</option>
+                    </select>
+                </div>
+            </div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>状态变化原因</label>
 				<div class='col-md-10'>
@@ -71,6 +86,7 @@
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
 <script type="text/javascript" src="../../js/idAndName.js"></script>
+<script type="text/javascript" src="../../js/threeLinkage.js"></script>
 
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
@@ -78,10 +94,9 @@
 		});
 
 
-        showIdAndNameSelect("prodinstid", "aiExecProduct");
         showIdAndNameSelect("warehouseid", "aiWarehouse");
         showIdAndNameSelect("boxid", "aiMktBox");
-		
+        
 		function add() {
 			$('#form').bootstrapValidator();
 			var bootstrapValidator = $("#form").data('bootstrapValidator');

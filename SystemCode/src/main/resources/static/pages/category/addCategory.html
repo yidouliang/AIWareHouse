@@ -8,23 +8,31 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<form class="form-horizontal layui-form layui-form-pane" onsubmit="return false" id="form">
 		<fieldset>
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>分类名称</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='请输入分类名称' type='text' name='categoryname' id='categoryname' data-bv-notempty='true' data-bv-notempty-message='categoryname 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>分类名称</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='请输入分类名称' type='text' name='categoryname' id='categoryname' data-bv-notempty='true' data-bv-notempty-message='categoryname 不能为空'>
+                </div>
+            </div>
+
 			<div class='form-group'>
                 <label class='col-md-2 control-label'></label>
 				<div class='col-md-10'>
-					<!--<input class='form-control' placeholder='请选择父级分类' type='text' name='parentid' id='parentid' data-bv-notempty='true' data-bv-notempty-message='parentid 不能为空'>-->
                     <div class="layui-form-item"></div>
-                    <div class="layui-form-item test-region" id="parentid" name="parentid"></div>
+                    <div class="layui-form-item twoLinkage" id="parentid" name="parentid"></div>
 				</div>
 			</div>
-            <form class="layui-form layui-form-pane" action="">
 
-            </form>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>三级分类</label>
+                <div class='col-md-10'>
+                    <select id="isleaf" name="isleaf" class="form-control input-sm">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+            </div>
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>状态</label>
 				<div class='col-md-10'>
@@ -34,13 +42,6 @@
 					</select>
 				</div>
 			</div>
-			<!--<div class='form-group'>-->
-				<!--<label class='col-md-2 control-label'>是否是叶子</label>-->
-				<!--<div class='col-md-10'>-->
-					<!--<input class='form-control' placeholder='isleaf' type='text' name='isleaf' id='isleaf' data-bv-notempty='true' data-bv-notempty-message='isleaf 不能为空'>-->
-				<!--</div>-->
-			<!--</div>-->
-
 
 			<div class="form-actions">
 				<div class="row" align="center">
@@ -61,69 +62,34 @@
 	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
+    <script type="text/javascript" src="../../js/twoLinkage.js"></script>
 	<script type="text/javascript">
 
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
 
-        layui.config({
-            base: '/js/my/',
-        });
-
-        layui.use(['interact'],function(){
-            $.ajax({
-                type : 'get',
-                url : '/categorys',
-                async: false,
-                success: function (data) {
-                    console.log(JSON.stringify(data));
-                }
-            });
-            var interact = layui.interact;
-            var data=[{"id":1,"pid":0,"title":"1-1"},{"id":2,"pid":0,"title":"1-2"},{"id":3,"pid":0,"title":"1-3"},{"id":4,"pid":1,"title":"1-1-1"},{"id":5,"pid":1,"title":"1-1-2"},{"id":6,"pid":2,"title":"1-2-1"},{"id":7,"pid":2,"title":"1-2-3"},{"id":8,"pid":3,"title":"1-3-1"},{"id":9,"pid":3,"title":"1-3-2"},{"id":10,"pid":4,"title":"1-1-1-1"},{"id":11,"pid":4,"title":"1-1-1-2"}];
-            interact.render({
-                elem : '.test-region',
-                title : '选择分类',
-                data : data,
-                name : 'parentids'
-            });
-        });
-
 		function add() {
-			// $('#form').bootstrapValidator();
-			// var bootstrapValidator = $("#form").data('bootstrapValidator');
-            // bootstrapValidator.validate();
-		    // if(!bootstrapValidator.isValid()){
-			 //   return;
-		    // }
+			$('#form').bootstrapValidator();
+			var bootstrapValidator = $("#form").data('bootstrapValidator');
+            bootstrapValidator.validate();
+		    if(!bootstrapValidator.isValid()){
+			   return;
+		    }
 
-		    var formdata = $("#form").serializeObject();
+            var formdata = formdataHandler($("#form").serializeObject());
 
-		    var parentids = formdata["parentids[]"];
-		    id = 0;
-		    for(var i=0; i<parentids.length; i++) {
-		        if(parentids[i] !== "") {
-		            id = parentids[i];
-                }
-            }
-		    delete formdata["parentids[]"];
-		    formdata.parentid = id;
-
-		    console.log(JSON.stringify(formdata));
-
-
-			// $.ajax({
-			// 	type : 'post',
-			// 	url : '/categorys',
-			// 	contentType: "application/json; charset=utf-8",
-			// 	data : JSON.stringify(formdata),
-			// 	success : function(data) {
-			// 		layer.msg("添加成功", {shift: -1, time: 1000}, function(){
-             //            location.href = "categoryList.html";
-             //        });
-			// 	}
-			// });
+			$.ajax({
+				type : 'post',
+				url : '/categorys',
+				contentType: "application/json; charset=utf-8",
+				data : JSON.stringify(formdata),
+				success : function(data) {
+					layer.msg("添加成功", {shift: -1, time: 1000}, function(){
+                        location.href = "categoryList.html";
+                    });
+				}
+			});
 		}
 		
 	</script>

@@ -2,10 +2,11 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 </head>
 <body>
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<form class="form-horizontal" onsubmit="return false" id="form">
+	<form class="form-horizontal layui-form layui-form-pane" onsubmit="return false" id="form">
 		<fieldset>
 			<input type="hidden" id="id" name="id">
 			<div class='form-group'>
@@ -15,11 +16,23 @@
 				</div>
 			</div>
 			<div class='form-group'>
-				<label class='col-md-2 control-label'>父级分类</label>
+				<label class='col-md-2 control-label'></label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='请选择父级分类' type='text' name='parentid' id='parentid' data-bv-notempty='true' data-bv-notempty-message='parentid 不能为空'>
+					<div class="layui-form-item"></div>
+					<div class="layui-form-item twoLinkage" id="parentid" name="parentid"></div>
 				</div>
 			</div>
+
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>三级分类</label>
+                <div class='col-md-10'>
+                    <select id="isleaf" name="isleaf" class="form-control input-sm">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+            </div>
+
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>状态</label>
 				<div class='col-md-10'>
@@ -51,6 +64,7 @@
 	<script type="text/javascript" src="../../js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../js/twoLinkage.js"></script>
 	<script type="text/javascript">
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
@@ -70,8 +84,8 @@
 						$('#categoryname').val(data.categoryname);
 						$('#parentid').val(data.parentid);
 						$('#status').val(data.status);
-						$('#createtime').val(data.createtime);
-						$('#updatetime').val(data.updatetime);
+						// $('#createtime').val(data.createtime);
+						// $('#updatetime').val(data.updatetime);
 						$('#isleaf').val(data.isleaf);
 
 					}
@@ -86,8 +100,10 @@
 		    if(!bootstrapValidator.isValid()){
 			   return;
 		    }
-		    
-		    var formdata = $("#form").serializeObject();
+
+            var formdata = formdataHandler($("#form").serializeObject());
+
+		    console.log(JSON.stringify(formdata));
 
 			$.ajax({
 				type : 'put',

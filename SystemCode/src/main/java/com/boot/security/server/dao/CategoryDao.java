@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.LinkageDto;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -31,7 +32,21 @@ public interface CategoryDao {
 
     List<Category> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
+    /**
+     * 获得二级分类数据
+     * @return
+     */
+    @Select("select id, categoryname, parentid from category where status = 1 and isleaf = 0")
+    List<LinkageDto> twoLinkage();
+
+    /**
+     * 获得三级分类数据
+     * @return
+     */
     @Select("select id, categoryname, parentid from category where status = 1")
-    List<Category> linkage();
-    //todo 完成dto层的编写并进行测试
+    List<LinkageDto> threeLinkage();
+
+
+    @Select("select categoryname from category where id = #{id}")
+    String getCategoryNameById(Long id);
 }

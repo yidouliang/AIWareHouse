@@ -24,7 +24,7 @@ public class ExcelProduct2AiExecProduct {
         execProduct.setProductname(product.getProductName());
         execProduct.setProductcode(product.getProductCode());
         execProduct.setProductdesc(product.getProductDesc());
-        execProduct.setProducttypeid(Integer.parseInt(product.getProductTypeId()));
+        execProduct.setProducttypeid(Long.parseLong(product.getProductTypeId()));
         execProduct.setProductoriprice(new BigDecimal(product.getProductOriPrice()));
         execProduct.setProductsource(product.getProductSource());
         return execProduct;

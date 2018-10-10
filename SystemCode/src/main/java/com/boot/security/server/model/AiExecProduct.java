@@ -12,7 +12,7 @@ public class AiExecProduct extends BaseEntity<Long> {
 	private String aicode;
 	private String productname;
 	private String productdesc;
-	private Integer producttypeid;
+	private Long producttypeid;
 	private BigDecimal productoriprice;
 	private Integer productstatus = ProductStatusEnum.OBTAINED.getCode();
 	private String productpicpath;
@@ -61,11 +61,11 @@ public class AiExecProduct extends BaseEntity<Long> {
 		this.productdesc = productdesc;
 	}
 
-	public Integer getProducttypeid() {
+	public Long getProducttypeid() {
 		return producttypeid;
 	}
 
-	public void setProducttypeid(Integer producttypeid) {
+	public void setProducttypeid(Long producttypeid) {
 		this.producttypeid = producttypeid;
 	}
 

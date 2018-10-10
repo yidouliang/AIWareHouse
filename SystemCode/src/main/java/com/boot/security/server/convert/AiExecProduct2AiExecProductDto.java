@@ -1,5 +1,6 @@
 package com.boot.security.server.convert;
 
+import com.boot.security.server.dao.CategoryDao;
 import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dto.AiExecProductDto;
 import com.boot.security.server.enums.DataStatusEnum;
@@ -25,12 +26,18 @@ public class AiExecProduct2AiExecProductDto {
     @Autowired
     private DictDao dictDao;
 
+    @Autowired
+    private CategoryDao categoryDao;
+
 
     public AiExecProductDto convert(AiExecProduct aiExecProduct) {
         AiExecProductDto aiExecProductDto = new AiExecProductDto();
         BeanUtils.copyProperties(aiExecProduct, aiExecProductDto);
 
-        String productTypeId = dictDao.getByTypeAndK("productTypeId", aiExecProduct.getProducttypeid().toString()).getVal();
+//        String productTypeId = dictDao.getByTypeAndK("productTypeId", aiExecProduct.getProducttypeid().toString()).getVal();
+        String productTypeId = categoryDao.getCategoryNameById(aiExecProduct.getProducttypeid());
+        if(productTypeId == null)
+            productTypeId = "暂无分类";
 
         String productStatus = ProductStatusEnum.getMessage(aiExecProduct.getProductstatus());
         if(productStatus.equals(""))

@@ -2,6 +2,7 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.dto.LinkageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -73,5 +74,17 @@ public class CategoryController {
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
         categoryDao.delete(id);
+    }
+
+    @GetMapping("/twoLinkage")
+    @ApiOperation(value = "获得二级分类信息")
+    public List<LinkageDto> notLeafLinkage() {
+        return categoryDao.twoLinkage();
+    }
+
+    @GetMapping("/threeLinkage")
+    @ApiOperation(value = "获得三级分类信息")
+    public List<LinkageDto> linkage() {
+        return categoryDao.threeLinkage();
     }
 }
