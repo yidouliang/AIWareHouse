@@ -18,6 +18,10 @@ import com.mchange.v2.beans.BeansUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.validation.BeanPropertyBindingResult;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import com.boot.security.server.page.table.PageTableRequest;
@@ -31,6 +35,7 @@ import com.boot.security.server.model.AiMktBox;
 import io.swagger.annotations.ApiOperation;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/aiMktBoxs")
@@ -50,8 +55,11 @@ public class AiMktBoxController {
 
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiMktBox save(@RequestBody AiMktBoxVo aiMktBoxVo, HttpServletRequest request,
-                         @RequestParam(value = "boxperson",required = false) Long boxperson) {
+    public AiMktBox save(@RequestBody @Valid AiMktBoxVo aiMktBoxVo, HttpServletRequest request,
+                         @RequestParam(value = "boxperson",required = false) Long boxperson,
+                          BeanPropertyBindingResult beanPropertyBindingResult) {
+
+
         //获取运营商Id,存入AiMktBox中
         SysUser user = userService.getTokenUser(request);
         AiOperator aiOperator = aiOperatorDao.getById(user.getOperatorid());

@@ -85,7 +85,7 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label">货柜配货仓库Id</label>
 				<div class="col-md-10" style="width: 200px">
-					<select class="form-control input-sm" name="boxwarehouseid" id="boxwarehouseid">
+					<select class="form-control input-sm" name="boxwarehouseid" id="warehouseid">
 					</select>
 				</div>
 			</div>
@@ -154,6 +154,12 @@
 
 	<script type="text/javascript">
 
+
+        showDictSelect("AiBoxType", "AiBoxType");
+        showDictSelect("AiBoxStatus", "AiBoxStatus");
+        showDictSelect("payState", "payState");
+        showIdAndNameSelect("warehouseid", "aiWarehouse");
+
         var longtitude = 0;
         var latitude = 0;
 
@@ -175,10 +181,7 @@
 
 		});
 
-        showDictSelect("AiBoxType", "AiBoxType");
-        showDictSelect("AiBoxStatus", "AiBoxStatus");
-        showDictSelect("payState", "payState");
-        showIdAndNameSelect("boxwarehouseid", "aiWarehouse");
+
 
 
 		function add() {

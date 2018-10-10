@@ -74,16 +74,6 @@ function buttonCreateWare(href, permission, pers){
     return btn.prop("outerHTML");
 }
 
-function buttonPay(href, permission, pers){
-   	//支付按钮 用于支付,需要之后补充
-    if(permission != ""){
-        if ($.inArray(permission, pers) < 0) {
-            return "";
-        }
-    }
-    var btn = $("<button class='layui-btn layui-btn-xs' title='续费' onclick='window.location=\"" + href +"\"'><i class='layui-icon'>续费</i></button>");
-    return btn.prop("outerHTML");
-}
 
 
 function deleteCurrentTab(){

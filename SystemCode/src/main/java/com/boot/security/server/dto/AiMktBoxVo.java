@@ -1,13 +1,16 @@
 package com.boot.security.server.dto;
 
 import com.boot.security.server.model.BaseEntity;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Date;
 
 public class AiMktBoxVo extends BaseEntity<Long> {
 
+    @NotEmpty
     private String boxname;
     private String boxcode;
     private String boxtype;
@@ -15,9 +18,11 @@ public class AiMktBoxVo extends BaseEntity<Long> {
     private String address;
     private String status;
     private Date factorydate;
+    @Size(max = 1,min = 0)
     private String paystate;
     private Long boxwarehouseid;
     private Date enddate;
+    @Pattern(regexp = "1\\d{10}",message = "手机格式错误")
     private String persontelphone;
     private BigDecimal longitude;
     private BigDecimal latitude;

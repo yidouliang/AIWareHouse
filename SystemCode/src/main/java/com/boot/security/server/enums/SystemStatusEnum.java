@@ -22,6 +22,8 @@ public enum SystemStatusEnum {
 
     BOX_NOT_EXIST("16", "盒子不存在"),
 
+    BIND_ERROR("21","参数校验错误"),
+
     ;
 
     String code;
