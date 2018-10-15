@@ -59,7 +59,6 @@
 			<if test="params.ext3 != null and params.ext3 != ''">
 				and ext3 = #{params.ext3} 
 			</if>
-		
 		</where>
 	</sql>
 
@@ -68,9 +67,15 @@
 		<include refid="where" />
 	</select>
 
-	<select id="list" resultType="AiMktBox">
-		select * from ai_mkt_box t
-		<include refid="where" />
+	<select id="list" resultType="com.boot.security.server.dto.AiMktBoxDto">
+		select t.*,d1.val boxTypeVal,d2.val statusVal,d3.val payStateVal
+		from ai_mkt_box t,t_dict d1,t_dict d2,t_dict d3
+		where d1.type = 'AiBoxType' and t.boxtype = d1.k
+		and d2.type = 'AiBoxStatus' and t.status = d2.k
+		and d3.type = 'payState' and t.paystate = d3.k
+		<if test="boxperson != null and boxperson != ''">
+			and boxperson = #{boxperson}
+		</if>
 		${params.orderBy}
 		limit #{offset}, #{limit}
 	</select>

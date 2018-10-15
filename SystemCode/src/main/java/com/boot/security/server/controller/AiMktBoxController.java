@@ -7,21 +7,15 @@ import java.util.List;
 import com.boot.security.server.convert.AiMktBoxVo2AiBox;
 import com.boot.security.server.dao.AiOperatorDao;
 import com.boot.security.server.dao.DictDao;
+import com.boot.security.server.dto.AiMktBoxDto;
 import com.boot.security.server.dto.AiMktBoxVo;
-import com.boot.security.server.filter.TokenFilter;
+import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.model.AiOperator;
 import com.boot.security.server.model.SysUser;
-import com.boot.security.server.service.TokenService;
-import com.boot.security.server.service.UserService;
 import com.boot.security.server.service.impl.UserServiceImpl;
-import com.mchange.v2.beans.BeansUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import com.boot.security.server.page.table.PageTableRequest;
@@ -56,10 +50,8 @@ public class AiMktBoxController {
     @PostMapping
     @ApiOperation(value = "保存")
     public AiMktBox save(@RequestBody @Valid AiMktBoxVo aiMktBoxVo, HttpServletRequest request,
-                         @RequestParam(value = "boxperson",required = false) Long boxperson,
-                          BeanPropertyBindingResult beanPropertyBindingResult) {
-
-
+                                      @RequestParam(value = "boxperson",required = false) Long boxperson,
+                                      BindingResult bindingResult) {
         //获取运营商Id,存入AiMktBox中
         SysUser user = userService.getTokenUser(request);
         AiOperator aiOperator = aiOperatorDao.getById(user.getOperatorid());
@@ -70,8 +62,6 @@ public class AiMktBoxController {
         if(aiOperator!=null) {
 
             aiMktBox.setBoxperson(aiOperator.getId());
-
-            //如果是管理员操作就提示(此处需要添加后台验证)
 
         }else{
             //当获取运营商为空的时候代表登录user为高级的管理员
@@ -84,6 +74,7 @@ public class AiMktBoxController {
 
         }
         aiMktBoxDao.save(aiMktBox);
+
 
         return aiMktBox;
     }
@@ -121,10 +112,10 @@ public class AiMktBoxController {
             }, new ListHandler() {
 
                 @Override
-                public List<AiMktBoxVo> list(PageTableRequest request) {
-                    List<AiMktBox> aiMktBoxList =  aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit(),null);
+                public List<AiMktBoxDto> list(PageTableRequest request) {
+                    List<AiMktBoxDto> aiMktBoxDtoList =  aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit(),null);
                     //判断盒子是否需要缴费,若欠费就更新状态
-                    for (AiMktBox box:aiMktBoxList
+                    for (AiMktBoxDto box:aiMktBoxDtoList
                     ) {
                         Date now = new Date();
                         if(box.getEnddate().before(now)){
@@ -133,9 +124,7 @@ public class AiMktBoxController {
                             aiMktBoxDao.update(box);
                         }
                     }
-                    List<AiMktBoxVo> aiMktBoxVoList = new ArrayList<>();
-                    AiMktBoxVo2AiBox.aiMktBoxList2AiBoxList(dictDao,aiMktBoxVoList,aiMktBoxList);
-                    return aiMktBoxVoList;
+                    return aiMktBoxDtoList;
                 }
             }).handle(request);
         }else {
@@ -148,10 +137,10 @@ public class AiMktBoxController {
             }, new ListHandler() {
 
                 @Override
-                public List<AiMktBoxVo> list(PageTableRequest request) {
-                    List<AiMktBox> aiMktBoxList = aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit(), aiOperator.getId());
+                public List<AiMktBoxDto> list(PageTableRequest request) {
+                    List<AiMktBoxDto> aiMktBoxDtoList = aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit(), aiOperator.getId());
                     //判断盒子是否需要缴费,若欠费就更新状态
-                    for (AiMktBox box : aiMktBoxList
+                    for (AiMktBoxDto box : aiMktBoxDtoList
                     ) {
                         Date now = new Date();
                         if (box.getEnddate().before(now)) {
@@ -160,9 +149,7 @@ public class AiMktBoxController {
                             aiMktBoxDao.update(box);
                         }
                     }
-                    List<AiMktBoxVo> aiMktBoxVoList = new ArrayList<>();
-                    AiMktBoxVo2AiBox.aiMktBoxList2AiBoxList(dictDao, aiMktBoxVoList, aiMktBoxList);
-                    return aiMktBoxVoList;
+                    return aiMktBoxDtoList;
                 }
             }).handle(request);
         }

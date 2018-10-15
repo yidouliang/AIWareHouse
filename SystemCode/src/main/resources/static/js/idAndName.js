@@ -1,5 +1,5 @@
 function showIdAndNameSelect(id, modelName, producttypeid) {
-	var data = getDict(modelName, producttypeid);
+	var data = getIdAndNameDict(modelName, producttypeid);
 	var select = $("#" + id);
 	select.empty();
 
@@ -10,7 +10,7 @@ function showIdAndNameSelect(id, modelName, producttypeid) {
 	return data;
 }
 
-function getDict(modelName, producttypeid) {
+function getIdAndNameDict(modelName, producttypeid) {
 
 	var url = '/idAndName/'+modelName;
 	if(producttypeid !== undefined) {
@@ -31,4 +31,36 @@ function getDict(modelName, producttypeid) {
 		});
 
 	return JSON.parse(sessionStorage[modelName]);
+}
+
+function showIdAndNameSelectWithOperatorId(id, modelName, operatorid) {
+    var data = getIdAndNameDictWithOperator(modelName, operatorid);
+    var select = $("#" + id);
+    select.empty();
+
+    $.each(data, function(id, name) {
+        select.append("<option value ='" + id + "'>" + name + "</option>");
+    });
+
+    return data;
+}
+
+function getIdAndNameDictWithOperator(modelName, operatorid) {
+
+    var url = '/idAndName/'+modelName+ '?operatorid=' +operatorid;
+    $.ajax({
+        type : 'get',
+        url : url,
+        async : false,
+        success : function(data) {
+            v = {};
+            $.each(data, function(i, d) {
+                v[d.id] = d.name;
+            });
+
+            sessionStorage[modelName] = JSON.stringify(v);
+        }
+    });
+
+    return JSON.parse(sessionStorage[modelName]);
 }

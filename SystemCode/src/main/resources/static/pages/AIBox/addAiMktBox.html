@@ -42,7 +42,7 @@
 			<div class='form-group' >
 
 				<label class='col-md-2 control-label'>地区选择</label>
-				<div id="distpicker" class='col-md-9'>
+				<div id="distpicker" class='col-md-10'>
 
 						<div style="position: relative;">
 							<input id="city-picker3" name="area" class="form-control" readonly type="text" value="四川省/成都市/龙泉驿区" data-toggle="city-picker">
@@ -84,7 +84,7 @@
 			</div>
 			<div class="form-group">
 				<label class="col-md-2 control-label">货柜配货仓库Id</label>
-				<div class="col-md-10" style="width: 200px">
+				<div class="col-md-10" style="width: 180px">
 					<select class="form-control input-sm" name="boxwarehouseid" id="warehouseid">
 					</select>
 				</div>
@@ -107,7 +107,9 @@
 					<input class='form-control' placeholder='联系人电话' type='text' name='persontelphone' id='persontelphone' data-bv-notempty='true' data-bv-notempty-message='联系人电话 不能为空'>
 				</div>
 			</div>
+
 			<button class="btn btn-primary" onclick="getLocation()">使用当前经纬度</button>
+
 			<div class='form-group'>
 
 				<label class='col-md-2 control-label'>经度</label>
@@ -154,11 +156,14 @@
 
 	<script type="text/javascript">
 
-
         showDictSelect("AiBoxType", "AiBoxType");
         showDictSelect("AiBoxStatus", "AiBoxStatus");
-        showDictSelect("payState", "payState");
-        showIdAndNameSelect("warehouseid", "aiWarehouse");
+		showDictSelect("payState", "payState");
+        if(getParam()===0){
+            showIdAndNameSelect("warehouseid", "aiWarehouse");
+        }else {
+            showIdAndNameSelectWithOperatorId("warehouseid", "aiWarehouse",getParam());
+        }
 
         var longtitude = 0;
         var latitude = 0;
@@ -193,7 +198,6 @@
 		    }
 
 		    var formdata = $("#form").serializeObject();
-            var wherego='${wherego}';
 
 			$.ajax({
 				type : 'post',
@@ -204,7 +208,6 @@
                         layer.msg("添加成功", {shift: -1, time: 1000}, function(){
                             window.history.back();
                         });
-
 				}
 			});
 		}

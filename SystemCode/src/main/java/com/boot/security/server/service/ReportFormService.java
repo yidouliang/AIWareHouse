@@ -15,5 +15,5 @@ public interface ReportFormService {
 
     FanReport getFanReportWithBoxCode(List<AiMktBox> boxList);
 
-    List<BigDecimal> getTurnoverWithBoxCode(Date date, List<Long> boxCodeList);
+    List<BigDecimal> getTurnoverWithBoxCode(Date date, List<String> boxCodeList);
 }

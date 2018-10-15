@@ -3,6 +3,7 @@ package com.boot.security.server.controller;
 import com.alibaba.fastjson.JSON;
 import com.boot.security.server.model.AiMktBox;
 import com.boot.security.server.model.AiOperator;
+import com.boot.security.server.model.BaseEntity;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.result.FanReport;
 import com.boot.security.server.service.impl.AiMktBoxServiceImpl;
@@ -20,6 +21,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
@@ -53,13 +55,12 @@ public class ReportFormController {
     @ApiOperation(value = "获取支付类型数据")
     public FanReport getpayType(HttpServletRequest request){
         SysUser user = userService.getTokenUser(request);
-        AiOperator aiOperator = aiOperatorService.getAiOperatorById(user.getOperatorid());
         //如果没有绑定运营商(即高级管理员)返回所有数据
-        if(aiOperator==null){
+        if(user.getOperatorid()==null){
             return reportFormService.getFanReport();
         }else {
             //查询所属box
-            List<AiMktBox> boxList = aiMktBoxService.getBoxListByOperatorId(aiOperator.getId());
+            List<AiMktBox> boxList = aiMktBoxService.getBoxListByOperatorId(user.getOperatorid());
             //根据boxId查询所属的订单
             return reportFormService.getFanReportWithBoxCode(boxList);
         }
@@ -70,18 +71,13 @@ public class ReportFormController {
     @ApiOperation(value = "获取每月营收总额")
     public List<BigDecimal> getTurnover(HttpServletRequest request){
         SysUser user = userService.getTokenUser(request);
-        AiOperator aiOperator = aiOperatorService.getAiOperatorById(user.getOperatorid());
-        if(aiOperator==null){
+        if(user.getOperatorid()==null){
             return reportFormService.getTurnover(new Date());
         }else{
             //查询所属box
-            List<AiMktBox> boxList = aiMktBoxService.getBoxListByOperatorId(aiOperator.getId());
+            List<AiMktBox> boxList = aiMktBoxService.getBoxListByOperatorId(user.getOperatorid());
             //根据boxId查询所属的订单
-            List<Long> boxCodeList = new ArrayList<>();
-            for (AiMktBox b :boxList
-                    ) {
-                boxCodeList.add(b.getId());
-            }
+            List<String> boxCodeList = boxList.stream().map(AiMktBox::getBoxcode).collect(Collectors.toList());
             return reportFormService.getTurnoverWithBoxCode(new Date(),boxCodeList);
         }
 

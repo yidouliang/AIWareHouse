@@ -38,9 +38,9 @@ public interface AiOrderFirstLevelDao {
     int getPayTypeCount(@Param("paytype") Integer payType);
 
     @Select("SELECT count(1) FROM ai_order_first_level a WHERE a.paytype = #{paytype} AND a.boxcode = #{boxcode}")
-    int getPayTypeCountWithBoxCode(@Param("paytype") Integer payType,@Param("boxcode") Long boxCode);
+    int getPayTypeCountWithBoxCode(@Param("paytype") Integer payType,@Param("boxcode") String boxCode);
 
     List<MonthSum> getMounthTurnover(@Param("beginDay") Integer beginDay,@Param("endDay")Integer endDay);
 
-    List<MonthSum> getMounthTurnoverWithBoxCode(@Param("beginDay")Integer beginDay,@Param("endDay") Integer endDay,@Param("boxCodeList") List<Long> boxCodeList);
+    List<MonthSum> getMounthTurnoverWithBoxCode(@Param("beginDay")Integer beginDay,@Param("endDay") Integer endDay,@Param("boxCodeList") List<String> boxCodeList);
 }

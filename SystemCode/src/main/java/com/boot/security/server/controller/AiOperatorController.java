@@ -2,8 +2,11 @@ package com.boot.security.server.controller;
 
 import java.util.List;
 
+import com.boot.security.server.form.AiOperatorForm;
 import com.boot.security.server.service.AiMktBoxService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +26,8 @@ import com.boot.security.server.model.AiOperator;
 
 import io.swagger.annotations.ApiOperation;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/aiOperators")
 public class AiOperatorController {
@@ -35,7 +40,9 @@ public class AiOperatorController {
 
     @PostMapping
     @ApiOperation(value = "保存")
-    public AiOperator save(@RequestBody AiOperator aiOperator) {
+    public AiOperator save(@RequestBody @Valid AiOperatorForm aiOperatorForm, BindingResult bindingResult) {
+        AiOperator aiOperator = new AiOperator();
+        BeanUtils.copyProperties(aiOperatorForm,aiOperator);
         aiOperatorDao.save(aiOperator);
 
         return aiOperator;

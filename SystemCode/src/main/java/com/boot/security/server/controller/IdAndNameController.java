@@ -9,10 +9,7 @@ import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -52,9 +49,10 @@ public class IdAndNameController {
 
     @GetMapping("/aiWarehouse")
     @ApiOperation(value = "获得仓库的id和Name键值对")
-    public List<IdAndNameDto> getWarehouseIdAndName(HttpServletRequest request) {
+    public List<IdAndNameDto> getWarehouseIdAndName(HttpServletRequest request,
+                                                    @RequestParam(value = "operatorid",required = false) Long operatorid) {
         SysUser user = userService.getTokenUser(request);
-        Long operatorId = user.getOperatorid() == null ? 0 : user.getOperatorid();
+        Long operatorId = user.getOperatorid() == null ? operatorid : user.getOperatorid();
         List<Map<String, Object>> mapList = aiWarehouseDao.getIdAndName(operatorId);
         return getIdAndName(mapList);
     }

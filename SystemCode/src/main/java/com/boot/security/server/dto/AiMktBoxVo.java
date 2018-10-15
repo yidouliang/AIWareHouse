@@ -3,6 +3,7 @@ package com.boot.security.server.dto;
 import com.boot.security.server.model.BaseEntity;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -15,12 +16,15 @@ public class AiMktBoxVo extends BaseEntity<Long> {
     private String boxcode;
     private String boxtype;
     private Long boxperson;
+    @NotNull
     private String address;
     private String status;
+    @NotNull
     private Date factorydate;
     @Size(max = 1,min = 0)
     private String paystate;
     private Long boxwarehouseid;
+    @NotNull
     private Date enddate;
     @Pattern(regexp = "1\\d{10}",message = "手机格式错误")
     private String persontelphone;

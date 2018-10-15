@@ -51,8 +51,6 @@ public class ReportFormServiceImpl implements ReportFormService {
 
     @Override
     public FanReport getFanReportWithBoxCode(List<AiMktBox> boxList) {
-        //需要返回的数据
-        List<FanReport> boxFanReportList = new ArrayList<>();
         //先获取支付类型
         List<PayTypeAndValue> payTypeAndVals = getPayTypenum();
         //将type的字符串数据存入payTypes中
@@ -67,7 +65,7 @@ public class ReportFormServiceImpl implements ReportFormService {
             payCount.setName(p.getPayName());
             for (AiMktBox box:boxList
                 ) {
-                payCount.setValue(payCount.getValue() + firstLevelDao.getPayTypeCountWithBoxCode(p.getPayType(),box.getId()));
+                payCount.setValue(payCount.getValue() + firstLevelDao.getPayTypeCountWithBoxCode(p.getPayType(),box.getBoxcode()));
             }
             payCounts.add(payCount);
         }
@@ -113,7 +111,7 @@ public class ReportFormServiceImpl implements ReportFormService {
     }
 
     @Override
-    public List<BigDecimal> getTurnoverWithBoxCode(Date nowDay, List<Long> boxCodeList) {
+    public List<BigDecimal> getTurnoverWithBoxCode(Date nowDay, List<String> boxCodeList) {
         Calendar calendar = Calendar.getInstance();//日历对象
         calendar.setTime(nowDay);//设置当前日期
 

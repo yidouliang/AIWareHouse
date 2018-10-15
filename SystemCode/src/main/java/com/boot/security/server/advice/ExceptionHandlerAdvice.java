@@ -51,6 +51,24 @@ public class ExceptionHandlerAdvice {
 		return new ResponseInfo(HttpStatus.BAD_REQUEST.value() + "", exception.getMessage());
 	}
 
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseInfo handleBindException(MethodArgumentNotValidException ex) {
+		FieldError fieldError = ex.getBindingResult().getFieldError();
+		log.info("参数校验异常:{}({})", fieldError.getDefaultMessage(),fieldError.getField());
+		ResponseInfo responseInfo = new ResponseInfo(SystemStatusEnum.BIND_ERROR.getCode(),fieldError.getDefaultMessage());
+		return responseInfo;
+	}
+
+
+	@ExceptionHandler(BindException.class)
+	public ResponseInfo handleBindException(BindException ex) {
+		//校验 除了 requestbody 注解方式的参数校验 对应的 bindingresult 为 BeanPropertyBindingResult
+		FieldError fieldError = ex.getBindingResult().getFieldError();
+		log.info("必填校验异常:{}({})", fieldError.getDefaultMessage(),fieldError.getField());
+		ResponseInfo responseInfo = new ResponseInfo(SystemStatusEnum.BIND_ERROR.getCode(),fieldError.getDefaultMessage());
+		return responseInfo;
+	}
+
 	@ExceptionHandler(Throwable.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ResponseInfo exception(Throwable throwable) {

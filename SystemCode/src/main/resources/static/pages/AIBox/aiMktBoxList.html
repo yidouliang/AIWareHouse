@@ -61,6 +61,9 @@
 									<th>联系人电话</th>
 									<th>经度</th>
 									<th>纬度</th>
+									<th>货柜类型</th>
+									<th>货柜状态</th>
+									<th>支付状态</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -106,17 +109,26 @@ function init(){
             "columns": [
 				{"data" : "boxname", "defaultContent" : ""},
 				{"data" : "boxcode", "defaultContent" : ""},
-				{"data" : "boxtype", "defaultContent" : ""},
+				{"data" : "boxtype", "defaultContent" : "",
+					"render": function ( data, type, full, meta ) {
+                        return full.boxTypeVal;}},
 				{"data" : "boxperson", "defaultContent" : ""},
 				{"data" : "address", "defaultContent" : ""},
-				{"data" : "status", "defaultContent" : ""},
+				{"data" : "status", "defaultContent" : "",
+                    "render": function ( data, type, full, meta ) {
+                        return full.statusVal;}},
 				{"data" : "factorydate", "defaultContent" : ""},
-				{"data" : "paystate", "defaultContent" : ""},
+				{"data" : "paystate", "defaultContent" : "",
+                    "render": function ( data, type, full, meta ) {
+                        return full.payStateVal;}},
 				{"data" : "boxwarehouseid", "defaultContent" : ""},
 				{"data" : "enddate", "defaultContent" : ""},
 				{"data" : "persontelphone", "defaultContent" : ""},
 				{"data" : "longitude", "defaultContent" : ""},
 				{"data" : "latitude", "defaultContent" : ""},
+                {"data" : "boxTypeVal", "defaultContent" : "","visible":false},
+                {"data" : "statusVal", "defaultContent" : "","visible":false},
+                {"data" : "payStateVal", "defaultContent" : "","visible":false},
 				{ 
 								"data": "", 
 								"defaultContent": "",
