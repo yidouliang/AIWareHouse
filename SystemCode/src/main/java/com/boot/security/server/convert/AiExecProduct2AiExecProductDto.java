@@ -3,6 +3,7 @@ package com.boot.security.server.convert;
 import com.boot.security.server.dao.CategoryDao;
 import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dto.AiExecProductDto;
+import com.boot.security.server.enums.ButtonStatusEnum;
 import com.boot.security.server.enums.DataStatusEnum;
 import com.boot.security.server.enums.ProductStatusEnum;
 import com.boot.security.server.model.AiExecProduct;
@@ -39,16 +40,16 @@ public class AiExecProduct2AiExecProductDto {
         if(productTypeId == null)
             productTypeId = "暂无分类";
 
-        String productStatus = ProductStatusEnum.getMessage(aiExecProduct.getProductstatus());
-        if(productStatus.equals(""))
-            productStatus = dictDao.getByTypeAndK("productstatus", aiExecProduct.getProductstatus().toString()).getVal();
+//        String productStatus = ProductStatusEnum.getMessage(aiExecProduct.getProductstatus());
+//        if(productStatus.equals(""))
+//            productStatus = dictDao.getByTypeAndK("productstatus", aiExecProduct.getProductstatus().toString()).getVal();
 
         String dataStatus = DataStatusEnum.getMessage(aiExecProduct.getDatastate());
-        if(productStatus.equals(""))
-            dataStatus = dictDao.getByTypeAndK("datastate", aiExecProduct.getDatastate().toString()).getVal();
+//        if(productStatus.equals(""))
+//            dataStatus = dictDao.getByTypeAndK("datastate", aiExecProduct.getDatastate().toString()).getVal();
 
         aiExecProductDto.setProducttypeid(productTypeId);
-        aiExecProductDto.setProductstatus(productStatus);
+        aiExecProductDto.setProductstatus(String.valueOf(aiExecProduct.getProductstatus()));
         aiExecProductDto.setDatastate(dataStatus);
 
         return aiExecProductDto;

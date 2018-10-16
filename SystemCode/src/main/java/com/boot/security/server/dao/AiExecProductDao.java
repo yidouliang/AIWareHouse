@@ -3,12 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import com.boot.security.server.model.AiExecProduct;
 
@@ -33,5 +28,8 @@ public interface AiExecProductDao {
 
     @Select("select id, productname from ai_exec_product t where t.productstatus = 1 and t.producttypeid = #{productTypeId}")
     List<Map<String, Object>> getIdAndName(Long productTypeId);
+
+    @Update("update ai_exec_product a set a.productstatus = #{productstatus} where a.id = #{id}")
+    int changeProductStatus(@Param("id") Long id, @Param("productstatus") Integer productstatus);
 
 }

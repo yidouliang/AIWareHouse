@@ -76,6 +76,7 @@ function buttonCreateWare(href, permission, pers){
 
 
 
+
 function deleteCurrentTab(){
 	var lay_id = $(parent.document).find("ul.layui-tab-title").children("li.layui-this").attr("lay-id");
 	parent.active.tabDelete(lay_id);
