@@ -6,40 +6,40 @@
 	<sql id="where">
 		<where>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and id =#{params.id}
 			</if>
 			<if test="params.name != null and params.name != ''">
-				and name = #{params.name} 
+				and name like concat(concat('%',#{params.name}),'%')
 			</if>
 			<if test="params.telphone != null and params.telphone != ''">
-				and telphone = #{params.telphone} 
+				and telphone like concat(concat('%',#{params.telphone}),'%')
 			</if>
 			<if test="params.type != null and params.type != ''">
-				and type = #{params.type} 
+				and type = #{params.type}
 			</if>
 			<if test="params.starcode != null and params.starcode != ''">
-				and starcode = #{params.starcode} 
+				and starcode = #{params.starcode}
 			</if>
 			<if test="params.source != null and params.source != ''">
-				and source = #{params.source} 
+				and source = #{params.source}
 			</if>
 			<if test="params.descinfo != null and params.descinfo != ''">
-				and descinfo = #{params.descinfo} 
+				and descinfo = #{params.descinfo}
 			</if>
 			<if test="params.state != null and params.state != ''">
-				and state = #{params.state} 
+				and state = #{params.state}
 			</if>
 			<if test="params.boxidreg != null and params.boxidreg != ''">
-				and boxidreg = #{params.boxidreg} 
+				and boxidreg = #{params.boxidreg}
 			</if>
 			<if test="params.ext1 != null and params.ext1 != ''">
-				and ext1 = #{params.ext1} 
+				and ext1 = #{params.ext1}
 			</if>
 			<if test="params.ext2 != null and params.ext2 != ''">
-				and ext2 = #{params.ext2} 
+				and ext2 = #{params.ext2}
 			</if>
 			<if test="params.ext3 != null and params.ext3 != ''">
-				and ext3 = #{params.ext3} 
+				and ext3 = #{params.ext3}
 			</if>
 		
 		</where>
@@ -50,9 +50,40 @@
 		<include refid="where" />
 	</select>
 
-	<select id="list" resultType="AiConsumer">
-		select * from ai_consumer t
-		<include refid="where" />
+	<select id="list" resultType="com.boot.security.server.dto.AiConsumerDto">
+		select c.*,d1.val consumerTypeVal,d2.val consumerSourceVal,d3.val consumerStateVal
+		from ai_consumer c,t_dict d1,t_dict d2,t_dict d3
+		where d1.type = 'AiConsumerType' and c.type = d1.k
+		and d2.type = 'AiConsumerSource' and c.source = d2.k
+		and d3.type = 'AiConsumerState' and c.state = d3.k
+		<if test="params.id != null and params.id != ''">
+			and c.id =#{params.id}
+		</if>
+		<if test="params.name != null and params.name != ''">
+			and c.name like concat(concat('%',#{params.name}),'%')
+		</if>
+		<if test="params.telphone != null and params.telphone != ''">
+			and c.telphone like concat(concat('%',#{params.telphone}),'%')
+		</if>
+		<if test="params.type != null and params.type != ''">
+			and c.type = #{params.type}
+		</if>
+		<if test="params.starcode != null and params.starcode != ''">
+			and c.starcode = #{params.starcode}
+		</if>
+		<if test="params.source != null and params.source != ''">
+			and c.source = #{params.source}
+		</if>
+		<if test="params.descinfo != null and params.descinfo != ''">
+			and c.descinfo = #{params.descinfo}
+		</if>
+		<if test="params.state != null and params.state != ''">
+			and c.state = #{params.state}
+		</if>
+		<if test="params.boxidreg != null and params.boxidreg != ''">
+			and c.boxidreg = #{params.boxidreg}
+		</if>
+
 		${params.orderBy}
 		limit #{offset}, #{limit}
 	</select>

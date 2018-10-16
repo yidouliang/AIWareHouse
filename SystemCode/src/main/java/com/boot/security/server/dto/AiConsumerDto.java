@@ -1,79 +1,36 @@
 package com.boot.security.server.dto;
 
-import com.boot.security.server.model.BaseEntity;
+import com.boot.security.server.model.AiConsumer;
 
-public class AiConsumerDto extends BaseEntity<Long> {
+public class AiConsumerDto extends AiConsumer {
 
-    private String name;
-    private String telphone;
-    private String type;
-    private Integer starcode;
-    private String source;
-    private String descinfo;
-    private String state;
-    private String boxidreg;
+    private String consumerTypeVal;
 
-    public String getName() {
-        return name;
+    private String consumerSourceVal;
+
+    private String consumerStateVal;
+
+    public String getConsumerTypeVal() {
+        return consumerTypeVal;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setConsumerTypeVal(String consumerTypeVal) {
+        this.consumerTypeVal = consumerTypeVal;
     }
 
-    public String getTelphone() {
-        return telphone;
+    public String getConsumerSourceVal() {
+        return consumerSourceVal;
     }
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone;
+    public void setConsumerSourceVal(String consumerSourceVal) {
+        this.consumerSourceVal = consumerSourceVal;
     }
 
-    public String getType() {
-        return type;
+    public String getConsumerStateVal() {
+        return consumerStateVal;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Integer getStarcode() {
-        return starcode;
-    }
-
-    public void setStarcode(Integer starcode) {
-        this.starcode = starcode;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public String getDescinfo() {
-        return descinfo;
-    }
-
-    public void setDescinfo(String descinfo) {
-        this.descinfo = descinfo;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getBoxidreg() {
-        return boxidreg;
-    }
-
-    public void setBoxidreg(String boxidreg) {
-        this.boxidreg = boxidreg;
+    public void setConsumerStateVal(String consumerStateVal) {
+        this.consumerStateVal = consumerStateVal;
     }
 }

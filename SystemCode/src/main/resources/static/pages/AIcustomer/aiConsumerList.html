@@ -56,6 +56,9 @@
 								<th>描述信息</th>
 								<th>消费者状态</th>
 								<th>最初注册盒子ID</th>
+								<th>消费者类型val</th>
+								<th>消费者来源val</th>
+								<th>消费者状态val</th>
 								<th>操作</th>
 							</tr>
 							</thead>
@@ -101,12 +104,21 @@
                     {"data" : "id", "defaultContent" : ""},
                     {"data" : "name", "defaultContent" : ""},
                     {"data" : "telphone", "defaultContent" : ""},
-                    {"data" : "type", "defaultContent" : ""},
+                    {"data" : "type", "defaultContent" : "",
+                        "render": function ( data, type, full, meta ) {
+                            return full.consumerTypeVal;}},
                     {"data" : "starcode", "defaultContent" : ""},
-                    {"data" : "source", "defaultContent" : ""},
+                    {"data" : "source", "defaultContent" : "",
+                        "render": function ( data, type, full, meta ) {
+                            return full.consumerSourceVal;}},
                     {"data" : "descinfo", "defaultContent" : ""},
-                    {"data" : "state", "defaultContent" : ""},
+                    {"data" : "state", "defaultContent" : "",
+                        "render": function ( data, type, full, meta ) {
+                            return full.consumerStateVal;}},
                     {"data" : "boxidreg", "defaultContent" : ""},
+                    {"data" : "consumerTypeVal", "defaultContent" : "","visible":false},
+                    {"data" : "consumerSourceVal", "defaultContent" : "","visible":false},
+                    {"data" : "consumerStateVal", "defaultContent" : "","visible":false},
                     {
                         "data": "",
                         "defaultContent": "",

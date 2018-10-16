@@ -115,15 +115,15 @@ public class AiMktBoxController {
                 public List<AiMktBoxDto> list(PageTableRequest request) {
                     List<AiMktBoxDto> aiMktBoxDtoList =  aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit(),null);
                     //判断盒子是否需要缴费,若欠费就更新状态
-                    for (AiMktBoxDto box:aiMktBoxDtoList
-                    ) {
-                        Date now = new Date();
-                        if(box.getEnddate().before(now)){
-                            //支付状态 0欠费 1已缴费
-                            box.setPaystate(0);
-                            aiMktBoxDao.update(box);
-                        }
-                    }
+//                    for (AiMktBoxDto box:aiMktBoxDtoList
+//                    ) {
+//                        Date now = new Date();
+//                        if(box.getEnddate().before(now)){
+//                            //支付状态 0欠费 1已缴费
+//                            box.setPaystate(0);
+//                            aiMktBoxDao.update(box);
+//                        }
+//                    }
                     return aiMktBoxDtoList;
                 }
             }).handle(request);
@@ -140,15 +140,15 @@ public class AiMktBoxController {
                 public List<AiMktBoxDto> list(PageTableRequest request) {
                     List<AiMktBoxDto> aiMktBoxDtoList = aiMktBoxDao.list(request.getParams(), request.getOffset(), request.getLimit(), aiOperator.getId());
                     //判断盒子是否需要缴费,若欠费就更新状态
-                    for (AiMktBoxDto box : aiMktBoxDtoList
-                    ) {
-                        Date now = new Date();
-                        if (box.getEnddate().before(now)) {
-                            //支付状态 0欠费 1已缴费
-                            box.setPaystate(0);
-                            aiMktBoxDao.update(box);
-                        }
-                    }
+//                    for (AiMktBoxDto box : aiMktBoxDtoList
+//                    ) {
+//                        Date now = new Date();
+//                        if (box.getEnddate().before(now)) {
+//                            //支付状态 0欠费 1已缴费
+//                            box.setPaystate(0);
+//                            aiMktBoxDao.update(box);
+//                        }
+//                    }
                     return aiMktBoxDtoList;
                 }
             }).handle(request);

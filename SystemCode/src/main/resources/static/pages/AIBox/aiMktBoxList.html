@@ -19,12 +19,12 @@
 	                   			<td>
 		                   			<form class="form-inline" onsubmit="return false">
 										<div class="form-group">
-											id：
-											<input id="id" type="text" class="form-control" placeholder="id">
 											货柜名称：
-											<input id="boxname" type="text" class="form-control" placeholder="货柜名称(全名)">
+											<input id="boxname" type="text" class="form-control" placeholder="货柜名称">
 											运营商id：
-											<input id="boxperson" type="text" class="form-control" placeholder="运营商id(全名)">
+											<input id="boxperson" type="text" class="form-control" placeholder="运营商id">
+											地址：
+											<input id="address" type="text" class="form-control" placeholder="地址">
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
@@ -47,6 +47,7 @@
                                 <tr>
                                 </tr>                       
                                 <tr>
+									<th>AI货柜Id</th>
 									<th>AI货柜名称</th>
 									<th>AI货柜编号</th>
 									<th>AI货柜类型</th>
@@ -100,13 +101,14 @@ function init(){
         		"url" : "/aiMktBoxs",
         		"type":"get",
         		"data":function(d){
-    				d.id = $("#id").val();
-    				d.boxname = $("boxname").val();
-    				d.boxperson = $("boxperson").val();
+    				d.boxname = $("#boxname").val();
+    				d.boxperson = $("#boxperson").val();
+                    d.address = $("#address").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
             "columns": [
+                {"data" : "id", "defaultContent" : "","visible":false},
 				{"data" : "boxname", "defaultContent" : ""},
 				{"data" : "boxcode", "defaultContent" : ""},
 				{"data" : "boxtype", "defaultContent" : "",

@@ -1,9 +1,7 @@
 package com.boot.security.server.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.boot.security.server.convert.AiConsumer2AiConsumerDto;
 import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dto.AiConsumerDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +31,6 @@ public class AiConsumerController {
     @Autowired
     private AiConsumerDao aiConsumerDao;
 
-    @Autowired
-    private DictDao dictDao;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -71,10 +67,8 @@ public class AiConsumerController {
 
             @Override
             public List<AiConsumerDto> list(PageTableRequest request) {
-                List<AiConsumer> consumers = aiConsumerDao.list(request.getParams(), request.getOffset(), request.getLimit());
-                List<AiConsumerDto> consumerDtos = new ArrayList<>();
-                AiConsumer2AiConsumerDto.aiConsumerList2AiConsumerDtoList(consumers,consumerDtos,dictDao);
-                return consumerDtos;
+                List<AiConsumerDto> consumers = aiConsumerDao.list(request.getParams(), request.getOffset(), request.getLimit());
+                return consumers;
             }
         }).handle(request);
     }
