@@ -32,7 +32,7 @@
 	                   			</td>
 	                   			<td align="right">
                                     <button type="button" class="layui-btn layui-btn-sm" id="downloadExcel">
-										<i class="layui-icon">&#xe67c;</i><a href="/aiExecProducts/downloadTemplate">下载Excel模板</a>
+										<i class="layui-icon">&#xe67c;</i>下载Excel模板
                                     </button>
 									<button type="button" class="layui-btn layui-btn-sm" id="uploadExcel">
 										<i class="layui-icon">&#xe67c;</i>Excel导入
@@ -187,19 +187,19 @@ function del(id){
     });
 }
 
-// function download() {
-//     $.ajax({
-//         url: "/aiExecProducts/downloadTemplate",
-//         type: "GET",
-//         async: false,
-//         success: function () {
-//             layer.msg("下载成功");
-//         },
-//         error: function () {
-//             layer.msg("下载失败");
-//         }
-//     });
-// }
+function download() {
+    $.ajax({
+        url: "/aiExecProducts/downloadTemplate",
+        type: "GET",
+        async: false,
+        success: function () {
+            layer.msg("下载成功");
+        },
+        error: function () {
+            layer.msg("下载失败");
+        }
+    });
+}
 
 $("#searchBt").click(function(){
 	example.ajax.reload();

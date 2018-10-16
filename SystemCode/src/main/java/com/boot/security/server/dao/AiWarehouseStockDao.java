@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.AiWarehouseStockDto;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -29,7 +30,7 @@ public interface AiWarehouseStockDao {
     
     int count(@Param("params") Map<String, Object> params);
 
-    List<AiWarehouseStock> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    List<AiWarehouseStockDto> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
     @Select("select * from ai_warehouse_stock t where t.prodinstid = #{prodinstid} and warehouseid = #{warehouseid}")
     AiWarehouseStock getByProdinstidAndWarehouseid(@Param("prodinstid") Long prodinstid,

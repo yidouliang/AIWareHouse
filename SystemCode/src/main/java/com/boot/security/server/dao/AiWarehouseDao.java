@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.AiWarehouseDto;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -29,9 +30,9 @@ public interface AiWarehouseDao {
     
     int count(@Param("params") Map<String, Object> params);
 
-    List<AiWarehouse> list(@Param("params") Map<String, Object> params,
-                           @Param("offset") Integer offset,
-                           @Param("limit") Integer limit);
+    List<AiWarehouseDto> list(@Param("params") Map<String, Object> params,
+                              @Param("offset") Integer offset,
+                              @Param("limit") Integer limit);
 
     @Select("select id, name from ai_warehouse t where t.warehousestate = 1 and operatorId = #{operatorId} ")
     List<Map<String, Object>> getIdAndName(Long operatorId);

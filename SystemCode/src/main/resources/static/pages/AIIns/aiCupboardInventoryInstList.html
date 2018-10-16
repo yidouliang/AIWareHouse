@@ -57,7 +57,7 @@
 									<!--<th>入库运营者</th>-->
 									<th>商品原价</th>
 									<th>商品售价</th>
-									<th>盒子编码</th>
+									<th>盒子名称</th>
 									<th>折扣率</th>
 									<th>批次</th>
 									<th>仓库名称</th>
@@ -108,7 +108,7 @@ function init(){
         		"data":function(d){
     				d.id = $("#id").val();
                     d.productname = $("#productname").val();
-                    d.productcode = $("#productcode").val();       //这里还没有productcode
+                    d.productcode = $("#productcode").val();
                 }
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
@@ -122,15 +122,15 @@ function init(){
 				// {"data" : "userid", "defaultContent" : ""},
 				{"data" : "originprice", "defaultContent" : ""},
 				{"data" : "saleprice", "defaultContent" : ""},
-				{"data" : "boxid", "defaultContent" : ""},
+				{"data" : "boxName", "defaultContent" : ""},
 				{"data" : "discount", "defaultContent" : ""},
 				{"data" : "batchid", "defaultContent" : ""},
-				{"data" : "warehouseid", "defaultContent" : ""},
+				{"data" : "warehouseName", "defaultContent" : ""},
 				{"data" : "factorydate", "defaultContent" : ""},
 				{"data" : "validmonths", "defaultContent" : ""},
-				{"data" : "storestatus", "defaultContent" : ""},
+				{"data" : "status", "defaultContent" : ""},
 				{"data" : "statusstatereason", "defaultContent" : ""},
-				{"data" : "createoperid", "defaultContent" : ""},
+				{"data" : "creatorName", "defaultContent" : ""},
 				// {"data" : "createorgid", "defaultContent" : ""},
 				// {"data" : "createdate", "defaultContent" : ""},
 				{"data" : "modifydate", "defaultContent" : ""},

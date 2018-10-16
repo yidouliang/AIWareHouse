@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.AiMktInventoryInstDto;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -30,7 +31,7 @@ public interface AiMktInventoryInstDao {
     
     int count(@Param("params") Map<String, Object> params);
 
-    List<AiMktInventoryInst> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    List<AiMktInventoryInstDto> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
     @Select("select originprice from ai_mkt_inventory_inst where id = #{id}")
     BigDecimal getOriginPrice(Long id);

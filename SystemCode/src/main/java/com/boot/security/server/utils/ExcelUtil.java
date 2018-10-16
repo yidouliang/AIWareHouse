@@ -196,7 +196,7 @@ public class ExcelUtil {
         Sheet sheet = null;
         Row row = null;
         Cell cell = null;
-        String[] content = new String[6];
+        String[] content = new String[7];
         for(int i=0; i<wb.getNumberOfSheets(); i++) {
             sheet = wb.getSheetAt(i);
             for (int j = 1; j < sheet.getLastRowNum() + 1; j++) {

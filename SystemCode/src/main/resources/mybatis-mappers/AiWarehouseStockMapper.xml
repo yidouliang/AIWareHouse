@@ -92,9 +92,19 @@
 		<include refid="where" />
 	</select>
 
-	<select id="list" resultType="AiWarehouseStock">
-		select * from ai_warehouse_stock t
-		<include refid="where" />
+	<select id="list" resultType="com.boot.security.server.dto.AiWarehouseStockDto">
+		<!--select * from ai_warehouse_stock t-->
+		<!--<include refid="where" />-->
+        select t.*, a.name warehouseName, t1.val status, s.nickname creatorName, a1.name operatorName
+        from ai_warehouse_stock t, ai_warehouse a, t_dict t1, sys_user s, ai_operator a1
+        where a.id=t.warehouseid
+        and t1.type="storestatus"
+        and t.storestatus=t1.k
+        and s.id=t.createoperid
+        and a1.id=t.createorgid
+        <if test="params.createorgid != null and params.createorgid != ''">
+            and createorgid = #{params.createorgid}
+        </if>
 		${params.orderBy}
 		limit #{offset}, #{limit}
 	</select>

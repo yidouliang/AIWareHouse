@@ -23,24 +23,27 @@
 				</div>
 			</div>
 
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>生产日期</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入生产日期' type='text' name='factorydate' id='factorydate' data-bv-notempty='true' data-bv-notempty-message='factorydate 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>过期日期</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入过期日期' type='text' name='validmonths' id='validmonths' data-bv-notempty='true' data-bv-notempty-message='validmonths 不能为空'>
-				</div>
-			</div>
-			<div class='form-group'>
-				<label class='col-md-2 control-label'>库存状态</label>
-				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入库存状态' type='text' name='storestatus' id='storestatus' data-bv-notempty='true' data-bv-notempty-message='storestatus 不能为空'>
-				</div>
-			</div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>生产日期</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='请输入生产日期' type='text' name='factorydate' id='factorydate' data-bv-notempty='true' data-bv-notempty-message='factorydate 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>过期日期</label>
+                <div class='col-md-10'>
+                    <input class='form-control' placeholder='请输入过期日期' type='text' name='validmonths' id='validmonths' data-bv-notempty='true' data-bv-notempty-message='validmonths 不能为空'>
+                </div>
+            </div>
+            <div class='form-group'>
+                <label class='col-md-2 control-label'>库存状态</label>
+                <div class='col-md-10'>
+                    <select class="form-control" id="storestatus" name="storestatus">
+                        <option value="1">正常</option>
+                        <option value="0">缺货</option>
+                    </select>
+                </div>
+            </div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>状态变化原因</label>
 				<div class='col-md-10'>
@@ -78,6 +81,20 @@
 		layui.use(['layer','laydate'], function(){
 		    var layer = layui.layer;
 		});
+
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+
+            laydate.render({
+                elem: '#factorydate',
+                type: 'datetime'
+            });
+
+            laydate.render({
+                elem: '#validmonths',
+                type: 'datetime'
+            });
+        });
 		
 		initData();
 		

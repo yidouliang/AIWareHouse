@@ -9,6 +9,8 @@ public class ExcelProduct {
 
     private String productCode;
 
+    private String aiCode;
+
     private String productName;
 
     private String productDesc;
@@ -24,11 +26,12 @@ public class ExcelProduct {
 
     public ExcelProduct(String[] content) {
         productCode = content[0];
-        productName = content[1];
-        productDesc = content[2];
-        productTypeId = content[3];
-        productOriPrice = content[4];
-        productSource = content[5];
+        aiCode = content[1];
+        productName = content[2];
+        productDesc = content[3];
+        productTypeId = content[4];
+        productOriPrice = content[5];
+        productSource = content[6];
     }
 
     public String getProductCode() {
@@ -79,10 +82,19 @@ public class ExcelProduct {
         this.productSource = productSource;
     }
 
+    public String getAiCode() {
+        return aiCode;
+    }
+
+    public void setAiCode(String aiCode) {
+        this.aiCode = aiCode;
+    }
+
     @Override
     public String toString() {
         return "ExcelProduct{" +
                 "productCode='" + productCode + '\'' +
+                ", aiCode='" + aiCode + '\'' +
                 ", productName='" + productName + '\'' +
                 ", productDesc='" + productDesc + '\'' +
                 ", productTypeId='" + productTypeId + '\'' +

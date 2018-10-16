@@ -103,8 +103,10 @@ public class AiExecProductController {
 
     @PostMapping("/import")
     @ApiOperation(value = "从Excel中导入产品数据")
-    public ResponseInfo importProduct(MultipartFile file) throws IOException {
-        return aiExecProductService.importProduct(file);
+    public ResponseInfo importProduct(MultipartFile file,
+                                      HttpServletRequest request) throws IOException {
+        Long creatorId = userService.getTokenUser(request).getId();
+        return aiExecProductService.importProduct(file, creatorId);
     }
 
     @GetMapping("/downloadTemplate")

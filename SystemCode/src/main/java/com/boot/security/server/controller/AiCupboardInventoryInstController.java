@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.AiCupboardInventoryInstDto;
 import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.AiCupboardInventoryInstService;
@@ -76,7 +77,7 @@ public class AiCupboardInventoryInstController {
         }, new ListHandler() {
 
             @Override
-            public List<AiCupboardInventoryInst> list(PageTableRequest request) {
+            public List<AiCupboardInventoryInstDto> list(PageTableRequest request) {
                 SysUser user = userService.getTokenUser(httpServletRequest);
                 if(user.getOperatorid() != null) {
                     Map<String, Object> m = new HashMap<>();

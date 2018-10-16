@@ -47,9 +47,19 @@
 		<include refid="where" />
 	</select>
 
-	<select id="list" resultType="AiWarehouse">
-		select * from ai_warehouse t
-		<include refid="where" />
+	<select id="list" resultType="com.boot.security.server.dto.AiWarehouseDto">
+		<!--select * from ai_warehouse t-->
+		<!--<include refid="where" />-->
+        select t.*, t1.val typeName, t2.val stateName, a.name operatorName
+        from ai_warehouse t, t_dict t1, t_dict t2, ai_operator a
+        where t1.type="warehouseType"
+        and t.type=t1.k
+        and t2.type="warehousestate"
+        and t2.k=t.warehousestate
+        and t.operatorid=a.id
+        <if test="params.operatorid != null and params.operatorid != ''">
+            and operatorid = #{params.operatorid}
+        </if>
 		${params.orderBy}
 		limit #{offset}, #{limit}
 	</select>

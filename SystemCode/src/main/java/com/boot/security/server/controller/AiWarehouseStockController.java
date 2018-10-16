@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.AiWarehouseStockDto;
 import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.AiWarehouseStockService;
@@ -78,7 +79,7 @@ public class AiWarehouseStockController {
         }, new ListHandler() {
 
             @Override
-            public List<AiWarehouseStock> list(PageTableRequest request) {
+            public List<AiWarehouseStockDto> list(PageTableRequest request) {
                 SysUser user = userService.getTokenUser(httpServletRequest);
                 if(user.getOperatorid() != null) {
                     Map<String, Object> m = new HashMap<>();

@@ -34,14 +34,22 @@
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>仓库类型</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入仓库类型' type='text' name='type' id='type' data-bv-notempty='true' data-bv-notempty-message='type 不能为空'>
+					<select id="type" name="type" class="form-control">
+						<option value="0">总仓</option>
+						<option value="1">地区仓库</option>
+						<option value="2">微型仓库</option>
+						<option value="4">其它</option>
+					</select>
 				</div>
 			</div>
 
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>仓库状态</label>
 				<div class='col-md-10'>
-					<input class='form-control' placeholder='请输入仓库状态' type='text' name='warehousestate' id='warehousestate' data-bv-notempty='true' data-bv-notempty-message='warehousestate 不能为空'>
+                    <select id="warehousestate" name="warehousestate" class="form-control">
+                        <option value="0">修建中</option>
+                        <option value="1">运行中</option>
+                    </select>
 				</div>
 			</div>
 

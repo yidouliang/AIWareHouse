@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.AiWarehouseDto;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +73,7 @@ public class AiWarehouseController {
         }, new ListHandler() {
 
             @Override
-            public List<AiWarehouse> list(PageTableRequest request) {
+            public List<AiWarehouseDto> list(PageTableRequest request) {
                 SysUser user = userService.getTokenUser(httpServletRequest);
                 if(user.getOperatorid() != null) {
                     Map<String, Object> m = new HashMap<>();

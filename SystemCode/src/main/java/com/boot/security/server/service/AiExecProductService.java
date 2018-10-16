@@ -12,6 +12,6 @@ import java.io.IOException;
  */
 public interface AiExecProductService {
 
-    ResponseInfo importProduct(MultipartFile file) throws IOException;
+    ResponseInfo importProduct(MultipartFile file, Long creatorId) throws IOException;
 
 }

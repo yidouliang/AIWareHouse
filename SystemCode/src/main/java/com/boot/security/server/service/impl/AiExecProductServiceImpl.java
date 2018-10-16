@@ -4,7 +4,9 @@ import com.boot.security.server.dao.AiExecProductDao;
 import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.enums.SystemStatusEnum;
 import com.boot.security.server.model.AiExecProduct;
+import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.AiExecProductService;
+import com.boot.security.server.service.UserService;
 import com.boot.security.server.utils.ExcelUtil;
 import com.boot.security.server.utils.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +33,7 @@ public class AiExecProductServiceImpl implements AiExecProductService {
     private AiExecProductDao aiExecProductDao;
 
     @Override
-    public ResponseInfo importProduct(MultipartFile file) throws IOException {
+    public ResponseInfo importProduct(MultipartFile file, Long creatorId) throws IOException {
         String fullpath = filesPath + FileUtil.getPath() + file.getOriginalFilename();
         File excel = new File(FileUtil.saveFile(file, fullpath));
         if(!ExcelUtil.isExcel(excel)) {
@@ -41,6 +43,7 @@ public class AiExecProductServiceImpl implements AiExecProductService {
 
         List<AiExecProduct> aiExecProductList = ExcelUtil.importAiExecProduct(excel);
         for(AiExecProduct aiExecProduct : aiExecProductList) {
+            aiExecProduct.setCreatorid(creatorId);
             aiExecProductDao.save(aiExecProduct);
         }
         excel.delete();

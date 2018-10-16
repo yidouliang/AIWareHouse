@@ -23,6 +23,7 @@ public class ExcelProduct2AiExecProduct {
         AiExecProduct execProduct = new AiExecProduct();
         execProduct.setProductname(product.getProductName());
         execProduct.setProductcode(product.getProductCode());
+        execProduct.setAicode(product.getAiCode());
         execProduct.setProductdesc(product.getProductDesc());
         execProduct.setProducttypeid(Long.parseLong(product.getProductTypeId()));
         execProduct.setProductoriprice(new BigDecimal(product.getProductOriPrice()));
