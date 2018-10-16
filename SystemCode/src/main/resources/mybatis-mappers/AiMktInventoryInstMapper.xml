@@ -6,16 +6,16 @@
 	<sql id="where">
 		<where>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and id like concat(concat('%', #{params.id}), '%')
 			</if>
 			<if test="params.prodinstid != null and params.prodinstid != ''">
 				and prodinstid = #{params.prodinstid} 
 			</if>
 			<if test="params.productcode != null and params.productcode != ''">
-				and productcode = #{params.productcode} 
+				and productcode like concat(concat('%', #{params.productcode}), '%')
 			</if>
 			<if test="params.productname != null and params.productname != ''">
-				and productname = #{params.productname} 
+				and productname like concat(concat('%', #{params.productname}), '%')
 			</if>
 			<if test="params.rfid != null and params.rfid != ''">
 				and rfid = #{params.rfid} 
@@ -87,8 +87,6 @@
 	</select>
 
 	<select id="list" resultType="com.boot.security.server.dto.AiMktInventoryInstDto">
-		<!--select * from ai_mkt_inventory_inst t-->
-		<!--<include refid="where" />-->
 		select t.*, a.name warehouseName, t1.val status, s.nickname creatorName, a1.name operatorName, a2.boxname boxname
 		from ai_mkt_inventory_inst t, ai_warehouse a, t_dict t1, sys_user s, ai_operator a1, ai_mkt_box a2
 		where a.id=t.warehouseid
@@ -97,6 +95,20 @@
 		and s.id=t.createoperid
 		and a1.id=t.createorgid
 		and a2.id=t.boxid
+        <if test="params.createorgid != null and params.createorgid != ''">
+            and t.createorgid = #{params.createorgid}
+        </if>
+
+        <if test="params.id != null and params.id != ''">
+            and t.id like concat(concat('%', #{params.id}), '%')
+        </if>
+        <if test="params.productcode != null and params.productcode != ''">
+            and t.productcode like concat(concat('%', #{params.productcode}), '%')
+        </if>
+        <if test="params.productname != null and params.productname != ''">
+            and t.productname like concat(concat('%', #{params.productname}), '%')
+        </if>
+
 		${params.orderBy}
 		limit #{offset}, #{limit}
 	</select>
