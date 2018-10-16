@@ -23,8 +23,12 @@
 											<input id="id" type="text" class="form-control" placeholder="id">
 											产品名称：
 											<input id="productname" type="text" class="form-control" placeholder="产品名称">
-											产品类型：
-											<input id="producttypeid" type="text" class="form-control" placeholder="产品类型">
+											产品状态：
+											<select id="productstatus" class="form-control">
+                                                <option value="">选择产品类型</option>
+												<option value="0">下架</option>
+												<option value="1">在售</option>
+											</select>
 
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
@@ -106,7 +110,7 @@ function init(){
         		"data":function(d){
     				d.id = $("#id").val();
                     d.productname = $("#productname").val();
-                    d.producttypeid = $("#producttypeid").val();
+                    d.productstatus = $("#productstatus").val();
     			}
         	},
         	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
@@ -116,7 +120,7 @@ function init(){
 				{"data" : "aicode", "defaultContent" : ""},
 				{"data" : "productname", "defaultContent" : ""},
 				{"data" : "productdesc", "defaultContent" : ""},
-				{"data" : "producttypeid", "defaultContent" : ""},
+				{"data" : "productType", "defaultContent" : ""},
 				{"data" : "productoriprice", "defaultContent" : ""},
 				{"data" : "productstatus", "defaultContent" : "",
                     "render": function ( data, type, full, meta ) {
@@ -128,7 +132,7 @@ function init(){
                     }},
 				{"data" : "productpicpath", "defaultContent" : ""},
 				{"data" : "producturl", "defaultContent" : ""},
-				{"data" : "creatorid", "defaultContent" : ""},
+				{"data" : "creatorName", "defaultContent" : ""},
 				{"data" : "createdate", "defaultContent" : ""},
 				{"data" : "modifydate", "defaultContent" : ""},
 				// {"data" : "datastate", "defaultContent" : ""},

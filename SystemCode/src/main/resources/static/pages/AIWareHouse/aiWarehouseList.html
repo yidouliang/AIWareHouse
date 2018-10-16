@@ -27,7 +27,14 @@
 											<input id="name" type="text" class="form-control" placeholder="仓库名称">
 
 											仓库类型：
-											<input id="type" type="text" class="form-control" placeholder="仓库类型">
+											<select id="type" class="form-control">
+                                                <option value="">选择仓库类型</option>
+												<option value="0">总仓</option>
+												<option value="1">地区仓库</option>
+												<option value="2">微型仓库</option>
+												<option value="3">其它</option>
+
+											</select>
 
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>

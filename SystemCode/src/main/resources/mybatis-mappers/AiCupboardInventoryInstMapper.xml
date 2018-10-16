@@ -6,16 +6,16 @@
 	<sql id="where">
 		<where>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and id like concat(concat('%', #{params.id}), '%')
 			</if>
 			<if test="params.prodinstid != null and params.prodinstid != ''">
 				and prodinstid = #{params.prodinstid} 
 			</if>
 			<if test="params.productname != null and params.productname != ''">
-				and productname = #{params.productname} 
+				and productname like concat(concat('%', #{params.productname}), '%')
 			</if>
 			<if test="params.productcode != null and params.productcode != ''">
-				and productcode = #{params.productcode}
+				and productcode like concat(concat('%', #{params.productcode}), '%')
 			</if>
 			<if test="params.allnum != null and params.allnum != ''">
 				and allnum = #{params.allnum} 
@@ -102,13 +102,13 @@
 		and a1.id=t.createorgid
 		and a2.id=t.boxid
         <if test="params.id != null and params.id != ''">
-            and t.id = #{params.id}
+            and t.id like concat(concat('%', #{params.id}), '%')
         </if>
         <if test="params.productname != null and params.productname != ''">
-            and t.productname = #{params.productname}
+            and t.productname like concat(concat('%', #{params.productname}), '%')
         </if>
         <if test="params.productcode != null and params.productcode != ''">
-            and t.productcode = #{params.productcode}
+            and t.productcode like concat(concat('%', #{params.productcode}), '%')
         </if>
         <if test="params.createorgid != null and params.createorgid != ''">
             and t.createorgid = #{params.createorgid}

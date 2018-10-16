@@ -1,6 +1,5 @@
 package com.boot.security.server.controller;
 
-import com.boot.security.server.convert.AiExecProduct2AiExecProductDto;
 import com.boot.security.server.dao.AiExecProductDao;
 import com.boot.security.server.dto.AiExecProductDto;
 import com.boot.security.server.dto.ResponseInfo;
@@ -13,11 +12,9 @@ import com.boot.security.server.page.table.PageTableHandler.ListHandler;
 import com.boot.security.server.page.table.PageTableRequest;
 import com.boot.security.server.page.table.PageTableResponse;
 import com.boot.security.server.service.AiExecProductService;
-import com.boot.security.server.service.FileService;
 import com.boot.security.server.service.UserService;
 import com.boot.security.server.utils.FileUtil;
 import io.swagger.annotations.ApiOperation;
-import org.apache.poi.util.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -44,9 +41,6 @@ public class AiExecProductController {
 
     @Autowired
     private AiExecProductService aiExecProductService;
-
-    @Autowired
-    private AiExecProduct2AiExecProductDto aiExecProduct2AiExecProductDto;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -102,8 +96,7 @@ public class AiExecProductController {
 
             @Override
             public List<AiExecProductDto> list(PageTableRequest request) {
-                List<AiExecProduct> aiExecProductList = aiExecProductDao.list(request.getParams(), request.getOffset(), request.getLimit());
-                return aiExecProduct2AiExecProductDto.convert(aiExecProductList);
+                return aiExecProductDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }
         }).handle(request);
     }

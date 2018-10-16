@@ -6,10 +6,10 @@
 	<sql id="where">
 		<where>
 			<if test="params.id != null and params.id != ''">
-				and id = #{params.id} 
+				and id like concat(concat('%', #{params.id}), '%')
 			</if>
 			<if test="params.name != null and params.name != ''">
-				and name = #{params.name} 
+				and name like concat(concat('%', #{params.name}), '%')
 			</if>
 			<if test="params.address != null and params.address != ''">
 				and address = #{params.address} 
@@ -21,7 +21,7 @@
 				and latitude = #{params.latitude} 
 			</if>
 			<if test="params.type != null and params.type != ''">
-				and type = #{params.type} 
+				and type like concat(concat('%', #{params.type}), '%')
 			</if>
 			<if test="params.operatorid != null and params.operatorid != ''">
 				and operatorid = #{params.operatorid} 
@@ -59,6 +59,16 @@
         and t.operatorid=a.id
         <if test="params.operatorid != null and params.operatorid != ''">
             and operatorid = #{params.operatorid}
+        </if>
+
+        <if test="params.id != null and params.id != ''">
+            and t.id like concat(concat('%', #{params.id}), '%')
+        </if>
+        <if test="params.name != null and params.name != ''">
+            and t.name like concat(concat('%', #{params.name}), '%')
+        </if>
+        <if test="params.type != null and params.type != ''">
+            and t.type like concat(concat('%', #{params.type}), '%')
         </if>
 		${params.orderBy}
 		limit #{offset}, #{limit}

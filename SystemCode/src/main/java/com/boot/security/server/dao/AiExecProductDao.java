@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.AiExecProductDto;
 import org.apache.ibatis.annotations.*;
 
 import com.boot.security.server.model.AiExecProduct;
@@ -24,7 +25,7 @@ public interface AiExecProductDao {
     
     int count(@Param("params") Map<String, Object> params);
 
-    List<AiExecProduct> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+    List<AiExecProductDto> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
 
     @Select("select id, productname from ai_exec_product t where t.productstatus = 1 and t.producttypeid = #{productTypeId}")
     List<Map<String, Object>> getIdAndName(Long productTypeId);
