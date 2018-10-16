@@ -4,6 +4,7 @@ import com.boot.security.server.convert.AiExecProduct2AiExecProductDto;
 import com.boot.security.server.dao.AiExecProductDao;
 import com.boot.security.server.dto.AiExecProductDto;
 import com.boot.security.server.dto.ResponseInfo;
+import com.boot.security.server.enums.ProductStatusEnum;
 import com.boot.security.server.model.AiExecProduct;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.page.table.PageTableHandler;
@@ -73,6 +74,18 @@ public class AiExecProductController {
         aiExecProductDao.update(aiExecProduct);
 
         return aiExecProduct;
+    }
+    @PostMapping("/changeStatus/{id}/{status}")
+    @ApiOperation(value = "商品上下架")
+    public String changeProductStatus(@PathVariable("id") Long id,
+                                      @PathVariable("status") String productstatus){
+        if(Integer.valueOf(productstatus)== 0 ){
+            aiExecProductDao.changeProductStatus(id, ProductStatusEnum.IN_STOCK.getCode());
+            return "在售";
+        }else{
+            aiExecProductDao.changeProductStatus(id,ProductStatusEnum.OBTAINED.getCode());
+            return "下架";
+        }
     }
 
     @GetMapping
