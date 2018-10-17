@@ -89,7 +89,7 @@
 
 			$.ajax({
 				type : 'post',
-				url : '/aiWarehouses',
+				url : '/aiWarehouses?operatorid='+getParam(),
 				contentType: "application/json; charset=utf-8",  
 				data : JSON.stringify(formdata),
 				success : function(data) {
@@ -101,6 +101,18 @@
 			});
 		}
 
+		//获取传输的id
+        function getParam(){
+            var hre = window.location.href;
+            if(hre.indexOf("?") !== -1){
+                C1=window.location.href.split("?")[1];
+                C2=C1.split("=")[1];
+                return C2;
+            }else{
+                return 0;
+            }
+
+        }
 		
 	</script>
 </body>

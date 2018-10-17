@@ -36,6 +36,9 @@
                 <th>活动ID</th>
                 <th>归属活动名称</th>
                 <th>数据状态</th>
+                <th>所属盒子类型Val</th>
+                <th>产品类型Val</th>
+                <th>数据状态Val</th>
                 <th>创建时间</th>
                 <th>更新时间</th>
             </tr>
@@ -90,10 +93,14 @@
                     {"data" : "telephone", "defaultContent" : ""},
                     {"data" : "serialnumber", "defaultContent" : ""},
                     {"data" : "boxname", "defaultContent" : ""},
-                    {"data" : "boxtype", "defaultContent" : ""},
+                    {"data" : "boxtype", "defaultContent" : "",
+                        "render": function ( data, type, full, meta ) {
+                            return full.boxTypeVal;}},
                     {"data" : "pserialnumber", "defaultContent" : ""},
                     {"data" : "productprice", "defaultContent" : ""},
-                    {"data" : "producttypeid", "defaultContent" : ""},
+                    {"data" : "producttypeid", "defaultContent" : "",
+                        "render": function ( data, type, full, meta ) {
+                            return full.productTypeVal;}},
                     {"data" : "productname", "defaultContent" : ""},
                     {"data" : "productcode", "defaultContent" : ""},
                     {"data" : "productimgurl", "defaultContent" : "",
@@ -104,7 +111,12 @@
                     {"data" : "buynum", "defaultContent" : ""},
                     {"data" : "activityid", "defaultContent" : ""},
                     {"data" : "activityname", "defaultContent" : ""},
-                    {"data" : "datastate", "defaultContent" : ""},
+                    {"data" : "datastate", "defaultContent" : "",
+                        "render": function ( data, type, full, meta ) {
+                            return full.dataStateVal;}},
+                    {"data" : "boxTypeVal", "defaultContent" : "","visible":false},
+                    {"data" : "productTypeVal", "defaultContent" : "","visible":false},
+                    {"data" : "dataStateVal", "defaultContent" : "","visible":false},
                     {"data" : "createTime", "defaultContent" : ""},
                     {"data" : "updateTime", "defaultContent" : ""},
 

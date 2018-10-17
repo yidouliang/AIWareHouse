@@ -41,4 +41,9 @@ public interface AiMktBoxDao {
     @Select("select * from ai_mkt_box where boxperson = #{boxperson}")
     List<AiMktBox> getBoxListByOperatorId(@Param("boxperson") Long operatorId);
 
+    @Select("select a.id from ai_mkt_box a where unix_timestamp(NOW())-unix_timestamp(a.enddate) > 0 and a.paystate = 1")
+    List<Long> getExpireAiMktBoxList();
+
+    boolean changePayStateByScheduled(@Param("list") List<Long> boxIdList);
+
 }

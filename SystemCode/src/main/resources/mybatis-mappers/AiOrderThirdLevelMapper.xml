@@ -83,9 +83,69 @@
 		<include refid="where" />
 	</select>
 
-	<select id="list" resultType="AiOrderThirdLevel">
-		select * from ai_order_third_level t
-		<include refid="where" />
+	<select id="list" resultType="com.boot.security.server.dto.AiOrderThirdLevelDto">
+		select th.*,d1.val boxTypeVal,c.categoryname productTypeVal,d3.val dataStateVal
+		from ai_order_third_level th,t_dict d1,category c,t_dict d3
+		where d1.type = 'AiBoxType' and th.boxtype = d1.k
+		and th.producttypeid = c.id
+		and d3.type = 'dataState' and th.datastate = d3.k
+		<if test="params.id != null and params.id != ''">
+			and th.id = #{params.id}
+		</if>
+		<if test="params.firstlevelid != null and params.firstlevelid != ''">
+			and th.firstlevelid = #{params.firstlevelid}
+		</if>
+		<if test="params.mktinvid != null and params.mktinvid != ''">
+			and th.mktinvid = #{params.mktinvid}
+		</if>
+		<if test="params.usercode != null and params.usercode != ''">
+			and th.usercode = #{params.usercode}
+		</if>
+		<if test="params.telephone != null and params.telephone != ''">
+			and th.telephone = #{params.telephone}
+		</if>
+		<if test="params.serialnumber != null and params.serialnumber != ''">
+			and th.serialnumber = #{params.serialnumber}
+		</if>
+		<if test="params.boxname != null and params.boxname != ''">
+			and th.boxname = #{params.boxname}
+		</if>
+		<if test="params.boxtype != null and params.boxtype != ''">
+			and th.boxtype = #{params.boxtype}
+		</if>
+		<if test="params.pserialnumber != null and params.pserialnumber != ''">
+			and th.pserialnumber = #{params.pserialnumber}
+		</if>
+		<if test="params.productprice != null and params.productprice != ''">
+			and th.productprice = #{params.productprice}
+		</if>
+		<if test="params.producttypeid != null and params.producttypeid != ''">
+			and th.producttypeid = #{params.producttypeid}
+		</if>
+		<if test="params.productname != null and params.productname != ''">
+			and th.productname = #{params.productname}
+		</if>
+		<if test="params.productcode != null and params.productcode != ''">
+			and th.productcode = #{params.productcode}
+		</if>
+		<if test="params.productimgurl != null and params.productimgurl != ''">
+			and th.productimgurl = #{params.productimgurl}
+		</if>
+		<if test="params.productdesc != null and params.productdesc != ''">
+			and th.productdesc = #{params.productdesc}
+		</if>
+		<if test="params.buynum != null and params.buynum != ''">
+			and th.buynum = #{params.buynum}
+		</if>
+		<if test="params.activityid != null and params.activityid != ''">
+			and th.activityid = #{params.activityid}
+		</if>
+		<if test="params.activityname != null and params.activityname != ''">
+			and th.activityname = #{params.activityname}
+		</if>
+		<if test="params.datastate != null and params.datastate != ''">
+			and th.datastate = #{params.datastate}
+		</if>
 		${params.orderBy}
 		limit #{offset}, #{limit}
 	</select>

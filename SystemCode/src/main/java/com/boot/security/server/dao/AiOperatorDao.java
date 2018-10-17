@@ -3,12 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import com.boot.security.server.model.AiOperator;
 
@@ -36,4 +31,12 @@ public interface AiOperatorDao {
 
     @Select("select id ,name from ai_operator")
     List<Map<String, Object>> getIdAndName();
+
+    boolean updateOperatorOwnNum();
+
+    @Update("update ai_operator o set o.owernum = o.owernum+1 where o.id=#{id}")
+    boolean incrOwnNum(@Param("id") Long operatorId);
+
+    @Update("update ai_operator o set o.owernum = o.owernum-1 where o.id=#{id}")
+    boolean descOwnNum(@Param("id") Long operatorId);
 }

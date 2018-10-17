@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.boot.security.server.form.AiOperatorForm;
 import com.boot.security.server.service.AiMktBoxService;
+import com.boot.security.server.service.impl.AiOperatorServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -37,6 +38,9 @@ public class AiOperatorController {
 
     @Autowired
     private AiMktBoxService aiMktBoxService;
+
+    @Autowired
+    private AiOperatorServiceImpl aiOperatorService;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -75,13 +79,13 @@ public class AiOperatorController {
 
             @Override
             public List<AiOperator> list(PageTableRequest request) {
-                List<AiOperator> aiOperators = aiOperatorDao.list(request.getParams(), request.getOffset(), request.getLimit());
-                //获取拥有盒子的个数(不建议循环加查询,以后优化)
-                for (AiOperator aiOperator: aiOperators
-                     ) {
-                    aiOperator.setOwernum(aiMktBoxService.getBoxCountByOperatorId(aiOperator.getId()));
-                    aiOperatorDao.update(aiOperator);
-                }
+                List<AiOperator> aiOperators = aiOperatorService.listAndUpdateOwnNum(request.getParams(), request.getOffset(), request.getLimit());
+//                //获取拥有盒子的个数(不建议循环加查询,以后优化)
+//                for (AiOperator aiOperator: aiOperators
+//                     ) {
+//                    aiOperator.setOwernum(aiMktBoxService.getBoxCountByOperatorId(aiOperator.getId()));
+//                    aiOperatorDao.update(aiOperator);
+//                }
                 return aiOperators;
             }
         }).handle(request);

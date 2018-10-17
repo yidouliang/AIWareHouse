@@ -41,7 +41,7 @@
 									</form>
 	                   			</td>
 	                   			<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addAiWarehouse.html'">
+	                   				<button class="layui-btn layui-btn-sm" onclick="checkUser()">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
 	                   			</td>
@@ -153,6 +153,24 @@ function del(id){
         
         layer.close(1);
     });
+}
+
+function checkUser(element) {
+    $.ajax({
+        type: 'get',
+        url: '/aiMktBoxs/checkUser',
+        success: function (data) {
+            if (data) {
+                location.href = 'addAiMktBox.html';
+            } else {
+                layer.confirm('您不是运营商,需要在运营商界面进行添加,是否前往?', {icon: 2, title: '提示'}, function (index) {
+                    //需要优化直接地址跳转为新增tab弹出页面
+                    $("#menu > li:nth-child(15) > a > cite", parent.document).click();
+                    layer.close(index);
+                });
+            }
+        }
+    })
 }
 
 $("#searchBt").click(function(){

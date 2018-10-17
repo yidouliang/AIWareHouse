@@ -3,7 +3,6 @@ package com.boot.security.server.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.boot.security.server.convert.AiOrderFIrstLevel2AiOrderFirstLevelDto;
 import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dto.AiOrderFirstLevelDto;
 import com.boot.security.server.model.AiOperator;
@@ -38,9 +37,6 @@ public class AiOrderFirstLevelController {
 
     @Autowired
     private AiOrderFirstLevelDao aiOrderFirstLevelDao;
-
-    @Autowired
-    private DictDao dictDao;
 
     @Autowired
     private UserService userService;
@@ -86,11 +82,9 @@ public class AiOrderFirstLevelController {
 
             @Override
             public List<AiOrderFirstLevelDto> list(PageTableRequest request) {
-                List<AiOrderFirstLevelDto> aiOrderFirstLevelDtos = new ArrayList<>();
-                List<AiOrderFirstLevel> aiOrderFirstLevels = aiOrderFirstLevelDao.list(request.getParams(),
+                List<AiOrderFirstLevelDto> aiOrderFirstLevels = aiOrderFirstLevelDao.list(request.getParams(),
                         request.getOffset(), request.getLimit(),aiOperator.getId());
-                AiOrderFIrstLevel2AiOrderFirstLevelDto.aiOrderFIrstLevelAiOrderFirstLevelDto(dictDao,aiOrderFirstLevels,aiOrderFirstLevelDtos);
-                return aiOrderFirstLevelDtos;
+                return aiOrderFirstLevels;
             }
         }).handle(request);
         }else{
@@ -104,11 +98,9 @@ public class AiOrderFirstLevelController {
 
                 @Override
                 public List<AiOrderFirstLevelDto> list(PageTableRequest request) {
-                    List<AiOrderFirstLevelDto> aiOrderFirstLevelDtos = new ArrayList<>();
-                    List<AiOrderFirstLevel> aiOrderFirstLevels = aiOrderFirstLevelDao.list(request.getParams(),
+                    List<AiOrderFirstLevelDto> aiOrderFirstLevels = aiOrderFirstLevelDao.list(request.getParams(),
                             request.getOffset(), request.getLimit(),null);
-                    AiOrderFIrstLevel2AiOrderFirstLevelDto.aiOrderFIrstLevelAiOrderFirstLevelDto(dictDao,aiOrderFirstLevels,aiOrderFirstLevelDtos);
-                    return aiOrderFirstLevelDtos;
+                    return aiOrderFirstLevels;
                 }
             }).handle(request);
         }

@@ -1,9 +1,7 @@
 package com.boot.security.server.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.boot.security.server.convert.AiOrderThirdLevel2AiOrderThirdLevelDto;
 import com.boot.security.server.dao.DictDao;
 import com.boot.security.server.dto.AiOrderThirdLevelDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,10 +62,8 @@ public class AiOrderThirdLevelController {
 
             @Override
             public List<AiOrderThirdLevelDto> list(PageTableRequest request) {
-                List<AiOrderThirdLevel> aiOrderThirdLevels = aiOrderThirdLevelDao.list(request.getParams(), request.getOffset(), request.getLimit());
-                List<AiOrderThirdLevelDto> aiOrderThirdLevelDtos = new ArrayList<>();
-                AiOrderThirdLevel2AiOrderThirdLevelDto.aiOrderThirdLevelAiOrderThirdLevelDto(dictDao,aiOrderThirdLevels,aiOrderThirdLevelDtos);
-                return aiOrderThirdLevelDtos;
+                List<AiOrderThirdLevelDto> aiOrderThirdLevels = aiOrderThirdLevelDao.list(request.getParams(), request.getOffset(), request.getLimit());
+                return aiOrderThirdLevels;
             }
         }).handle(request);
     }

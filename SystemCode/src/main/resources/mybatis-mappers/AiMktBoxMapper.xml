@@ -180,4 +180,12 @@
 		where t.id = #{id}
 	</update>
 
+	<update id="changePayStateByScheduled" parameterType="java.util.List">
+		update ai_mkt_box t
+		set t.paystate = 0
+		where t.id in
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+			                #{item}
+		</foreach>
+	</update>
 </mapper>

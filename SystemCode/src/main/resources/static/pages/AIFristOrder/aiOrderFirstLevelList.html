@@ -79,6 +79,9 @@
 									<th>支付URL</th>
 									<th>用户备注</th>
 									<th>数据状态</th>
+									<th>支付状态Val</th>
+									<th>支付类型Val</th>
+									<th>数据状态Val</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -134,12 +137,21 @@ function init(){
 				{"data" : "orderpreprice", "defaultContent" : ""},
 				{"data" : "orderrealprice", "defaultContent" : ""},
 				{"data" : "orderno", "defaultContent" : ""},
-				{"data" : "paystatus", "defaultContent" : ""},
+				{"data" : "paystatus", "defaultContent" : "",
+                    "render": function ( data, type, full, meta ) {
+                        return full.payStatusVal;}},
 				{"data" : "failreason", "defaultContent" : ""},
-				{"data" : "paytype", "defaultContent" : ""},
+				{"data" : "paytype", "defaultContent" : "",
+                    "render": function ( data, type, full, meta ) {
+                        return full.payTypeVal;}},
 				{"data" : "payurl", "defaultContent" : ""},
 				{"data" : "ordercomment", "defaultContent" : ""},
-				{"data" : "datastate", "defaultContent" : ""},
+				{"data" : "datastate", "defaultContent" : "",
+                    "render": function ( data, type, full, meta ) {
+                        return full.dataStateVal;}},
+                {"data" : "payStatusVal", "defaultContent" : "","visible":false},
+                {"data" : "payTypeVal", "defaultContent" : "","visible":false},
+                {"data" : "dataStateVal", "defaultContent" : "","visible":false},
 				{ 
 								"data": "", 
 								"defaultContent": "",

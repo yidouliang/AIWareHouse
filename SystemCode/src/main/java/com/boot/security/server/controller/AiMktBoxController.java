@@ -12,6 +12,7 @@ import com.boot.security.server.dto.AiMktBoxVo;
 import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.model.AiOperator;
 import com.boot.security.server.model.SysUser;
+import com.boot.security.server.service.impl.AiMktBoxServiceImpl;
 import com.boot.security.server.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -38,14 +39,15 @@ public class AiMktBoxController {
     @Autowired
     private AiMktBoxDao aiMktBoxDao;
 
-    @Autowired
-    private DictDao dictDao;
 
     @Autowired
     private UserServiceImpl userService;
 
     @Autowired
     private AiOperatorDao aiOperatorDao;
+
+    @Autowired
+    private AiMktBoxServiceImpl aiMktBoxService;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -73,7 +75,7 @@ public class AiMktBoxController {
 
 
         }
-        aiMktBoxDao.save(aiMktBox);
+        aiMktBoxService.addBox(aiMktBox,aiMktBox.getBoxperson());
 
 
         return aiMktBox;
@@ -144,9 +146,7 @@ public class AiMktBoxController {
 //                    ) {
 //                        Date now = new Date();
 //                        if (box.getEnddate().before(now)) {
-//                            //支付状态 0欠费 1已缴费
-//                            box.setPaystate(0);
-//                            aiMktBoxDao.update(box);
+//
 //                        }
 //                    }
                     return aiMktBoxDtoList;
@@ -158,7 +158,7 @@ public class AiMktBoxController {
     @DeleteMapping("/{id}")
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
-        aiMktBoxDao.delete(id);
+        aiMktBoxService.removeBox(id);
     }
 
     @GetMapping("/checkUser")

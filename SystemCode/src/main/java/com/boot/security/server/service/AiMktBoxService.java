@@ -14,4 +14,8 @@ public interface AiMktBoxService {
     int getBoxCountByOperatorId(Long operatorId);
 
     List<AiMktBox> getBoxListByOperatorId(Long operatorId);
+
+    int addBox(AiMktBox aiMktBox,Long operatorId);
+
+    boolean removeBox(Long boxId);
 }

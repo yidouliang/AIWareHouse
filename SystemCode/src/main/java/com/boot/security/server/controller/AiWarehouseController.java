@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dao.AiOperatorDao;
 import com.boot.security.server.dto.AiWarehouseDto;
+import com.boot.security.server.model.AiOperator;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +35,18 @@ public class AiWarehouseController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AiOperatorDao aiOperatorDao;
+
     @PostMapping
     @ApiOperation(value = "保存")
     public AiWarehouse save(@RequestBody AiWarehouse aiWarehouse,
-                            HttpServletRequest request) {
+                            HttpServletRequest request,@RequestParam("operatorid") Long operatorid) {
         SysUser user = userService.getTokenUser(request);
         if(user.getOperatorid() != null) {
             aiWarehouse.setOperatorid(user.getOperatorid());
+        }else{
+            aiWarehouse.setOperatorid(operatorid);
         }
         aiWarehouseDao.save(aiWarehouse);
 
@@ -89,5 +96,20 @@ public class AiWarehouseController {
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
         aiWarehouseDao.delete(id);
+    }
+
+    @GetMapping("/checkUser")
+    @ApiOperation(value = "鉴别用户是运营商还是高级管理员")
+    public boolean checkUser(HttpServletRequest request){
+        //先获取用户
+        SysUser user = userService.getTokenUser(request);
+        //从Operator表中查询相关的运营商
+        AiOperator aiOperator = aiOperatorDao.getById(user.getOperatorid());
+        //判断是否为空,为空返回false提示需要先添加运营商从运营商页面添加
+        if(aiOperator!=null){
+            return true;
+        }else {
+            return false;
+        }
     }
 }

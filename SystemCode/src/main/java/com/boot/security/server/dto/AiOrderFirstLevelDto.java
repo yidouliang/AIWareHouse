@@ -1,166 +1,41 @@
 package com.boot.security.server.dto;
 
+import com.boot.security.server.model.AiOrderFirstLevel;
 import com.boot.security.server.model.BaseEntity;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class AiOrderFirstLevelDto extends BaseEntity<Long> {
+public class AiOrderFirstLevelDto extends AiOrderFirstLevel {
 
-    private String serialnumber;
-    private Long consumerid;
-    private Date createtime;
-    private String telephone;
-    private Long boxcode;
-    private Date paytime;
-    private Date sendtime;
-    private Date replytime;
-    private BigDecimal orderpreprice;
-    private BigDecimal orderrealprice;
-    private String orderno;
-    //支付状态 11,待支付，100.成功，107.删除，108.失效，109.失败
-    private String paystatus;
-    private String failreason;
-    //支付方式：AiConsumerSource 0 微信 1 支付宝 3 建设银行...
-    private String paytype;
-    private String payurl;
-    private String ordercomment;
-    //数据状态 0 无效 1 有效
-    private String datastate;
+    //中文内容
+    private String payStatusVal;
 
-    public String getSerialnumber() {
-        return serialnumber;
+    private String payTypeVal;
+
+    private String dataStateVal;
+
+    public String getPayStatusVal() {
+        return payStatusVal;
     }
 
-    public void setSerialnumber(String serialnumber) {
-        this.serialnumber = serialnumber;
+    public void setPayStatusVal(String payStatusVal) {
+        this.payStatusVal = payStatusVal;
     }
 
-    public Long getConsumerid() {
-        return consumerid;
+    public String getPayTypeVal() {
+        return payTypeVal;
     }
 
-    public void setConsumerid(Long consumerid) {
-        this.consumerid = consumerid;
+    public void setPayTypeVal(String payTypeVal) {
+        this.payTypeVal = payTypeVal;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public String getDataStateVal() {
+        return dataStateVal;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public Long getBoxcode() {
-        return boxcode;
-    }
-
-    public void setBoxcode(Long boxcode) {
-        this.boxcode = boxcode;
-    }
-
-    public Date getPaytime() {
-        return paytime;
-    }
-
-    public void setPaytime(Date paytime) {
-        this.paytime = paytime;
-    }
-
-    public Date getSendtime() {
-        return sendtime;
-    }
-
-    public void setSendtime(Date sendtime) {
-        this.sendtime = sendtime;
-    }
-
-    public Date getReplytime() {
-        return replytime;
-    }
-
-    public void setReplytime(Date replytime) {
-        this.replytime = replytime;
-    }
-
-    public BigDecimal getOrderpreprice() {
-        return orderpreprice;
-    }
-
-    public void setOrderpreprice(BigDecimal orderpreprice) {
-        this.orderpreprice = orderpreprice;
-    }
-
-    public BigDecimal getOrderrealprice() {
-        return orderrealprice;
-    }
-
-    public void setOrderrealprice(BigDecimal orderrealprice) {
-        this.orderrealprice = orderrealprice;
-    }
-
-    public String getOrderno() {
-        return orderno;
-    }
-
-    public void setOrderno(String orderno) {
-        this.orderno = orderno;
-    }
-
-    public String getPaystatus() {
-        return paystatus;
-    }
-
-    public void setPaystatus(String paystatus) {
-        this.paystatus = paystatus;
-    }
-
-    public String getFailreason() {
-        return failreason;
-    }
-
-    public void setFailreason(String failreason) {
-        this.failreason = failreason;
-    }
-
-    public String getPaytype() {
-        return paytype;
-    }
-
-    public void setPaytype(String paytype) {
-        this.paytype = paytype;
-    }
-
-    public String getPayurl() {
-        return payurl;
-    }
-
-    public void setPayurl(String payurl) {
-        this.payurl = payurl;
-    }
-
-    public String getOrdercomment() {
-        return ordercomment;
-    }
-
-    public void setOrdercomment(String ordercomment) {
-        this.ordercomment = ordercomment;
-    }
-
-    public String getDatastate() {
-        return datastate;
-    }
-
-    public void setDatastate(String datastate) {
-        this.datastate = datastate;
+    public void setDataStateVal(String dataStateVal) {
+        this.dataStateVal = dataStateVal;
     }
 }

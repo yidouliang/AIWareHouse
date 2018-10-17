@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.AiOrderFirstLevelDto;
 import com.boot.security.server.model.AiMktBox;
 import com.boot.security.server.result.MonthSum;
 import org.apache.ibatis.annotations.Delete;
@@ -32,7 +33,7 @@ public interface AiOrderFirstLevelDao {
     
     int count(@Param("params") Map<String, Object> params,@Param("boxperson") Long boxperson);
 
-    List<AiOrderFirstLevel> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit,@Param("boxperson") Long boxperson);
+    List<AiOrderFirstLevelDto> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit, @Param("boxperson") Long boxperson);
 
     @Select("SELECT count(1) FROM ai_order_first_level a WHERE a.paytype = #{paytype}")
     int getPayTypeCount(@Param("paytype") Integer payType);
