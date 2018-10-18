@@ -44,8 +44,8 @@ public class AiExecProductServiceImpl implements AiExecProductService {
         List<AiExecProduct> aiExecProductList = ExcelUtil.importAiExecProduct(excel);
         for(AiExecProduct aiExecProduct : aiExecProductList) {
             aiExecProduct.setCreatorid(creatorId);
-            aiExecProductDao.save(aiExecProduct);
         }
+        aiExecProductDao.bulkInsert(aiExecProductList);
         excel.delete();
         return new ResponseInfo("200", "数据导入成功");
     }

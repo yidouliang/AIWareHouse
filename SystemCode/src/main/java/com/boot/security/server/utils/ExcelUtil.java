@@ -208,8 +208,7 @@ public class ExcelUtil {
                         content[z] = cell.getStringCellValue();
                     }
                     else {
-                        file.delete();
-                        throw new SystemException(SystemStatusEnum.NO_NULL_VALUE);
+                        content[z] = "";        //如果表格的值为空
                     }
                 }
                 ExcelProduct product = new ExcelProduct(content);

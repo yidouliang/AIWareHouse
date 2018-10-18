@@ -151,4 +151,15 @@
 		where t.id = #{id}
 	</update>
 
+	<insert id="bulkInsert" parameterType="ArrayList">
+        insert into ai_exec_product(productcode, aicode, productname, productdesc, producttypeid, productoriprice, productstatus, productpicpath, producturl, creatorid, createdate, modifydate, datastate, productsource)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            ( #{item.productcode}, #{item.aicode}, #{item.productname}, #{item.productdesc},
+            #{item.producttypeid}, #{item.productoriprice}, #{item.productstatus},
+            #{item.productpicpath}, #{item.producturl}, #{item.creatorid}, #{item.createdate},
+            #{item.modifydate}, #{item.datastate}, #{item.productsource} )
+        </foreach>
+	</insert>
+
 </mapper>
