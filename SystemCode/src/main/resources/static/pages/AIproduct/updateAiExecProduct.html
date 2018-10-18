@@ -52,6 +52,8 @@
 				<label class='col-md-2 control-label'>产品状态</label>
 				<div class='col-md-10'>
 					<select class="form-control input-sm" name="productstatus" id="productstatus">
+						<option value="0">下架</option>
+						<option value="1">在售</option>
 					</select>
 				</div>
 			</div>
@@ -130,8 +132,7 @@
             });
         });
 
-        showDictSelect("producttypeid", "producttypeid");
-        showDictSelect("productstatus", "productstatus");
+        // showDictSelect("productstatus", "productstatus");		//从字典表中获取信息
 		
 		function initData(){
 			var id = getUrlParam("id");

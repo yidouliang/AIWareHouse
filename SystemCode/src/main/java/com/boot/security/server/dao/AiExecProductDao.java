@@ -33,4 +33,11 @@ public interface AiExecProductDao {
     @Update("update ai_exec_product a set a.productstatus = #{productstatus} where a.id = #{id}")
     int changeProductStatus(@Param("id") Long id, @Param("productstatus") Integer productstatus);
 
+    /**
+     * 批量插入产品信息
+     * @param aiExecProducts
+     * @return
+     */
+    int bulkInsert(List<AiExecProduct> aiExecProducts);
+
 }
