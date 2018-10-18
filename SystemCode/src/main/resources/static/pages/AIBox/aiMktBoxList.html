@@ -52,6 +52,7 @@
 									<th>AI货柜编号</th>
 									<th>AI货柜类型</th>
 									<th>运营商ID</th>
+									<th>运营商名称</th>
 									<th>地址</th>
 									<th>AI货柜状态</th>
 									<th>出厂日期</th>
@@ -65,6 +66,7 @@
 									<th>货柜类型</th>
 									<th>货柜状态</th>
 									<th>支付状态</th>
+									<th>仓库名称</th>
 									<th>操作</th>
                                 </tr>
                             </thead>
@@ -115,6 +117,7 @@ function init(){
 					"render": function ( data, type, full, meta ) {
                         return full.boxTypeVal;}},
 				{"data" : "boxperson", "defaultContent" : ""},
+                {"data" : "operatorName", "defaultContent" : ""},
 				{"data" : "address", "defaultContent" : ""},
 				{"data" : "status", "defaultContent" : "",
                     "render": function ( data, type, full, meta ) {
@@ -123,14 +126,26 @@ function init(){
 				{"data" : "paystate", "defaultContent" : "",
                     "render": function ( data, type, full, meta ) {
                         return full.payStateVal;}},
-				{"data" : "boxwarehouseid", "defaultContent" : ""},
-				{"data" : "enddate", "defaultContent" : ""},
+				{"data" : "boxwarehouseid", "defaultContent" : "",
+                    "render": function ( data, type, full, meta ) {
+                        return full.wareHouseName;}},
+				{"data" : "enddate", "defaultContent" : "",
+                    "render": function ( data, type, full, meta ) {
+                        	var endDate = new Date(data);
+							var nowDate = new Date();
+							var dateDiff = endDate.getTime() - nowDate.getTime();
+							var dayDiff = Math.floor(dateDiff / (24 * 3600 * 1000));
+							if(dayDiff<=30 && full.paystate==1){
+                                return "<span style='color: red'>请及时续费</span> <br/>"+"<span style='color: red'>"+data+"</span>";
+							}
+                        return data;}},
 				{"data" : "persontelphone", "defaultContent" : ""},
 				{"data" : "longitude", "defaultContent" : ""},
 				{"data" : "latitude", "defaultContent" : ""},
                 {"data" : "boxTypeVal", "defaultContent" : "","visible":false},
                 {"data" : "statusVal", "defaultContent" : "","visible":false},
                 {"data" : "payStateVal", "defaultContent" : "","visible":false},
+                {"data" : "wareHouseName", "defaultContent" : "","visible":false},
 				{ 
 								"data": "", 
 								"defaultContent": "",
@@ -145,7 +160,8 @@ function init(){
 							},
                 
             ],
-           "order": [[ 0, "asc" ]]
+           "order": [[ 0, "asc" ]],
+            "iDisplayLength": 8,
         } );
 }
 

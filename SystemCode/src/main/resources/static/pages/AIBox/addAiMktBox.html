@@ -28,7 +28,7 @@
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>AI货柜类型</label>
 
-					<div class="col-md-10" style="width: 180px">
+					<div class="col-md-10" >
 						<select class="form-control input-sm" name="boxtype" id="AiBoxType">
 						</select>
 					</div>
@@ -64,7 +64,7 @@
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>AI货柜状态</label>
 
-				<div class="col-md-10" style="width: 180px">
+				<div class="col-md-10" >
 					<select class="form-control input-sm" name="status" id="AiBoxStatus">
 					</select>
 				</div>
@@ -77,14 +77,14 @@
 			</div>
 			<div class='form-group'>
 				<label class='col-md-2 control-label'>支付状态</label>
-				<div class="col-md-10" style="width: 180px">
+				<div class="col-md-10" >
 					<select class="form-control input-sm" name="paystate" id="payState">
 					</select>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-md-2 control-label">货柜配货仓库Id</label>
-				<div class="col-md-10" style="width: 180px">
+				<div class="col-md-10">
 					<select class="form-control input-sm" name="boxwarehouseid" id="warehouseid">
 					</select>
 				</div>
@@ -107,8 +107,12 @@
 					<input class='form-control' placeholder='联系人电话' type='text' name='persontelphone' id='persontelphone' data-bv-notempty='true' data-bv-notempty-message='联系人电话 不能为空'>
 				</div>
 			</div>
-
-			<button class="btn btn-primary" onclick="getLocation()">使用当前经纬度</button>
+			<div class='form-group'>
+				<label class='col-md-2 control-label'>使用当前经纬度</label>
+				<div class='col-md-1'>
+					<input type="button" value="点击使用"  class="btn btn-primary" onclick="getLocation()" />
+				</div>
+			</div>
 
 			<div class='form-group'>
 

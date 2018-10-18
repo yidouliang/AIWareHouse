@@ -225,4 +225,13 @@
 		where t.id = #{id}
 	</update>
 
+	<update id="deleteThirdOrder" parameterType="java.util.List">
+		update ai_order_third_level t
+		set t.datastate = 0
+		where t.id in
+		<foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+
 </mapper>

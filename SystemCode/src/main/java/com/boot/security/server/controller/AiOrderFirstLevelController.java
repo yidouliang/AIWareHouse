@@ -9,6 +9,7 @@ import com.boot.security.server.model.AiOperator;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.UserService;
 import com.boot.security.server.service.impl.AiOperatorServiceImpl;
+import com.boot.security.server.service.impl.AiOrderFirstLevelServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,6 +44,9 @@ public class AiOrderFirstLevelController {
 
     @Autowired
     private AiOperatorServiceImpl aiOperatorService;
+
+    @Autowired
+    private AiOrderFirstLevelServiceImpl aiOrderFirstLevelService;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -109,6 +113,6 @@ public class AiOrderFirstLevelController {
     @DeleteMapping("/{id}")
     @ApiOperation(value = "删除")
     public void delete(@PathVariable Long id) {
-        aiOrderFirstLevelDao.delete(id);
+        aiOrderFirstLevelService.deleteOrder(id);
     }
 }

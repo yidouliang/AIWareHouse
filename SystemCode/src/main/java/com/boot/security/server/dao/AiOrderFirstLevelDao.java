@@ -7,12 +7,7 @@ import java.util.Map;
 import com.boot.security.server.dto.AiOrderFirstLevelDto;
 import com.boot.security.server.model.AiMktBox;
 import com.boot.security.server.result.MonthSum;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import com.boot.security.server.model.AiOrderFirstLevel;
 
@@ -35,13 +30,16 @@ public interface AiOrderFirstLevelDao {
 
     List<AiOrderFirstLevelDto> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit, @Param("boxperson") Long boxperson);
 
-    @Select("SELECT count(1) FROM ai_order_first_level a WHERE a.paytype = #{paytype}")
+    @Select("SELECT count(1) FROM ai_order_first_level a WHERE a.paytype = #{paytype} and a.datastate = 1")
     int getPayTypeCount(@Param("paytype") Integer payType);
 
-    @Select("SELECT count(1) FROM ai_order_first_level a WHERE a.paytype = #{paytype} AND a.boxcode = #{boxcode}")
+    @Select("SELECT count(1) FROM ai_order_first_level a WHERE a.paytype = #{paytype} and a.boxcode = #{boxcode} and a.datastate = 1")
     int getPayTypeCountWithBoxCode(@Param("paytype") Integer payType,@Param("boxcode") String boxCode);
 
     List<MonthSum> getMounthTurnover(@Param("beginDay") Integer beginDay,@Param("endDay")Integer endDay);
 
     List<MonthSum> getMounthTurnoverWithBoxCode(@Param("beginDay")Integer beginDay,@Param("endDay") Integer endDay,@Param("boxCodeList") List<String> boxCodeList);
+
+    @Update("update ai_order_first_level f set f.datastate = 0 where f.id = #{id}")
+    boolean deleteFirstOrder(@Param("id") Long id);
 }

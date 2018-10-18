@@ -31,4 +31,9 @@ public interface AiOrderThirdLevelDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<AiOrderThirdLevelDto> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select id from ai_order_third_level t where t.id = #{firstlevelid}")
+    List<Long> listThirdOrderByFirstOrderId(@Param("firstlevelid") Long firstlevelid);
+
+    boolean deleteThirdOrder(@Param("list") List<Long> thirdOrderIdList);
 }

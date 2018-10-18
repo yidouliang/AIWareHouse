@@ -10,6 +10,26 @@ public class AiMktBoxDto extends AiMktBox {
 
     private String payStateVal;
 
+    private String operatorName;
+
+    private String wareHouseName;
+
+    public String getOperatorName() {
+        return operatorName;
+    }
+
+    public void setOperatorName(String operatorName) {
+        this.operatorName = operatorName;
+    }
+
+    public String getWareHouseName() {
+        return wareHouseName;
+    }
+
+    public void setWareHouseName(String wareHouseName) {
+        this.wareHouseName = wareHouseName;
+    }
+
     public String getBoxTypeVal() {
         return boxTypeVal;
     }

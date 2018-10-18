@@ -68,11 +68,12 @@
 	</select>
 
 	<select id="list" resultType="com.boot.security.server.dto.AiMktBoxDto">
-		select t.*,d1.val boxTypeVal,d2.val statusVal,d3.val payStateVal
-		from ai_mkt_box t,t_dict d1,t_dict d2,t_dict d3
+		select t.*,d1.val boxTypeVal,d2.val statusVal,d3.val payStateVal,o.`name` operatorName,w.`name` wareHouseName
+		from ai_mkt_box t,t_dict d1,t_dict d2,t_dict d3,ai_operator o,ai_warehouse w
 		where d1.type = 'AiBoxType' and t.boxtype = d1.k
 		and d2.type = 'AiBoxStatus' and t.status = d2.k
 		and d3.type = 'payState' and t.paystate = d3.k
+		and o.id = t.boxperson and w.id = t.boxwarehouseid
 
 		<if test="params.id != null and params.id != ''">
 			and t.id = #{params.id}

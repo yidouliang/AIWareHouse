@@ -69,7 +69,64 @@
 
     <select id="count" resultType="int">
         select count(1) from ai_order_first_level t
-        <include refid="where"/>
+        where datastate = 1
+        <if test="params.id != null and params.id != ''">
+            and id = #{params.id}
+        </if>
+        <if test="params.serialnumber != null and params.serialnumber != ''">
+            and serialnumber = #{params.serialnumber}
+        </if>
+        <if test="params.consumerid != null and params.consumerid != ''">
+            and consumerid = #{params.consumerid}
+        </if>
+        <if test="params.createtime != null and params.createtime != ''">
+            and createtime = #{params.createtime}
+        </if>
+        <if test="params.telephone != null and params.telephone != ''">
+            and telephone = #{params.telephone}
+        </if>
+        <if test="params.boxcode != null and params.boxcode != ''">
+            and boxcode = #{params.boxcode}
+        </if>
+        <if test="boxperson != null and boxperson != ''">
+            and boxcode in (select boxcode from ai_mkt_box where boxperson = #{boxperson})
+        </if>
+        <if test="params.paytime != null and params.paytime != ''">
+            and paytime = #{params.paytime}
+        </if>
+        <if test="params.sendtime != null and params.sendtime != ''">
+            and sendtime = #{params.sendtime}
+        </if>
+        <if test="params.replytime != null and params.replytime != ''">
+            and replytime = #{params.replytime}
+        </if>
+        <if test="params.orderpreprice != null and params.orderpreprice != ''">
+            and orderpreprice = #{params.orderpreprice}
+        </if>
+        <if test="params.orderrealprice != null and params.orderrealprice != ''">
+            and orderrealprice = #{params.orderrealprice}
+        </if>
+        <if test="params.orderno != null and params.orderno != ''">
+            and orderno = #{params.orderno}
+        </if>
+        <if test="params.paystatus != null and params.paystatus != ''">
+            and paystatus = #{params.paystatus}
+        </if>
+        <if test="params.failreason != null and params.failreason != ''">
+            and failreason = #{params.failreason}
+        </if>
+        <if test="params.paytype != null and params.paytype != ''">
+            and paytype = #{params.paytype}
+        </if>
+        <if test="params.payurl != null and params.payurl != ''">
+            and payurl = #{params.payurl}
+        </if>
+        <if test="params.ordercomment != null and params.ordercomment != ''">
+            and ordercomment = #{params.ordercomment}
+        </if>
+        <if test="params.datastate != null and params.datastate != ''">
+            and datastate = #{params.datastate}
+        </if>
     </select>
 
     <select id="list" resultType="com.boot.security.server.dto.AiOrderFirstLevelDto">
@@ -78,6 +135,7 @@
         where d1.type = 'aiOrderPayStatus' and f.paystatus = d1.k
         and d2.type = 'aiOrderPayType' and f.paytype = d2.k
         and d3.type = 'dataState' and f.datastate = d3.k
+        and f.datastate = 1
         <if test="params.id != null and params.id != ''">
             and f.id = #{params.id}
         </if>
@@ -216,17 +274,18 @@
 
 
     <select id="getMounthTurnover" resultMap="monthSum">
-		select sum(orderrealprice),DATE_FORMAT(createtime,'%Y%m') months,count(*) count
-        from ai_order_first_level
+		select sum(orderrealprice),DATE_FORMAT(paytime,'%Y%m') months,count(*) count
+        from ai_order_first_level f
+        where f.datastate = 1
         group by months
         having months between #{beginDay} and #{endDay};
 	</select>
 
 
     <select id="getMounthTurnoverWithBoxCode" resultMap="monthSum">
-        select sum(orderrealprice),DATE_FORMAT(createtime,'%Y%m') months,count(*) count
-        from ai_order_first_level
-        where boxcode in
+        select sum(orderrealprice),DATE_FORMAT(paytime,'%Y%m') months,count(*) count
+        from ai_order_first_level f
+        where f.datastate = 1 and boxcode in
         <foreach collection="boxCodeList" item="id" index="index" open="(" close=")" separator=",">
             #{id}
         </foreach>
