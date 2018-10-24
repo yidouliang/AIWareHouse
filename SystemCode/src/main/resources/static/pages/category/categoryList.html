@@ -34,28 +34,9 @@
 					</div>
                 </header>
                 
-                <div>
-                    <div class="widget-body no-padding">
-                        <table id="dt-table" class="table table-striped table-bordered table-hover" style="width:100%">
-                            <thead>
-                                <tr>
-                                </tr>                       
-                                <tr>
-									<th>id</th>
-									<th>分类名称</th>
-									<th>父类id</th>
-									<th>状态</th>
-									<!--<th>创建时间</th>-->
-									<!--<th>更新时间</th>-->
-									<th>是否是三级分类</th>
-									<th>操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <!--此处插入代码-->
+                <div class="test-tree-table" lay-filter="test1"></div>
+
             </div>
         </div>
     </div>
@@ -138,4 +119,72 @@ $("#searchBt").click(function(){
 });
 
 init();
+
+layui.config({
+    base: '/js/',
+});
+
+layui.use(['treetable','form'],function(){
+    var tData = [];
+    $.ajax({
+        type : 'get',
+        url : '/categorys/categories',
+        async: false,
+        success: function (data) {
+            tData = JSON.stringify(data);     //将JSON对象转换为字符串
+            tData = JSON.parse(tData);      //将字符串转换为数组
+        }
+    });
+    var treetable = layui.treetable;
+    var ids = 10;
+    treetable.render({
+        elem: '.test-tree-table',
+        data: tData,
+        field: 'title',
+        cols: [
+            {
+                field: 'title',
+                title: '标题',
+                width: '30%',
+            },
+            {
+                field: 'id',
+                title: 'ID',
+                width: '20%',
+            },
+            {
+                field: 'pid',
+                title: '父ID',
+                width: '20%',
+            },
+            {
+                field: 'actions',
+                title: '操作',
+                width: '30%',
+                data: [
+                    '<a href="#" lay-filter="add">添加</a>',
+                    '<a href="#" lay-filter="edit">编辑</a>'
+                ]
+            }
+        ]
+    });
+
+    // treetable.on('treetable(test1)',function(data){
+    //     // console.dir(o(data.elem).html());
+    // });
+    //
+    treetable.on('onclick(add)',function(data){
+        // console.dir(data);
+        console.log("添加");
+        return 0;
+    });
+
+    treetable.on('sss',function(data){
+        var id = data['item']['id'];
+        console.log("编辑");
+        console.log(id);
+    });
+
+});
+
 </script>

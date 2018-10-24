@@ -3,6 +3,7 @@ package com.boot.security.server.dao;
 import java.util.List;
 import java.util.Map;
 
+import com.boot.security.server.dto.CategoryDto;
 import com.boot.security.server.dto.LinkageDto;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -46,6 +47,12 @@ public interface CategoryDao {
     @Select("select id, categoryname, parentid from category where status = 1")
     List<LinkageDto> threeLinkage();
 
+    /**
+     * 获取所有的分类信息
+     * @return
+     */
+    @Select("select id, categoryname title, parentid pid from category where status=1")
+    List<CategoryDto> categories();
 
     @Select("select categoryname from category where id = #{id}")
     String getCategoryNameById(Long id);
