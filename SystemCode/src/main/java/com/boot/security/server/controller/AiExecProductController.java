@@ -120,6 +120,7 @@ public class AiExecProductController {
     public void downloadTemplate(HttpServletRequest request, HttpServletResponse response) throws Exception {
         response.setCharacterEncoding(request.getCharacterEncoding());
         File file = new File("D:/files/templates/Excel模板.xlsx");
+        System.out.println(file.getName());
         response.setHeader("content-type", "application/octet-stream");
         response.setContentType("application/octet-stream");
         response.setHeader("Content-Disposition", "attachment; filename="+URLEncoder.encode("test.xlsx", "UTF-8"));
@@ -130,6 +131,7 @@ public class AiExecProductController {
         OutputStream outputStream = response.getOutputStream();
         int i = bufferedInputStream.read(bytes);
         while(i != -1) {
+            System.out.println(i);
             outputStream.write(bytes, 0, i);
             i = bufferedInputStream.read(bytes);
         }
