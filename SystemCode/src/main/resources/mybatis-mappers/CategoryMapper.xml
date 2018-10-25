@@ -68,5 +68,11 @@
 
 		where t.id = #{id}
 	</update>
+	<insert id="save" >
+		<selectKey resultType="long" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into category(categoryname, parentid, status, createtime, updatetime, isleaf) values(#{categoryname}, #{parentid}, #{status}, #{createtime}, #{updatetime}, #{isleaf})
+	</insert>
 
 </mapper>

@@ -1,9 +1,11 @@
 package com.boot.security.server.controller;
 
+import java.util.Date;
 import java.util.List;
 
-import com.boot.security.server.dto.CategoryDto;
-import com.boot.security.server.dto.LinkageDto;
+import com.boot.security.server.dto.*;
+import com.boot.security.server.enums.SystemStatusEnum;
+import com.boot.security.server.service.impl.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +32,9 @@ public class CategoryController {
 
     @Autowired
     private CategoryDao categoryDao;
+
+    @Autowired
+    private CategoryServiceImpl categoryService;
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -73,8 +78,9 @@ public class CategoryController {
 
     @DeleteMapping("/{id}")
     @ApiOperation(value = "删除")
-    public void delete(@PathVariable Long id) {
-        categoryDao.delete(id);
+    public void delete(@PathVariable("id") Long id) {
+        //categoryDao.delete(id);
+        categoryService.deleteCategory(id);
     }
 
     @GetMapping("/twoLinkage")
@@ -89,9 +95,23 @@ public class CategoryController {
         return categoryDao.threeLinkage();
     }
 
-    @GetMapping("/categories")
+    @PostMapping("/categories")
     @ApiOperation(value = "获取所有分类信息")
-    public List<CategoryDto> categoryDtos() {
-        return categoryDao.categories();
+    public CategoryVo categoryDtos() {
+        CategoryVo categoryVo = new CategoryVo();
+        categoryVo.setCode(0);
+        categoryVo.setMsg("ok");
+        categoryVo.setData(categoryDao.categories());
+        categoryVo.setCount(categoryDao.getCount());
+        categoryVo.setStatus(true);
+        categoryVo.setTip("成功");
+        return categoryVo;
+    }
+
+    @PostMapping("/addCategory")
+    @ApiOperation(value = "添加分类")
+    public CategoryDto createCategory(@RequestBody Param param){
+
+        return categoryService.createCategory(param);
     }
 }

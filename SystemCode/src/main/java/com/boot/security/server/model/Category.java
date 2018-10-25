@@ -5,7 +5,7 @@ import java.util.Date;
 public class Category extends BaseEntity<Long> {
 
 	private String categoryname;
-	private String parentid;
+	private Long parentid;
 	private Integer status;
 	private Date createtime = new Date();
 	private Date updatetime = new Date();
@@ -17,38 +17,48 @@ public class Category extends BaseEntity<Long> {
 	public String getCategoryname() {
 		return categoryname;
 	}
-	public String setCategoryname() {
-		return categoryname;
+
+	public void setCategoryname(String categoryname) {
+		this.categoryname = categoryname;
 	}
-	public String getParentid() {
+
+	public Long getParentid() {
 		return parentid;
 	}
-	public String setParentid() {
-		return parentid;
+
+	public void setParentid(Long parentid) {
+		this.parentid = parentid;
 	}
+
 	public Integer getStatus() {
 		return status;
 	}
-	public Integer setStatus() {
-		return status;
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}
+
 	public Date getCreatetime() {
 		return createtime;
 	}
-	public Date setCreatetime() {
-		return createtime;
+
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
 	}
+
 	public Date getUpdatetime() {
 		return updatetime;
 	}
-	public Date setUpdatetime() {
-		return updatetime;
+
+	public void setUpdatetime(Date updatetime) {
+		this.updatetime = updatetime;
 	}
+
 	public Integer getIsleaf() {
 		return isleaf;
 	}
-	public Integer setIsleaf() {
-		return isleaf;
-	}
 
+	public void setIsleaf(Integer isleaf) {
+		this.isleaf = isleaf;
+	}
 }

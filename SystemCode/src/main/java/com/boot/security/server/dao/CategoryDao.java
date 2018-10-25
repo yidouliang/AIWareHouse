@@ -5,12 +5,7 @@ import java.util.Map;
 
 import com.boot.security.server.dto.CategoryDto;
 import com.boot.security.server.dto.LinkageDto;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import com.boot.security.server.model.Category;
 
@@ -26,7 +21,6 @@ public interface CategoryDao {
     int update(Category category);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into category(categoryname, parentid, status, createtime, updatetime, isleaf) values(#{categoryname}, #{parentid}, #{status}, #{createtime}, #{updatetime}, #{isleaf})")
     int save(Category category);
     
     int count(@Param("params") Map<String, Object> params);
@@ -54,6 +48,39 @@ public interface CategoryDao {
     @Select("select id, categoryname title, parentid pid from category where status=1")
     List<CategoryDto> categories();
 
+    /**
+     * 查询分类个数
+     * @return
+     */
+    @Select("select count(1) from category")
+    int getCount();
+
     @Select("select categoryname from category where id = #{id}")
     String getCategoryNameById(Long id);
+
+    /**
+     * 删除指定id的分类
+     * @return
+     */
+    @Update("update category c set status = 0 where c.id = #{id}")
+    int deleteCategory(@Param("id") Long id);
+
+    /**
+     * 根据Id获取子分类Id
+     * @return
+     */
+    @Select("select * from category c where c.parentid = #{id}")
+    List<Category> getChild(@Param("id") Long id);
+
+    /**
+     * 获取该分类下子分类的个数
+     */
+    @Select("select count(1) from category c where c.parentid = #{parentid}")
+    int countChild(@Param("parentid") Long parentid);
+
+    /**
+     * 修改叶子状态
+     */
+    @Update("update category c set c.isleaf = #{isleaf} where c.id = #{id}")
+    void changeLeaf(@Param("id") Long id,@Param("isleaf") Integer isleaf);
 }

@@ -1,5 +1,7 @@
 package com.boot.security.server.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created By Seven.wk
  * Description: 类目传输模型
@@ -7,36 +9,38 @@ package com.boot.security.server.dto;
  */
 public class CategoryDto {
 
-    private Integer id;
+    private Long id;
 
+    @JsonProperty("name")
     private String title;
 
-    private Integer pid;
+    @JsonProperty("pId")
+    private Long pid;
 
     public CategoryDto() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String gettitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void settitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public Integer getPid() {
+    public Long getPid() {
         return pid;
     }
 
-    public void setPid(Integer pid) {
+    public void setPid(Long pid) {
         this.pid = pid;
     }
 

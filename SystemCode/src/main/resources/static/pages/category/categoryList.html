@@ -1,45 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
-<link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all"/>
 </head>
-<body>
-    <div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div>
-                <header style="height: 100%">
-                    <div align="left">
-	                    <table style="width: 100%">
-	                   		<tr>
-	                   			<td>
-		                   			<form class="form-inline" onsubmit="return false">
-										<div class="form-group">
-											id：
-											<input id="id" type="text" class="form-control" placeholder="id">
-											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
-										</div>
-									</form>
-	                   			</td>
-	                   			<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addCategory.html'">
-                                      <i class="layui-icon">&#xe608;</i> 添加
-                                    </button>
-	                   			</td>
-	                   		</tr> 
-	                    </table>
-					</div>
-                </header>
-                
-                <!--此处插入代码-->
-                <div class="test-tree-table" lay-filter="test1"></div>
+<div style="height: 100%">
+    <div class="dHead">
+        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="reload()">reload</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="query()">query</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="add(null);">新增一行</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="getCheckData();">获取选中行数据</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="getCheckLength();">获取选中数目</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="openAll();">展开或折叠全部</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="radioStatus();">获取单选数据</a>
 
-            </div>
-        </div>
     </div>
+    <div class="dBody">
+        <table class="layui-hidden" id="treeTable" lay-filter="treeTable"></table>
+    </div>
+</div>
 </body>
 </html>
 
@@ -50,141 +33,161 @@
 <script type="text/javascript" src="../../layui/layui.js"></script>
 <script type="text/javascript" src="../../js/my/permission.js"></script>
 <script type="text/javascript">
-var pers = checkPermission();
-
-var example;
-function init(){
-	example = 
-    	$('#dt-table').DataTable({
-        	"searching": false,
-        	"processing": false,
-        	"serverSide" : true,
-        	"ajax": {
-        		"url" : "/categorys",
-        		"type":"get",
-        		"data":function(d){
-    				d.id = $("#id").val();
-    			}
-        	},
-        	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
-            "columns": [
-				{"data" : "id", "defaultContent" : ""},
-				{"data" : "categoryname", "defaultContent" : ""},
-				{"data" : "parentid", "defaultContent" : ""},
-				{"data" : "status", "defaultContent" : ""},
-				// {"data" : "createtime", "defaultContent" : ""},
-				// {"data" : "updatetime", "defaultContent" : ""},
-				{"data" : "isleaf", "defaultContent" : ""},
-				{ 
-								"data": "", 
-								"defaultContent": "",
-								"orderable":false,
-						        "render": function (data, type, row) {
-                		           var id = row['id'];
-                		           var href = "updateCategory.html?id=" + id;
-                                   var edit = buttonEdit(href, "", pers);
-                		           var del = buttonDel(id, "", pers);
-                                   return edit + del;
-                  	            }		
-							},
-                
-            ],
-           "order": [[ 0, "asc" ]]
-        } );
-}
-
-layui.use('layer', function(){
-    var layer = layui.layer;
-});
-
-function del(id){
-	layer.confirm('确定要删除吗？', {
-        btn : [ '确定', '取消' ]
-    }, function() {
-    	$.ajax({
-            type : 'delete',
-            url : '/categorys/'+id,
-            success : function(data) {
-                example.ajax.reload();
-                layer.msg("删除成功");
+    var editObj=null,ptable=null,treeGrid=null,tableId='treeTable',layer=null;
+    layui.config({
+        base: '../../layui/tree/'
+    }).extend({
+        treeGrid:'treeGrid'
+    }).use(['jquery','treeGrid','layer'], function(){
+        var $=layui.jquery;
+        treeGrid = layui.treeGrid;//很重要
+        layer=layui.layer;
+        ptable=treeGrid.render({
+            id:tableId
+            ,elem: '#'+tableId
+            ,url:'/categorys/categories'
+            ,cellMinWidth: 100
+            ,idField:'id'//必須字段
+            ,treeId:'id'//树形id字段名称
+            ,treeUpId:'pId'//树形父id字段名称
+            ,treeShowName:'name'//以树形式显示的字段
+            ,heightRemove:[".dHead",10]//不计算的高度,表格设定的是固定高度，此项不生效
+            ,height:'100%'
+            ,isFilter:false
+            ,iconOpen:true//是否显示图标【默认显示】
+            ,isOpenDefault:false//节点默认是展开还是折叠【默认展开】
+            ,loading:true
+            ,method:'post'
+            ,cols: [[
+                {type:'numbers'}
+                ,{type:'radio'}
+                ,{type:'checkbox',sort:true}
+                ,{field:'name', width:300, title: '类目名称',sort:true}
+                ,{field:'id',width:100, title: 'id',sort:true}
+                ,{field:'pId', title: 'pid',sort:true}
+                ,{width:100,title: '操作', align:'center'/*toolbar: '#barDemo'*/
+                    ,templet: function(d){
+                        var html='';
+                        var addBtn='<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="add">添加</a>';
+                        var delBtn='<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';
+                        return addBtn+delBtn;
+                    }
+                }
+            ]]
+            ,isPage:false
+            ,parseData:function (res) {//数据加载后回调
+                return res;
+            }
+            ,onClickRow:function (index, o) {
+                console.log(index,o,"单击！");
+            }
+            ,onDblClickRow:function (index, o) {
+                console.log(index,o,"双击");
             }
         });
-        
-        layer.close(1);
-    });
-}
 
-$("#searchBt").click(function(){
-	example.ajax.reload();
-});
-
-init();
-
-layui.config({
-    base: '/js/',
-});
-
-layui.use(['treetable','form'],function(){
-    var tData = [];
-    $.ajax({
-        type : 'get',
-        url : '/categorys/categories',
-        async: false,
-        success: function (data) {
-            tData = JSON.stringify(data);     //将JSON对象转换为字符串
-            tData = JSON.parse(tData);      //将字符串转换为数组
-        }
-    });
-    var treetable = layui.treetable;
-    var ids = 10;
-    treetable.render({
-        elem: '.test-tree-table',
-        data: tData,
-        field: 'title',
-        cols: [
-            {
-                field: 'title',
-                title: '标题',
-                width: '30%',
-            },
-            {
-                field: 'id',
-                title: 'ID',
-                width: '20%',
-            },
-            {
-                field: 'pid',
-                title: '父ID',
-                width: '20%',
-            },
-            {
-                field: 'actions',
-                title: '操作',
-                width: '30%',
-                data: [
-                    '<a href="#" lay-filter="add">添加</a>',
-                    '<a href="#" lay-filter="edit">编辑</a>'
-                ]
+        treeGrid.on('tool('+tableId+')',function (obj) {
+            if(obj.event === 'del'){//删除行
+                del(obj);
+            }else if(obj.event==="add"){//添加行
+                add(obj);
             }
-        ]
+        });
     });
 
-    // treetable.on('treetable(test1)',function(data){
-    //     // console.dir(o(data.elem).html());
-    // });
-    //
-    treetable.on('onclick(add)',function(data){
-        // console.dir(data);
-        console.log("添加");
-        return 0;
-    });
+    function del(obj) {
+        layer.confirm("你确定删除数据吗？如果存在下级节点则一并删除，此操作不能撤销！", {icon: 3, title:'提示'},
+            function(index){//确定回调
+                console.log("id是:"+obj.data.id);
+                $.ajax({
+                    type : "delete",
+                    contentType: "application/json; charset=utf-8",
+                    url : "/categorys/"+obj.data.id,
+                    success : function(data){
+                        layer.msg("删除成功");
+                    }
+                });
+                obj.del();
+                layer.close(index);
+            },function (index) {//取消回调
+                layer.close(index);
+            }
+        );
+    }
 
-    treetable.on('sss',function(data){
-        var id = data['item']['id'];
-        console.log("编辑");
-        console.log(id);
-    });
 
-});
+    //添加
+    function add(pObj) {
+        var pdata=pObj?pObj.data:null;
+        var param = {};
+        param.pId=pdata?pdata.id:null;
+        layer.prompt({
+            formType: 2,
+            title: '添加分类',
+            area: ['100px', '50px'] //自定义文本域宽高
+        }, function(value, index, elem){
+            param.value = value;
+            $.ajax({
+                type : "post",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                url : "/categorys/addCategory",
+                data : JSON.stringify(param),
+                success : function(data){
+
+                    param.id=data.id;
+                    param.pId=data.pId;
+                    param.name = data.name;
+                    treeGrid.addRow(tableId,pdata?pdata[treeGrid.config.indexName]+1:0,param);
+                    layer.msg("添加成功");
+                }
+            });
+            layer.close(index);
+        });
+
+    }
+
+
+    function openorclose() {
+        var map=treeGrid.getDataMap(tableId);
+        var o= map['102'];
+        treeGrid.treeNodeOpen(tableId,o,!o[treeGrid.config.cols.isOpen]);
+    }
+
+
+    function openAll() {
+        var treedata=treeGrid.getDataTreeList(tableId);
+        treeGrid.treeOpenAll(tableId,!treedata[0][treeGrid.config.cols.isOpen]);
+    }
+
+    function getCheckData() {
+        var checkStatus = treeGrid.checkStatus(tableId)
+            ,data = checkStatus.data;
+        layer.alert(JSON.stringify(data));
+    }
+    function radioStatus() {
+        var data = treeGrid.radioStatus(tableId)
+        layer.alert(JSON.stringify(data));
+    }
+    function getCheckLength() {
+        var checkStatus = treeGrid.checkStatus(tableId)
+            ,data = checkStatus.data;
+        layer.msg('选中了：'+ data.length + ' 个');
+    }
+
+    function reload() {
+        treeGrid.reload(tableId,{
+            page:{
+                curr:1
+            }
+        });
+    }
+    function query() {
+        treeGrid.query(tableId,{
+            where:{
+                name:'sdfsdfsdf'
+            }
+        });
+    }
 
 </script>
