@@ -10,13 +10,8 @@
 </head>
 <div style="height: 100%">
     <div class="dHead">
-        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="reload()">reload</a>
-        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="query()">query</a>
-        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="add(null);">新增一行</a>
-        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="getCheckData();">获取选中行数据</a>
-        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="getCheckLength();">获取选中数目</a>
+        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="reload()">刷新</a>
         <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="openAll();">展开或折叠全部</a>
-        <a class="layui-btn layui-btn-primary layui-btn-xs layui-btn-xstree"  onclick="radioStatus();">获取单选数据</a>
 
     </div>
     <div class="dBody">
@@ -55,7 +50,7 @@
             ,height:'100%'
             ,isFilter:false
             ,iconOpen:true//是否显示图标【默认显示】
-            ,isOpenDefault:false//节点默认是展开还是折叠【默认展开】
+            ,isOpenDefault:true//节点默认是展开还是折叠【默认展开】
             ,loading:true
             ,method:'post'
             ,cols: [[
@@ -65,12 +60,13 @@
                 ,{field:'name', width:300, title: '类目名称',sort:true}
                 ,{field:'id',width:100, title: 'id',sort:true}
                 ,{field:'pId', title: 'pid',sort:true}
-                ,{width:100,title: '操作', align:'center'/*toolbar: '#barDemo'*/
+                ,{width:150,title: '操作', align:'center'/*toolbar: '#barDemo'*/
                     ,templet: function(d){
                         var html='';
+                        var editBtn='<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="edit">修改</a>';
                         var addBtn='<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="add">添加</a>';
                         var delBtn='<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';
-                        return addBtn+delBtn;
+                        return editBtn+addBtn+delBtn;
                     }
                 }
             ]]
@@ -91,6 +87,8 @@
                 del(obj);
             }else if(obj.event==="add"){//添加行
                 add(obj);
+            }else if(obj.event==="edit"){
+                edit(obj);
             }
         });
     });
@@ -113,6 +111,32 @@
                 layer.close(index);
             }
         );
+    }
+
+    function edit(Obj) {
+        var pdata=Obj?Obj.data:null;
+        var param = {};
+        param.id = pdata.id;
+        layer.prompt({
+            formType: 2,
+            title: '修改分类',
+            value : Obj.data.name,
+            area: ['100px', '50px'] //自定义文本域宽高
+        }, function(value, index, elem){
+            param.categoryname = value;
+            $.ajax({
+                type : "put",
+                contentType: "application/json; charset=utf-8",
+                url : "/categorys",
+                data : JSON.stringify(param),
+                success : function(data){
+                    layer.msg("修改成功");
+                    //window.location.reload();
+                    reload();
+                }
+            });
+            layer.close(index);
+        });
     }
 
 
@@ -139,6 +163,7 @@
                     param.pId=data.pId;
                     param.name = data.name;
                     treeGrid.addRow(tableId,pdata?pdata[treeGrid.config.indexName]+1:0,param);
+                    treeGrid.
                     layer.msg("添加成功");
                 }
             });

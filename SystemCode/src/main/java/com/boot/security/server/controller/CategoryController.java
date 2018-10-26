@@ -54,7 +54,6 @@ public class CategoryController {
     @ApiOperation(value = "修改")
     public Category update(@RequestBody Category category) {
         categoryDao.update(category);
-
         return category;
     }
 

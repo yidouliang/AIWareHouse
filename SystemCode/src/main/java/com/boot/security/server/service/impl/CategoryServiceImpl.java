@@ -38,10 +38,8 @@ public class CategoryServiceImpl implements CategoryService {
         //获取父分类，修改其isleaf为false
         Category pCategory = categoryDao.getById(param.getpId());
         //如果父节点为叶子结点
-        if(pCategory.getIsleaf()==1){
             pCategory.setIsleaf(0);
             categoryDao.update(pCategory);
-        }
         //添加
         Category category = new Category();
         category.setCategoryname(param.getValue());
