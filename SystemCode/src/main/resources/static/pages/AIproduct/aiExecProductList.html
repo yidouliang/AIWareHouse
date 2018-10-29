@@ -212,8 +212,8 @@ function toggleUpOrDown(that,id,status){
 function download() {
     $.ajax({
         url: "/aiExecProducts/downloadTemplate",
-        type: "GET",
-        async: false,
+        type: "get",
+        async: true,
         success: function () {
             layer.msg("下载成功");
         },

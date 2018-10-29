@@ -79,9 +79,9 @@ public class AiMktInventoryInstController {
             public List<AiMktInventoryInstDto> list(PageTableRequest request) {
                 SysUser user = userService.getTokenUser(httpServletRequest);
                 if(user.getOperatorid() != null) {
-                    Map<String, Object> m = new HashMap<>();
-                    m.put("createorgid", user.getOperatorid());
-                    request.setParams(m);
+                    Map<String, Object> map = request.getParams();
+                    map.put("operatorid", user.getOperatorid());
+                    request.setParams(map);
                 }
                 return aiMktInventoryInstDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }

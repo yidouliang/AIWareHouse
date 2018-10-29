@@ -83,9 +83,9 @@ public class AiWarehouseController {
             public List<AiWarehouseDto> list(PageTableRequest request) {
                 SysUser user = userService.getTokenUser(httpServletRequest);
                 if(user.getOperatorid() != null) {
-                    Map<String, Object> m = new HashMap<>();
-                    m.put("operatorid", user.getOperatorid());
-                    request.setParams(m);
+                    Map<String, Object> map = request.getParams();
+                    map.put("operatorid", user.getOperatorid());
+                    request.setParams(map);
                 }
                 return aiWarehouseDao.list(request.getParams(), request.getOffset(), request.getLimit());
             }

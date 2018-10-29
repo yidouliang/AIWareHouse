@@ -15,6 +15,7 @@ import com.boot.security.server.service.AiExecProductService;
 import com.boot.security.server.service.UserService;
 import com.boot.security.server.utils.FileUtil;
 import io.swagger.annotations.ApiOperation;
+import org.apache.poi.util.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -117,26 +118,21 @@ public class AiExecProductController {
 
     @GetMapping("/downloadTemplate")
     @ApiOperation(value = "下载Excel模板")
-    public void downloadTemplate(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void downloadTemplate(HttpServletRequest request,
+                                 HttpServletResponse response) throws Exception {
         response.setCharacterEncoding(request.getCharacterEncoding());
+
         File file = new File("D:/files/templates/Excel模板.xlsx");
-        System.out.println(file.getName());
-        response.setHeader("content-type", "application/octet-stream");
-        response.setContentType("application/octet-stream");
-        response.setHeader("Content-Disposition", "attachment; filename="+URLEncoder.encode("test.xlsx", "UTF-8"));
-
-        byte[] bytes = new byte[1024];
-        FileInputStream fileInputStream = new FileInputStream(file);
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+        InputStream inputStream = new FileInputStream(file);
         OutputStream outputStream = response.getOutputStream();
-        int i = bufferedInputStream.read(bytes);
-        while(i != -1) {
-            System.out.println(i);
-            outputStream.write(bytes, 0, i);
-            i = bufferedInputStream.read(bytes);
-        }
 
-        fileInputStream.close();
-        bufferedInputStream.close();
+        response.setContentType("application/x-download");
+        response.addHeader("Content-Disposition", "attachment;filename=template.xlsx");
+
+        IOUtils.copy(inputStream, outputStream);
+        outputStream.flush();
+
+        inputStream.close();
+        outputStream.close();
     }
 }

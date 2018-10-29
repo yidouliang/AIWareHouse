@@ -34,19 +34,34 @@ public class AiExecProductServiceImpl implements AiExecProductService {
 
     @Override
     public ResponseInfo importProduct(MultipartFile file, Long creatorId) throws IOException {
-        String fullpath = filesPath + FileUtil.getPath() + file.getOriginalFilename();
-        File excel = new File(FileUtil.saveFile(file, fullpath));
+        int batchSize = 1000;
+
+        String fullPath = filesPath + FileUtil.getPath() + file.getOriginalFilename();
+        File excel = new File(FileUtil.saveFile(file, fullPath));
         if(!ExcelUtil.isExcel(excel)) {
             excel.delete();
             return new ResponseInfo(SystemStatusEnum.FILE_FORMAT_ERROR);
         }
 
         List<AiExecProduct> aiExecProductList = ExcelUtil.importAiExecProduct(excel);
-        for(AiExecProduct aiExecProduct : aiExecProductList) {
+
+        for (AiExecProduct aiExecProduct : aiExecProductList) {
             aiExecProduct.setCreatorid(creatorId);
         }
-        aiExecProductDao.bulkInsert(aiExecProductList);
+
+        // 进行分段处理
+        if (aiExecProductList.size() <= batchSize) {
+            aiExecProductDao.bulkInsert(aiExecProductList);
+        } else {
+            int listSize = aiExecProductList.size();
+            int num = listSize / batchSize;
+            for(int i=0; i<num; i++) {
+                aiExecProductDao.bulkInsert(aiExecProductList.subList(i*batchSize, (i+1)*batchSize));
+            }
+            aiExecProductDao.bulkInsert(aiExecProductList.subList(num*batchSize, listSize));
+        }
         excel.delete();
+
         return new ResponseInfo("200", "数据导入成功");
     }
 }

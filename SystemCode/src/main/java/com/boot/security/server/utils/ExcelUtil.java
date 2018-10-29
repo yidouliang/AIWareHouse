@@ -186,7 +186,7 @@ public class ExcelUtil {
      * @return
      */
 	public static List<AiExecProduct> importAiExecProduct(File file) throws IOException {
-        List<ExcelProduct> excelProductList = new ArrayList<>();
+        List<ExcelProduct> excelProductList = new ArrayList<>(1000);
         Workbook wb;
         if(is2003Excel(file)) {
             wb = new HSSFWorkbook(new FileInputStream(file));
