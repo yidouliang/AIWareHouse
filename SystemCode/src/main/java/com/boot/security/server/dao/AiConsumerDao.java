@@ -25,7 +25,7 @@ public interface AiConsumerDao {
     int update(AiConsumer aiConsumer);
     
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    @Insert("insert into ai_consumer(name, telphone, type, starcode, source, descinfo, state, boxidreg, ext1, ext2, ext3) values(#{name}, #{telphone}, #{type}, #{starcode}, #{source}, #{descinfo}, #{state}, #{boxidreg}, #{ext1}, #{ext2}, #{ext3})")
+    @Insert("insert into ai_consumer(name, telphone, type, starcode, source, descinfo, state, boxidreg, consumerid, ext2, ext3) values(#{name}, #{telphone}, #{type}, #{starcode}, #{source}, #{descinfo}, #{state}, #{boxidreg}, #{consumerid}, #{ext2}, #{ext3})")
     int save(AiConsumer aiConsumer);
     
     int count(@Param("params") Map<String, Object> params);

@@ -1,5 +1,6 @@
 package com.boot.security.server.advice;
 
+import com.alipay.api.AlipayApiException;
 import com.boot.security.server.enums.SystemStatusEnum;
 import com.boot.security.server.exception.SystemException;
 import org.slf4j.Logger;
@@ -75,6 +76,13 @@ public class ExceptionHandlerAdvice {
 		log.error("系统异常", throwable);
 		return new ResponseInfo(HttpStatus.INTERNAL_SERVER_ERROR.value() + "", throwable.getMessage());
 
+	}
+
+	@ExceptionHandler(AlipayApiException.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+	public ResponseInfo alipayApiException(AlipayApiException e) {
+		log.error("支付宝接口异常", e);
+		return new ResponseInfo(e.getErrCode() + "", e.getMessage());
 	}
 
 	@ExceptionHandler(SystemException.class)

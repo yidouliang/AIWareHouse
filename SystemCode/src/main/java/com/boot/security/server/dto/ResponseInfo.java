@@ -4,17 +4,24 @@ import com.boot.security.server.enums.SystemStatusEnum;
 
 import java.io.Serializable;
 
-public class ResponseInfo implements Serializable {
+public class ResponseInfo<T> implements Serializable {
 
 	private static final long serialVersionUID = -4417715614021482064L;
 
 	private String code;
 	private String message;
+	private T data;
 
 	public ResponseInfo(String code, String message) {
 		super();
 		this.code = code;
 		this.message = message;
+	}
+
+	public ResponseInfo(SystemStatusEnum systemStatusEnum, T data) {
+		this.code = systemStatusEnum.getCode();
+		this.message = systemStatusEnum.getMessage();
+		this.data = data;
 	}
 
 	public ResponseInfo(SystemStatusEnum systemStatusEnum) {
@@ -39,4 +46,11 @@ public class ResponseInfo implements Serializable {
 		this.message = message;
 	}
 
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
+	}
 }

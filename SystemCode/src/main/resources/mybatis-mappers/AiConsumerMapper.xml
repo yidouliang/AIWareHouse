@@ -32,8 +32,8 @@
 			<if test="params.boxidreg != null and params.boxidreg != ''">
 				and boxidreg = #{params.boxidreg}
 			</if>
-			<if test="params.ext1 != null and params.ext1 != ''">
-				and ext1 = #{params.ext1}
+			<if test="params.consumerid != null and params.consumerid != ''">
+				and consumerid = #{params.consumerid}
 			</if>
 			<if test="params.ext2 != null and params.ext2 != ''">
 				and ext2 = #{params.ext2}
@@ -115,8 +115,8 @@
 			<if test="boxidreg != null">
 				boxidreg = #{boxidreg}, 
 			</if>
-			<if test="ext1 != null">
-				ext1 = #{ext1}, 
+			<if test="consumerid != null">
+				consumerid = #{consumerid}, 
 			</if>
 			<if test="ext2 != null">
 				ext2 = #{ext2}, 

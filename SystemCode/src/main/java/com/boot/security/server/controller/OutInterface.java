@@ -190,8 +190,8 @@ public class OutInterface {
         result = obj.toJSONString(obj, SerializerFeature.WriteNullStringAsEmpty, SerializerFeature.WriteNullNumberAsZero, SerializerFeature.WriteMapNullValue);
 
         writeToResponse(response, result);
-        return;
     }
+
     protected void writeToResponse(final HttpServletResponse response, final String result) throws Exception {
         response.setHeader("Content-type", "text/html;charset=utf-8");
         response.setContentType("text/html;charset=utf-8");
