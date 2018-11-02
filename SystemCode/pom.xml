@@ -192,7 +192,6 @@
 			<version>8.0.36</version>
 			<scope>provided</scope>
 		</dependency>
-
 	</dependencies>
 
 <build>
