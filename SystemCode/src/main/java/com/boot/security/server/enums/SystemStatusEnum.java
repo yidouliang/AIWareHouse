@@ -24,6 +24,8 @@ public enum SystemStatusEnum {
 
     BIND_ERROR("21","参数校验错误"),
 
+    CONSUMER_NOT_EXISTS("22", "用户不存在"),
+
     ;
 
     String code;

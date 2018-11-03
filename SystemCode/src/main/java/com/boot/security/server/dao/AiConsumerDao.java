@@ -31,4 +31,10 @@ public interface AiConsumerDao {
     int count(@Param("params") Map<String, Object> params);
 
     List<AiConsumerDto> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
+
+    @Select("select count(*) from ai_consumer where consumerid = #{uid} ")
+    int countConsumerByConsumerId(String uid);
+
+    @Select("select name, telphone, type from ai_consumer where consumerid = #{consumerId}")
+    AiConsumer getConsumerInfoByConsumerId(String consumerId);
 }

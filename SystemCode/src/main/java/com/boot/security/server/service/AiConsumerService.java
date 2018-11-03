@@ -1,6 +1,7 @@
 package com.boot.security.server.service;
 
 import com.alipay.api.response.AlipayUserInfoShareResponse;
+import com.boot.security.server.model.AiConsumer;
 
 /**
  * Created By Seven.wk
@@ -10,4 +11,9 @@ import com.alipay.api.response.AlipayUserInfoShareResponse;
 public interface AiConsumerService {
 
     void addFromAliPay(AlipayUserInfoShareResponse alipayUserInfo);
+
+    boolean isExists(String uid);
+
+    AiConsumer getInfoByConsumerId(String consumerId);
+
 }

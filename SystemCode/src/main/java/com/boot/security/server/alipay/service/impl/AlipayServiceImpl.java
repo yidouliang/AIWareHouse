@@ -1,4 +1,4 @@
-package com.boot.security.server.alipay.service;
+package com.boot.security.server.alipay.service.impl;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -8,6 +8,7 @@ import com.alipay.api.request.AlipayUserInfoShareRequest;
 import com.alipay.api.response.AlipaySystemOauthTokenResponse;
 import com.alipay.api.response.AlipayUserInfoShareResponse;
 import com.boot.security.server.alipay.constant.AlipayConstant;
+import com.boot.security.server.alipay.service.AlipayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

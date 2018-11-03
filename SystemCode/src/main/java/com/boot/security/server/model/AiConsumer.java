@@ -1,7 +1,8 @@
 package com.boot.security.server.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class AiConsumer extends BaseEntity<Long> {
 
 	private String name;
@@ -104,4 +105,13 @@ public class AiConsumer extends BaseEntity<Long> {
 	public void setExt3(String ext3) {
 		this.ext3 = ext3;
 	}
+
+    @Override
+    public String toString() {
+        return "AiConsumer{" +
+                "name='" + name + '\'' +
+                ", telphone='" + telphone + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

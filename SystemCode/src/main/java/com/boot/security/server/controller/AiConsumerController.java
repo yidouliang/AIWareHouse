@@ -1,28 +1,19 @@
 package com.boot.security.server.controller;
 
-import java.util.List;
-
-import com.boot.security.server.dao.DictDao;
+import com.boot.security.server.dao.AiConsumerDao;
 import com.boot.security.server.dto.AiConsumerDto;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.boot.security.server.page.table.PageTableRequest;
+import com.boot.security.server.model.AiConsumer;
 import com.boot.security.server.page.table.PageTableHandler;
-import com.boot.security.server.page.table.PageTableResponse;
 import com.boot.security.server.page.table.PageTableHandler.CountHandler;
 import com.boot.security.server.page.table.PageTableHandler.ListHandler;
-import com.boot.security.server.dao.AiConsumerDao;
-import com.boot.security.server.model.AiConsumer;
-
+import com.boot.security.server.page.table.PageTableRequest;
+import com.boot.security.server.page.table.PageTableResponse;
+import com.boot.security.server.service.AiConsumerService;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/aiConsumers")
@@ -30,7 +21,6 @@ public class AiConsumerController {
 
     @Autowired
     private AiConsumerDao aiConsumerDao;
-
 
     @PostMapping
     @ApiOperation(value = "保存")
@@ -78,4 +68,5 @@ public class AiConsumerController {
     public void delete(@PathVariable Long id) {
         aiConsumerDao.delete(id);
     }
+
 }
