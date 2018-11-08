@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 	<link rel="stylesheet" type="text/css" media="screen" href="../../css/taobao.css">
 </head>
-<body>
-    <div>
+<body style="background-color: #fff;padding: 7px">
+    <div style="border: #B3B3B3 1px solid;box-shadow: 1px 0px 5px #484B50 ;background-color: #fff">
 		<div class="layui-row" style="  ">
 			<div class="layui-col-xs6  ">
 				<div   style="background: #FFFFFF;width: 98%;height: 280px; ">
@@ -24,30 +24,22 @@
 				</div>
 			</div>
 		</div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border: #B3B3B3 1px solid;box-shadow: 1px 0px 5px #484B50 ;background-color: #fff">
             <div>
                 <header style="height: 100%">
                     <div align="left">
 	                    <table style="width: 100%">
 	                   		<tr>
 	                   			<td>
-		                   			<form class="form-inline" onsubmit="return false">
+		                   			<form class="form-inline" onsubmit="return false" style="float: right;margin-top: 10px;margin-bottom: 10px;">
 										<div class="form-group">
-											id：
-											<input id="id" type="text" class="form-control" placeholder="id">
-											消费者id：
-											<input id="consumerid" type="text" class="form-control" placeholder="消费者id">
-											平台流水号：
-											<input id="serialnumber" type="text" class="form-control" placeholder="平台流水号">
+											<input id="id" type="text" class="form-control" placeholder="id" style="height: 40px">
+											<input id="consumerid" type="text" class="form-control" placeholder="消费者id" style="height: 40px">
+											<input id="serialnumber" type="text" class="form-control" placeholder="平台流水号" style="height: 40px">
 											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
 	                   			</td>
-	                   			<!--<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addAiOrderFirstLevel.html'">
-                                      <i class="layui-icon">&#xe608;</i> 添加
-                                    </button>
-	                   			</td>-->
 	                   		</tr> 
 	                    </table>
 					</div>
@@ -55,7 +47,7 @@
                 
                 <div>
                     <div class="widget-body no-padding">
-						<div class = "c_table  " style="overflow-x: auto; overflow-y:hidden; height: 100%; width:100%;">
+						<div class = "c_table  " style="overflow-x: auto; overflow-y:hidden; height: 100%; width:100%; margin: auto">
                         <table id="dt-table" class="table table-striped table-bordered table-hover" style="width:100%">
                             <thead>
                                 <tr>
@@ -114,6 +106,11 @@ function init(){
         	"searching": false,
         	"processing": false,
         	"serverSide" : true,
+            "sScrollY":"calc(100vh - 470px)",
+            "sScrollX":100,
+            "language": {
+                "url": "/js/plugin/datatables/Chinese.lang"
+            },
         	"ajax": {
         		"url" : "/aiOrderFirstLevels",
         		"type":"get",
@@ -168,7 +165,7 @@ function init(){
 							},
                 
             ],
-            "iDisplayLength": 3,
+            "iDisplayLength": 2,
            "order": [[ 0, "asc" ]]
         } );
 }

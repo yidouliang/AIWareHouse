@@ -8,29 +8,28 @@
 <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/taobao.css">
 </head>
-<body>
+<body style="background-color: #fff;padding: 7px">
     <div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border: #B3B3B3 1px solid;box-shadow: 1px 0px 5px #484B50 ;">
             <div>
-                <header style="height: 100%">
+                <header style="height: 100%;background-color: #fff"">
                     <div align="left">
 	                    <table style="width: 100%">
 	                   		<tr>
 	                   			<td>
-		                   			<form class="form-inline" onsubmit="return false">
+                                    <div style="margin: 10px">
+                                        <strong>▋运营商管理</strong>
+                                    </div>
+		                   			<form class="form-inline" onsubmit="return false" style="float: right;margin-top: 10px;margin-bottom: 10px;">
 										<div class="form-group">
-											id：
-											<input id="id" type="text" class="form-control" placeholder="id">
-                                            运营商名称(全名)：
-                                            <input id="name" type="text" class="form-control" placeholder="运营商名称(全名)">
-											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
+											<input id="id" type="text" class="form-control" placeholder="id" style="height: 40px">
+                                            <input id="name" type="text" class="form-control" placeholder="运营商名称(全名)" style="height: 40px">
+											<button id="searchBt" class="layui-btn"><i class="layui-icon">&#xe615;</i>搜索</button>
+                                            <button class="layui-btn layui-btn-sm" onclick="location.href='addAiOperator.html'">
+                                                <i class="layui-icon">&#xe608;</i> 添加
+                                            </button>
 										</div>
 									</form>
-	                   			</td>
-	                   			<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addAiOperator.html'">
-                                      <i class="layui-icon">&#xe608;</i> 添加
-                                    </button>
 	                   			</td>
 	                   		</tr> 
 	                    </table>
@@ -39,7 +38,7 @@
                 
                 <div>
                     <div class="widget-body no-padding">
-                        <div class = "c_table  " style="overflow-x: auto; overflow-y:hidden; height: 100%; width:100%;">
+                        <div class = "c_table  " style="overflow-x: auto; overflow-y:hidden; height: 100%; width:100%;margin: auto">
                         <table id="dt-table" class="table table-striped table-bordered table-hover" style="width:100%">
                             <thead>
                                 <tr>
@@ -81,6 +80,11 @@ function init(){
         	"searching": false,
         	"processing": false,
         	"serverSide" : true,
+            "sScrollY":"calc(100vh - 230px)",
+            "sScrollX":100,
+            "language": {
+                "url": "/js/plugin/datatables/Chinese.lang"
+            },
         	"ajax": {
         		"url" : "/aiOperators",
         		"type":"get",
