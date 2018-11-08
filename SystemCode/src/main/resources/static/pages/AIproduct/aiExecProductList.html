@@ -104,7 +104,7 @@ function init(){
         	"searching": false,
         	"processing": false,
         	"serverSide" : true,
-        	"ajax": {
+            "ajax": {
         		"url" : "/aiExecProducts",
         		"type":"get",
         		"data":function(d){
@@ -151,7 +151,8 @@ function init(){
 							},
                 
             ],
-           "order": [[ 0, "asc" ]]
+           "order": [[ 0, "asc" ]],
+            "iDisplayLength": 8
         } );
 }
 
