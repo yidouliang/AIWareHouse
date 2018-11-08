@@ -8,32 +8,35 @@
 <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/taobao.css">
 </head>
-<body>
+<body style="background-color: #fff;padding: 7px">
     <div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border: #B3B3B3 1px solid;box-shadow: 1px 0px 5px #484B50 ;">
             <div>
-                <header style="height: 100%">
+                <header style="height: 100%; background-color: #fff">
                     <div align="left">
 	                    <table style="width: 100%">
 	                   		<tr>
 	                   			<td>
-		                   			<form class="form-inline" onsubmit="return false">
+									<div style="margin: 10px">
+										<strong>无人超市产品管理</strong>
+									</div>
+		                   			<form class="form-inline" onsubmit="return false" style="float: left;margin-top: 10px;margin-bottom: 10px;">
 										<div class="form-group">
-											id：
+
 											<input id="id" type="text" class="form-control" placeholder="id">
 
-											产品名称：
+
 											<input id="productname" type="text" class="form-control" placeholder="产品名称">
 
-											产品编码：
+
 											<input id="productcode" type="text" class="form-control" placeholder="产品编码">
 
-											<button id="searchBt" class="layui-btn layui-btn-sm"><i class="layui-icon">&#xe615;</i>搜索</button>
+											<button id="searchBt" class="layui-btn layui-btn"><i class="layui-icon">&#xe615;</i>搜索</button>
 										</div>
 									</form>
 	                   			</td>
-	                   			<td align="right">
-	                   				<button class="layui-btn layui-btn-sm" onclick="location.href='addAiMktInventoryInst.html'">
+	                   			<td align="right" style="padding-top: 30px">
+	                   				<button class="layui-btn layui-btn" onclick="location.href='addAiMktInventoryInst.html'">
                                       <i class="layui-icon">&#xe608;</i> 添加
                                     </button>
 	                   			</td>
@@ -102,6 +105,11 @@ function init(){
         	"searching": false,
         	"processing": false,
         	"serverSide" : true,
+            "sScrollY":"calc(100vh - 230px)",
+            "sScrollX":100,
+            "language": {
+                "url": "/js/plugin/datatables/Chinese.lang"
+            },
         	"ajax": {
         		"url" : "/aiMktInventoryInsts",
         		"type":"get",
