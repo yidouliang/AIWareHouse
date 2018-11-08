@@ -14,7 +14,7 @@ public class AiConsumer extends BaseEntity<Long> {
 	private Integer state;
 	private String boxidreg;
 	private String consumerid;
-	private String ext2;
+	private String avatar;
 	private String ext3;
 
 
@@ -90,12 +90,12 @@ public class AiConsumer extends BaseEntity<Long> {
 		this.consumerid = consumerid;
 	}
 
-	public String getExt2() {
-		return ext2;
+	public String getavatar() {
+		return avatar;
 	}
 
-	public void setExt2(String ext2) {
-		this.ext2 = ext2;
+	public void setavatar(String avatar) {
+		this.avatar = avatar;
 	}
 
 	public String getExt3() {
@@ -106,12 +106,13 @@ public class AiConsumer extends BaseEntity<Long> {
 		this.ext3 = ext3;
 	}
 
-    @Override
-    public String toString() {
-        return "AiConsumer{" +
-                "name='" + name + '\'' +
-                ", telphone='" + telphone + '\'' +
-                ", type=" + type +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "AiConsumer{" +
+				"name='" + name + '\'' +
+				", telphone='" + telphone + '\'' +
+				", avatar='" + avatar + '\'' +
+				", type=" + type +
+				'}';
+	}
 }

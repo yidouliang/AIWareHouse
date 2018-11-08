@@ -43,6 +43,7 @@ public class AlipayController {
     @ApiOperation(value = "获取支付宝身份授权")
     public ResponseInfo auth(@RequestParam(value = "authCode") String authCode) throws AlipayApiException {
         if (StringUtils.isEmpty(authCode)) {
+            logger.error("authCode为空");
             throw new SystemException(SystemStatusEnum.BIND_ERROR);
         }
 

@@ -28,8 +28,11 @@ public class AiConsumerServiceImpl implements AiConsumerService {
     @Override
     public void addFromAliPay(AlipayUserInfoShareResponse alipayUserInfo) {
         AiConsumer consumer = new AiConsumer();
+
         consumer.setconsumerid(alipayUserInfo.getUserId());
         consumer.setName(alipayUserInfo.getNickName());
+        consumer.setavatar(alipayUserInfo.getAvatar());
+        consumer.setTelphone(alipayUserInfo.getMobile());
         // 消费者来源
         consumer.setSource(ConsumerSourceEnum.ALIPAY.getCode());
         // 消费者状态
@@ -37,7 +40,7 @@ public class AiConsumerServiceImpl implements AiConsumerService {
         // 消费者类型
         consumer.setType(0);
         aiConsumerDao.save(consumer);
-        logger.info("用户ID：" + consumer.getconsumerid() + "，昵称：" + consumer.getName() + "注册成功");
+        logger.info("用户ID：" + consumer.getconsumerid() + "，昵称：" + consumer.getName() + " 注册成功");
     }
 
     @Override

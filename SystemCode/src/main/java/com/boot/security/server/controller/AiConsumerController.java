@@ -26,7 +26,6 @@ public class AiConsumerController {
     @ApiOperation(value = "保存")
     public AiConsumer save(@RequestBody AiConsumer aiConsumer) {
         aiConsumerDao.save(aiConsumer);
-
         return aiConsumer;
     }
 
