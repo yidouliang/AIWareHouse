@@ -4698,7 +4698,6 @@ textarea[readonly] {
   box-sizing: border-box;
   border-top: 0 none;
   width: 100%;
-  box-shadow: 0px 0px 5px #484B50 ;
 }
 .c_table table tr td,
 .c_table table tr th {
