@@ -1,9 +1,11 @@
 package com.boot.security.server.dto;
 
 import com.boot.security.server.enums.SystemStatusEnum;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.io.Serializable;
 
+@JsonSerialize(include = JsonSerialize.Inclusion.NON_EMPTY)
 public class ResponseInfo<T> implements Serializable {
 
 	private static final long serialVersionUID = -4417715614021482064L;

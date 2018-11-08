@@ -35,8 +35,8 @@
 			<if test="params.consumerid != null and params.consumerid != ''">
 				and consumerid = #{params.consumerid}
 			</if>
-			<if test="params.ext2 != null and params.ext2 != ''">
-				and ext2 = #{params.ext2}
+			<if test="params.avatar != null and params.avatar != ''">
+				and avatar = #{params.avatar}
 			</if>
 			<if test="params.ext3 != null and params.ext3 != ''">
 				and ext3 = #{params.ext3}
@@ -118,8 +118,8 @@
 			<if test="consumerid != null">
 				consumerid = #{consumerid}, 
 			</if>
-			<if test="ext2 != null">
-				ext2 = #{ext2}, 
+			<if test="avatar != null">
+				avatar = #{avatar}, 
 			</if>
 			<if test="ext3 != null">
 				ext3 = #{ext3}, 
