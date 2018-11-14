@@ -1,4 +1,4 @@
-package com.boot.security.server.controller;
+package com.boot.security.server.api.consumer;
 
 import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.enums.SystemStatusEnum;
@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.*;
  * Created At 2018/11/03
  */
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/api/consumer")
 @CrossOrigin
-public class ApiController {
+public class ConsumerApiController {
 
     @Autowired
     private AiConsumerService aiConsumerService;
 
-    @GetMapping("/consumer/{consumerId}")
+    @GetMapping("/{consumerId}")
     @ApiOperation(value = "根据consumerId查询用户信息")
     public ResponseInfo getConsumerInfo(@PathVariable String consumerId) {
         AiConsumer aiConsumer = aiConsumerService.getInfoByConsumerId(consumerId);

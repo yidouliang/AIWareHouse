@@ -8,7 +8,7 @@ public class AiOrderFirstLevel extends BaseEntity<Long> {
 	private String serialnumber;
 	private Long consumerid;
 	private String telephone;
-	private Long boxcode;
+	private String boxcode;
 	private Date paytime;
 	private Date sendtime;
 	private Date replytime;
@@ -50,11 +50,11 @@ public class AiOrderFirstLevel extends BaseEntity<Long> {
 		this.telephone = telephone;
 	}
 
-	public Long getBoxcode() {
+	public String getBoxcode() {
 		return boxcode;
 	}
 
-	public void setBoxcode(Long boxcode) {
+	public void setBoxcode(String boxcode) {
 		this.boxcode = boxcode;
 	}
 
