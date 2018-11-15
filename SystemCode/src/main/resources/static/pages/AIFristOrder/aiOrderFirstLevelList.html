@@ -7,24 +7,25 @@
 <link rel="stylesheet" type="text/css" media="screen" href="../../css/dataTables.bootstrap.min.css">
 <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
 	<link rel="stylesheet" type="text/css" media="screen" href="../../css/taobao.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../../css/shadow.css">
 </head>
 <body style="background-color: #fff;padding: 7px">
-    <div style="border: #B3B3B3 1px solid;box-shadow: 1px 0px 5px #484B50 ;background-color: #fff">
-		<div class="layui-row" style="  ">
-			<div class="layui-col-xs6  ">
-				<div   style="background: #FFFFFF;width: 98%;height: 280px; ">
+    <div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 0px ">
+			<div class="layui-col-xs5 col-md-5 shadow" style="margin:0px 10px 10px 0px;background-color: #fff;">
+				<div   style="background: #FFFFFF;width: 100%;height: 280px; ">
 					<label class="center-block">消费占比</label>
 					<div id="echart" style="width: 600px;height: 300px;bottom: 20px;"></div>
 				</div>
 			</div>
-			<div class="layui-col-xs6 ">
-				<div   style="background: #FFFFFF;width: 98%;height: 280px; ">
+			<div class="layui-col-xs6 col-md-6 shadow" style="margin:0px 0px 10px 0px;background-color: #fff;float:right;">
+				<div   style="background: #FFFFFF;width: 100%;height: 280px; ">
 					<label>当年数据统计</label>
 					<div id="echartToday" style="width: 600px;height: 300px;bottom: 20px;"></div>
 				</div>
 			</div>
 		</div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="border: #B3B3B3 1px solid;box-shadow: 1px 0px 5px #484B50 ;background-color: #fff">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 shadow" style="background-color: #fff">
             <div>
                 <header style="height: 100%">
                     <div align="left">
@@ -106,7 +107,7 @@ function init(){
         	"searching": false,
         	"processing": false,
         	"serverSide" : true,
-            "sScrollY":"calc(100vh - 470px)",
+            "sScrollY":"calc(100vh - 490px)",
             "sScrollX":100,
             "language": {
                 "url": "/js/plugin/datatables/Chinese.lang"
