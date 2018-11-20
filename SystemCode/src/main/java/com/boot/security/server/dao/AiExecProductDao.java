@@ -1,5 +1,6 @@
 package com.boot.security.server.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -39,5 +40,6 @@ public interface AiExecProductDao {
      * @return
      */
     int bulkInsert(List<AiExecProduct> aiExecProducts);
+
 
 }

@@ -1,5 +1,7 @@
 package com.boot.security.server.dto;
 
+import java.math.BigDecimal;
+
 /**
  * Created By Seven.wk
  * Description: 订单详情传输模型

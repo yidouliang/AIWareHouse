@@ -5,12 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.boot.security.server.dto.AiCupboardInventoryInstDto;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import com.boot.security.server.model.AiCupboardInventoryInst;
 
@@ -35,4 +30,21 @@ public interface AiCupboardInventoryInstDao {
 
     @Select("select originprice from ai_cupboard_inventory_inst where id = #{id}")
     BigDecimal getOriginPrice(Long id);
+
+    @Select("select saleprice from ai_cupboard_inventory_inst where productcode = #{productCode} and boxid=#{boxId}")
+    BigDecimal getSalePrice(@Param("productCode") String productCode,
+                            @Param("boxId") Long boxId);
+
+    @Select("select originprice from ai_cupboard_inventory_inst where productcode = #{productCode}  and boxid=#{boxId}")
+    BigDecimal getOriginPriceByProduct(@Param("productCode") String productCode,
+                                       @Param("boxId") Long boxId);
+
+    @Select("select * from ai_cupboard_inventory_inst where productcode = #{productCode} and boxid = #{boxId}")
+    AiCupboardInventoryInst selectedByProductCodeAndBoxId(@Param("productCode") String productCode,
+                                                          @Param("boxId") Long boxId);
+
+    @Update("update ai_cupboard_inventory_inst set remindnum = #{quantity} where id = #{id}")
+    void reduceInventory(@Param("id") Long id,
+                         @Param("quantity") Integer quantity);
+
 }

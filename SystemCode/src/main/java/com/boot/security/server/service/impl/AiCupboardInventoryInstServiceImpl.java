@@ -10,6 +10,8 @@ import com.boot.security.server.model.AiWarehouseStock;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.AiCupboardInventoryInstService;
 import com.boot.security.server.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,6 +36,8 @@ public class AiCupboardInventoryInstServiceImpl implements AiCupboardInventoryIn
 
     @Autowired
     private AiCupboardInventoryInstDao aiCupboardInventoryInstDao;
+
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     @Override
     @Transactional
@@ -81,11 +85,46 @@ public class AiCupboardInventoryInstServiceImpl implements AiCupboardInventoryIn
 
     @Override
     public ResponseInfo update(AiCupboardInventoryInst aiCupboardInventoryInst) {
-        //todo 此处的数量问题，暂时不清楚计算方式，应补充数量与库存的关系
-
         BigDecimal originPrice = aiCupboardInventoryInstDao.getOriginPrice(aiCupboardInventoryInst.getId());
         aiCupboardInventoryInst.setSaleprice(originPrice.multiply(aiCupboardInventoryInst.getDiscount()));
         aiCupboardInventoryInstDao.update(aiCupboardInventoryInst);
         return new ResponseInfo(SystemStatusEnum.SUCCESS);
+    }
+
+    @Override
+    public BigDecimal getOriginPrice(String productCode, Long boxId) {
+        BigDecimal originPrice = aiCupboardInventoryInstDao.getOriginPriceByProduct(productCode, boxId);
+        if (originPrice == null) {
+            logger.error("商品ID {} 不存在", productCode);
+            throw new SystemException(SystemStatusEnum.PRODUCT_NOT_EXIST);
+        }
+
+        return originPrice;
+    }
+
+    @Override
+    public BigDecimal getSalePrice(String productCode, Long boxId) {
+        BigDecimal salePrice = aiCupboardInventoryInstDao.getSalePrice(productCode, boxId);
+        if (salePrice == null) {
+            logger.error("商品ID {} 不存在", productCode);
+            throw new SystemException(SystemStatusEnum.PRODUCT_NOT_EXIST);
+        }
+        return salePrice;
+    }
+
+    @Override
+    public AiCupboardInventoryInst selectedByProductCodeAndBoxId(String productCode, Long boxId) {
+        // 根据商品编号和盒子编号找到商品信息
+        AiCupboardInventoryInst product = aiCupboardInventoryInstDao.selectedByProductCodeAndBoxId(productCode, boxId);
+        if (product == null) {
+            logger.error("商品ID {} 不存在", productCode);
+            throw new SystemException(SystemStatusEnum.PRODUCT_NOT_EXIST);
+        }
+        return product;
+    }
+
+    @Override
+    public void reduceInventory(Long id, Integer quantity) {
+        aiCupboardInventoryInstDao.reduceInventory(id, quantity);
     }
 }

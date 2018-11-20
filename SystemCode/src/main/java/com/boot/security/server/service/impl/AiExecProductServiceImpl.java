@@ -3,12 +3,15 @@ package com.boot.security.server.service.impl;
 import com.boot.security.server.dao.AiExecProductDao;
 import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.enums.SystemStatusEnum;
+import com.boot.security.server.exception.SystemException;
 import com.boot.security.server.model.AiExecProduct;
 import com.boot.security.server.model.SysUser;
 import com.boot.security.server.service.AiExecProductService;
 import com.boot.security.server.service.UserService;
 import com.boot.security.server.utils.ExcelUtil;
 import com.boot.security.server.utils.FileUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -25,6 +29,8 @@ import java.util.List;
  */
 @Service
 public class AiExecProductServiceImpl implements AiExecProductService {
+
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     @Value("${files.path}")
     private String filesPath;
@@ -64,4 +70,5 @@ public class AiExecProductServiceImpl implements AiExecProductService {
 
         return new ResponseInfo("200", "数据导入成功");
     }
+
 }

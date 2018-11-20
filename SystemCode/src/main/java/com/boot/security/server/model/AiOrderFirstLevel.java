@@ -6,7 +6,7 @@ import java.util.Date;
 public class AiOrderFirstLevel extends BaseEntity<Long> {
 
 	private String serialnumber;
-	private Long consumerid;
+	private String consumerid;
 	private String telephone;
 	private String boxcode;
 	private Date paytime;
@@ -21,6 +21,7 @@ public class AiOrderFirstLevel extends BaseEntity<Long> {
 	private String payurl;
 	private String ordercomment;
 	private Integer datastate;
+    private Date createtime = new Date();
 	private String ext1;
 	private String ext2;
 	private String ext3;
@@ -34,11 +35,11 @@ public class AiOrderFirstLevel extends BaseEntity<Long> {
 		this.serialnumber = serialnumber;
 	}
 
-	public Long getConsumerid() {
+	public String getConsumerid() {
 		return consumerid;
 	}
 
-	public void setConsumerid(Long consumerid) {
+	public void setConsumerid(String consumerid) {
 		this.consumerid = consumerid;
 	}
 
@@ -153,4 +154,12 @@ public class AiOrderFirstLevel extends BaseEntity<Long> {
 	public void setDatastate(Integer datastate) {
 		this.datastate = datastate;
 	}
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
 }

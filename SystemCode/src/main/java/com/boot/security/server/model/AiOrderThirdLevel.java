@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 
 public class AiOrderThirdLevel extends BaseEntity<Long> {
 
-	private Long firstlevelid;
+	private String firstlevelid;
 	private Long mktinvid;
 	private String usercode;
 	private String telephone;
@@ -28,11 +28,11 @@ public class AiOrderThirdLevel extends BaseEntity<Long> {
 	private String ext3;
 	private String ext4;
 
-	public Long getFirstlevelid() {
+	public String getFirstlevelid() {
 		return firstlevelid;
 	}
 
-	public void setFirstlevelid(Long firstlevelid) {
+	public void setFirstlevelid(String firstlevelid) {
 		this.firstlevelid = firstlevelid;
 	}
 
