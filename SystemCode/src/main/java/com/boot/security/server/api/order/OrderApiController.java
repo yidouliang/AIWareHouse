@@ -7,8 +7,11 @@ import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.enums.SystemStatusEnum;
 import com.boot.security.server.exception.SystemException;
 import com.boot.security.server.form.OrderForm;
+import com.boot.security.server.service.AiOrderFirstLevelService;
+import com.boot.security.server.service.AiOrderThirdLevelService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,6 +31,12 @@ import java.util.List;
 @RequestMapping("/api/order")
 public class OrderApiController {
 
+    @Autowired
+    private AiOrderFirstLevelService firstLevelService;
+
+    @Autowired
+    private AiOrderThirdLevelService thirdLevelService;
+
     Logger logger = LoggerFactory.getLogger(getClass());
 
     @PostMapping
@@ -39,7 +48,13 @@ public class OrderApiController {
         }
 
         OrderDTO orderDTO = OrderForm2OrderDTO.convert(orderForm);
-        return new ResponseInfo<>(SystemStatusEnum.SUCCESS, orderDTO);
+
+        // 生成一级订单信息
+        String orderCode = firstLevelService.createOrder(orderDTO);
+
+        thirdLevelService.createThirdOrder(orderCode, orderDTO);
+
+        return new ResponseInfo<>(SystemStatusEnum.SUCCESS, orderCode);
     }
 
     @GetMapping
