@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.boot.security.server.dto.AiOrderFirstLevelDto;
+import com.boot.security.server.dto.OrderInfoDTO;
 import com.boot.security.server.model.AiMktBox;
 import com.boot.security.server.result.MonthSum;
 import org.apache.ibatis.annotations.*;
@@ -42,4 +43,6 @@ public interface AiOrderFirstLevelDao {
 
     @Update("update ai_order_first_level f set f.datastate = 0 where f.id = #{id}")
     boolean deleteFirstOrder(@Param("id") Long id);
+
+    List<OrderInfoDTO> getOrderInfo(String consumerId);
 }

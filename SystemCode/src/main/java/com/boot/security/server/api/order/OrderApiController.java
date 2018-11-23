@@ -3,6 +3,7 @@ package com.boot.security.server.api.order;
 import com.boot.security.server.convert.OrderForm2OrderDTO;
 import com.boot.security.server.dto.OrderDTO;
 import com.boot.security.server.dto.OrderDetailDTO;
+import com.boot.security.server.dto.OrderInfoDTO;
 import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.enums.SystemStatusEnum;
 import com.boot.security.server.exception.SystemException;
@@ -13,10 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -57,7 +55,13 @@ public class OrderApiController {
         return new ResponseInfo<>(SystemStatusEnum.SUCCESS, orderCode);
     }
 
-    @GetMapping
+    @GetMapping("/{consumerId}")
+    public ResponseInfo getOrderInfo(@PathVariable("consumerId") String consumerId) {
+        List<OrderInfoDTO> orderInfoDTOS = firstLevelService.getOrderInfo(consumerId);
+        return new ResponseInfo<>(SystemStatusEnum.SUCCESS, orderInfoDTOS);
+    }
+
+    @GetMapping("/test")
     public List<OrderDetailDTO> get() {
         List<OrderDetailDTO> orderDetailDTOList = new ArrayList<>();
         OrderDetailDTO a = new OrderDetailDTO("123", 14);

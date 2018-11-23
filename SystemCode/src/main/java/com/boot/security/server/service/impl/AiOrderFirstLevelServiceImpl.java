@@ -4,6 +4,8 @@ import com.boot.security.server.dao.AiOrderFirstLevelDao;
 import com.boot.security.server.dao.AiOrderThirdLevelDao;
 import com.boot.security.server.dto.OrderDTO;
 import com.boot.security.server.dto.OrderDetailDTO;
+import com.boot.security.server.dto.OrderInfoDTO;
+import com.boot.security.server.dto.OrderInfoDetailDTO;
 import com.boot.security.server.enums.PayStatusEnum;
 import com.boot.security.server.model.AiOrderFirstLevel;
 import com.boot.security.server.service.AiCupboardInventoryInstService;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -78,5 +81,18 @@ public class AiOrderFirstLevelServiceImpl implements AiOrderFirstLevelService {
         aiOrderFirstLevelDao.save(aiOrderFirstLevel);
 
         return code;
+    }
+
+    @Override
+    public List<OrderInfoDTO> getOrderInfo(String consumerId) {
+        List<OrderInfoDTO> orderInfoDTOS = aiOrderFirstLevelDao.getOrderInfo(consumerId);
+        if (orderInfoDTOS != null) {
+            for (OrderInfoDTO orderInfoDTO : orderInfoDTOS) {
+                List<OrderInfoDetailDTO> orderInfoDetailDTOS = aiOrderThirdLevelDao.getOrderInfoDetail(orderInfoDTO.getSerialNumber());
+                orderInfoDTO.setOrderInfoDetailDTOS(orderInfoDetailDTOS);
+            }
+            return orderInfoDTOS;
+        }
+        return new ArrayList<>();
     }
 }

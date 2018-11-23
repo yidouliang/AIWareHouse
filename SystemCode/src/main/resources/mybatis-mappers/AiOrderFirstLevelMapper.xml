@@ -292,5 +292,12 @@
         group by months
         having months between #{beginDay} and #{endDay};
     </select>
+    
+    <select id="getOrderInfo" parameterType="String" resultType="com.boot.security.server.dto.OrderInfoDTO">
+        select a.serialnumber as serialNumber, b.val as orderStatus, a.orderrealprice as payAmount, a.createtime as createTime
+        from ai_order_first_level a, t_dict b
+        where b.type = 'aiOrderPayStatus' and b.k=paystatus
+        and a.consumerid = #{consumerId}
+    </select>
 
 </mapper>

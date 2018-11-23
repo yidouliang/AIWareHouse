@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.boot.security.server.dto.AiOrderThirdLevelDto;
+import com.boot.security.server.dto.OrderInfoDetailDTO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -36,4 +37,7 @@ public interface AiOrderThirdLevelDao {
     List<Long> listThirdOrderByFirstOrderId(@Param("firstlevelid") Long firstlevelid);
 
     boolean deleteThirdOrder(@Param("list") List<Long> thirdOrderIdList);
+
+    @Select("select productname, buynum, productprice from ai_order_third_level where firstlevelid = #{firstLevelId}")
+    List<OrderInfoDetailDTO> getOrderInfoDetail(String firstLevelId);
 }

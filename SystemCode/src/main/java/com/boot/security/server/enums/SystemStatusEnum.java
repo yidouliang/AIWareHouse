@@ -26,6 +26,8 @@ public enum SystemStatusEnum {
 
     CONSUMER_NOT_EXISTS("22", "用户不存在"),
 
+    ORDER_INFO_LOST("23", "订单详情丢失"),
+
     ;
 
     String code;

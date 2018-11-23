@@ -3,6 +3,9 @@ package com.boot.security.server.service.impl;
 import com.boot.security.server.dao.AiOrderThirdLevelDao;
 import com.boot.security.server.dto.OrderDTO;
 import com.boot.security.server.dto.OrderDetailDTO;
+import com.boot.security.server.dto.OrderInfoDetailDTO;
+import com.boot.security.server.enums.SystemStatusEnum;
+import com.boot.security.server.exception.SystemException;
 import com.boot.security.server.model.AiCupboardInventoryInst;
 import com.boot.security.server.model.AiOrderThirdLevel;
 import com.boot.security.server.service.AiCupboardInventoryInstService;
@@ -12,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -52,5 +56,14 @@ public class AiOrderThirdLevelServiceImpl implements AiOrderThirdLevelService {
             // 将三级订单入库
             aiOrderThirdLevelDao.save(aiOrderThirdLevel);
         }
+    }
+
+    @Override
+    public List<OrderInfoDetailDTO> getOrderInfoDetail(String firstLevelId) {
+        List<OrderInfoDetailDTO> orderInfoDetailDTOS = aiOrderThirdLevelDao.getOrderInfoDetail(firstLevelId);
+        if (orderInfoDetailDTOS == null) {
+            throw new SystemException(SystemStatusEnum.ORDER_INFO_LOST);
+        }
+        return orderInfoDetailDTOS;
     }
 }

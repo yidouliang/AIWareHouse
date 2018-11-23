@@ -1,6 +1,9 @@
 package com.boot.security.server.service;
 
 import com.boot.security.server.dto.OrderDTO;
+import com.boot.security.server.dto.OrderInfoDetailDTO;
+
+import java.util.List;
 
 /**
  * Created By Seven.wk
@@ -10,5 +13,7 @@ import com.boot.security.server.dto.OrderDTO;
 public interface AiOrderThirdLevelService {
 
     void createThirdOrder(String orderCode, OrderDTO orderDTO);
+
+    List<OrderInfoDetailDTO> getOrderInfoDetail(String firstLevelId);
 
 }
