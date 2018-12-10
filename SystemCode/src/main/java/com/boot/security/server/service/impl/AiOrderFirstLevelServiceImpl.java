@@ -61,7 +61,7 @@ public class AiOrderFirstLevelServiceImpl implements AiOrderFirstLevelService {
         aiOrderFirstLevel.setConsumerid(orderDTO.getConsumerId());
 
         // 设置默认信息
-        aiOrderFirstLevel.setPaytype(PayStatusEnum.WAIT.getCode());
+        aiOrderFirstLevel.setPaystatus(PayStatusEnum.WAIT.getCode());
 
         // 计算商品价格
         BigDecimal oldPrice = new BigDecimal(0);

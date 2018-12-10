@@ -22,6 +22,15 @@ public class OrderInfoDTO {
     // 订单创建时间
     private Date createTime;
 
+    // 盒子编号
+    private Integer boxCode;
+
+    // 支付时间
+    private Date paytime;
+
+    // 支付类型
+    private String payType;
+
     // 订单详情
     private List<OrderInfoDetailDTO> orderInfoDetailDTOS;
 
@@ -64,6 +73,30 @@ public class OrderInfoDTO {
         return orderInfoDetailDTOS;
     }
 
+    public Integer getBoxCode() {
+        return boxCode;
+    }
+
+    public void setBoxCode(Integer boxCode) {
+        this.boxCode = boxCode;
+    }
+
+    public Date getPaytime() {
+        return paytime;
+    }
+
+    public void setPaytime(Date paytime) {
+        this.paytime = paytime;
+    }
+
+    public String getPayType() {
+        return payType;
+    }
+
+    public void setPayType(String payType) {
+        this.payType = payType;
+    }
+
     public void setOrderInfoDetailDTOS(List<OrderInfoDetailDTO> orderInfoDetailDTOS) {
         this.orderInfoDetailDTOS = orderInfoDetailDTOS;
     }
@@ -75,7 +108,9 @@ public class OrderInfoDTO {
                 ", orderStatus='" + orderStatus + '\'' +
                 ", payAmount=" + payAmount +
                 ", createTime=" + createTime +
-                ", orderInfoDetailDTOS=" + orderInfoDetailDTOS +
+                ", boxCode=" + boxCode +
+                ", paytime=" + paytime +
+                ", payType='" + payType + '\'' +
                 '}';
     }
 }
