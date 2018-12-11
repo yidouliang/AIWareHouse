@@ -58,6 +58,7 @@ public class AiMktBoxController {
         SysUser user = userService.getTokenUser(request);
         AiOperator aiOperator = aiOperatorDao.getById(user.getOperatorid());
         AiMktBox aiMktBox = new AiMktBox();
+        //将vo中的地区信息存入地址中
         AiMktBoxVo2AiBox.aiMktBoxVo2AiBox(aiMktBoxVo, aiMktBox);
         //如果是为关联运营者的用户(即管理员等)
         //需要先创建运营商后再创建AI货柜或者无人超市

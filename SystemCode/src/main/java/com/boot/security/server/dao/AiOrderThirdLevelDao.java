@@ -24,11 +24,11 @@ public interface AiOrderThirdLevelDao {
     int delete(Long id);
 
     int update(AiOrderThirdLevel aiOrderThirdLevel);
-    
+
     @Options(useGeneratedKeys = true, keyProperty = "id")
     @Insert("insert into ai_order_third_level(firstlevelid, mktinvid, usercode, telephone, serialnumber, boxname, boxtype, pserialnumber, productprice, producttypeid, productname, productcode, productimgurl, productdesc, buynum, activityid, activityname, datastate, ext1, ext2, ext3, ext4) values(#{firstlevelid}, #{mktinvid}, #{usercode}, #{telephone}, #{serialnumber}, #{boxname}, #{boxtype}, #{pserialnumber}, #{productprice}, #{producttypeid}, #{productname}, #{productcode}, #{productimgurl}, #{productdesc}, #{buynum}, #{activityid}, #{activityname}, #{datastate}, #{ext1}, #{ext2}, #{ext3}, #{ext4})")
     int save(AiOrderThirdLevel aiOrderThirdLevel);
-    
+
     int count(@Param("params") Map<String, Object> params);
 
     List<AiOrderThirdLevelDto> list(@Param("params") Map<String, Object> params, @Param("offset") Integer offset, @Param("limit") Integer limit);
@@ -40,4 +40,7 @@ public interface AiOrderThirdLevelDao {
 
     @Select("select productname, buynum, productprice from ai_order_third_level where firstlevelid = #{firstLevelId}")
     List<OrderInfoDetailDTO> getOrderInfoDetail(String firstLevelId);
+
+    @Select("select * from ai_order_third_level t where t.pserialnumber = #{pserialnumber}")
+    List<AiOrderThirdLevel> getOrderDetailByPserialnumber(@Param("pserialnumber") String pserialnumber);
 }

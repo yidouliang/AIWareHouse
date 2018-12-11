@@ -2,6 +2,7 @@ package com.boot.security.server.service;
 
 import com.boot.security.server.dto.OrderDTO;
 import com.boot.security.server.dto.OrderInfoDetailDTO;
+import com.boot.security.server.model.AiOrderThirdLevel;
 
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface AiOrderThirdLevelService {
 
     List<OrderInfoDetailDTO> getOrderInfoDetail(String firstLevelId);
 
+    List<AiOrderThirdLevel> getOrderDetailByPserialnumber(String pserialnumber);
 }

@@ -66,4 +66,9 @@ public class AiOrderThirdLevelServiceImpl implements AiOrderThirdLevelService {
         }
         return orderInfoDetailDTOS;
     }
+
+    @Override
+    public List<AiOrderThirdLevel> getOrderDetailByPserialnumber(String pserialnumber) {
+        return aiOrderThirdLevelDao.getOrderDetailByPserialnumber(pserialnumber);
+    }
 }

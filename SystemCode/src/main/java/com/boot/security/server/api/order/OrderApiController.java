@@ -8,6 +8,7 @@ import com.boot.security.server.dto.ResponseInfo;
 import com.boot.security.server.enums.SystemStatusEnum;
 import com.boot.security.server.exception.SystemException;
 import com.boot.security.server.form.OrderForm;
+import com.boot.security.server.model.AiOrderThirdLevel;
 import com.boot.security.server.service.AiOrderFirstLevelService;
 import com.boot.security.server.service.AiOrderThirdLevelService;
 import org.slf4j.Logger;
@@ -55,10 +56,18 @@ public class OrderApiController {
         return new ResponseInfo<>(SystemStatusEnum.SUCCESS, orderCode);
     }
 
+    //TODO 优化一级订单查询
     @GetMapping("/{consumerId}")
     public ResponseInfo getOrderInfo(@PathVariable("consumerId") String consumerId) {
         List<OrderInfoDTO> orderInfoDTOS = firstLevelService.getOrderInfo(consumerId);
         return new ResponseInfo<>(SystemStatusEnum.SUCCESS, orderInfoDTOS);
+    }
+
+    //根据父订单流水号查询订单详情
+    @GetMapping("/orderDetail")
+    public ResponseInfo getOrderDetail(@RequestParam("pserialnumber") String pserialnumber){
+        return new ResponseInfo<>(SystemStatusEnum.SUCCESS,
+                thirdLevelService.getOrderDetailByPserialnumber(pserialnumber));
     }
 
     @GetMapping("/test")
